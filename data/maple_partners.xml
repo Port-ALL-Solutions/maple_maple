@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+        <record id="base.main_partner" model="res.partner">
+            <field name="name">Sirop de l'Est</field>
+            <field name="is_company">True</field>
+            <field name="maple_producer">True</field>
+            <field name="maple_buyer">True</field>
+            <field name="street">271, 4e rang.</field>
+            <field name="city">Notre-Dame-du-Lac</field>
+            <field name="zip">G0L 1X0</field>
+            <field name='country_id' ref='base.ca'/>
+            <field name='state_id' ref='base.state_ca_qc'/>            
+            <field name="phone">+1 418 899 2077</field>
+            <field name="email">info@siropdelest.com</field>
+            <field name="website">www.siropdelest.com</field>
+            <field name="image" type="base64" file="maple/static/img/siropdelest.png"/>            
+        </record>		
+
+        <record id="partner_fpaq" model="res.partner">
+            <field name="name">Fédération des producteurs acéricole du Québec</field>
+            <field name="is_company">True</field>
+            <field name="street">555, boul. Roland-Therrien</field>
+            <field name="street2">bureau 525</field>
+            <field name="city">Longueuil</field>
+            <field name="zip">J4H 4G5</field>
+            <field name='country_id' ref='base.ca'/>
+            <field name='state_id' ref='base.state_ca_qc'/>            
+            <field name="phone">+1 855 679 7021</field>
+            <field name="email">info@fpaq.ca</field>
+            <field name="website">www.fpaq.ca</field>
+        </record>		
+        
+        <record id="base.main_company" model="res.company">
+            <field name="name">Sirop de l'Est</field>
+            <field name="rml_header1">Sirop de l'Est</field>
+            <field name="currency_id" ref="base.CAD"/>
+        </record>
+        
+        
+	</data>
+</odoo>
+	

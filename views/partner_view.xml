@@ -1,0 +1,27 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <!-- modification de la vue pour le partenaire, pour inclure FPAQ et Region  -->
+    <record id="maple.view_partner" model="ir.ui.view">
+      <field name="name">Partner</field>
+      <field name="model">res.partner</field>
+      <field name="priority" eval="1"/>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='website']" position="after">
+          <field name="maple_producer"/>
+          <field name="region"/>
+          <field name="fpaqNum" attrs="{'invisible': [('maple_producer', '=', True)]}"/>
+          <field name="siteNum"/>
+          <field name="maple_buyer"/>          
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>
+
+
+
+

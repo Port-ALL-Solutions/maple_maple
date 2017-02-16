@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	
+	<record model="ir.ui.view" id="maple_producer_tree">
+		<field name="name">Maple Producers</field>
+		<field name="model">res.partner</field>
+		<field name="arch" type="xml">
+			<tree string="Maple Producer">
+				<field name="name"/>
+				<field name="phone"/>
+				<field name="email"/>
+				<field name="region"/>
+				<field name="id" invisible="1"/>
+			</tree>
+		</field>
+	</record>
+	
+	<record id="view_res_partner_maple_producer_filter" model="ir.ui.view">
+	    <field name="name">res.partner.select.producer</field>
+	    <field name="model">res.partner</field>
+	    <field name="priority">50</field>
+	    <field name="arch" type="xml">
+	        <search string="Maple Producers">
+	            <field name="name"
+	               filter_domain="['|','|',('name','ilike',self),('parent_id','ilike',self),('ref','=',self)]"/>
+	            <filter string="Customers" name="customer" domain="[('customer','=',1)]"/>
+	            <separator/>
+	            <filter string="Maple Producers" name="maple_producer" domain="[('maple_producer','=',1)]"/>
+	            <separator/>
+	            <filter string="Maple Buyers" name="maple_buyer" domain="[('maple_buyer','=',1)]"/>
+	            <separator/>
+	            <filter string="Vendors" name="supplier" domain="[('supplier','=',1)]"/>
+	            <separator/>
+	            <group expand="0" string="Group By" colspan="10" col="8">
+	                <filter string="Region" domain="[]" context="{'group_by' : 'region'}"/>
+	            </group>
+	        </search>
+	    </field>
+	</record>
+
+
+
+</odoo>

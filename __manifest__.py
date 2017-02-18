@@ -5,6 +5,8 @@
     'name': 'Maple',
     'category': 'Vertical',
     'version': '1.0',
+    'author': "Benoît Vézina & Pierre Dalpé pour Portall",
+    'website': "portall.ca",
     'summary': 'Odoo adaptation for maple syrup industry.',
     'description':
         """
@@ -13,12 +15,24 @@ Odoo adaptation for maple syrup industry.
 
 This module provides mosly fields and views.
         """,
-    'depends': ['base','purchase','mrp','fleet','sale', 'hr', 'contacts'],
+    'depends': [
+        'base',
+        'contacts',
+        'fleet',
+        'hr',
+        'mrp',
+        'purchase',
+        'sale',
+    ],
     'data': [
+        'views/grade_view.xml',
         'views/partner_view.xml',
         'views/producer_view.xml',
-		'views/menuitems.xml',
+        'views/product_view.xml',
+        'data/maple_grades.xml',
         'data/maple_partners.xml',
+        'data/maple_products.xml',
+        'views/menuitems.xml',
 #        'views/webclient_templates.xml',
     ],
     'qweb': [

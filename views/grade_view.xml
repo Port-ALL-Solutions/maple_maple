@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+	    <record id="grade_list" model="ir.ui.view">
+			<field name="name">maple.product.grade.list</field>
+		    <field name="model">maple.product.grade</field>
+		    <field name="arch" type="xml">
+                <tree string="List of Maple Syrup Grade" toolbar="1" >
+	     			<field name="name"/>
+    				<field name="code"/>
+    				<field name="minLight"/>
+    				<field name="taste"/>
+		    	</tree>          
+		    </field>
+	    </record>
+	
+	    <record id="grade_form" model="ir.ui.view">
+	    	<field name="name">maple.product.grade.form</field>
+	      	<field name="model">maple.product.grade</field>
+	      	<field name="arch" type="xml">
+		  		<form string="Account">
+		    		<sheet>
+		    			<group>>
+		          			<field name="name"/>
+	          				<field name="code"/>
+	          				<field name="minLight"/>
+	          				<field name="taste"/>
+	          			</group>
+	          		</sheet>
+	          	</form>
+	      	</field>
+	    </record>
+
+
+  	</data>
+</odoo>
+
+
+

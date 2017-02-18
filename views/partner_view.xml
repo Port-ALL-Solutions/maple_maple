@@ -1,25 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <data>
-    <!-- explicit list view definition -->
+	<data>
+	
+    	<record id="maple_partner_view_checkbox" model="ir.ui.view">
+      		<field name="name">maple.partner_view</field>
+      		<field name="model">res.partner</field>
+      		<field name="priority" eval="1"/>
+      		<field name="inherit_id" ref="base.view_partner_form"/>
+      		<field name="arch" type="xml">
+        		<xpath expr="//field[@name='website']" position="after">
+       				<field name="maple_producer"/>
+       				<field name="maple_buyer"/>
+        		</xpath>
+      		</field>
+    	</record>
 
-    <!-- modification de la vue pour le partenaire, pour inclure FPAQ et Region  -->
-    <record id="maple.view_partner" model="ir.ui.view">
-      <field name="name">Partner</field>
-      <field name="model">res.partner</field>
-      <field name="priority" eval="1"/>
-      <field name="inherit_id" ref="base.view_partner_form"/>
-      <field name="arch" type="xml">
-        <xpath expr="//field[@name='website']" position="after">
-          <field name="maple_producer"/>
-          <field name="region"/>
-          <field name="fpaqNum" attrs="{'invisible': [('maple_producer', '=', True)]}"/>
-          <field name="siteNum"/>
-          <field name="maple_buyer"/>          
-        </xpath>
-      </field>
-    </record>
+    	<record id="maple_partner_view_info" model="ir.ui.view">
+      		<field name="name">maple.partner_view</field>
+      		<field name="model">res.partner</field>
+      		<field name="priority" eval="1"/>
+      		<field name="inherit_id" ref="base.view_partner_form"/>
+      		<field name="arch" type="xml">
+        		<xpath expr="//field[@name='lang']" position="after">
+          			<field name="region" attrs="{'invisible': [('maple_producer', '!=', True)]}"/>
+       				<field name="fpaqNum" attrs="{'invisible': [('maple_producer', '!=', True)]}"/>
+       				<field name="siteNum" attrs="{'invisible': [('maple_producer', '!=', True)]}"/>
+        		</xpath>
+      		</field>
+    	</record>
 
-  </data>
+
+
+    	<record id="partner_view_address_kanban_box" model="ir.ui.view">
+      		<field name="name">maple.partner_view_address_kanban_box</field>
+      		<field name="model">res.partner</field>
+      		<field name="inherit_id" ref="base.view_partner_form"/>
+      		<field name="arch" type="xml">
+        		<xpath expr="//div[@class='oe_kanban_details']" position="replace">
+	        		<div class="oe_kanban_details">
+	               		<field name="name"/>
+	               		<div t-if="record.function.raw_value"><field name="function"/></div>
+	               		<div t-if="record.type.raw_value != 'contact'">
+		                   	<div>
+		                    	<field name="street"/><br/>
+		                       	<field name="zip"/>
+		                       	<field name="city"/>
+		                   </div>
+		                   <field t-if="record.state_id.raw_value" name="state_id"/>
+		                   <field name="country_id"/>
+		               	</div>
+		               	<div t-if="record.phone.raw_value">Phone: <field name="phone"/></div>
+		               	<div t-if="record.mobile.raw_value">Mobile: <field name="mobile"/></div>
+		               	<div t-if="record.fax.raw_value">Fax: <field name="fax"/></div>
+		               	<div t-if="record.email.raw_value"><field name="email"/></div>
+	           		</div>
+        		</xpath>
+      		</field>
+    	</record>
+
+	</data>
 </odoo>
 
 

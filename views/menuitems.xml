@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	<data>  
 
@@ -7,11 +8,11 @@
             that is an action opening a view or a set of views
         -->
         <record model="ir.actions.act_window" id="producer_list_action">
-            <field name="name">Maple Producers</field>
+            <field name="name">maple.producer.list.action</field>
             <field name="res_model">res.partner</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,kanban,form</field>
-            <field name="search_view_id" ref="view_res_partner_maple_producer_filter"/>            
+            <field name="search_view_id" ref="producer_filter_view"/>            
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">Create the first maple producer
                 </p>
@@ -42,6 +43,18 @@
         </record>
 
 
+        <record model="ir.actions.act_window" id="maple_config_grades_action">
+            <field name="name">Maple Syrup Grades</field>
+            <field name="res_model">maple.product.grade</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the maple syrup grade
+                </p>
+            </field>
+        </record>
+        
+
         <menuitem id="main_maple_menu" name="Maple"/>
 
         <menuitem id="maple_producer_menu" name="Maple Producers"
@@ -61,6 +74,13 @@
 
         <menuitem id="maple_pickup_menu_list" name="Maple pick-up list" parent="maple_pickup_menu"
                   action="pickup_list_action"/>
+
+        <menuitem id="maple_config_menu" name="Maple configuration"
+                  parent="main_maple_menu"/>
+
+        <menuitem id="maple_config_menu_grades" name="Maple Syrup Grades" parent="maple_config_menu"
+                  action="maple_config_grades_action"/>
+
 
 
 	</data>

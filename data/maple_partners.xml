@@ -13,6 +13,7 @@
             <field name='country_id' ref='base.ca'/>
             <field name='state_id' ref='base.state_ca_qc'/>            
             <field name="phone">+1 418 899 2077</field>
+            <field name="fax">+1 418 899 2077</field>
             <field name="email">info@siropdelest.com</field>
             <field name="website">www.siropdelest.com</field>
             <field name="image" type="base64" file="maple/static/img/siropdelest.png"/>            
@@ -28,16 +29,59 @@
             <field name='country_id' ref='base.ca'/>
             <field name='state_id' ref='base.state_ca_qc'/>            
             <field name="phone">+1 855 679 7021</field>
+            <field name="fax">+1 450 649 3687</field>
             <field name="email">info@fpaq.ca</field>
             <field name="website">www.fpaq.ca</field>
+            <field name="image" type="base64" file="maple/static/img/logo-fpaq.jpg"/>            
         </record>		
-        
+
+        <record id="partner_erab_stanfold" model="res.partner">
+            <field name="name">Érablière de Stanfold</field>
+            <field name="is_company">True</field>
+            <field name="maple_producer">True</field>
+            <field name="supplier">True</field>
+            <field name="street">50, rang 7 ouest</field>
+            <field name="city">Princeville</field>
+            <field name="zip">G6L 4C3</field>
+            <field name='country_id' ref='base.ca'/>
+            <field name='state_id' ref='base.state_ca_qc'/>            
+            <field name="phone">+1 819 352 0320</field>
+        </record>		
+
+        <record id="partner_9191-3574" model="res.partner">
+            <field name="name">9191-3574 Quebec inc.</field>
+            <field name="is_company">True</field>
+            <field name="maple_producer">True</field>
+            <field name="supplier">True</field>
+            <field name="street">146, rang Masset</field>
+            <field name="city">St-Gabriel</field>
+            <field name="zip">G0K 1M0</field>
+            <field name='country_id' ref='base.ca'/>
+            <field name='state_id' ref='base.state_ca_qc'/>            
+            <field name="phone">+1 418 730 4465</field>
+            <field name="fpaqNum">12519</field>
+        </record>		
+
+        <record id="partner_lbmtreat_hq" model="res.partner">
+            <field name="name">L.B. Maple Treat</field>
+            <field name="is_company">True</field>
+            <field name="street">1037, boul. Industriel</field>
+            <field name="city">Granby</field>
+            <field name="zip">J2J 2B8</field>
+            <field name='country_id' ref='base.ca'/>
+            <field name='state_id' ref='base.state_ca_qc'/>            
+            <field name="phone">+1 888 775 1111</field>
+            <field name="fax">+1 450 777 2867</field>
+            <field name="email">info@fpaq.ca</field>
+            <field name="website">http://www.lbmapletreat.com</field>
+            <field name="image" type="base64" file="maple/static/img/logo-lbmapletreat.png"/>            
+        </record>		
+                        
         <record id="base.main_company" model="res.company">
             <field name="name">Sirop de l'Est</field>
-            <field name="rml_header1">Sirop de l'Est</field>
+            <field name="rml_header1">Entreprise opérant dans le domaine de l'achat et de la classification de Sirop d'Érable.</field>
             <field name="currency_id" ref="base.CAD"/>
-        </record>
-        
+        </record>        
         
 	</data>
 </odoo>

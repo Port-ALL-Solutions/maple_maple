@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	
-	<record model="ir.ui.view" id="maple_producer_tree">
-		<field name="name">Maple Producers</field>
+	<record model="ir.ui.view" id="producer_tree_view">
+		<field name="name">maple.producer.tree.view</field>
 		<field name="model">res.partner</field>
 		<field name="arch" type="xml">
 			<tree string="Maple Producer">
@@ -15,21 +15,17 @@
 		</field>
 	</record>
 	
-	<record id="view_res_partner_maple_producer_filter" model="ir.ui.view">
-	    <field name="name">res.partner.select.producer</field>
+	<record id="producer_filter_view" model="ir.ui.view">
+	    <field name="name">maple.producer.filter.view</field>
 	    <field name="model">res.partner</field>
 	    <field name="priority">50</field>
 	    <field name="arch" type="xml">
 	        <search string="Maple Producers">
 	            <field name="name"
 	               filter_domain="['|','|',('name','ilike',self),('parent_id','ilike',self),('ref','=',self)]"/>
-	            <filter string="Customers" name="customer" domain="[('customer','=',1)]"/>
 	            <separator/>
 	            <filter string="Maple Producers" name="maple_producer" domain="[('maple_producer','=',1)]"/>
-	            <separator/>
 	            <filter string="Maple Buyers" name="maple_buyer" domain="[('maple_buyer','=',1)]"/>
-	            <separator/>
-	            <filter string="Vendors" name="supplier" domain="[('supplier','=',1)]"/>
 	            <separator/>
 	            <group expand="0" string="Group By" colspan="10" col="8">
 	                <filter string="Region" domain="[]" context="{'group_by' : 'region'}"/>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+<!-- RULES -->
+		<record id="maple_group_controler_rule" model="ir.rule">
+		    <field name="name">Maple Syrup Controler access rule</field>
+		    <field name="model_id" ref="maple.grade"/>
+		    <field name="perm_read" eval="True"/>
+		    <field name="perm_create" eval="False"/>
+		    <field name="perm_write" eval="False"/>
+		    <field name="perm_unlink" eval="False"/>
+   		    <field name="groups" ref="maple_group_controler"/>
+		    
+		</record>         		
+
+		<record id="maple_group_driver_rule" model="ir.rule">
+		    <field name="name">Maple Syrop Driver access rule</field>
+		    <field name="model_id" ref="maple.grade"/>
+		    <field name="perm_read" eval="True"/>
+		    <field name="perm_create" eval="False"/>
+		    <field name="perm_write" eval="False"/>
+		    <field name="perm_unlink" eval="False"/>
+   		    <field name="groups" ref="maple_group_driver"/>
+		</record>         		
+
+		<record id="maple_group_employee_rule" model="ir.rule">
+		    <field name="name">Maple Syrup Employee access rule</field>
+		    <field name="model_id" ref="maple.grade"/>
+		    <field name="perm_read" eval="True"/>
+		    <field name="perm_create" eval="False"/>
+		    <field name="perm_write" eval="False"/>
+		    <field name="perm_unlink" eval="False"/>
+   		    <field name="groups" ref="maple_group_employee"/>
+		</record>         		
+
+		<record id="maple_group_manager_rule" model="ir.rule">
+		    <field name="name">Maple Syrup Manager access rule</field>
+		    <field name="model_id" ref="maple.grade"/>
+		    <field name="perm_read" eval="True"/>
+		    <field name="perm_create" eval="False"/>
+		    <field name="perm_write" eval="False"/>
+		    <field name="perm_unlink" eval="False"/>
+   		    <field name="groups" ref="maple_group_manager"/>
+		</record>         		
+
+	</data>
+</odoo>

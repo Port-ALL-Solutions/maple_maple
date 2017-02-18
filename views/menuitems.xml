@@ -45,7 +45,7 @@
 
         <record model="ir.actions.act_window" id="maple_config_grades_action">
             <field name="name">Maple Syrup Grades</field>
-            <field name="res_model">maple.product.grade</field>
+            <field name="res_model">maple.grade</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,kanban,form</field>
             <field name="help" type="html">
@@ -53,7 +53,6 @@
                 </p>
             </field>
         </record>
-        
 
         <menuitem id="main_maple_menu" name="Maple"/>
 
@@ -80,8 +79,6 @@
 
         <menuitem id="maple_config_menu_grades" name="Maple Syrup Grades" parent="maple_config_menu"
                   action="maple_config_grades_action"/>
-
-
 
 	</data>
 </odoo>

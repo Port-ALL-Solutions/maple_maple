@@ -3,8 +3,8 @@
 	<data>
 
 	    <record id="grade_list" model="ir.ui.view">
-			<field name="name">maple.product.grade.list</field>
-		    <field name="model">maple.product.grade</field>
+			<field name="name">maple.grade.list</field>
+		    <field name="model">maple.grade</field>
 		    <field name="arch" type="xml">
                 <tree string="List of Maple Syrup Grade" toolbar="1" >
 	     			<field name="name"/>
@@ -16,8 +16,8 @@
 	    </record>
 	
 	    <record id="grade_form" model="ir.ui.view">
-	    	<field name="name">maple.product.grade.form</field>
-	      	<field name="model">maple.product.grade</field>
+	    	<field name="name">maple.grade.form</field>
+	      	<field name="model">maple.grade</field>
 	      	<field name="arch" type="xml">
 		  		<form string="Account">
 		    		<sheet>
@@ -31,7 +31,6 @@
 	          	</form>
 	      	</field>
 	    </record>
-
 
   	</data>
 </odoo>

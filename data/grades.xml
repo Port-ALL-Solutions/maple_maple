@@ -2,28 +2,28 @@
 <odoo>
 	<data>
 	
-		<record id="grade_golden" model="maple.product.grade">
+		<record id="grade_golden" model="maple.grade">
             <field name="name">Golden</field>
             <field name="code">G</field>
             <field name="minLight">75.0</field>
             <field name="taste">Delicate taste</field>
 		</record>	
 
-		<record id="grade_amber" model="maple.product.grade">
+		<record id="grade_amber" model="maple.grade">
             <field name="name">Amber</field>
             <field name="code">A</field>
             <field name="minLight">50.0</field>
             <field name="taste">Rich taste</field>
 		</record>	
 
-		<record id="grade_dark" model="maple.product.grade">
+		<record id="grade_dark" model="maple.grade">
             <field name="name">Dark</field>
             <field name="code">D</field>
             <field name="minLight">25.0</field>
             <field name="taste">Robust taste</field>
 		</record>	
 
-		<record id="grade_verydark" model="maple.product.grade">
+		<record id="grade_verydark" model="maple.grade">
             <field name="name">Very dark</field>
             <field name="code">VD</field>            
             <field name="minLight">0.0</field>

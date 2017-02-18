@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="module_category_maple_management" model="ir.module.category">
+			<field name="name">Maple</field>
+    		<field name="description">Helps you manage your maple syrop stock operations: delivery orders, receptions, etc.</field>
+    		<field name="sequence">5</field>
+		</record> 
+        
+
+		<record id="maple_group_controler" model="res.groups">
+            <field name="name">Controler</field>
+			<field name="category_id" ref="module_category_maple_management"/>
+			<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>		
+
+		<record id="maple_group_driver" model="res.groups">
+            <field name="name">Driver</field>
+			<field name="category_id" ref="module_category_maple_management"/>
+			<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>		
+
+		<record id="maple_group_employee" model="res.groups">
+            <field name="name">Employee</field>
+			<field name="category_id" ref="module_category_maple_management"/>
+			<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>		
+
+		<record id="maple_group_manager" model="res.groups">
+            <field name="name">Manager</field>
+			<field name="category_id" ref="module_category_maple_management"/>
+			<field name="implied_ids" eval="[(4, ref('base.user_root'))]"/>
+        </record>      
+        
+	</data>
+</odoo>

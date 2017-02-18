@@ -2,6 +2,44 @@
 <odoo>
 	<data>
 
+        <record id="partner_portall" model="res.partner">
+            <field name="name">Portall Solution inc.</field>
+            <field name="is_company">True</field>
+            <field name="street">2828, Boulevard Laurier</field>
+            <field name="street2">Tour 1, 13e Étage, bureau 1325</field>
+            <field name="city">Québec</field>
+            <field name="zip">G1H 0B9</field>
+            <field name='country_id' ref='base.ca'/>
+            <field name='state_id' ref='base.state_ca_qc'/>       
+        </record>	
+
+        <record id="partner_portall_tech" model="res.partner">
+            <field name="name">Technical Support</field>
+            <field name="phone">+1 418 454 1752</field>
+            <field name="email">tech@portall.ca</field>
+            <field name='country_id' ref='base.ca'/>
+            <field name='state_id' ref='base.state_ca_qc'/>
+            <field name='parent_id' ref='partner_portall' />
+        </record>	
+
+        <record id="partner_portall_pierre" model="res.partner">
+            <field name="name">Pierre Dalpé</field>
+            <field name="phone">+1 418 933 3572</field>
+            <field name="email">pierre.dalpe@portall.ca</field>
+            <field name='country_id' ref='base.ca'/>
+            <field name='state_id' ref='base.state_ca_qc'/>            
+            <field name='parent_id' ref='partner_portall' />
+        </record>	
+
+        <record id="partner_portall_luc" model="res.partner">
+            <field name="name">Luc Dalpé</field>
+            <field name="phone">+1 418 446 3039</field>
+            <field name="email">luc.dalpe@portall.ca</field>
+            <field name='country_id' ref='base.ca'/>
+            <field name='state_id' ref='base.state_ca_qc'/>            
+            <field name='parent_id' ref='partner_portall' />
+        </record>	
+
         <record id="base.main_partner" model="res.partner">
             <field name="name">Sirop de l'Est</field>
             <field name="is_company">True</field>
@@ -77,12 +115,6 @@
             <field name="image" type="base64" file="maple/static/img/logo-lbmapletreat.png"/>            
         </record>		
                         
-        <record id="base.main_company" model="res.company">
-            <field name="name">Sirop de l'Est</field>
-            <field name="rml_header1">Entreprise opérant dans le domaine de l'achat et de la classification de Sirop d'Érable.</field>
-            <field name="currency_id" ref="base.CAD"/>
-        </record>        
-        
 	</data>
 </odoo>
 	

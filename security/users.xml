@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+     
+		<record id="user_portall_tech" model="res.users">
+            <field name="name">Tech Portall</field>
+            <field name="email">Tech</field>
+            <field name='partner_id' ref='maple.partner_portall_tech'/>                   
+        </record>		
+        
+		<record id="user_portall_pierre" model="res.users">
+            <field name="name">Pierre Dalpé</field>
+            <field name="email">PDalpe</field>
+            <field name='partner_id' ref='maple.partner_portall_pierre'/>                   
+        </record>		
+
+		<record id="user_portall_luc" model="res.users">
+            <field name="name">Luc Dalpé</field>
+            <field name="email">LDalpe</field>
+            <field name='partner_id' ref='maple.partner_portall_luc'/>                   
+        </record>		
+
+	</data>
+</odoo>
+

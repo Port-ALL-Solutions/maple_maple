@@ -11,10 +11,15 @@ class Contact(models.Model):
 	siteNum = fields.Char(string="Site num")
 	region = fields.Char(string="Region")
 		
-	maple_producer = fields.Boolean(string='Is a Maple Producer',
-							help="Check this box if this contact is a mapple producer. ")
+	maple_producer = fields.Boolean(
+		string='Is a Maple Producer',
+		help="Check this box if this contact is a mapple producer. ")
 	
-	maple_buyer = fields.Boolean(string='Is a Maple Buyer',
-							help="Check this box if this contact is a maple buyer. ")
+	maple_buyer = fields.Boolean(
+		string='Is a Maple Buyer',
+		help="Check this box if this contact is a maple buyer. ")
 	
-	#maple_region = fields.One2many('maple.region', 'id', string="Maple Region")
+	maple_region = fields.Many2one(
+		'maple.region', 
+		string="Region", 
+		help="Maple Region")

@@ -10,8 +10,7 @@
 		    <field name="perm_create" eval="False"/>
 		    <field name="perm_write" eval="False"/>
 		    <field name="perm_unlink" eval="False"/>
-   		    <field name="groups" ref="maple_group_controler"/>
-		    
+   		    <field name="groups" ref="maple_group_controler"/>		    
 		</record>         		
 
 		<record id="maple_group_driver_rule" model="ir.rule">

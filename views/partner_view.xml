@@ -22,14 +22,12 @@
       		<field name="inherit_id" ref="base.view_partner_form"/>
       		<field name="arch" type="xml">
         		<xpath expr="//field[@name='lang']" position="after">
-          			<field name="region" attrs="{'invisible': [('maple_producer', '!=', True)]}"/>
+          			<field name="maple_region" attrs="{'invisible': [('maple_producer', '!=', True)]}"/>
        				<field name="fpaqNum" attrs="{'invisible': [('maple_producer', '!=', True)]}"/>
        				<field name="siteNum" attrs="{'invisible': [('maple_producer', '!=', True)]}"/>
         		</xpath>
       		</field>
     	</record>
-
-
 
     	<record id="partner_view_address_kanban_box" model="ir.ui.view">
       		<field name="name">maple.partner_view_address_kanban_box</field>

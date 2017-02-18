@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="maple_region_A1" model="maple.region">
+            <field name="code">A1</field>		
+            <field name="name">Packington, Dégelis, NDDL, St-Eusèbe, St-Jean, Rivière-Bleue, St-Marc, Cabano</field>		
+		</record>	
+	
+		<record id="maple_region_A2" model="maple.region">
+            <field name="code">A2</field>		
+            <field name="name">St-Honoré, St-Hubert</field>		
+		</record>	
+
+		<record id="maple_region_B1" model="maple.region">
+            <field name="code">B1</field>		
+            <field name="name">Auclair</field>		
+		</record>	
+
+		<record id="maple_region_B1" model="maple.region">
+            <field name="code">B1</field>		
+            <field name="name">Auclair</field>		
+		</record>	
+
+		<record id="maple_region_B2" model="maple.region">
+            <field name="code">B2</field>		
+            <field name="name">Biencourt, Squatec</field>		
+		</record>	
+
+		<record id="maple_region_B3" model="maple.region">
+            <field name="code">B3</field>		
+            <field name="name">Lejeune</field>		
+		</record>	
+
+		<record id="maple_region_B4" model="maple.region">
+            <field name="code">B4</field>		
+            <field name="name">Lot-Renversé, St-Juste du Lac</field>		
+		</record>	
+
+		<record id="maple_region_B5" model="maple.region">
+            <field name="code">B5</field>		
+            <field name="name">Zec Owen</field>		
+		</record>	
+
+		<record id="maple_region_C1" model="maple.region">
+            <field name="code">C1</field>		
+            <field name="name">Pohénégamook, St-Elzéar</field>		
+		</record>	
+
+		<record id="maple_region_C2" model="maple.region">
+            <field name="code">C2</field>		
+            <field name="name">ST-Athanase</field>		
+		</record>	
+
+		<record id="maple_region_D1" model="maple.region">
+            <field name="code">D1</field>		
+            <field name="name">Rimouski et les environs</field>		
+		</record>	
+
+		<record id="maple_region_D2" model="maple.region">
+            <field name="code">D2</field>		
+            <field name="name">Vallée de la matapédia</field>		
+		</record>	
+
+		<record id="maple_region_D3" model="maple.region">
+            <field name="code">D3</field>		
+            <field name="name">Gaspésie</field>		
+		</record>	
+
+		<record id="maple_region_E1" model="maple.region">
+            <field name="code">E1</field>		
+            <field name="name">Rivière-du-Loup, Bellechasse,Beauce</field>		
+		</record>	
+
+		<record id="maple_region_E2" model="maple.region">
+            <field name="code">E2</field>		
+            <field name="name">Québec et plus loin</field>		
+		</record>	
+
+		<record id="maple_region_F1" model="maple.region">
+            <field name="code">F1</field>		
+            <field name="name">Nouveau-Brunswick</field>		
+		</record>	
+
+		<record id="maple_region_F2" model="maple.region">
+            <field name="code">F2</field>		
+            <field name="name">St-Quentin</field>		
+		</record>	
+
+		<record id="maple_region_G" model="maple.region">
+            <field name="code">G</field>		
+            <field name="name">Ontario</field>		
+		</record>	
+
+		<record id="maple_region_H" model="maple.region">
+            <field name="code">H</field>		
+            <field name="name">Winconsin, US</field>		
+		</record>	
+
+	</data>
+</odoo>
+	

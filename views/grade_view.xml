@@ -19,7 +19,7 @@
 	    	<field name="name">maple.grade.form</field>
 	      	<field name="model">maple.grade</field>
 	      	<field name="arch" type="xml">
-		  		<form string="Account">
+		  		<form string="Maple Grade">
 		    		<sheet>
 		    			<group>>
 		          			<field name="name"/>

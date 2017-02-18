@@ -7,17 +7,30 @@
             The following tag is an action definition for a "window action",
             that is an action opening a view or a set of views
         -->
+
         <record model="ir.actions.act_window" id="producer_list_action">
-            <field name="name">maple.producer.list.action</field>
+            <field name="name">Maple Producers List</field>
             <field name="res_model">res.partner</field>
+            <field name="view_id" ref="maple.producer_tree_view" />
             <field name="view_type">form</field>
             <field name="view_mode">tree,kanban,form</field>
             <field name="search_view_id" ref="producer_filter_view"/>            
             <field name="help" type="html">
-                <p class="oe_view_nocontent_create">Create the first maple producer
-                </p>
+                <p class="oe_view_nocontent_create">Create the first maple producer</p>
             </field>
             <field name="context">{'search_default_maple_producer': 1,'default_customer': 1,'default_supplier': 1,'default_maple_producer': 1}</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="buyer_list_action">
+            <field name="name">Maple Buyer List</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="search_view_id" ref="buyer_filter_view"/>            
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first maple buyer</p>
+            </field>
+            <field name="context">{'search_default_maple_buyer': 1,'default_customer': 1,'default_supplier': 1,'default_maple_buyer': 1}</field>
         </record>
 
         <record model="ir.actions.act_window" id="purchase_list_action">
@@ -33,7 +46,7 @@
 
         <record model="ir.actions.act_window" id="pickup_list_action">
             <field name="name">Maple Pick up</field>
-            <field name="res_model">stock.picking</field>
+      		<field name="res_model">stock.picking</field>
             <field name="view_type">form</field>
             <field name="view_mode">calendar,tree,kanban,form</field>
             <field name="help" type="html">
@@ -54,13 +67,26 @@
             </field>
         </record>
 
+        <record model="ir.actions.act_window" id="maple_config_regions_action">
+            <field name="name">Maple Syrup Regions</field>
+            <field name="res_model">maple.region</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first maple region</p>
+            </field>
+        </record>
+
         <menuitem id="main_maple_menu" name="Maple"/>
 
-        <menuitem id="maple_producer_menu" name="Maple Producers"
+        <menuitem id="maple_partners_menu" name="Partners"
                   parent="main_maple_menu"/>
 
-        <menuitem id="maple_producer_menu_list" name="Maple Producers list" parent="maple_producer_menu"
+        <menuitem id="maple_producers_menu_list" name="Producers" parent="maple_partners_menu"
                   action="producer_list_action"/>
+
+        <menuitem id="maple_buyers_menu_list" name="Buyers" parent="maple_partners_menu"
+                  action="buyer_list_action"/>
 
         <menuitem id="maple_purchase_menu" name="Maple purchase"
                   parent="main_maple_menu"/>
@@ -74,11 +100,14 @@
         <menuitem id="maple_pickup_menu_list" name="Maple pick-up list" parent="maple_pickup_menu"
                   action="pickup_list_action"/>
 
-        <menuitem id="maple_config_menu" name="Maple configuration"
+        <menuitem id="maple_config_menu" name="Configuration"
                   parent="main_maple_menu"/>
 
-        <menuitem id="maple_config_menu_grades" name="Maple Syrup Grades" parent="maple_config_menu"
+        <menuitem id="maple_config_menu_grades" name="Grades" parent="maple_config_menu"
                   action="maple_config_grades_action"/>
+
+        <menuitem id="maple_config_menu_regions" name="Regions" parent="maple_config_menu"
+                  action="maple_config_regions_action"/>
 
 	</data>
 </odoo>

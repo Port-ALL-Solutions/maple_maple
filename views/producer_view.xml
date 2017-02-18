@@ -7,9 +7,11 @@
 		<field name="arch" type="xml">
 			<tree string="Maple Producer">
 				<field name="name"/>
+				<field name="maple_region"/>
+				<field name="fpaqNum"/>				
+				<field name="street"/>
+				<field name="city"/>
 				<field name="phone"/>
-				<field name="email"/>
-				<field name="region"/>
 				<field name="id" invisible="1"/>
 			</tree>
 		</field>
@@ -28,7 +30,26 @@
 	            <filter string="Maple Buyers" name="maple_buyer" domain="[('maple_buyer','=',1)]"/>
 	            <separator/>
 	            <group expand="0" string="Group By" colspan="10" col="8">
-	                <filter string="Region" domain="[]" context="{'group_by' : 'region'}"/>
+	                <filter string="Region" domain="[]" context="{'group_by' : 'maple_region'}"/>
+	            </group>
+	        </search>
+	    </field>
+	</record>
+
+	<record id="buyer_filter_view" model="ir.ui.view">
+	    <field name="name">maple.buyer.filter.view</field>
+	    <field name="model">res.partner</field>
+	    <field name="priority">50</field>
+	    <field name="arch" type="xml">
+	        <search string="Maple Buyers">
+	            <field name="name"
+	               filter_domain="['|','|',('name','ilike',self),('parent_id','ilike',self),('ref','=',self)]"/>
+	            <separator/>
+	            <filter string="Maple Producers" name="maple_producer" domain="[('maple_producer','=',1)]"/>
+	            <filter string="Maple Buyers" name="maple_buyer" domain="[('maple_buyer','=',1)]"/>
+	            <separator/>
+	            <group expand="0" string="Group By" colspan="10" col="8">
+	                <filter string="Region" domain="[]" context="{'group_by' : 'maple_region'}"/>
 	            </group>
 	        </search>
 	    </field>

@@ -25,16 +25,29 @@ This module provides mosly fields and views.
         'sale',
     ],
     'data': [
-        'security/groups.xml',
-        'views/grade_view.xml',
-        'views/partner_view.xml',
-        'views/producer_view.xml',
-        'views/product_view.xml',
-        'data/grades.xml',
+# Chargement des groups, users et rules pour la sécurité
         'data/partners.xml',
+        'security/groups.xml',
+# COMMENTÉ CAR MESSAGE :
+# "You cannot create a new user from here.
+#  To create new user please go to configuration panel.
+#        'security/users.xml',
+#        'security/rules.xml,
+# Chargement des modifications au vues standard
+        'views/partner_view.xml',
+        'views/product_view.xml',
+# Chargement des nouvelles vues spécifiques à Maple
+        'views/grade_view.xml',
+        'views/region_view.xml',
+        'views/producer_view.xml',
+# Chargement d'enregistrements, les fichiers devraient correspondres au modèles
+# Devrait être au pluriel sauf exceptions
+        'data/company.xml',
+        'data/grades.xml',
         'data/products.xml',
-        'views/menuitems.xml',        
-#        'views/webclient_templates.xml',
+        'data/regions.xml',
+# Chargement des actions et des menus
+        'views/menuitems.xml',                
     ],
     'qweb': [
 #        "static/src/xml/*.xml",

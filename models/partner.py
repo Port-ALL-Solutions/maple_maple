@@ -11,15 +11,21 @@ class Contact(models.Model):
 	siteNum = fields.Char(string="Site num")
 	region = fields.Char(string="Region")
 		
-	maple_producer = fields.Boolean(
-		string='Is a Maple Producer',
+	maple_producer = fields.Boolean(string='Is a Maple Producer',
 		help="Check this box if this contact is a mapple producer. ")
 	
-	maple_buyer = fields.Boolean(
-		string='Is a Maple Buyer',
+	maple_buyer = fields.Boolean(string='Is a Maple Buyer',
 		help="Check this box if this contact is a maple buyer. ")
 	
-	maple_region = fields.Many2one(
-		'maple.region', 
+	maple_region = fields.Many2one(	'maple.region', 
 		string="Region", 
 		help="Maple Region")
+	
+	maple_organic_certification = fields.Boolean(string="Organic certification", 
+		help="The maple syrup producer has obtain the Organic certification. ")
+		
+#	maple_purity_certification = fields.Boolean(string="Purity certification", 
+#		help="The maple syrup producer has obtain the Purity certification. ")
+	
+#	maple_pound_produced = fields.Integer(string='Pound Produced',
+#		help="Pound produced during current year. ")

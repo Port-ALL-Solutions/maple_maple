@@ -26,6 +26,7 @@ This module provides mosly fields and views.
     ],
     'data': [
 # Chargement des groups, users et rules pour la sécurité
+        'data/regions.xml',
         'data/partners.xml',
         'security/groups.xml',
 # COMMENTÉ CAR MESSAGE :
@@ -45,7 +46,6 @@ This module provides mosly fields and views.
         'data/company.xml',
         'data/grades.xml',
         'data/products.xml',
-        'data/regions.xml',
 # Chargement des actions et des menus
         'views/menuitems.xml',                
     ],

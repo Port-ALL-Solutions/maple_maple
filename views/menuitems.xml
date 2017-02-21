@@ -77,7 +77,8 @@
             </field>
         </record>
 
-        <menuitem id="main_maple_menu" name="Maple"/>
+        <menuitem id="main_maple_menu" name="Maple"
+            web_icon="maple,static/description/icon.png"/>
 
         <menuitem id="maple_partners_menu" name="Partners"
                   parent="main_maple_menu"/>

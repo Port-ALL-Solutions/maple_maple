@@ -24,6 +24,11 @@ class Contact(models.Model):
 	maple_organic_certification = fields.Boolean(string="Organic certification", 
 		help="The maple syrup producer has obtain the Organic certification. ")
 		
+	owner_id = fields.Many2one( 'res.partner', 
+		string="Buyer", 
+		domain=[('maple_buyer', '=', True)],				
+		help="Maple syrup buyer for that producer. ")
+
 #	maple_purity_certification = fields.Boolean(string="Purity certification", 
 #		help="The maple syrup producer has obtain the Purity certification. ")
 	

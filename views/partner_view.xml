@@ -2,7 +2,7 @@
 <odoo>
 	<data>
 	
-    	<record id="maple_partner_view_checkbox" model="ir.ui.view">
+    	<record id="maple_partner_view_region" model="ir.ui.view">
       		<field name="name">maple.partner_view</field>
       		<field name="model">res.partner</field>
       		<field name="priority" eval="1"/>
@@ -10,8 +10,6 @@
       		<field name="arch" type="xml">
         		<xpath expr="//field[@name='website']" position="before">
           			<field name="maple_region"/>
-       				<field name="maple_producer"/>
-       				<field name="maple_buyer"/>
         		</xpath>
       		</field>
     	</record>
@@ -39,11 +37,12 @@
         		<xpath expr="//field[@name='lang']" position="after">
        				<field name="fpaqNum" attrs="{'invisible': [('maple_producer', '!=', True)]}"/>
        				<field name="siteNum" attrs="{'invisible': [('maple_producer', '!=', True)]}"/>
+       				<field name="owner_id" attrs="{'invisible': [('maple_producer', '!=', True)]}"/>
         		</xpath>
       		</field>
     	</record>
 
-    	<record id="partner_view_address_kanban_box" model="ir.ui.view">
+    	<record id="maple_partner_view_address_kanban_box" model="ir.ui.view">
       		<field name="name">maple.partner_view_address_kanban_box</field>
       		<field name="model">res.partner</field>
       		<field name="inherit_id" ref="base.view_partner_form"/>

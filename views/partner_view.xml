@@ -14,7 +14,6 @@
       		</field>
     	</record>
 
-
     	<record id="maple_partner_view_checkbox" model="ir.ui.view">
       		<field name="name">maple.partner_view</field>
       		<field name="model">res.partner</field>
@@ -37,7 +36,6 @@
         		<xpath expr="//field[@name='lang']" position="after">
        				<field name="fpaqNum" attrs="{'invisible': [('maple_producer', '!=', True)]}"/>
        				<field name="siteNum" attrs="{'invisible': [('maple_producer', '!=', True)]}"/>
-       				<field name="owner_id" attrs="{'invisible': [('maple_producer', '!=', True)]}"/>
         		</xpath>
       		</field>
     	</record>

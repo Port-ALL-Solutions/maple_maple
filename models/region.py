@@ -5,13 +5,13 @@ class Region(models.Model):
     _name = 'maple.region'
     _description = "Maple Region"
     
-    name = fields.Char(
+    description = fields.Char(
         string = 'Region',
         help = 'Name of the region maple region',
         required=True,
         translate=True)
 
-    code = fields.Char(
+    name = fields.Char(
         string = 'Code',
         size = 2,
         help = 'Maple Syrup region codes',

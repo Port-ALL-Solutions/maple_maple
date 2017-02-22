@@ -16,13 +16,20 @@ Odoo adaptation for maple syrup industry.
 This module provides mosly fields and views.
         """,
     'depends': [
+        'auto_backup',
         'base',
+        'base_phone',        
+        'base_location',        
         'contacts',
+        'document',
         'fleet',
         'hr',
         'mrp',
         'purchase',
         'sale',
+        'stock_calendar',
+        'stock_picking_wave',
+        'web_favicon',
     ],
     'data': [
 # Chargement des groups, users et rules pour la sécurité
@@ -47,6 +54,7 @@ This module provides mosly fields and views.
         'data/grades.xml',
         'data/products.xml',
 # Chargement des actions et des menus
+        'views/actions.xml',                
         'views/menuitems.xml',                
     ],
     'qweb': [

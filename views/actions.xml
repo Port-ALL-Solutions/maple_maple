@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>  
+
+        <!-- window action -->
+        <!--
+            The following tag is an action definition for a "window action",
+            that is an action opening a view or a set of views
+        -->
+       <record model="ir.actions.act_window" id="producer_list_action">
+            <field name="name">Maple Producers List</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_id" ref="maple.producer_tree_view" />
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="search_view_id" ref="maple_partner_filter_view"/>            
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first maple producer</p>
+            </field>
+            <field name="context">{'search_default_maple_producer': 1,'default_customer': 1,'default_supplier': 1,'default_maple_producer': 1}</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="buyer_list_action">
+            <field name="name">Maple Buyer List</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_id" ref="maple.buyer_tree_view" />
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="search_view_id" ref="maple_partner_filter_view"/>            
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first maple buyer</p>
+            </field>
+            <field name="context">{'search_default_maple_buyer': 1,'default_customer': 1,'default_supplier': 1,'default_maple_buyer': 1}</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="farm_list_action">
+            <field name="name">Maple Farm List</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="view_id" ref="farm_tree_view" />            
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Go in producer to add a farm</p>
+            </field>
+			<field name="search_view_id" ref="maple_partner_filter_view"/>            
+            <field name="context">{'search_default_maple_farm': 1}</field> 
+        </record>
+
+        <record model="ir.actions.act_window" id="purchase_list_action">
+            <field name="name">Maple Purchase</field>
+            <field name="res_model">purchase.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form,pivot,graph,calendar</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first maple purchase
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="pickup_list_action">
+            <field name="name">Maple Pick up</field>
+      		<field name="res_model">stock.picking</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">calendar,tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first pick up of maple
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="maple_config_grades_action">
+            <field name="name">Maple Syrup Grades</field>
+            <field name="res_model">maple.grade</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the maple syrup grade
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="maple_config_regions_action">
+            <field name="name">Maple Syrup Regions</field>
+            <field name="res_model">maple.region</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first maple region</p>
+            </field>
+        </record>
+
+	</data>
+</odoo>

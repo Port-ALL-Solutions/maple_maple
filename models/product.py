@@ -10,7 +10,15 @@ class Product(models.Model):
 		'res.partner', 
 		string="Producer",
 		help="The partner producing this product")
+
+	maple_syrup = fields.Boolean(
+		string="Is maple syrup",
+		help="Check this box if this product is maple syrup. ")
 	
+	maple_container = fields.Boolean(
+		string="Is maple syrup container",
+		help="Check this box if this product is maple syrup container. ")
+		
 	light = fields.Integer(
 		string="Light",
 		help="% of light transmission, use to define grade")
@@ -23,10 +31,6 @@ class Product(models.Model):
 		string="Grade",
 		help="Grade of this maple syrup")
 
-	maple_syrup = fields.Boolean(
-		string="Is maple syrup",
-		help="Check this box if this product is maple syrup. ")
-	
 	expected_weight = fields.Float(
 		string='Expected weight',
 		help='Expected weight of the product. ') 
@@ -37,4 +41,5 @@ class Product(models.Model):
 
 	adjusted_weight = fields.Float(
 		string='Expected weight',
-		help='Automated Adjusted weight of the product base on controled weight and brix values. ') 
+		help='Automated Adjusted weight of the product base on controled weight and brix values. ')
+	

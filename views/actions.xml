@@ -46,13 +46,24 @@
             <field name="context">{'search_default_maple_farm': 1}</field> 
         </record>
 
-        <record model="ir.actions.act_window" id="purchase_list_action">
-            <field name="name">Maple Purchase</field>
+        <record model="ir.actions.act_window" id="available_maple_list_action">
+            <field name="name">Maple available</field>
+            <field name="res_model">purchase.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form,pivot,graph</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first maple availabitlity
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="confimed_maple_list_action">
+            <field name="name">Maple confirmed</field>
             <field name="res_model">purchase.order</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,kanban,form,pivot,graph,calendar</field>
             <field name="help" type="html">
-                <p class="oe_view_nocontent_create">Create the first maple purchase
+                <p class="oe_view_nocontent_create">Create the first maple syrup confirmation
                 </p>
             </field>
         </record>

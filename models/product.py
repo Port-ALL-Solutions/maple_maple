@@ -43,3 +43,17 @@ class Product(models.Model):
 		string='Expected weight',
 		help='Automated Adjusted weight of the product base on controled weight and brix values. ')
 	
+	container_type = fields.Selection([
+		('S', 'Stainless Steel Container'),
+		('G', 'Galvanized Container'),
+		('P', 'Platic Container'),
+		('C', 'CDL Container'),
+		('U', 'Unique used Container'),
+		('R', 'Re-used unique used Container')],
+		'Container Type',
+		help="Maple Syrup Container Type")
+	
+	container_id = fields.Many2one(
+		'product.product', 
+		string="Container",
+		help="Container of maple syrup")

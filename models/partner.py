@@ -40,7 +40,7 @@ class Contact(models.Model):
 		help="Check this box if this mapple farm address. ",
 		compute='_compute_maple_farm',
 		store=True)
-
+		
 	@api.depends('parent_id', 'type')
 	def _compute_maple_farm(self):
 		for record in self:

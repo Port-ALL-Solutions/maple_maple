@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="warehouse_SE1" model="stock.warehouse">
+            <field name="name">Entrepôt 1</field>
+            <field name="code">SE1</field>
+            <field name='partner_id' ref='base.main_partner'/> <!-- champ libellé 'Adress': référence au id attribué par partners.xml à Sirop de l'Est qui lui réfère aux données injectées par partners.xml du module base dans odoo/addons -->
+        </record>
+
+        <record id="warehouse_SE2" model="stock.warehouse">
+            <field name="name">Entrepôt 2</field>
+            <field name="code">SE2</field>
+            <field name='partner_id' ref='base.main_partner'/>
+        </record>
+
+        <record id="warehouse_SE3" model="stock.warehouse">
+            <field name="name">Entrepôt 3</field>
+            <field name="code">SE3</field>
+            <field name='partner_id' ref='base.main_partner'/>
+        </record>
+
+        <record id="warehouse_SE4" model="stock.warehouse">
+            <field name="name">Entrepôt 4</field>
+            <field name="code">SE4</field>
+            <field name='partner_id' ref='base.main_partner'/>
+        </record>
+
+	</data>
+</odoo>

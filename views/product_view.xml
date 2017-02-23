@@ -4,12 +4,31 @@
     <!-- explicit list view definition -->
 
 	    <!-- modification de la vue pour le partenaire, pour inclure FPAQ et Region  -->
-	    <record id="product_view" model="ir.ui.view">
-	      <field name="name">maple.product.view</field>
+	    <record id="product_view_is_maple_flag" model="ir.ui.view">
+	      <field name="name">maple.product.view_flag</field>
 	      <field name="model">product.template</field>
 	      <field name="inherit_id" ref="product.product_template_only_form_view"/>
 	      <field name="arch" type="xml">
 	        <xpath expr="//label[@for='purchase_ok']" position="after">
+	          <div>
+	            <field name="maple_syrup"/>
+	            <label for="maple_syrup"/>
+	          </div>
+	          <div>
+	            <field name="maple_container"/>
+	            <label for="maple_container"/>
+	          </div>
+	        </xpath>
+	      </field>
+	    </record>
+
+	    <!-- modification de la vue pour le partenaire, pour inclure FPAQ et Region  -->
+	    <record id="product_view_maple_sheet" model="ir.ui.view">
+	      <field name="name">maple.product.view_sheet</field>
+	      <field name="model">product.template</field>
+	      <field name="inherit_id" ref="product.product_template_only_form_view"/>
+	      <field name="arch" type="xml">
+	        <xpath expr="//field[@name='categ_id']" position="after">
 	          <div>
 	            <field name="maple_syrup"/>
 	            <label for="maple_syrup"/>

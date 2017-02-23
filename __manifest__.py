@@ -53,6 +53,7 @@ This module provides mosly fields and views.
         'data/company.xml',
         'data/grades.xml',
         'data/products.xml',
+        'data/warehouses.xml',
 # Chargement des actions et des menus
         'views/actions.xml',                
         'views/menuitems.xml',                

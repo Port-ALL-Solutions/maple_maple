@@ -35,6 +35,7 @@ This module provides mosly fields and views.
 # Chargement des groups, users et rules pour la sécurité
         'data/regions.xml',
         'data/partners.xml',
+        'data/res.partner.csv',
         'security/groups.xml',
 # COMMENTÉ CAR MESSAGE :
 # "You cannot create a new user from here.
@@ -45,6 +46,7 @@ This module provides mosly fields and views.
         'views/partner_view.xml',
         'views/product_view.xml',
 # Chargement des nouvelles vues spécifiques à Maple
+        'views/barrel_view.xml',
         'views/grade_view.xml',
         'views/region_view.xml',
         'views/producer_view.xml',

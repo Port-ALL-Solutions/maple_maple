@@ -48,6 +48,15 @@
 			parent="maple_pickup_menu"
             action="pickup_list_action"/>
 
+		<menuitem id="maple_container_menu"
+			name="Mapple container"
+    		parent="main_maple_menu"/>
+
+        <menuitem id="maple_container_menu_list"
+        	name="All container"
+        	parent="maple_container_menu"
+            action="maple_container_list_action"/>
+
 		<menuitem id="maple_config_menu"
 			name="Configuration"
     		parent="main_maple_menu"/>

@@ -116,6 +116,75 @@
             <field name="image" type="base64" file="maple/static/img/logo-lbmapletreat.png"/>            
         </record>		
              
+        <record id="partner_9054-2812" model="res.partner">
+            <field name="name">9054-2812 Québec inc.</field>
+            <field name="is_company">True</field>
+            <field name="maple_producer">True</field>
+            <field name="supplier">True</field>
+            <field name="street">231, rue de l'Aréna</field>
+            <field name="city">Temiscouata-sur-le-Lac</field>
+            <field name="zip">G0K 1X0</field>
+            <field name='country_id' ref='base.ca'/>
+            <field name='state_id' ref='base.state_ca_qc'/>            
+            <field name="phone">+1 418 894 5470</field>
+            <field name='maple_region' ref='maple.region_D1' />
+        </record>		
+             
+        <record id="partner_9054-2812_sully" model="res.partner">
+            <field name="type">delivery</field>
+            <field name="name">9054-2812 Québec inc. - Sully</field>
+            <field name="street">Coin chemin du Ruisseau/Providence</field>
+            <field name="city">Sully</field>
+            <field name='country_id' ref='base.ca'/>
+            <field name='state_id' ref='base.state_ca_qc'/>            
+            <field name='parent_id' ref='partner_9054-2812' />
+        </record>		
+             
+        <record id="partner_9054-2812_nddl" model="res.partner">
+            <field name="type">delivery</field>
+            <field name="name">9054-2812 Québec inc. - NDDL</field>
+            <field name="street">Rang des Fondateurs</field>
+            <field name="city">Notre-Dame-du-Lac</field>
+            <field name='country_id' ref='base.ca'/>
+            <field name='state_id' ref='base.state_ca_qc'/>            
+            <field name='parent_id' ref='partner_9054-2812' />
+        </record>		
+
+        <record id="partner_9054-2812_boundray" model="res.partner">
+            <field name="type">delivery</field>
+            <field name="name">9054-2812 Québec inc. - Boundray</field>
+            <field name="street">Route du lac Baker</field>
+            <field name="city">Boundray</field>
+            <field name='country_id' ref='base.ca'/>
+            <field name='state_id' ref='base.state_ca_qc'/>            
+            <field name='parent_id' ref='partner_9054-2812' />
+        </record>		
+             
+        <record id="partner_9054-2812_st-elzear" model="res.partner">
+            <field name="type">delivery</field>
+            <field name="name">9054-2812 Québec inc. - St-Elzéar</field>
+            <field name="street">Coin route de la Montagne et Rang St-Hilaire</field>
+            <field name="city">St-Elzéar</field>
+            <field name='country_id' ref='base.ca'/>
+            <field name='state_id' ref='base.state_ca_qc'/>            
+            <field name='parent_id' ref='partner_9054-2812' />
+        </record>		
+
+        <record id="partner_9054-2812_rlavoie" model="res.partner">
+            <field name="name">Russel Lavoie</field>
+            <field name='country_id' ref='base.ca'/>
+            <field name='state_id' ref='base.state_ca_qc'/>            
+            <field name="phone">+1 418 899 6055</field>
+            <field name='parent_id' ref='partner_9054-2812' />
+            <field name="email">jolicoeur110@msn.com</field>
+        </record>
+
+        <record id="partner_9054-2812_llavoie" model="res.partner">
+            <field name="name">Lise Lavoie</field>
+            <field name='country_id' ref='base.ca'/>
+            <field name='state_id' ref='base.state_ca_qc'/>            
+            <field name='parent_id' ref='partner_9054-2812' />
+        </record>
 
 	</data>
 </odoo>

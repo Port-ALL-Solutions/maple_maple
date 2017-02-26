@@ -45,7 +45,8 @@ class Product(models.Model):
 	
 	container_type = fields.Selection([
 		('S', 'Stainless Steel Container'),
-		('G', 'Galvanized Container'),
+		('A', 'Other'),
+		('G', 'Galvanized Steel Container'),
 		('P', 'Platic Container'),
 		('C', 'CDL Container'),
 		('U', 'Unique used Container'),
@@ -53,7 +54,23 @@ class Product(models.Model):
 		'Container Type',
 		help="Maple Syrup Container Type")
 	
+	container_state = fields.Selection([
+		('O', 'Good condition'),
+		('L', 'Slightly bumped'),
+		('B', 'Bumped'),
+		('T', 'Very bumped'),
+		('R', 'Rusty'),
+		('P', 'Punctured'),
+		('N', 'Non compliant')],
+		'Container Type',
+		help="Maple Syrup Container Type")
+	
 	container_id = fields.Many2one(
 		'product.product', 
 		string="Container",
 		help="Container of maple syrup")
+
+	container_valve = fields.Boolean(
+		string="Valve",
+		help="Check this box if this container have a valve. ")
+	

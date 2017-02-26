@@ -1,0 +1,11 @@
+id,active,parent_id:id,name,is_company,maple_producer,default_owner_id:id,lang:id,maple_buyer,type,siteNum,fpaqNum,maple_organic_certification,maple_purity_certification,maple_region:id,street,city,zip,country_id:id,state_id:id,phone,mobile,fax,email,website
+E9054-2812,1,,9054-2812 Québec inc.,1,1,base.main_partner,fr_CA,0,contact,,4064,0,1,,"231, rue de l'Aréna",Temiscouata-sur-le-Lac,G0K 1X0,base.ca,base.state_ca_qc,+1 418 894 5470,,,,
+E9054-2812-E1,1,E9054-2812,9054-2812 - Sully,0,0,base.main_partner,fr_CA,0,delivery,,,0,1,maple.region_C1,Coin chemin du Ruisseau/Providence,Sully,,base.ca,base.state_ca_qc,,,,,
+E9054-2812-E2,1,E9054-2812,9054-2812 – NDDL,0,0,base.main_partner,fr_CA,0,delivery,,,0,1,maple.region_C1,Rang des Fondateurs,Notre-Dame-du-Lac,,base.ca,base.state_ca_qc,,,,,
+E9054-2812-E3,1,E9054-2812,9054-2812 – Boundray,0,0,base.main_partner,fr_CA,0,delivery,,,0,1,maple.region_C1,Route du lac Baker,Boundray,,base.ca,base.state_ca_qc,,,,,
+E9054-2812-E4,1,E9054-2812,9054-2812 – St-Elzéar,0,0,base.main_partner,fr_CA,0,delivery,,,0,1,maple.region_C1,Coin route de la Montagne et Rang St-Hilaire,St-Elzéar,,base.ca,base.state_ca_qc,,,,,
+E9054-2812-C1,1,E9054-2812,Russel Lavoie,0,0,base.main_partner,fr_CA,0,contact,,,,,,,,,base.ca,base.state_ca_qc,,,,,
+E9054-2812-C2,1,E9054-2812,Lise Lavoie,0,0,base.main_partner,fr_CA,0,contact,,,,,,,,,base.ca,base.state_ca_qc,+1 418 899 6055,,,jolicoeur110@msn.com,
+E9071-4379,1,,Éco-Sirop 9071-4379 QUÉBEC INC,1,1,maple.partner_lbmtreat_hq,fr_CA,0,contact,,4090,0,1,,22 CHEMIN DE L'HÉRITAGE,Auclair,G0L 1A0,base.ca,base.state_ca_qc,+1 418 899 2367,,,,
+E9071-4379-E1,1,E9071-4379,Éco-Sirop – Lejeune,0,0,maple.partner_lbmtreat_hq,fr_CA,0,delivery,,,0,1,maple.region_B3,100 RANG 2 LEJEUNE,Lejeune,G0L 1S0,base.ca,base.state_ca_qc,+1 418 855 1010,,,,
+E9071-4379-C1,1,E9071-4379,JEAN-MARIE GILBERT,0,0,maple.partner_lbmtreat_hq,fr_CA,0,contact,,,,,,,Lejeune,G0L 1S0,base.ca,base.state_ca_qc,+1 418 855 2122,,+1 418 899 0297,jmd1980@hotmail.com,

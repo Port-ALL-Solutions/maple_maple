@@ -6,3 +6,4 @@ import grade
 import product
 import region
 import picking
+import stockQuant

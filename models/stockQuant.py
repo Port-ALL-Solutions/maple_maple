@@ -19,7 +19,7 @@ class stockQuant(models.Model):
         help='Weight of the container when empty. ')
     
     container_state = fields.Selection(
-        selectio=[  
+        selection=[  
             ('O', 'Good condition'),
             ('L', 'Slightly bumped'),
             ('B', 'Bumped'),

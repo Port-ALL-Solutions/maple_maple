@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="id_fpaq" model="res.partner.id_category">
+            <field name="name">FPAQ Productor number</field>		
+            <field name="code">FPAQ</field>		
+		</record>	
+	
+		<record id="id_cert_bio" model="res.partner.id_category">
+            <field name="name">Organic certification</field>		
+            <field name="code">BIO</field>		
+		</record>	
+
+		<record id="Id_cert_purity" model="res.partner.id_category">
+            <field name="name">Purity certification</field>		
+            <field name="code">PURE</field>		
+		</record>	
+
+	</data>
+</odoo>
+	

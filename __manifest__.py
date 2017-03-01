@@ -25,6 +25,7 @@ This module provides mosly fields and views.
         'fleet',
         'hr',
         'mrp',
+        'partner_identification',
         'purchase',
         'sale',
         'stock_calendar',
@@ -33,9 +34,7 @@ This module provides mosly fields and views.
     ],
     'data': [
 # Chargement des groups, users et rules pour la sécurité
-        'data/regions.xml',
-        'data/partners.xml',
-        'data/res.partner.csv',
+        'data/identification.xml',        
         'security/groups.xml',
 # COMMENTÉ CAR MESSAGE :
 # "You cannot create a new user from here.
@@ -52,10 +51,8 @@ This module provides mosly fields and views.
         'views/producer_view.xml',
 # Chargement d'enregistrements, les fichiers devraient correspondres au modèles
 # Devrait être au pluriel sauf exceptions
-        'data/company.xml',
         'data/grades.xml',
         'data/products.xml',
-        'data/warehouses.xml',
 # Chargement des actions et des menus
         'views/actions.xml',                
         'views/menuitems.xml',                

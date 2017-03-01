@@ -1,0 +1,858 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* maple
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-01 10:56-0500\n"
+"PO-Revision-Date: 2017-03-01 13:03-0500\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Last-Translator: \n"
+"Language: fr_CA\n"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_product_template_light
+msgid "% of light transmission defining maple syrup color class"
+msgstr ""
+"Degré de transmission de lumière (en %) définissant la classe de couleur du "
+"sirop d'érable "
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_product_template_adjusted_weight
+msgid "Adjusted weight"
+msgstr "Poids net ajusté"
+
+#. module: maple
+#: model:ir.ui.menu,name:maple.maple_container_menu_list
+msgid "All container"
+msgstr "Tous les contenants"
+
+#. module: maple
+#: model:maple.grade,name:maple.grade_amber
+msgid "Amber"
+msgstr "Ambré"
+
+#. module: maple
+#: model:ir.ui.menu,name:maple.maple_available_menu_list
+msgid "Available Maple list"
+msgstr "Liste du sirop d'érable disponible"
+
+#. module: maple
+#: model:product.template,name:maple.maple_product_bio
+msgid "Biologic Maple Syrup"
+msgstr "Sirop d'érable biologique"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_product_template_brix
+msgid "Brix"
+msgstr "Brix"
+
+#. module: maple
+#: selection:product.template,container_state:0
+#: selection:stock.quant,container_state:0
+msgid "Bumped"
+msgstr "Bossé"
+
+#. module: maple
+#: model:ir.ui.menu,name:maple.maple_buyers_menu_list
+msgid "Buyers"
+msgstr "Acheteurs"
+
+#. module: maple
+#: model:product.template,name:maple.cdl_container
+msgid "CDL Barrel"
+msgstr "Baril CDL"
+
+#. module: maple
+#: selection:product.template,container_type:0
+msgid "CDL Plastic Container"
+msgstr "Baril de plastique CDL"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_res_partner_maple_bio
+msgid "Certified Organic"
+msgstr "Certifié biologique"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_res_partner_maple_pure
+msgid "Certified Purity"
+msgstr "Certifié pur"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_product_template_container_valve
+msgid "Check this box if this container have a valve. "
+msgstr "Ce contenant est muni de valve(s)"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_maple_grade_name
+#: model:ir.model.fields,field_description:maple.field_product_template_grade
+msgid "Class"
+msgstr "Classe"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_maple_grade_code
+#: model:ir.model.fields,help:maple.field_maple_grade_code
+msgid "Class code"
+msgstr "Code de la classe"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_maple_grade_name
+msgid "Class of maple syrup"
+msgstr "Classe du sirop d'érable"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_maple_region_name
+msgid "Code"
+msgstr "Code"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_maple_region_name
+msgid "Code of picking and delivery region"
+msgstr "Code de la région de cueillette et livraison"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_product_template_adjusted_weight
+msgid ""
+"Computed weight of the product - based on controlled weight and degrees Brix."
+msgstr ""
+"Poids net du sirop calculé en fonction du poids net (poids brut moins la "
+"tare du baril) et de son degré brix. "
+
+#. module: maple
+#: model:ir.ui.menu,name:maple.maple_config_menu
+msgid "Configuration"
+msgstr "Configuration"
+
+#. module: maple
+#: model:ir.ui.menu,name:maple.maple_confirmed_menu_list
+msgid "Confirmed Maple list"
+msgstr "Bons d'achat"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_product_template_container_id
+msgid "Container"
+msgstr "Contenant"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_product_template_container_state
+#: model:ir.model.fields,field_description:maple.field_product_template_container_type
+#: model:ir.model.fields,field_description:maple.field_stock_quant_container_state
+msgid "Container Type"
+msgstr "Type de contenant"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_product_template_container_id
+msgid "Container of maple syrup"
+msgstr "Contenant de sirop d'érable"
+
+#. module: maple
+#: model:res.groups,name:maple.maple_group_controler
+msgid "Controler"
+msgstr "Contrôleur"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_product_template_controlled_weight
+msgid "Controlled weight of the product."
+msgstr "Poids brut (produit et contenant)."
+
+#. module: maple
+#: model:ir.actions.act_window,help:maple.available_maple_list_action
+msgid "Create the first maple availabitlity"
+msgstr "Créer la première disponibilité de sirop d'érable"
+
+#. module: maple
+#: model:ir.actions.act_window,help:maple.buyer_list_action
+msgid "Create the first maple buyer"
+msgstr "Créer le premier acheteur de sirop d'érable"
+
+#. module: maple
+#: model:ir.actions.act_window,help:maple.maple_container_list_action
+msgid "Create the first maple container"
+msgstr "Créer le premier contenant de sirop d'érable"
+
+#. module: maple
+#: model:ir.actions.act_window,help:maple.producer_list_action
+msgid "Create the first maple producer"
+msgstr "Créer le premier producteur de sirop d'érable"
+
+#. module: maple
+#: model:ir.actions.act_window,help:maple.maple_config_regions_action
+msgid "Create the first maple region"
+msgstr "Créer la première région de cueillette et livraison du sirop d'érable"
+
+#. module: maple
+#: model:ir.actions.act_window,help:maple.confimed_maple_list_action
+msgid "Create the first maple syrup confirmation"
+msgstr "Créer la première confirmation"
+
+#. module: maple
+#: model:ir.actions.act_window,help:maple.pickup_list_action
+msgid "Create the first pick up of maple"
+msgstr "Créer la première cueillette de sirop d'érable"
+
+#. module: maple
+#: model:ir.actions.act_window,help:maple.maple_config_grades_action
+msgid "Create the maple syrup grade"
+msgstr "Créer la première classe de sirop d'érable"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_maple_grade_create_uid
+#: model:ir.model.fields,field_description:maple.field_maple_region_create_uid
+msgid "Created by"
+msgstr "Crée(e) par"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_maple_grade_create_date
+#: model:ir.model.fields,field_description:maple.field_maple_region_create_date
+msgid "Created on"
+msgstr "Crée(e) le"
+
+#. module: maple
+#: model:maple.grade,name:maple.grade_dark
+msgid "Dark"
+msgstr "Foncé"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_res_partner_default_owner_id
+msgid "Default Buyer"
+msgstr "Acheteur habituel"
+
+#. module: maple
+#: model:maple.grade,taste:maple.grade_golden
+msgid "Delicate taste"
+msgstr "Goût délicat"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_maple_grade_display_name
+#: model:ir.model.fields,field_description:maple.field_maple_region_display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: maple
+#: model:res.groups,name:maple.maple_group_driver
+msgid "Driver"
+msgstr "Conducteur"
+
+#. module: maple
+#: model:res.groups,name:maple.maple_group_employee
+msgid "Employee"
+msgstr "Employé"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_product_template_expected_weight
+msgid "Expected weight"
+msgstr "Poids estimé"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_product_template_expected_weight
+msgid "Expected weight of the product."
+msgstr "Poids brut estimé avant la pesée"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_res_partner_fpaqCode
+msgid "FPAQ"
+msgstr "FPAQ"
+
+#. module: maple
+#: model:ir.ui.menu,name:maple.maple_farm_menu_list
+msgid "Farms"
+msgstr "Érablières"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.maple_partner_view_address_kanban_box
+msgid "Fax:"
+msgstr "Télécopieur:"
+
+#. module: maple
+#: model:product.template,name:maple.galvanized_steel_container
+msgid "Galvanised Steel Barrel"
+msgstr "Baril en acier galvanisé"
+
+#. module: maple
+#: selection:product.template,container_type:0
+msgid "Galvanized Steel Container"
+msgstr "Contenant en acier galvanisé"
+
+#. module: maple
+#: model:ir.actions.act_window,help:maple.farm_list_action
+msgid "Go in producer to add a farm"
+msgstr "Aller à Producteurs pour ajouter une érablière"
+
+#. module: maple
+#: model:maple.grade,name:maple.grade_golden
+msgid "Golden"
+msgstr "Doré"
+
+#. module: maple
+#: selection:product.template,container_state:0
+#: selection:stock.quant,container_state:0
+msgid "Good condition"
+msgstr "Bon état"
+
+#. module: maple
+#: model:ir.ui.menu,name:maple.maple_config_menu_grades
+msgid "Grades"
+msgstr "Classes"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.maple_partner_filter_view
+msgid "Group By"
+msgstr "Grouper par"
+
+#. module: maple
+#: model:ir.module.category,description:maple.module_category_maple_management
+msgid ""
+"Helps you manage your maple syrop stock operations: delivery orders, "
+"receptions, etc."
+msgstr ""
+"Gérer les opérations d'inventaire de sirop d'érable et de leurs contenants "
+"(achat, cueillette, réception, entreposage, classement, transformation, "
+"vente et livraison)."
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_maple_grade_id
+#: model:ir.model.fields,field_description:maple.field_maple_region_id
+msgid "ID"
+msgstr "ID"
+
+#. module: maple
+#: model:ir.ui.menu,name:maple.maple_entry_menu
+msgid "Incoming/Available Maple"
+msgstr "Sirop en route/disponible"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_res_partner_intCode
+msgid "Internal Code"
+msgstr "Code interne"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_res_partner_maple_region
+msgid ""
+"Internal code of the region where maple syrup picking and empty barrels "
+"delivery are done."
+msgstr ""
+"Code interne de la région où la cueillette et la livraison du sirop d'érable "
+"s'effectuent."
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_res_partner_maple_farm
+msgid "Is a Maple Farm"
+msgstr "est une Érablière"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_res_partner_maple_buyer
+msgid "Is a maple Buyer"
+msgstr "est un Acheteur"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_res_partner_maple_producer
+msgid "Is a maple Producer"
+msgstr "est un Producteur"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_product_template_maple_container
+msgid "Is a maple syrup container"
+msgstr "est un Contenant de sirop d'érable"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_product_template_maple_syrup
+msgid "Is maple syrup"
+msgstr "est du Sirop d'érable"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_maple_grade___last_update
+#: model:ir.model.fields,field_description:maple.field_maple_region___last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_maple_grade_write_uid
+#: model:ir.model.fields,field_description:maple.field_maple_region_write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_maple_grade_write_date
+#: model:ir.model.fields,field_description:maple.field_maple_region_write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_product_template_light
+msgid "Light"
+msgstr "Lumière"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.grade_list
+msgid "List of Maple Syrup Grade"
+msgstr "Liste des classe de sirop d'érable"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.region_list
+msgid "List of Maple Syrup Picking Regions"
+msgstr "Liste des régions de cueillette du sirop d'érable"
+
+#. module: maple
+#: model:res.groups,name:maple.maple_group_manager
+msgid "Manager"
+msgstr "Directeur"
+
+#. module: maple
+#: model:ir.module.category,name:maple.module_category_maple_management
+#: model:ir.ui.menu,name:maple.main_maple_menu
+msgid "Maple"
+msgstr "Sirop d'érable"
+
+#. module: maple
+#: model:ir.actions.act_window,name:maple.buyer_list_action
+msgid "Maple Buyer List"
+msgstr "Liste des acheteurs de sirop d'érable"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.buyer_tree_view
+#: model:ir.ui.view,arch_db:maple.maple_partner_filter_view
+msgid "Maple Buyers"
+msgstr "Acheteurs de sirop d'érable"
+
+#. module: maple
+#: model:ir.actions.act_window,name:maple.maple_container_list_action
+#: model:ir.ui.view,arch_db:maple.maple_container_filter_view
+#: model:ir.ui.view,arch_db:maple.maple_container_tree_view
+#: model:product.category,name:maple.container_product_category
+msgid "Maple Container"
+msgstr "Contenant de sirop d'érable"
+
+#. module: maple
+#: model:ir.actions.act_window,name:maple.farm_list_action
+msgid "Maple Farm List"
+msgstr "Liste des érablières"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.farm_tree_view
+#: model:ir.ui.view,arch_db:maple.maple_partner_filter_view
+msgid "Maple Farms"
+msgstr "Érablières"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.grade_form
+msgid "Maple Grade"
+msgstr "Classe de sirop d'érable"
+
+#. module: maple
+#: model:ir.actions.act_window,name:maple.pickup_list_action
+msgid "Maple Pick up"
+msgstr "Cueillette du sirop d'érable"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.producer_tree_view
+msgid "Maple Producer"
+msgstr "Producteur de sirop d'érable"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.maple_partner_filter_view
+msgid "Maple Producers"
+msgstr "Producteurs de sirop d'érable"
+
+#. module: maple
+#: model:ir.actions.act_window,name:maple.producer_list_action
+msgid "Maple Producers List"
+msgstr "Liste des producteurs de sirop d'érable"
+
+#. module: maple
+#: model:ir.model,name:maple.model_maple_region
+#: model:ir.ui.view,arch_db:maple.region_form
+msgid "Maple Region"
+msgstr "Région de cueillette"
+
+#. module: maple
+#: model:product.category,name:maple.maple_product_category
+msgid "Maple Syrup"
+msgstr "Sirop d'érable"
+
+#. module: maple
+#: model:ir.model,name:maple.model_maple_grade
+msgid "Maple Syrup Classification"
+msgstr "Classification du sirop d'érable"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_product_template_container_state
+#: model:ir.model.fields,help:maple.field_product_template_container_type
+#: model:ir.model.fields,help:maple.field_stock_quant_container_state
+msgid "Maple Syrup Container Type"
+msgstr "Type de contenant de sirop d'érable"
+
+#. module: maple
+#: model:ir.actions.act_window,name:maple.maple_config_grades_action
+msgid "Maple Syrup Grades"
+msgstr "Classes de sirop d'érable"
+
+#. module: maple
+#: model:ir.actions.act_window,name:maple.maple_config_regions_action
+msgid "Maple Syrup Regions"
+msgstr "Régions de cueillette"
+
+#. module: maple
+#: model:ir.actions.act_window,name:maple.available_maple_list_action
+msgid "Maple available"
+msgstr "Sirop d'érable disponible"
+
+#. module: maple
+#: model:ir.actions.act_window,name:maple.confimed_maple_list_action
+msgid "Maple confirmed"
+msgstr "Sirop d'érable confirmé"
+
+#. module: maple
+#: model:ir.ui.menu,name:maple.maple_pickup_menu
+msgid "Maple pick-up"
+msgstr "Cueillette du sirop d'érable"
+
+#. module: maple
+#: model:ir.ui.menu,name:maple.maple_pickup_menu_list
+msgid "Maple pick-up list"
+msgstr "Liste de cueillette du sirop d'érable"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_product_template_grade
+msgid "Maple syrup class"
+msgstr "Classe de sirop d'érable"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_maple_grade_taste
+msgid "Maple taste or flavor characterizing this color class"
+msgstr "Goût ou saveur d'érable caractérisant cette classe de couleur"
+
+#. module: maple
+#: model:ir.ui.menu,name:maple.maple_container_menu
+msgid "Mapple container"
+msgstr "Contenants de sirop d'érable"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_product_template_controlled_weight
+msgid "Measured weight"
+msgstr "Poids brut mesuré"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_maple_grade_minLight
+msgid "Minimum light"
+msgstr "Transmission de lumière minimale"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_maple_grade_minLight
+msgid "Minimum light required by this class"
+msgstr "Transmission de lumière minimale requise pour cette classe"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.maple_partner_view_address_kanban_box
+msgid "Mobile:"
+msgstr "Cellulaire:"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_maple_region_description
+msgid "Name of picking and delivery region"
+msgstr "Nom de la région de cueillette et livraison"
+
+#. module: maple
+#: selection:product.template,container_state:0
+#: selection:stock.quant,container_state:0
+msgid "Non compliant"
+msgstr "Non conforme"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_res_partner_maple_bio_pending
+msgid "Organic Certification Pending"
+msgstr "Certification biologique en attente"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_res_partner_maple_organic_certification
+#: model:res.partner.id_category,name:maple.id_cert_bio
+msgid "Organic certification"
+msgstr "Certification biologique"
+
+#. module: maple
+#: selection:product.template,container_type:0
+msgid "Other"
+msgstr "Autre"
+
+#. module: maple
+#: model:product.template,name:maple.other_container
+msgid "Other kind of Barrel"
+msgstr "Autres genres de barils"
+
+#. module: maple
+#: model:ir.model,name:maple.model_res_partner
+msgid "Partner"
+msgstr "Partenaires"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_product_template_producer
+msgid "Partner which produced this product."
+msgstr "Partenaire qui a manufacturé ce produit."
+
+#. module: maple
+#: model:ir.ui.menu,name:maple.maple_partners_menu
+msgid "Partners"
+msgstr "Partenaires"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.maple_partner_view_address_kanban_box
+msgid "Phone:"
+msgstr "Téléphone:"
+
+#. module: maple
+#: selection:product.template,container_type:0
+msgid "Plastic Container"
+msgstr "Contenant de plastique"
+
+#. module: maple
+#: model:product.template,name:maple.plastica_container
+msgid "Plastica Barrel"
+msgstr "Baril Plastica"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_res_partner_maple_pound_produced
+msgid "Pound Produced"
+msgstr "Livres produites"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_res_partner_maple_pound_produced
+msgid "Pounds of maple syrup produced this season."
+msgstr "Livres de sirop d'érable produites cette saison."
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_product_template_producer
+#: model:ir.ui.view,arch_db:maple.farm_tree_view
+#: model:ir.ui.view,arch_db:maple.maple_partner_filter_view
+msgid "Producer"
+msgstr "Producteur"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_res_partner_maple_bio_pending
+msgid "Producer's organic certification is pending."
+msgstr "La certification biologique du producteur est en attente."
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_res_partner_maple_bio
+msgid "Producer's organic certification or annual renewal is valid."
+msgstr ""
+"La certification biologique du producteur ou son attestation annuelle est "
+"valide."
+
+#. module: maple
+#: model:ir.ui.menu,name:maple.maple_producers_menu_list
+msgid "Producers"
+msgstr "Producteurs"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_stock_quant_product_categ_id
+msgid "Product Category"
+msgstr "Catégorie de produit"
+
+#. module: maple
+#: model:ir.model,name:maple.model_product_template
+msgid "Product Template"
+msgstr "Gabarit de produit"
+
+#. module: maple
+#: selection:product.template,container_state:0
+#: selection:stock.quant,container_state:0
+msgid "Punctured"
+msgstr "Perforé"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_res_partner_maple_purity_certification
+#: model:res.partner.id_category,name:maple.Id_cert_purity
+msgid "Purity certification"
+msgstr "Certification de pureté"
+
+#. module: maple
+#: model:ir.model,name:maple.model_stock_quant
+msgid "Quants"
+msgstr ""
+
+#. module: maple
+#: model:product.template,name:maple.reused_su_container
+msgid "Re-used S-U Barrel"
+msgstr "Baril à usage unique réutilisé"
+
+#. module: maple
+#: selection:product.template,container_type:0
+msgid "Re-used Signle-use Container"
+msgstr "Baril à usage unique réutilisé"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_maple_region_description
+#: model:ir.model.fields,field_description:maple.field_res_partner_maple_region
+#: model:ir.model.fields,field_description:maple.field_res_partner_region
+#: model:ir.ui.view,arch_db:maple.maple_partner_filter_view
+msgid "Region"
+msgstr "Région"
+
+#. module: maple
+#: model:ir.ui.menu,name:maple.maple_config_menu_regions
+msgid "Regions"
+msgstr "Régions"
+
+#. module: maple
+#: model:product.template,name:maple.maple_product_reg
+msgid "Regular Maple Syrup"
+msgstr "Sirop d'érable régulier"
+
+#. module: maple
+#: model:maple.grade,taste:maple.grade_amber
+msgid "Rich taste"
+msgstr "Goût riche"
+
+#. module: maple
+#: model:maple.grade,taste:maple.grade_dark
+msgid "Robust taste"
+msgstr "Goût robuste"
+
+#. module: maple
+#: selection:product.template,container_state:0
+#: selection:stock.quant,container_state:0
+msgid "Rusty"
+msgstr "Rouillé"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_stock_quant_product_categ_id
+msgid "Select category for the current product"
+msgstr "Sélectionner la catégorie de ce produit"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_res_partner_default_owner_id
+msgid "Select the default buyer of this maple producer."
+msgstr "Sélectionner l'acheteur habituel de ce productur de sirop d'érable."
+
+#. module: maple
+#: model:product.template,name:maple.single_usage_container
+msgid "Single Usage Barrel"
+msgstr "Baril à usage unique"
+
+#. module: maple
+#: selection:product.template,container_type:0
+msgid "Single-Use Container"
+msgstr "Conenant à usage unique"
+
+#. module: maple
+#: selection:product.template,container_state:0
+#: selection:stock.quant,container_state:0
+msgid "Slightly bumped"
+msgstr "Légèrement bossé"
+
+#. module: maple
+#: model:product.template,name:maple.stainless_steel_container
+msgid "Stainless Steel Barrel"
+msgstr "Baril en acier inoxydable"
+
+#. module: maple
+#: selection:product.template,container_type:0
+msgid "Stainless Steel Container"
+msgstr "Contenant en acier inoxydable"
+
+#. module: maple
+#: model:maple.grade,taste:maple.grade_verydark
+msgid "Strong taste"
+msgstr "Goût prononcé"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_product_template_brix
+msgid ""
+"Sugar concentration of the maple syrup in degrees Brix - °Bx - defining its "
+"color class"
+msgstr ""
+"Concentration en sucre du sirop d'érable exprimée en degrés Brix - °Bx - "
+"définissant sa classe de couleur"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_stock_quant_container_tar_weight
+msgid "Tare"
+msgstr "Tare"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_maple_grade_taste
+msgid "Taste"
+msgstr "Goût"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_res_partner_maple_organic_certification
+msgid "The maple syrup producer has obtain the Organic certification. "
+msgstr "Le producteur a obtenu sa certification biologique."
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_res_partner_maple_purity_certification
+msgid "The maple syrup producer has obtain the Purity certification. "
+msgstr "Le producteur a obtenu sa certification de pureté."
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_res_partner_maple_pure
+msgid ""
+"The producer declared not having used any allergenic products this season."
+msgstr ""
+"Le producteur a déclaré ne pas avoir utilisé de produits allergènes dans sa "
+"production cette saison."
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_res_partner_maple_buyer
+msgid "This contact is a maple buyer."
+msgstr "Ce contact est un acheteur de sirop d'érable."
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_res_partner_maple_producer
+msgid "This contact is a maple producer."
+msgstr "Ce contact est un producteur de sirop d'érable."
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_res_partner_maple_farm
+msgid ""
+"This is the address of a maple farm where picking and delivery are done."
+msgstr ""
+"Il s'agit de l'adresse d'une érablière où s'effectuent la cueillette et la "
+"livraison."
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_product_template_maple_container
+msgid "This product is a maple syrup container."
+msgstr "Ce produit est un contenant de sirop d'érable."
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_product_template_maple_syrup
+msgid "This product is maple syrup."
+msgstr "Ce produit est du sirop d'érable."
+
+#. module: maple
+#: model:ir.model,name:maple.model_stock_picking
+msgid "Transfer"
+msgstr "Transférer"
+
+#. module: maple
+#: model:maple.grade,code:maple.grade_verydark
+msgid "VD"
+msgstr ""
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_product_template_container_valve
+msgid "Valve"
+msgstr "Valve"
+
+#. module: maple
+#: selection:product.template,container_state:0
+#: selection:stock.quant,container_state:0
+msgid "Very bumped"
+msgstr "Très bossé"
+
+#. module: maple
+#: model:maple.grade,name:maple.grade_verydark
+msgid "Very dark"
+msgstr "Très foncé"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_stock_quant_container_tar_weight
+msgid "Weight of empty container."
+msgstr "Poids du baril vide."

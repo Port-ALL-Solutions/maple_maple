@@ -15,8 +15,8 @@ class stockQuant(models.Model):
         readonly=True)
     
     container_tar_weight = fields.Float(
-        string='Tar weight', 
-        help='Weight of the container when empty. ')
+        string='Tare', 
+        help='Weight of empty container.')
     
     container_state = fields.Selection(
         selection=[  

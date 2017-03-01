@@ -7,5 +7,5 @@ class Contact(models.Model):
 	_name = 'res.partner'
 	_inherit = 'res.partner'
 	region = fields.Char(string="Region")
-	fpaqNum = fields.Char(string="FPAQ num")
-	siteNum = fields.Char(string="Site num")
+	fpaqCode = fields.Char(string="FPAQ")
+	intCode = fields.Char(string="Internal Code")

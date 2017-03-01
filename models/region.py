@@ -7,13 +7,13 @@ class Region(models.Model):
     
     description = fields.Char(
         string = 'Region',
-        help = 'Name of the region maple region',
+        help = 'Name of picking and delivery region',
         required=True,
         translate=True)
 
     name = fields.Char(
         string = 'Code',
         size = 2,
-        help = 'Maple Syrup region codes',
+        help = 'Code of picking and delivery region',
         required=True)
     

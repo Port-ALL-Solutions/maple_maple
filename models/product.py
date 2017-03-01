@@ -9,48 +9,49 @@ class Product(models.Model):
 	producer = fields.Many2one(
 		'res.partner', 
 		string="Producer",
-		help="The partner producing this product")
+		help="Partner which produced this product.")
 
 	maple_syrup = fields.Boolean(
 		string="Is maple syrup",
-		help="Check this box if this product is maple syrup. ")
+		help="This product is maple syrup.")
 	
 	maple_container = fields.Boolean(
-		string="Is maple syrup container",
-		help="Check this box if this product is maple syrup container. ")
+		string="Is a maple syrup container",
+		help="This product is a maple syrup container.")
 		
 	light = fields.Integer(
 		string="Light",
-		help="% of light transmission, use to define grade")
+		help="% of light transmission defining maple syrup color class")
 
 	brix = fields.Float(
-		string="Brix")
+		string="Brix",
+		help="Sugar concentration of the maple syrup in degrees Brix - °Bx - defining its color class")
 
 	grade = fields.Many2one(
 		'maple.grade', 
-		string="Grade",
-		help="Grade of this maple syrup")
+		string="Class",
+		help="Maple syrup class")
 
 	expected_weight = fields.Float(
 		string='Expected weight',
-		help='Expected weight of the product. ') 
+		help='Expected weight of the product.') 
 	
-	controled_weight = fields.Float(
-		string='Measure weight',
-		help='Controled weight of the product. ') 
+	controlled_weight = fields.Float(
+		string='Measured weight',
+		help='Controlled weight of the product.') 
 
 	adjusted_weight = fields.Float(
-		string='Expected weight',
-		help='Automated Adjusted weight of the product base on controled weight and brix values. ')
+		string='Adjusted weight',
+		help='Computed weight of the product - based on controlled weight and degrees Brix.')
 	
 	container_type = fields.Selection([
 		('S', 'Stainless Steel Container'),
 		('A', 'Other'),
 		('G', 'Galvanized Steel Container'),
-		('P', 'Platic Container'),
-		('C', 'CDL Container'),
-		('U', 'Unique used Container'),
-		('R', 'Re-used unique used Container')],
+		('P', 'Plastic Container'),
+		('C', 'CDL Plastic Container'),
+		('U', 'Single-Use Container'),
+		('R', 'Re-used Signle-use Container')],
 		'Container Type',
 		help="Maple Syrup Container Type")
 	

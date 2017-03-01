@@ -10,7 +10,7 @@
       		<field name="arch" type="xml">
         		<xpath expr="//field[@name='website']" position="before">
           			<field name="maple_region"/>
-          			<field name="maple_bio_waiting"/>
+          			<field name="maple_bio_pending"/>
           			<field name="maple_bio"/>
           			<field name="maple_pure"/>
         		</xpath>
@@ -37,8 +37,8 @@
       		<field name="inherit_id" ref="base.view_partner_form"/>
       		<field name="arch" type="xml">
         		<xpath expr="//field[@name='lang']" position="after">
-       				<field name="fpaqNum" attrs="{'invisible': [('maple_producer', '!=', True)]}"/>
-       				<field name="siteNum" attrs="{'invisible': [('maple_producer', '!=', True)]}"/>
+       				<field name="fpaqCode" attrs="{'invisible': [('maple_producer', '!=', True)]}"/>
+       				<field name="intCode" attrs="{'invisible': [('maple_producer', '!=', True)]}"/>
         		</xpath>
       		</field>
     	</record>

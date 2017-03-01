@@ -6,7 +6,7 @@
 			<field name="name">maple.region.list</field>
 		    <field name="model">maple.region</field>
 		    <field name="arch" type="xml">
-                <tree string="List of Maple Syrup Region" toolbar="1" >
+                <tree string="List of Maple Syrup Picking Regions" toolbar="1" >
     				<field name="name"/>
 	     			<field name="description"/>
     				<field name="id" invisible="1"/>

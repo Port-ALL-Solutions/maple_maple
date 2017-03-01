@@ -2,11 +2,6 @@
 <odoo>
 	<data>
 
-		<record id="id_fpaq" model="res.partner.id_category">
-            <field name="name">FPAQ Productor number</field>		
-            <field name="code">FPAQ</field>		
-		</record>	
-	
 		<record id="id_cert_bio" model="res.partner.id_category">
             <field name="name">Organic certification</field>		
             <field name="code">BIO</field>		

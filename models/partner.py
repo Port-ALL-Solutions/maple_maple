@@ -2,6 +2,7 @@
 
 from openerp import models, fields, api
 from odoo.tools.yaml_tag import record_constructor
+from datetime import date
 
 # modifier le contact (partner) de Odoo pour inclure sa région et son numéro FPAQ
 class Contact(models.Model):
@@ -40,7 +41,12 @@ class Contact(models.Model):
 		help="Check this box if this mapple farm address. ",
 		compute='_compute_maple_farm',
 		store=True)
-		
+				
+	maple_bio_waiting = fields.Boolean(string='Organic awaiting',
+		help="Check this box if this producer is waiting a valid Organic certification. ",
+		compute='_compute_maple_id',
+		store=True)
+
 	maple_bio = fields.Boolean(string='Organic certified',
 		help="Check this box if this producer has a valid Organic certification. ",
 		compute='_compute_maple_id',
@@ -51,10 +57,6 @@ class Contact(models.Model):
 		compute='_compute_maple_id',
 		store=True)
 
-	maple_fpaq = fields.Char(string="FPAQ Producer Number",
-		compute='_compute_maple_id',
-		store=True)
-		
 	@api.depends('parent_id', 'type')
 	def _compute_maple_farm(self):
 		for record in self:
@@ -64,14 +66,17 @@ class Contact(models.Model):
 	def _compute_maple_id(self):
 		for record in self:
 			 if record.id_numbers:
-			 	record.maple_fpaq = '-- NONE --'
 			 	record.maple_pure = False
-			 	record.maple.bio = False
-			 	identifications = self.env['res.partner.id_number'].browse(record.id_numbers)			 	
-			 	for identification in identifications:
-			 		if identification.category_id.code == "FPAQ":
-			 			record.maple_fpaq = identification.name
+			 	record.maple_bio = False
+			 	maple_bio_waiting = False
+#			 	identifications = self.env['res.partner.id_numbers'].browse(record.id_numbers)			 	
+			 	for identification in record.id_numbers:
 			 		if identification.category_id.code == "PURE":
 			 			record.maple_pure = True
 			 		if identification.category_id.code == "BIO":
-			 			record.maple_bio = True
+			 			if identification.valid_until and identification.valid_until >= date.today:
+			 				record.maple_bio = True
+			 				record.maple_bio_waiting = False
+			 			else:
+			 				record.maple_bio = False
+		 					record.maple_bio_waiting = True

@@ -28,10 +28,12 @@
 		<field name="arch" type="xml">
 			<tree string="Maple Producer">
 				<field name="name"/>
+				<field name="intCode"/>
+				<field name="fpaqCode"/>
 				<field name="maple_region"/>
-				<field name="fpaqCode"/>				
 				<field name="street"/>
 				<field name="city"/>
+				<!-- field name="state"/ -->				
 				<field name="phone"/>
 				<field name="id" invisible="1"/>
 			</tree>

@@ -46,6 +46,7 @@ This module provides mosly fields and views.
 # Chargement des modifications au vues standard
         'views/partner_view.xml',
         'views/product_view.xml',
+        'views/stock_location_view.xml',
 # Chargement des nouvelles vues spécifiques à Maple
         'views/barrel_view.xml',
         'views/grade_view.xml',

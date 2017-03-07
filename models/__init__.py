@@ -8,3 +8,4 @@ import region
 import picking
 import stockQuant
 import purchase
+import stockLocation

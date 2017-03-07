@@ -32,6 +32,31 @@
 			<field name="category_id" ref="module_category_maple_management"/>
 			<field name="implied_ids" eval="[(4, ref('base.user_root'))]"/>
         </record>      
+
+		<record id="stock.group_production_lot" model="res.groups">
+			<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+ 			<field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.default_user'))]"/>
+        </record>      
+
+		<record id="stock.group_tracking_owner" model="res.groups">
+			<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+ 			<field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.default_user'))]"/>
+        </record>      
+
+		<record id="stock.group_adv_location" model="res.groups">
+			<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+ 			<field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.default_user'))]"/>
+        </record>      
+
+		<record id="stock.group_stock_multi_locations" model="res.groups">
+			<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+ 			<field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.default_user'))]"/>
+        </record>      
+
+		<record id="stock.group_stock_multi_warehouses" model="res.groups">
+			<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+ 			<field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.default_user'))]"/>
+        </record>      
         
 	</data>
 </odoo>

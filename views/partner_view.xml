@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	<data>
+
 	
     	<record id="maple_partner_view_region" model="ir.ui.view">
       		<field name="name">maple.partner_view</field>

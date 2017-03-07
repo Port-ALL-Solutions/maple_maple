@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+	
+		<record id="base.lang_fr_CA" model="res.lang">
+            <field name="active">1</field>
+		</record>	
+
+		<record id="base.lang_en" model="res.lang">
+            <field name="active">1</field>
+		</record>	
+
+	</data>
+</odoo>
+	

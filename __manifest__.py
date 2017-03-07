@@ -34,7 +34,9 @@ This module provides mosly fields and views.
     ],
     'data': [
 # Chargement des groups, users et rules pour la sécurité
+        'data/lang.xml',        
         'data/identification.xml',        
+ #       'data/res.groups.users.rel.csv',        
         'security/groups.xml',
 # COMMENTÉ CAR MESSAGE :
 # "You cannot create a new user from here.
@@ -49,10 +51,13 @@ This module provides mosly fields and views.
         'views/grade_view.xml',
         'views/region_view.xml',
         'views/producer_view.xml',
+        'views/purchase_view.xml',
 # Chargement d'enregistrements, les fichiers devraient correspondres au modèles
 # Devrait être au pluriel sauf exceptions
         'data/grades.xml',
-        'data/products.xml',
+        'data/product_categories.xml',        
+#        'data/products.xml',
+        'data/product.template.csv',        
 # Chargement des actions et des menus
         'views/actions.xml',                
         'views/menuitems.xml',                

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="maple_category" model="product.category">
+            <field name="name">Maple Syrup</field>		
+		</record>	
+
+		<record id="container_category" model="product.category">
+            <field name="name">Maple Container</field>		
+		</record>
+		
+		<record id="container_category_p" model="product.category">
+            <field name="name">Plastic Container</field>		
+            <field name="parent_id" ref="container_category"/>
+		</record>
+
+		<record id="container_category_s" model="product.category">
+            <field name="name">Stainless Steel Container</field>		
+            <field name="parent_id" ref="container_category"/>
+		</record>
+
+		<record id="container_category_g" model="product.category">
+            <field name="name">Galvanized Steel Container</field>		
+            <field name="parent_id" ref="container_category"/>
+		</record>
+
+		<record id="container_category_u" model="product.category">
+            <field name="name">Single Usage Container</field>		
+            <field name="parent_id" ref="container_category"/>
+		</record>
+
+		<record id="container_category_r" model="product.category">
+            <field name="name">Reused single usage Container</field>		
+            <field name="parent_id" ref="container_category"/>
+		</record>
+
+		<record id="container_category_c" model="product.category">
+            <field name="name">CDL Container</field>		
+            <field name="parent_id" ref="container_category"/>
+		</record>
+
+		<record id="container_category_a" model="product.category">
+            <field name="name">Other Container</field>		
+            <field name="parent_id" ref="container_category"/>
+		</record>
+
+	</data>
+</odoo>
+	

@@ -2,75 +2,53 @@
 <odoo>
 	<data>
 
-		<record id="maple_product_category" model="product.category">
-            <field name="name">Maple Syrup</field>		
-		</record>	
-	
-		<record id="container_product_category" model="product.category">
-            <field name="name">Maple Container</field>		
-		</record>
-		
-		<record id="maple_product_bio" model="product.template">
-            <field name="name">Biologic Maple Syrup</field>		
-            <field name="default_code">BIO</field>
-            <field name="type">product</field>
-            <field name="categ_id" ref="maple_product_category"/>
-		</record>	
-	
-		<record id="maple_product_reg" model="product.template">
-            <field name="name">Regular Maple Syrup</field>				
-            <field name="default_code">REG</field>		
-            <field name="type">product</field>
-            <field name="categ_id" ref="maple_product_category"/>		
-		</record>	
-
 		<record id="stainless_steel_container" model="product.template">
             <field name="name">Stainless Steel Barrel</field>				
             <field name="default_code">S</field>		
             <field name="type">product</field>
-            <field name="categ_id" ref="container_product_category"/>		
+            <field name="categ_id" ref="container_category"/>		
 		</record>	
 
 		<record id="galvanized_steel_container" model="product.template">
             <field name="name">Galvanised Steel Barrel</field>				
             <field name="default_code">G</field>		
             <field name="type">product</field>
-            <field name="categ_id" ref="container_product_category"/>		
+            <field name="categ_id" ref="container_category"/>		
 		</record>	
 
 		<record id="plastica_container" model="product.template">
             <field name="name">Plastica Barrel</field>				
             <field name="default_code">P</field>		
             <field name="type">product</field>
-            <field name="categ_id" ref="container_product_category"/>		
+            <field name="categ_id" ref="container_category"/>		
 		</record>	
 
 		<record id="cdl_container" model="product.template">
             <field name="name">CDL Barrel</field>				
             <field name="default_code">C</field>		
             <field name="type">product</field>
-            <field name="categ_id" ref="container_product_category"/>		
+            <field name="categ_id" ref="container_category"/>		
 		</record>	
 
 		<record id="single_usage_container" model="product.template">
             <field name="name">Single Usage Barrel</field>				
             <field name="default_code">U</field>		
             <field name="type">product</field>
-            <field name="categ_id" ref="container_product_category"/>		
+            <field name="categ_id" ref="container_category"/>		
 		</record>	
 
 		<record id="other_container" model="product.template">
             <field name="name">Other kind of Barrel</field>				
             <field name="default_code">A</field>		
             <field name="type">product</field>
-            <field name="categ_id" ref="container_product_category"/>		
+            <field name="categ_id" ref="container_category"/>		
 		</record>	
 
 		<record id="reused_su_container" model="product.template">
             <field name="name">Re-used S-U Barrel</field>				
             <field name="default_code">R</field>		
             <field name="type">product</field>
-            <field name="categ_id" ref="container_product_category"/>		
+            <field name="categ_id" ref="container_category"/>		
 		</record>	
 
 	</data>

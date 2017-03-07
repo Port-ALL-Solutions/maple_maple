@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+	
+    	<record id="purchase_view_location_form" model="ir.ui.view">
+      		<field name="name">maple.purchase_view_location_form</field>
+      		<field name="model">purchase.order</field>
+      		<field name="inherit_id" ref="purchase.purchase_order_form"/>
+      		<field name="arch" type="xml">
+        		<xpath expr="//field[@name='date_order']" position="after">
+          			<field name="location_id"/>
+        		</xpath>
+      		</field>
+    	</record>
+
+    	<record id="purchase_view_location_tree" model="ir.ui.view">
+      		<field name="name">maple.purchase_view_location_tree</field>
+      		<field name="model">purchase.order</field>
+      		<field name="inherit_id" ref="purchase.purchase_order_tree"/>
+      		<field name="arch" type="xml">
+        		<xpath expr="//field[@name='date_order']" position="after">
+          			<field name="location_id"/>
+        		</xpath>
+      		</field>
+    	</record>
+
+
+	</data>
+</odoo>
+

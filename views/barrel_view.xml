@@ -10,7 +10,7 @@
 		            <field name="name"
 		               filter_domain="['|','|',('name','ilike',self),('parent_id','ilike',self),('ref','=',self)]"/>
 		            <separator/>
-		            <filter string="Maple Container" name="maple_container" domain="[('product_categ_id','=',4)]"/>
+		            <filter string="Maple Container" name="maple_container" domain="[('product_categ_id','child_of',4)]"/>
 		        </search>
 		    </field>
 		</record>

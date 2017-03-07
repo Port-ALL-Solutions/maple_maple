@@ -7,3 +7,4 @@ import product
 import region
 import picking
 import stockQuant
+import purchase

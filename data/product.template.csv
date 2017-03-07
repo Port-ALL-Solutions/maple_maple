@@ -1,0 +1,59 @@
+id,default_code,name,weight,type,categ_id/id,maple_container,tracking
+container_A33,A33,Other barrel (tar:33),33,product,maple.container_category_a,1,serial
+container_A34,A34,Other barrel (tar:34),34,product,maple.container_category_a,1,serial
+container_G36,G36,Galvanized Steel barrel (tar:36),36,product,maple.container_category_g,1,serial
+container_G37,G37,Galvanized Steel barrel (tar:37),37,product,maple.container_category_g,1,serial
+container_G39,G39,Galvanized Steel barrel (tar:39),39,product,maple.container_category_g,1,serial
+container_G40,G40,Galvanized Steel barrel (tar:40),40,product,maple.container_category_g,1,serial
+container_G41,G41,Galvanized Steel barrel (tar:41),41,product,maple.container_category_g,1,serial
+container_G42,G42,Galvanized Steel barrel (tar:42),42,product,maple.container_category_g,1,serial
+container_G44,G44,Galvanized Steel barrel (tar:44),44,product,maple.container_category_g,1,serial
+container_G45,G45,Galvanized Steel barrel (tar:45),45,product,maple.container_category_g,1,serial
+container_G46,G46,Galvanized Steel barrel (tar:46),46,product,maple.container_category_g,1,serial
+container_G47,G47,Galvanized Steel barrel (tar:47),47,product,maple.container_category_g,1,serial
+container_G48,G48,Galvanized Steel barrel (tar:48),48,product,maple.container_category_g,1,serial
+container_G53,G53,Galvanized Steel barrel (tar:53),53,product,maple.container_category_g,1,serial
+container_P20,P20,Plastic barrel (tar:20),20,product,maple.container_category_p,1,serial
+container_P23,P23,Plastic barrel (tar:23),23,product,maple.container_category_p,1,serial
+container_P24,P24,Plastic barrel (tar:24),24,product,maple.container_category_p,1,serial
+container_P30,P30,Plastic barrel (tar:30),30,product,maple.container_category_p,1,serial
+container_P32,P32,Plastic barrel (tar:32),32,product,maple.container_category_p,1,serial
+container_P33,P33,Plastic barrel (tar:33),33,product,maple.container_category_p,1,serial
+container_P34,P34,Plastic barrel (tar:34),34,product,maple.container_category_p,1,serial
+container_P35,P35,Plastic barrel (tar:35),35,product,maple.container_category_p,1,serial
+container_P40,P40,Plastic barrel (tar:40),40,product,maple.container_category_p,1,serial
+container_P41,P41,Plastic barrel (tar:41),41,product,maple.container_category_p,1,serial
+container_P44,P44,Plastic barrel (tar:44),44,product,maple.container_category_p,1,serial
+container_P48,P48,Plastic barrel (tar:48),48,product,maple.container_category_p,1,serial
+container_S23,S23,Stainless Steel barrel (tar:23),23,product,maple.container_category_s,1,serial
+container_S41,S41,Stainless Steel barrel (tar:41),41,product,maple.container_category_s,1,serial
+container_S44,S44,Stainless Steel barrel (tar:44),44,product,maple.container_category_s,1,serial
+container_S45,S45,Stainless Steel barrel (tar:45),45,product,maple.container_category_s,1,serial
+container_S47,S47,Stainless Steel barrel (tar:47),47,product,maple.container_category_s,1,serial
+container_S48,S48,Stainless Steel barrel (tar:48),48,product,maple.container_category_s,1,serial
+container_S49,S49,Stainless Steel barrel (tar:49),49,product,maple.container_category_s,1,serial
+container_S50,S50,Stainless Steel barrel (tar:50),50,product,maple.container_category_s,1,serial
+container_S53,S53,Stainless Steel barrel (tar:53),53,product,maple.container_category_s,1,serial
+container_S59,S59,Stainless Steel barrel (tar:59),59,product,maple.container_category_s,1,serial
+container_U32,U32,Single Use barrel (tar:32),32,product,maple.container_category_u,1,serial
+container_U33,U33,Single Use barrel (tar:33),33,product,maple.container_category_u,1,serial
+container_U34,U34,Single Use barrel (tar:34),34,product,maple.container_category_u,1,serial
+container_U35,U35,Single Use barrel (tar:35),35,product,maple.container_category_u,1,serial
+container_U36,U36,Single Use barrel (tar:36),36,product,maple.container_category_u,1,serial
+container_U37,U37,Single Use barrel (tar:37),37,product,maple.container_category_u,1,serial
+container_U38,U38,Single Use barrel (tar:38),38,product,maple.container_category_u,1,serial
+container_U39,U39,Single Use barrel (tar:39),39,product,maple.container_category_u,1,serial
+container_U40,U40,Single Use barrel (tar:40),40,product,maple.container_category_u,1,serial
+container_U41,U41,Single Use barrel (tar:41),41,product,maple.container_category_u,1,serial
+container_U42,U42,Single Use barrel (tar:42),42,product,maple.container_category_u,1,serial
+container_U43,U43,Single Use barrel (tar:43),43,product,maple.container_category_u,1,serial
+container_U44,U44,Single Use barrel (tar:44),44,product,maple.container_category_u,1,serial
+container_U45,U45,Single Use barrel (tar:45),45,product,maple.container_category_u,1,serial
+container_U46,U46,Single Use barrel (tar:46),46,product,maple.container_category_u,1,serial
+container_U47,U47,Single Use barrel (tar:47),47,product,maple.container_category_u,1,serial
+container_U48,U48,Single Use barrel (tar:48),48,product,maple.container_category_u,1,serial
+container_U49,U49,Single Use barrel (tar:49),49,product,maple.container_category_u,1,serial
+container_U50,U50,Single Use barrel (tar:50),50,product,maple.container_category_u,1,serial
+container_U51,U51,Single Use barrel (tar:51),51,product,maple.container_category_u,1,serial
+container_U52,U52,Single Use barrel (tar:52),52,product,maple.container_category_u,1,serial
+container_U53,U53,Single Use barrel (tar:53),53,product,maple.container_category_u,1,serial

@@ -23,15 +23,15 @@ class Contact(models.Model):
 		string="Region", 
 		help="Internal code of the region where maple syrup picking and empty barrels delivery are done.")
 	
-	default_owner_id = fields.Many2one( 'res.partner', 
+	default_owner_id = fields.Many2one('res.partner', 
 		string="Default Buyer", 
 		domain=[('maple_buyer', '=', True)],				
 		help="Select the default buyer of this maple producer.")
 	
-	maple_organic_certification = fields.Boolean(string="Organic certification", 
+	maple_organic_certification = fields.Boolean(string="Organic Cert.", 
 		help="The maple syrup producer has obtain the Organic certification. ")
 	
-	maple_purity_certification = fields.Boolean(string="Purity certification", 
+	maple_purity_certification = fields.Boolean(string="Purity Cert.", 
 		help="The maple syrup producer has obtain the Purity certification. ")
 
 	maple_pound_produced = fields.Integer(string='Pound Produced',
@@ -42,18 +42,29 @@ class Contact(models.Model):
 		compute='_compute_maple_farm',
 		store=True)
 				
-	maple_bio_pending = fields.Boolean(string='Organic Certification Pending',
-		help="Producer's organic certification is pending.",
+	maple_bio_check_on_order = fields.Boolean(string="Must Confirm", 
+		help="The maple syrup producer must specify Organic or Regular Order. ")
+
+	maple_bio = fields.Boolean(string='Certified Organic',
+		help="Producer's organic certification or annual renewal is valid. ",
 		compute='_compute_maple_id',
 		store=True)
 
-	maple_bio = fields.Boolean(string='Certified Organic',
-		help="Producer's organic certification or annual renewal is valid.",
+	maple_bio_state = fields.Selection([
+		('N', 'None'),
+		('P', 'Pending'),
+		('V', 'Valide')],
+		help="Producer's organic certification State. ",
+		compute='_compute_maple_id',
+		store=True)
+
+	maple_bio_pending = fields.Boolean(string='Pending Cert. Org.',
+		help="Producer's organic certification or annual renewal is pending. ",
 		compute='_compute_maple_id',
 		store=True)
 
 	maple_pure = fields.Boolean(string='Certified Purity',
-		help="The producer declared not having used any allergenic products this season.",
+		help="The producer declared not having used any allergenic products this season. ",
 		compute='_compute_maple_id',
 		store=True)
 
@@ -68,15 +79,18 @@ class Contact(models.Model):
 			 if record.id_numbers:
 			 	record.maple_pure = False
 			 	record.maple_bio = False
-			 	maple_bio_pending = False
+			 	record.maple_bio_pending = False
+			 	record.maple_bio_state = "N"
 #			 	identifications = self.env['res.partner.id_numbers'].browse(record.id_numbers)			 	
 			 	for identification in record.id_numbers:
 			 		if identification.category_id.code == "PURE":
 			 			record.maple_pure = True
 			 		if identification.category_id.code == "BIO":
 			 			if identification.valid_until and identification.valid_until >= date.today:
-			 				record.maple_bio = True
-			 				record.maple_bio_pending = False
+						 	record.maple_bio = True
+						 	record.maple_bio_pending = False
+						 	record.maple_bio_state = "V"
 			 			else:
-			 				record.maple_bio = False
-		 					record.maple_bio_pending = True
+						 	record.maple_bio = False
+						 	record.maple_bio_pending = True
+						 	record.maple_bio_state = "P"

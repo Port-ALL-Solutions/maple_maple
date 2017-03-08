@@ -2,19 +2,13 @@
 <odoo>
 	<data>
 
-		<record id="raw_maple" model="product.template">
-            <field name="name">Raw Maple Syrup</field>				
-            <field name="default_code">E</field>		
-            <field name="type">product</field>
-            <field name="maple_syrup">1</field>
-            <field name="categ_id" ref="maple_category"/>		
-		</record>	
-
 		<record id="regular_maple" model="product.template">
             <field name="name">Regular Maple</field>				
             <field name="default_code">R</field>		
             <field name="type">product</field>
             <field name="maple_syrup">1</field>
+            <field name="sale_ok">1</field>
+            <field name="purchase_ok">1</field>
             <field name="categ_id" ref="maple_category"/>		
 		</record>	
 
@@ -23,12 +17,14 @@
             <field name="default_code">O</field>		
             <field name="type">product</field>
             <field name="maple_syrup">1</field>
+            <field name="sale_ok">1</field>
+            <field name="purchase_ok">1</field>
             <field name="categ_id" ref="maple_category"/>		
-		</record>	
+		</record>
 
-		<record id="purchase_barrel" model="product.template">
-            <field name="name">Maple Syrup Barel (to identified)</field>				
-            <field name="default_code">B</field>		
+		<record id="regular_maple_barrel" model="product.template">
+            <field name="name">Regural Maple Syrup Barel</field>				
+            <field name="default_code">BR</field>		
             <field name="type">product</field>
             <field name="maple_syrup">1</field>
             <field name="sale_ok">0</field>
@@ -36,9 +32,9 @@
             <field name="categ_id" ref="maple_category"/>		
 		</record>	
 
-		<record id="purchase_tote" model="product.template">
-            <field name="name">Maple Syrup Tote (to identified)</field>				
-            <field name="default_code">T</field>		
+		<record id="organic_maple_barrel" model="product.template">
+            <field name="name">Organic Maple Syrup Barel</field>				
+            <field name="default_code">BB</field>		
             <field name="type">product</field>
             <field name="maple_syrup">1</field>
             <field name="sale_ok">0</field>
@@ -46,6 +42,25 @@
             <field name="categ_id" ref="maple_category"/>		
 		</record>	
 
+		<record id="regular_maple_tote" model="product.template">
+            <field name="name">Regural Maple Syrup Tote</field>				
+            <field name="default_code">TR</field>		
+            <field name="type">product</field>
+            <field name="maple_syrup">1</field>
+            <field name="sale_ok">0</field>
+            <field name="purchase_ok">1</field>
+            <field name="categ_id" ref="maple_category"/>		
+		</record>	
+
+		<record id="organic_maple_tote" model="product.template">
+            <field name="name">Organic Maple Syrup Tote</field>				
+            <field name="default_code">TB</field>		
+            <field name="type">product</field>
+            <field name="maple_syrup">1</field>
+            <field name="sale_ok">0</field>
+            <field name="purchase_ok">1</field>
+            <field name="categ_id" ref="maple_category"/>		
+		</record>	
 
 	</data>
 </odoo>

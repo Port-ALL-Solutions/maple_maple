@@ -22,21 +22,6 @@
 	      </field>
 	    </record>
 
-	    <!-- modification de la vue pour le partenaire, pour inclure FPAQ et Region  -->
-	    <record id="product_view_maple_sheet" model="ir.ui.view">
-	      <field name="name">maple.product.view_sheet</field>
-	      <field name="model">product.template</field>
-	      <field name="inherit_id" ref="product.product_template_only_form_view"/>
-	      <field name="arch" type="xml">
-	        <xpath expr="//field[@name='categ_id']" position="after">
-	          <div>
-	            <field name="maple_syrup"/>
-	            <label for="maple_syrup"/>
-	          </div>
-	        </xpath>
-	      </field>
-	    </record>
-
 	    <!-- modification de la vue pour product kanban pour remplacer le prix par le stock -->
 	    <record id="product_template_kanban_view" model="ir.ui.view">
 	      <field name="name">maple.product_template_kanban_view</field>
@@ -47,6 +32,21 @@
 	        </xpath>
 	      </field>
 	    </record>
+
+		<record id="maple_product_filter_view" model="ir.ui.view">
+		    <field name="name">maple.product.filter.view</field>
+		    <field name="model">product.template</field>
+		    <field name="priority">50</field>
+		    <field name="arch" type="xml">
+		        <search string="Maple Products">
+		            <field name="name"
+		               filter_domain="['|',('name','ilike',self),('default_code','ilike',self)]"/>
+		            <separator/>
+		            <filter string="Maple Products" name="maple_syrup" domain="[('maple_syrup','=',1)]"/>
+		        </search>
+		    </field>
+		</record>
+
 
 	</data>
 </odoo>

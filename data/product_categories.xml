@@ -40,6 +40,11 @@
             <field name="parent_id" ref="container_category"/>
 		</record>
 
+		<record id="container_category_t" model="product.category">
+            <field name="name">Tote</field>		
+            <field name="parent_id" ref="container_category"/>
+		</record>
+
 		<record id="container_category_a" model="product.category">
             <field name="name">Other Container</field>		
             <field name="parent_id" ref="container_category"/>

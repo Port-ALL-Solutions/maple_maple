@@ -57,3 +57,5 @@ container_U50,U50,Single Use barrel (tar:50),50,product,maple.container_category
 container_U51,U51,Single Use barrel (tar:51),51,product,maple.container_category_u,1,serial
 container_U52,U52,Single Use barrel (tar:52),52,product,maple.container_category_u,1,serial
 container_U53,U53,Single Use barrel (tar:53),53,product,maple.container_category_u,1,serial
+container_T1040,T1040,IBC Tote (1040 L),200,product,maple.container_category_t,1,serial
+container_T1250,T1250,IBC Tote (1250 L),230,product,maple.container_category_t,1,serial

@@ -111,7 +111,18 @@
                 <p class="oe_view_nocontent_create">Create the first maple container</p>
             </field>
             <field name="context">{'search_default_maple_container': 1,'default_maple_container': 1}</field>
+        </record>
 
+        <record model="ir.actions.act_window" id="maple_config_product_action">
+            <field name="name">Maple Products</field>
+            <field name="res_model">product.template</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="search_view_id" ref="maple_product_filter_view"/>                        
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first maple product</p>
+            </field>
+            <field name="context">{'search_default_maple_product': 1,'default_maple_product': 1}</field>
         </record>
 
 	</data>

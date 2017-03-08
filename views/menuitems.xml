@@ -71,5 +71,10 @@
         	parent="maple_config_menu"
             action="maple_config_regions_action"/>
 
+        <menuitem id="maple_config_maple_product"
+        	name="Maple Products"
+        	parent="maple_config_menu"
+            action="maple_config_product_action"/>
+
 	</data>
 </odoo>

@@ -57,7 +57,7 @@ This module provides mosly fields and views.
 # Devrait être au pluriel sauf exceptions
         'data/grades.xml',
         'data/product_categories.xml',        
-#        'data/products.xml',
+        'data/products.xml',
         'data/product.template.csv',        
 # Chargement des actions et des menus
         'views/actions.xml',                

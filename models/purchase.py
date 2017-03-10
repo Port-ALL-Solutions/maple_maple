@@ -9,9 +9,19 @@ class PurchaseOrder(models.Model):
         index=True, required=True, states={'done': [('readonly', True)]},
         help="Sets a destination location where to put the stock after reception.")
     
+    owner_id = fields.Many2one(
+        'res.partner', 'Owner',
+        domain=[('maple_buyer', '=', True)],
+        help="Default Owner")
+    
 class PurchaseOrderLine(models.Model):
 #    _name = "purchase.order"
     _inherit = 'purchase.order.line'
+    
+    maple_outside_qc = fields.Boolean(string='HQ',
+        related='partner_id.maple_outside_qc',                                    
+        help="This is an outside of Quebec Partner.",
+        store=True)    
     
     partner_fpaqCode = fields.Char(
         string='FPAQ',
@@ -46,11 +56,17 @@ class PurchaseOrderLine(models.Model):
         store = True
         )
     
-#    partner_phone_farm = fields.Char(
-#        string='Phone',
-#        related='partner_id.phone',
-#        store = True
-#        )
+    partner_phone_farm = fields.Char(
+        string='Phone',
+        related='partner_id.phone',
+        store = True
+       )
     
-
+    owner_id = fields.Many2one(
+        'res.partner', 'Owner',
+        help="Default Owner")
     
+    owner_ref = fields.Char(
+        string='Owner',
+        related='owner_id.ref'
+        )

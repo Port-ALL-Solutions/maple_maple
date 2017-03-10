@@ -5,7 +5,7 @@
     'name': 'Maple',
     'category': 'Vertical',
     'version': '1.0',
-    'author': "Benoît Vézina & Pierre Dalpé pour Portall",
+    'author': "Benoit Vézina & Pierre Dalpé pour Portall",
     'website': "portall.ca",
     'summary': 'Odoo adaptation for maple syrup industry.',
     'description':
@@ -18,7 +18,7 @@ This module provides mosly fields and views.
     'depends': [
         'auto_backup',
         'base',
-        'base_phone',        
+#        'base_phone',        
         'base_location',        
         'contacts',
         'document',

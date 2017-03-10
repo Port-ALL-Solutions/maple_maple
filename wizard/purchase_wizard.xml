@@ -10,9 +10,21 @@
                         <group>
                             <field name="date_order"/>
                             <field name="partner_id"/>
-                            <field name="organic"/>
+                            <field name="partner_street" readonly="1"/>
+                            <field name="partner_region" readonly="1"/>
+                            <field name="partner_city" readonly="1"/>
+                            <field name="partner_state" readonly="1"/>
+                            <field name="maple_bio_state" readonly="1"/>
+                            <field name="partner_fpaqCode" readonly="1"/>
+                        </group>
+                    
+                        <group>
+                            <field name="organic" />
                             <field name="qty_barrel"/>
                             <field name="qty_tote"/>
+                        </group>
+                    
+                        <group>
                             <field name="owner_id"/>
                             <field name="location_id"/>
                         </group>

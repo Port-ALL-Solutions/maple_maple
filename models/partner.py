@@ -19,6 +19,10 @@ class Contact(models.Model):
 	maple_buyer = fields.Boolean(string='Is a maple Buyer',
 		help="This contact is a maple buyer.")
 	
+	maple_outside_qc = fields.Boolean(string='HQ',
+		compute='_compute_outside_qc',									
+		help="This is an outside of Quebec Partner.")
+	
 	maple_region = fields.Many2one(	'maple.region', 
 		string="Region", 
 		help="Internal code of the region where maple syrup picking and empty barrels delivery are done.")
@@ -53,7 +57,7 @@ class Contact(models.Model):
 	maple_bio_state = fields.Selection([
 		('N', 'None'),
 		('P', 'Pending'),
-		('V', 'Valide')],
+		('V', 'Valid')],
 		help="Producer's organic certification State. ",
 		compute='_compute_maple_id',
 		store=True)
@@ -67,6 +71,12 @@ class Contact(models.Model):
 		help="The producer declared not having used any allergenic products this season. ",
 		compute='_compute_maple_id',
 		store=True)
+
+
+	@api.depends('state_id', 'country_id')
+	def _compute_outside_qc(self):
+		for record in self:
+			record.maple_outside_qc = record.state_id.code != "QC"		
 
 	@api.depends('parent_id', 'type')
 	def _compute_maple_farm(self):

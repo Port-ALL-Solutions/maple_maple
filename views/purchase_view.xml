@@ -28,8 +28,9 @@
 			<field name="name">maple.purchase_view_list</field>
    			<field name="model">purchase.order.line</field>
    			<field name="arch" type="xml">
-
-               	<tree string="List of Maple Syrup Purchase" toolbar="1" >
+               	<tree string="List of Maple Syrup Purchase">
+   	   				<button name="%(action_create_maple_purchase)d" type="action"
+		                string="Create" groups="stock.group_stock_user"  class="oe_highlight"/>
     				<field name="id"/>
     				<field name="partner_id"/>
     				<field name="partner_fpaqCode"/>
@@ -37,13 +38,14 @@
     				<field name="partner_city"/>
     				<field name="partner_state"/>
     				<field name="partner_region"/>
-    				<field name="partner_default_buyer"/>
+    				<field name="maple_outside_qc"/>
+    				<field name="partner_phone_farm"/>
+    				<field name="owner_ref"/>
 					<field name="product_id"/>
 					<field name="product_qty"/>
    				</tree>          
    			</field>
    		</record>
-
 
 	</data>
 </odoo>

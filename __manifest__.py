@@ -58,7 +58,8 @@ This module provides mosly fields and views.
         'data/grades.xml',
         'data/product_categories.xml',        
         'data/products.xml',
-        'data/product.template.csv',        
+        'data/product.template.csv',
+        'wizard/purchase_wizard.xml',
 # Chargement des actions et des menus
         'views/actions.xml',                
         'views/menuitems.xml',                

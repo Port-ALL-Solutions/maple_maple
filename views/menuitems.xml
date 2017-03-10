@@ -29,6 +29,16 @@
         	name="Incoming/Available Maple"
             parent="main_maple_menu"/>
 
+		<menuitem id="maple_purchase_list" 
+			name="Maple Purchase list" 
+			parent="maple_entry_menu"
+            action="maple_purchase_list_action"/>
+            
+		<menuitem id="create_maple_purchase_list" 
+			name="Create Maple Purchase" 
+			parent="maple_purchase_list"
+            action="action_create_maple_purchase"/>
+
 		<menuitem id="maple_available_menu_list" 
 			name="Available Maple list" 
 			parent="maple_entry_menu"

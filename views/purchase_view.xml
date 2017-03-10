@@ -23,8 +23,27 @@
         		</xpath>
       		</field>
     	</record>
+    	   	
+     	<record id="purchase_view_list" model="ir.ui.view">
+			<field name="name">maple.purchase_view_list</field>
+   			<field name="model">purchase.order.line</field>
+   			<field name="arch" type="xml">
+
+               	<tree string="List of Maple Syrup Purchase" toolbar="1" >
+    				<field name="id"/>
+    				<field name="partner_id"/>
+    				<field name="partner_fpaqCode"/>
+    				<field name="partner_street"/>
+    				<field name="partner_city"/>
+    				<field name="partner_state"/>
+    				<field name="partner_region"/>
+    				<field name="partner_default_buyer"/>
+					<field name="product_id"/>
+					<field name="product_qty"/>
+   				</tree>          
+   			</field>
+   		</record>
 
 
 	</data>
 </odoo>
-

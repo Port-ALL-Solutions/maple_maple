@@ -124,6 +124,17 @@
             </field>
             <field name="context">{'search_default_maple_product': 1,'default_maple_product': 1}</field>
         </record>
+        
+         <record model="ir.actions.act_window" id="maple_purchase_list_action">
+           	<field name="name">Maple Purchase List</field>
+           	<field name="res_model">purchase.order.line</field>
+           	<field name="view_type">form</field>
+           	<field name="view_mode">tree,kanban,form</field>
+			<field name="view_id" ref="purchase_view_list" /> 
+           	<field name="help" type="html">
+               <p class="oe_view_nocontent_create">Create your first maple purchase. </p>
+           	</field>
+       </record>
 
 	</data>
 </odoo>

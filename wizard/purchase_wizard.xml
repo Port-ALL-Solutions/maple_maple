@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="create_maple_purchase_view">
+            <field name="name">Create Maple Purchase</field>
+            <field name="model">maple.purchase.order</field>
+                <field name="arch" type="xml">
+                    <form string="Create Maple Purchase">
+                        <group>
+                            <field name="date_order"/>
+                            <field name="partner_id"/>
+                            <field name="organic"/>
+                            <field name="qty_barrel"/>
+                            <field name="qty_tote"/>
+                            <field name="owner_id"/>
+                            <field name="location_id"/>
+                        </group>
+                        <footer>
+                            <button string="Save" name="action_maple_purchase" type="object" class="oe_highlight"/>
+                            or
+                            <button string="Cancel" class="oe_link" special="cancel"/>
+                        </footer>
+                    </form>
+                </field>
+        </record>
+
+        <record id="action_create_maple_purchase" model="ir.actions.act_window">
+            <field name="name">Create Maple Purchase</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">maple.purchase.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="create_maple_purchase_view"/>
+            <field name="target">new</field>
+        </record>
+
+   </data>
+</openerp>

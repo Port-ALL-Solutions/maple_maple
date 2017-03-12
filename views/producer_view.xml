@@ -36,6 +36,7 @@
 				<field name="maple_outside_qc"/>
 				<field name="state_id"/>				
 				<field name="phone"/>
+				<field name="default_owner_id"/>
 				<field name="id" invisible="1"/>
 			</tree>
 		</field>
@@ -66,6 +67,7 @@
 				<field name="city"/>
 				<field name="maple_outside_qc"/>				
 				<field name="phone"/>
+				<field name="default_owner_id"/>				
 				<field name="id" invisible="1"/>
 			</tree>
 		</field>

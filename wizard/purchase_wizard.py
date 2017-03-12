@@ -52,6 +52,12 @@ class MaplePurchaseOrder(models.TransientModel):
         required=True,
         index=True
         )
+
+    partner_default_buyer = fields.Many2one(
+        comodel_name='res.partner',
+        string='Default_Buyer',
+        related='partner_id.default_owner_id'
+        )
     
     date_order = fields.Datetime(
         string='Order Date',
@@ -92,11 +98,6 @@ class MaplePurchaseOrder(models.TransientModel):
         )
     
 #    devra être remplacé par l'actuel buyer
-    partner_default_buyer = fields.Char(
-        string='Buyer',
-        related='partner_id.default_owner_id.ref',
-        store = True
-        )
     
     partner_phone_farm = fields.Char(
         string='Phone',
@@ -158,7 +159,12 @@ class MaplePurchaseOrder(models.TransientModel):
             
     @api.onchange('partner_id') # if these fields are changed, call method
     def check_change(self):
+        partner_obj = self.env['res.partner']
+        partner = partner_obj.browse([self.partner_id.id])
+        owner = partner_obj.browse([partner.default_owner_id.id])
+
         if self.maple_bio_state in ['P','V']:
-            self.organic = True
+            self.maple_type = "B"
         else:
-            self.organic = False
+            self.maple_type = "R"
+        self.owner_id = owner

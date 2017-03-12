@@ -19,16 +19,24 @@ class MaplePurchaseOrder(models.TransientModel):
         help='Organic Maple Syrup'
         )
     
-    qty_barrel = fields.Integer(
+    maple_type = fields.Selection([
+        ('B', 'Organic'),
+        ('R', 'Regular')],
+        help="Maple Container Type. "
+        ) 
+    
+    container_type = fields.Selection([
+        ('B', 'Barrel'),
+        ('T', 'Tote')],
+        default='B',
+        help="Maple Container Type. "
+        ) 
+
+    qty_container = fields.Integer(
         string='Barrels',
-        help='Number of barrel(s)'
+        help='Number of container(s)'
         )
-    
-    qty_tote = fields.Integer(
-        string='Totes',
-        help='Number of tote(s)'
-        )
-    
+
     partner_id = fields.Many2one(
         comodel_name='res.partner',
         string='Producer',
@@ -52,6 +60,11 @@ class MaplePurchaseOrder(models.TransientModel):
         default=fields.Datetime.now
         )
     
+    date_planed = fields.Datetime(
+        string='Planed Date',
+        index=True
+        )
+    
     partner_fpaqCode = fields.Char(
         string='FPAQ',
         related='partner_id.parent_id.fpaqCode'
@@ -71,11 +84,6 @@ class MaplePurchaseOrder(models.TransientModel):
         string='Province / State',
         related='partner_id.state_id.name'
         )
-
-#    maple_bio_state = fields.Char(
-#        string='Organic Certification',
-#        related='partner_id.maple_bio_state.name'
-#        )
 
     partner_region = fields.Char(
         string='Region',
@@ -119,22 +127,20 @@ class MaplePurchaseOrder(models.TransientModel):
             'partner_id':self.partner_id.id,
             'date_planned':self.date_order,
             'location_id':self.location_id.id,
-            'owner_id':self.owner_id.id
+            'owner_id':self.owner_id.id,
+            'state':'purchase'
         }
-        
+  
         purchase_order = purchase_obj.create(purchase_vals)
-        
-        if self.qty_barrel > 0 :
-            if self.organic :
-                product_code = 'BB'
-            else :
-                product_code = 'BR'
-            
+             
+        if self.qty_container > 0 :
+          
+            product_code = self.container_type + self.maple_type
             product = product_obj.search([('default_code','=',product_code)])
             
             purchase_barrel_vals = {
                 'product_id':product.id,
-                'product_qty':self.qty_barrel,
+                'product_qty':self.qty_container,
                 'order_id':purchase_order.id,
                 'owner_id':self.owner_id.id,
                 'name':purchase_order.name + product_code,
@@ -144,27 +150,7 @@ class MaplePurchaseOrder(models.TransientModel):
             }
             
             purchase_order_line = purchase_line_obj.create(purchase_barrel_vals)
-            
-        if self.qty_tote > 0 :
-            if self.organic :
-                product_code = 'TB'
-            else :
-                product_code = 'TR'
-            
-            product = product_obj.search([('default_code','=',product_code)])
-            
-            purchase_tote_vals = {
-                'product_id':product.id,
-                'product_qty':self.qty_tote,
-                'order_id':purchase_order.id,
-                'owner_id':self.owner_id.id,            
-                'name':purchase_order.name + product_code,
-                'product_uom':product.uom_id.id,
-                'date_planned':self.date_order,
-                'price_unit':product.price # champ de purchase_order_line : champs de product_template
-            }
-            
-            purchase_order_line = purchase_line_obj.create(purchase_tote_vals)
+                        
         return(
             { 'type':'ir.actions.client', 'tag':'reload'}
             )

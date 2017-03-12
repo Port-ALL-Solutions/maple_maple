@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	<data>
-
+	
     	<record id="purchase_view_location_form" model="ir.ui.view">
       		<field name="name">maple.purchase_view_location_form</field>
       		<field name="model">purchase.order</field>
@@ -23,55 +23,27 @@
         		</xpath>
       		</field>
     	</record>
- <!--	
-  	   	
+    	   	
      	<record id="purchase_view_list" model="ir.ui.view">
 			<field name="name">maple.purchase_view_list</field>
-   			<field name="model">purchase.order</field>
+   			<field name="model">purchase.order.line</field>
    			<field name="arch" type="xml">
                	<tree string="List of Maple Syrup Purchase">
     				<field name="id"/>
-                    <field name="partner_id"/>
+    				<field name="partner_id"/>
     				<field name="partner_fpaqCode"/>
     				<field name="partner_street"/>
     				<field name="partner_city"/>
     				<field name="partner_state"/>
     				<field name="partner_region"/>
     				<field name="maple_outside_qc"/>
+    				<field name="partner_phone_farm"/>
     				<field name="owner_ref"/>
-
+					<field name="product_id"/>
+					<field name="product_qty"/>
    				</tree>          
    			</field>
    		</record>
-  -->
-
-     	<record id="purchase_view_list" model="ir.ui.view">
-			<field name="name">maple.purchase_view_list</field>
-   			<field name="model">purchase.order</field>
-   			<field name="arch" type="xml">
-
-				<tree decoration-bf="message_unread==True" decoration-muted="state=='cancel'" decoration-info="state in ('wait','confirmed')" string="Purchase Order">
-                    <field name="message_unread" invisible="1"/>
-                    <field name="name" string="Reference"/>
-                    <field name="partner_id"/>
-                    <field name="date_planned" invisible="context.get('quotation_only', False)"/>
-                    <field name="state" invisible="1" />
-                    <field name="invoice_status" invisible="not context.get('show_purchase', False)"/>                    
-    				<field name="partner_fpaqCode"/>
-    				<field name="partner_street"/>
-    				<field name="partner_city"/>
-    				<field name="partner_state"/>
-    				<field name="partner_region"/>
-    				<field name="maple_outside_qc"/>
-    				<field name="owner_ref"/>                    
-    				<field name="qty_container"/>                    
-                </tree>
-            
-
-
-   			</field>
-   		</record>
-
 
 	</data>
 </odoo>

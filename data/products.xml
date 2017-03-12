@@ -26,7 +26,7 @@
             <field name="name">Regural Maple Syrup Barel</field>				
             <field name="default_code">BR</field>		
             <field name="type">product</field>
-            <field name="maple_syrup">1</field>
+            <field name="maple_container">1</field>
             <field name="sale_ok">0</field>
             <field name="purchase_ok">1</field>
             <field name="categ_id" ref="maple_category"/>		
@@ -36,7 +36,7 @@
             <field name="name">Organic Maple Syrup Barel</field>				
             <field name="default_code">BB</field>		
             <field name="type">product</field>
-            <field name="maple_syrup">1</field>
+            <field name="maple_container">1</field>
             <field name="sale_ok">0</field>
             <field name="purchase_ok">1</field>
             <field name="categ_id" ref="maple_category"/>		
@@ -46,7 +46,7 @@
             <field name="name">Regural Maple Syrup Tote</field>				
             <field name="default_code">TR</field>		
             <field name="type">product</field>
-            <field name="maple_syrup">1</field>
+            <field name="maple_container">1</field>
             <field name="sale_ok">0</field>
             <field name="purchase_ok">1</field>
             <field name="categ_id" ref="maple_category"/>		
@@ -56,7 +56,7 @@
             <field name="name">Organic Maple Syrup Tote</field>				
             <field name="default_code">TB</field>		
             <field name="type">product</field>
-            <field name="maple_syrup">1</field>
+            <field name="maple_container">1</field>
             <field name="sale_ok">0</field>
             <field name="purchase_ok">1</field>
             <field name="categ_id" ref="maple_category"/>		

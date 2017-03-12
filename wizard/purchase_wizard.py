@@ -128,7 +128,8 @@ class MaplePurchaseOrder(models.TransientModel):
             'date_planned':self.date_order,
             'location_id':self.location_id.id,
             'owner_id':self.owner_id.id,
-            'state':'purchase'
+            'state':'purchase',
+            'maple_type':self.maple_type
         }
   
         purchase_order = purchase_obj.create(purchase_vals)

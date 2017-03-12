@@ -16,7 +16,8 @@ class PurchaseOrder(models.Model):
 
     owner_ref = fields.Char(
         string='Owner',
-        related='owner_id.ref'
+        related='owner_id.ref',
+        store=True
         )
 
     maple_outside_qc = fields.Boolean(string='HQ',
@@ -56,6 +57,12 @@ class PurchaseOrder(models.Model):
         store=True
         )
     
+    maple_type = fields.Selection([
+        ('B', 'Organic'),
+        ('R', 'Regular')],
+        help="Maple Container Type. "
+        )       
+
     @api.depends('order_line')
     def _compute_qty_container(self):
         for record in self:

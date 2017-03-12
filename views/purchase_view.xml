@@ -65,6 +65,8 @@
     				<field name="maple_outside_qc"/>
     				<field name="owner_ref"/>                    
     				<field name="qty_container"/>                    
+    				<field name="maple_type"/>
+    				<field name="location_id"/>
                 </tree>
             
 

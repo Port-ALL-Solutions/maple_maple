@@ -35,7 +35,7 @@
 				    					Plan: <field name="qty_purchased"/>
 				    				</li>
 				    				<li>	     			
-				    					Nom: <field name="qty_stock"/>	     			
+				    					Now: <field name="qty_stock"/>	     			
 				    				</li>
 				    				<li>	     			
 				    					Max: <field name="maxItem"/>

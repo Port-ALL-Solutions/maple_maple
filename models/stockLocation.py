@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from openerp import models, fields, api
 from odoo.tools.yaml_tag import record_constructor
-from numpy.distutils.fcompiler import none
+#from numpy.distutils.fcompiler import none
 
 # modifier le contact (partner) de Odoo pour inclure sa région et son numéro FPAQ
 class stockLocation(models.Model):
@@ -72,7 +72,7 @@ class stockLocation(models.Model):
                     qty += line.product_qty          
             record.qty_purchased = qty
             
-    @api.depends('stock_lines')
+    @api.depends('stock_lines','stock_lines.owner_id','stock_lines.qty')
     def _compute_qty_stock(self):
         for record in self:
             qty = 0
@@ -83,15 +83,16 @@ class stockLocation(models.Model):
                     if line.owner_id not in owner:
                         owner.append(line.owner_id)
                     qty += line.qty
-            if list.count(owner) == 1:
-                #un seul proprio
-                record.current_owner = owner [0]
-            elif list.count(owner) == 0:
+            if owner :                                      
+                if len(owner) == 1:
+                    #un seul proprio
+                    record.current_owner = owner [0]
+                else:
+                    # pas juste une
+                    record.kanban_color = 4 
+            else:
                 #vide
                 record.kanban_color = 3 
-            else:
-                # pas juste une
-                record.kanban_color = 4 
             record.qty_stock = qty
             
             

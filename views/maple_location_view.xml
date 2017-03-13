@@ -27,9 +27,9 @@
 
                 	<templates>
                 	   	<t t-name="kanban-box">
-             	   	
 	                        <div class="oe_kanban_card">            	   	
 				     			<strong><field name="name"/></strong>
+
 				     			<ul>
 				     				<li>
 				    					Plan: <field name="qty_purchased"/>
@@ -41,10 +41,12 @@
 				    					Max: <field name="maxItem"/>
 				    				</li>
 		    					</ul>
-				    		</div>
-				    		
+		    					<field name="kanban_color"/>
+		    					<field name="current_owner"/>
+				    		</div>		    									    		
 		    			</t>
 		    		</templates>
+		    		
 		    	</kanban>          
 		    </field>
 	    </record>

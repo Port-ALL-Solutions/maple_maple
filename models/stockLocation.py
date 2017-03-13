@@ -27,6 +27,18 @@ class stockLocation(models.Model):
         store=True
         )
     
+    stock_lines = fields.One2many(           
+        comodel_name='stock.quant', 
+        inverse_name='location_id',
+        string="Stock",
+        help='Stock for that location. ')
+    
+    qty_stock  = fields.Float(
+        string='Quantity Stock',
+        compute='_compute_qty_stock',
+        store=True
+        )
+    
     @api.depends('purchase_lines')
     def _compute_qty_purchase(self):
         for record in self:
@@ -35,3 +47,12 @@ class stockLocation(models.Model):
                 if line.product_id.maple_container:
                     qty += line.product_qty          
             record.qty_purchased = qty
+            
+    @api.depends('stock_lines')
+    def _compute_qty_stock(self):
+        for record in self:
+            qty = 0 
+            for line in record.stock_lines:
+                if line.product_id.maple_container:
+                    qty += line.qty          
+            record.qty_stock = qty

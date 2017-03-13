@@ -9,6 +9,7 @@ class Contact(models.Model):
 	_name = 'res.partner'
 	_inherit = 'res.partner'
 	
+	label_id = fields.Char(string="Label Id.")
 	fpaqCode = fields.Char(string="FPAQ")
 	intCode = fields.Char(string="Internal Code")
 	region = fields.Char(string="Region")

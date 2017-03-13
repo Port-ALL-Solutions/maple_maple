@@ -41,7 +41,8 @@
         		<xpath expr="//field[@name='lang']" position="after">
        				<field name="fpaqCode" attrs="{'invisible': [('maple_producer', '!=', True)]}"/>
        				<field name="intCode" attrs="{'invisible': [('maple_producer', '!=', True)]}"/>
-        		</xpath>
+       				<field name="label_id" attrs="{'invisible': [('maple_producer', '!=', True)]}"/>
+          		</xpath>
       		</field>
     	</record>
 

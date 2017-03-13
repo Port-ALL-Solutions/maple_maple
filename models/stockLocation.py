@@ -1,11 +1,35 @@
 # -*- coding: utf-8 -*-
 from openerp import models, fields, api
 from odoo.tools.yaml_tag import record_constructor
+from numpy.distutils.fcompiler import none
 
 # modifier le contact (partner) de Odoo pour inclure sa région et son numéro FPAQ
 class stockLocation(models.Model):
     _name = 'stock.location'
     _inherit = 'stock.location'
+
+    kanban_color = fields.Integer(
+        string="Color",
+        compute='_compute_qty_stock',
+        store=True
+        )
+
+    current_owner  = fields.Many2one(
+        comodel_name='res.partner',
+        string='Owner',
+        domain=[('maple_buyer', '=', True)],
+        compute='_compute_qty_stock',
+        help="Default Owner",
+        store=True
+        )    
+    
+    current_rules = fields.Selection([
+        ('HS', 'From Outside'),
+        ('QC', 'From Québec')],
+        help="Maple Origin. ",
+        compute='_compute_qty_stock',
+        store=True
+        )    
         
     maxItem = fields.Integer(
         string="Maximum capacity",
@@ -38,7 +62,7 @@ class stockLocation(models.Model):
         compute='_compute_qty_stock',
         store=True
         )
-    
+      
     @api.depends('purchase_lines')
     def _compute_qty_purchase(self):
         for record in self:
@@ -51,8 +75,23 @@ class stockLocation(models.Model):
     @api.depends('stock_lines')
     def _compute_qty_stock(self):
         for record in self:
-            qty = 0 
+            qty = 0
+            owner = []
+            origin = []
             for line in record.stock_lines:
                 if line.product_id.maple_container:
-                    qty += line.qty          
+                    if line.owner_id not in owner:
+                        owner.append(line.owner_id)
+                    qty += line.qty
+            if list.count(owner) == 1:
+                #un seul proprio
+                record.current_owner = owner [0]
+            elif list.count(owner) == 0:
+                #vide
+                record.kanban_color = 3 
+            else:
+                # pas juste une
+                record.kanban_color = 4 
             record.qty_stock = qty
+            
+            

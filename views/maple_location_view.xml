@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+	    <record id="stock_location_list" model="ir.ui.view">
+			<field name="name">maple.stock_location.list</field>
+		    <field name="model">stock.location</field>
+		    <field name="arch" type="xml">
+                <tree string="List of maple location" toolbar="1" >
+	     			<field name="id"/>
+	     			<field name="name"/>
+    				<field name="qty_purchased"/>	     			
+    				<field name="maxItem"/>
+		    	</tree>          
+		    </field>
+	    </record>
+
+  	</data>
+</odoo>
+
+
+

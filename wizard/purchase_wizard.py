@@ -146,6 +146,7 @@ class MaplePurchaseOrder(models.TransientModel):
                 'order_id':purchase_order.id,
                 'owner_id':self.owner_id.id,
                 'name':purchase_order.name + product_code,
+                'location_id':self.location_id.id,
                 'product_uom':product.uom_id.id,
                 'date_planned':self.date_order,
                 'price_unit':product.price # champ de prchase_order_line : champs de product_template                

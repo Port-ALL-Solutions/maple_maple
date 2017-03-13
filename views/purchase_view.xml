@@ -74,6 +74,21 @@
    			</field>
    		</record>
 
+		<record id="location_filter_view" model="ir.ui.view">
+		    <field name="name">maple.location.filter.view</field>
+		    <field name="model">stock.location</field>
+		    <field name="priority">50</field>
+		    <field name="arch" type="xml">
+		        <search string="Maple Location">
+		            <field name="name"
+		               filter_domain="['|','|',('name','ilike',self),('parent_id','ilike',self),('ref','=',self)]"/>
+		            <separator/>
+		            <filter string="SE1/Stock" name="maple_stock_SE1" domain="[('location_id','=',15)]"/>
+		            <separator/>
+		        </search>
+		    </field>
+		</record>
+
 
 	</data>
 </odoo>

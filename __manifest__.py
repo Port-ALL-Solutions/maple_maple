@@ -51,6 +51,7 @@ This module provides mosly fields and views.
         'views/barrel_view.xml',
         'views/grade_view.xml',
         'views/region_view.xml',
+        'views/maple_location_view.xml',
         'views/producer_view.xml',
         'views/purchase_view.xml',
 # Chargement d'enregistrements, les fichiers devraient correspondres au modèles

@@ -129,4 +129,8 @@ class PurchaseOrderLine(models.Model):
         related='owner_id.ref'
         )
     
-    
+    location_id = fields.Many2one(
+        comodele_name='stock.location',
+        string='Destination Location',
+        index=True, 
+        help="Sets a destination location where to put the stock after reception.")

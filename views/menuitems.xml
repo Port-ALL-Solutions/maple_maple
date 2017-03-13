@@ -67,6 +67,20 @@
         	parent="maple_container_menu"
             action="maple_container_list_action"/>
 
+		<menuitem id="maple_location_menu"
+			name="Maple Stock Location"
+    		parent="main_maple_menu"/>
+
+        <menuitem id="maple_location_menu_list"
+        	name="All locations"
+        	parent="maple_location_menu"
+            action="stock_location_list_action"/>
+
+        <menuitem id="maple_location_SE1_menu_list"
+        	name="SE1"
+        	parent="maple_location_menu_list"
+            action="stock_SE1STOCK_list_action"/>
+
 		<menuitem id="maple_config_menu"
 			name="Configuration"
     		parent="main_maple_menu"/>

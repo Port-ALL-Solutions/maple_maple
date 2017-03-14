@@ -8,6 +8,48 @@ class stockQuant(models.Model):
     _name = 'stock.quant'
     _inherit = 'stock.quant'
         
+
+    maple_state = fields.Selection(
+        [   ('ready', 'Ready to pick'),
+            ('confirmed', 'Confimation for delivery'),
+            ('tagged', 'Maple stock tagged'),
+            ('stocked-pre', 'Maple stock before classify'),
+            ('weighed', 'Maple stock as been weitgh'),
+            ('classified', 'Maple stock as been classified'),
+            ('rejected', 'Maple stock as rejected'),
+            ('stocked-post', 'Maple stock after classify'),
+            ('empty', 'Empty container'),
+            ('done', 'Locked'),
+            ('cancel', 'Cancelled')     ], 
+        string='Status', 
+        readonly=True, 
+        copy=False, 
+        index=True, 
+        track_visibility='onchange', 
+        default='ready'
+        )
+
+    state = fields.Selection(
+        [   ('ready', 'Ready to pick'),
+            ('confirmed', 'Confimation for delivery'),
+            ('tagged', 'Maple stock tagged'),
+            ('stocked-pre', 'Maple stock before classify'),
+            ('weighed', 'Maple stock as been weitgh'),
+            ('classified', 'Maple stock as been classified'),
+            ('rejected', 'Maple stock as rejected'),
+            ('stocked-post', 'Maple stock after classify'),
+            ('empty', 'Empty container'),
+            ('done', 'Locked'),
+            ('cancel', 'Cancelled')     ], 
+        string='Status', 
+        readonly=True, 
+        copy=False, 
+        index=True, 
+        track_visibility='onchange', 
+        default='ready'
+        )
+
+    
     product_categ_id = fields.Many2one(
         comodel_name='product.category',
         string='Product Category', 

@@ -150,12 +150,14 @@
        <record model="ir.actions.act_window" id="stock_SE1STOCK_list_action">
             <field name="name">SE1 Location List</field>
             <field name="res_model">stock.location</field>
-            <field name="view_id" ref="maple.stock_location_list" />
+            <field name="view_id" ref="maple.stock_location_kanban" />
             <field name="view_type">form</field>
-            <field name="view_mode">tree,kanban,form</field>
+            <field name="search_view_id" ref="maple_location_filter_view"/>                        
+            <field name="view_mode">kanban,tree,form</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">Create the first maple location. </p>
             </field>
+            <field name="context">{'search_default_maple_stock_se1': 1}</field>            
         </record>
 
 <!--

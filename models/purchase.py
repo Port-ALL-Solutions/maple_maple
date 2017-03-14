@@ -57,6 +57,11 @@ class PurchaseOrder(models.Model):
         store=True
         )
     
+    qty_received = fields.Float(
+        string='Quantity received'
+        )
+
+    
     maple_type = fields.Selection([
         ('B', 'Organic'),
         ('R', 'Regular')],
@@ -71,6 +76,31 @@ class PurchaseOrder(models.Model):
                 if line.product_id.maple_container:
                     qty += line.product_qty          
             record.qty_container = qty
+            
+# WORK FINE TO CREATE SERIAL ON PURCHASE ORDER BUT NOT NEEDED                        
+#    @api.multi
+#    def _create_picking(self):
+#        operation_lot_obj = self.env['stock.pack.operation.lot']
+#        
+#        result = super(PurchaseOrder, self)._create_picking()
+#        
+#        pickings = self.picking_ids
+#        if len(pickings) == 1:
+#            pack_operations = pickings.pack_operation_ids
+#            for operation in pack_operations:
+#                product = operation.product_id
+#                if product.order_create_serial:
+#                    for x in range(0, int(operation.ordered_qty)):
+#                        operation_lot_vals = {
+#                            'operation_id':operation.id,
+#                            'lot_name':pickings.origin + "-"+ str(x+1) + "/" +  str(int(operation.ordered_qty)),                           
+#                            'qty':0,
+#                            'qty_todo':1
+#                            }
+#                        operation_lot = operation_lot_obj.create(operation_lot_vals)
+#                    
+#        return result            
+            
                        
 class PurchaseOrderLine(models.Model):
 #    _name = "purchase.order"

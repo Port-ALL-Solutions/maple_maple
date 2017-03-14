@@ -33,7 +33,7 @@ class MaplePurchaseOrder(models.TransientModel):
         ) 
 
     qty_container = fields.Integer(
-        string='Barrels',
+        string='Quantity',
         help='Number of container(s)'
         )
 

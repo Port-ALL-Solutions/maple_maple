@@ -22,6 +22,18 @@
 	      </field>
 	    </record>
 
+	    <!-- modification de la vue pour le partenaire, génération de s/n  -->
+	    <record id="product_view_serial_on_create_flag" model="ir.ui.view">
+	      <field name="name">maple.product.serial_on_create_flag</field>
+	      <field name="model">product.template</field>
+	      <field name="inherit_id" ref="product.product_template_only_form_view"/>
+	      <field name="arch" type="xml">
+	        <xpath expr="//field[@name='tracking']" position="after">
+	            <field name="order_create_serial"/>
+	        </xpath>
+	      </field>
+	    </record>
+
 	    <!-- modification de la vue pour product kanban pour remplacer le prix par le stock -->
 	    <record id="product_template_kanban_view" model="ir.ui.view">
 	      <field name="name">maple.product_template_kanban_view</field>

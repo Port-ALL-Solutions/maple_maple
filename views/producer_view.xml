@@ -1,76 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<odoo>	
+	<data>
 	
-	<record id="maple_partner_filter_view" model="ir.ui.view">
-	    <field name="name">maple.producer.filter.view</field>
-	    <field name="model">res.partner</field>
-	    <field name="priority">50</field>
-	    <field name="arch" type="xml">
-	        <search string="Maple Producers">
-	            <field name="name"
-	               filter_domain="['|','|',('name','ilike',self),('parent_id','ilike',self),('ref','=',self)]"/>
-	            <separator/>
-	            <filter string="Maple Producers" name="maple_producer" domain="[('maple_producer','=',1)]"/>
-	            <filter string="Maple Farms" name="maple_farm" domain="[('maple_farm','=',1)]"/>
-	            <filter string="Maple Buyers" name="maple_buyer" domain="[('maple_buyer','=',1)]"/>
-	            <separator/>
-	            <group expand="0" string="Group By" colspan="10" col="8">
-	                <filter string="Region" domain="[]" context="{'group_by' : 'maple_region'}"/>
-	                <filter string="Producer" domain="[]" context="{'group_by' : 'parent_id'}"/>
-	            </group>
-	        </search>
-	    </field>
-	</record>
-
-	<record id="producer_tree_view" model="ir.ui.view">
-		<field name="name">maple.producer.tree.view</field>
-		<field name="model">res.partner</field>
-		<field name="arch" type="xml">
-			<tree string="Maple Producer">
-				<field name="name"/>
-				<field name="intCode"/>
-				<field name="fpaqCode"/>
-				<field name="city"/>
-				<field name="maple_region"/>
-				<field name="street"/>
-				<field name="maple_outside_qc"/>
-				<field name="state_id"/>				
-				<field name="phone"/>
-				<field name="default_owner_id"/>
-				<field name="id" invisible="1"/>
-			</tree>
-		</field>
-	</record>
+		<record id="maple_location_filter_view" model="ir.ui.view">
+		    <field name="name">maple.location.filter.view</field>
+		    <field name="model">stock.location</field>
+		    <field name="priority">50</field>
+		    <field name="arch" type="xml">
+		        <search string="Maple Location">
+		            <field name="name" filter_domain="['|','|',('name','ilike',self),('parent_id','ilike',self),('ref','=',self)]"/>
+		            <separator/>
+		            <filter string="Stock" name="maple_stock_se1" domain="[('location_id','=',15)]"/>
+		        </search>
+		    </field>
+		</record>
 	
-	<record id="buyer_tree_view" model="ir.ui.view">
-		<field name="name">maple.buyer.tree.view</field>
-		<field name="model">res.partner</field>
-		<field name="arch" type="xml">
-			<tree string="Maple Buyers">
-				<field name="name"/>
-				<field name="phone"/>
-			</tree>
-		</field>
-	</record>
-
-
-	<record id="farm_tree_view" model="ir.ui.view">
-		<field name="name">maple.farm.tree.view</field>
-		<field name="model">res.partner</field>
-		<field name="arch" type="xml">
-			<tree string="Maple Farms">
-				<field name="parent_id" string="Producer"/>
-				<field name="name"/>
-				<field name="maple_region"/>
-				<field name="fpaqCode"/>				
-				<field name="street"/>				
-				<field name="city"/>
-				<field name="maple_outside_qc"/>				
-				<field name="phone"/>
-				<field name="default_owner_id"/>				
-				<field name="id" invisible="1"/>
-			</tree>
-		</field>
-	</record>
+		<record id="producer_tree_view" model="ir.ui.view">
+			<field name="name">maple.producer.tree.view</field>
+			<field name="model">res.partner</field>
+			<field name="arch" type="xml">
+				<tree string="Maple Producer">
+					<field name="name"/>
+					<field name="intCode"/>
+					<field name="fpaqCode"/>
+					<field name="city"/>
+					<field name="maple_region"/>
+					<field name="street"/>
+					<field name="maple_outside_qc"/>
+					<field name="state_id"/>				
+					<field name="phone"/>
+					<field name="default_owner_id"/>
+					<field name="id" invisible="1"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record id="buyer_tree_view" model="ir.ui.view">
+			<field name="name">maple.buyer.tree.view</field>
+			<field name="model">res.partner</field>
+			<field name="arch" type="xml">
+				<tree string="Maple Buyers">
+					<field name="name"/>
+					<field name="phone"/>
+				</tree>
+			</field>
+		</record>
+	
+	
+		<record id="farm_tree_view" model="ir.ui.view">
+			<field name="name">maple.farm.tree.view</field>
+			<field name="model">res.partner</field>
+			<field name="arch" type="xml">
+				<tree string="Maple Farms">
+					<field name="parent_id" string="Producer"/>
+					<field name="name"/>
+					<field name="maple_region"/>
+					<field name="fpaqCode"/>				
+					<field name="street"/>				
+					<field name="city"/>
+					<field name="maple_outside_qc"/>				
+					<field name="phone"/>
+					<field name="default_owner_id"/>				
+					<field name="id" invisible="1"/>
+				</tree>
+			</field>
+		</record>
+	</data>
 
 </odoo>

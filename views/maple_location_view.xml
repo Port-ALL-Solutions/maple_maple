@@ -27,22 +27,27 @@
 
                 	<templates>
                 	   	<t t-name="kanban-box">
-	                        <div class="oe_kanban_card">            	   	
-				     			<strong><field name="name"/></strong>
-
-				     			<ul>
-				     				<li>
-				    					Plan: <field name="qty_purchased"/>
-				    				</li>
-				    				<li>	     			
-				    					Now: <field name="qty_stock"/>	     			
-				    				</li>
-				    				<li>	     			
-				    					Max: <field name="maxItem"/>
-				    				</li>
-		    					</ul>
-		    					<field name="kanban_color"/>
-		    					<field name="current_owner"/>
+	                        <div class="oe_kanban_card">
+								<div	class="oe_kanban_content">            	   	
+					     			<strong><field name="name"/></strong>
+					     			<ul>
+					     				<li>
+					    					Plan: <field name="qty_purchased"/>
+					    				</li>
+					    				<li>	     			
+					    					Now: <field name="qty_stock"/>	     			
+					    				</li>
+					    				<li>	     			
+					    					Max: <field name="maxItem"/>
+					    				</li>
+			    					</ul>
+			    				</div>
+								<div class="oe_kanban_bottom_left">		
+			    					<field name="kanban_color"/>
+			    				</div>
+								<div class="oe_kanban_bottom_right">		
+			    					<field name="current_owner"/>
+			    				</div>
 				    		</div>		    									    		
 		    			</t>
 		    		</templates>

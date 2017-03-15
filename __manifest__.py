@@ -59,11 +59,11 @@ This module provides mosly fields and views.
         'data/product_categories.xml',        
         'data/products.xml',
         'data/product.template.csv',
-        'wizard/purchase_wizard.xml',
-        'wizard/reception_wizard.xml',
 # Chargement des actions et des menus
         'views/maple_location_view.xml',
         'views/actions.xml',                
+        'wizard/purchase_wizard.xml',
+        'wizard/reception_wizard.xml',        
         'views/menuitems.xml',                
     ],
     'qweb': [

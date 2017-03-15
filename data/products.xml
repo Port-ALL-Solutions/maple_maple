@@ -30,6 +30,7 @@
             <field name="sale_ok">0</field>
             <field name="tracking">serial</field>
             <field name="order_create_serial">1</field>
+            <field name="maple_syrup">1</field>
             <field name="purchase_ok">1</field>
             <field name="categ_id" ref="maple_category"/>		
 		</record>	
@@ -42,6 +43,7 @@
             <field name="sale_ok">0</field>
             <field name="tracking">serial</field>
             <field name="order_create_serial">1</field>
+            <field name="maple_syrup">1</field>
             <field name="purchase_ok">1</field>
             <field name="categ_id" ref="maple_category"/>		
 		</record>	
@@ -55,6 +57,7 @@
             <field name="tracking">serial</field>
             <field name="order_create_serial">1</field>
             <field name="purchase_ok">1</field>
+            <field name="maple_syrup">1</field>
             <field name="categ_id" ref="maple_category"/>		
 		</record>	
 
@@ -67,6 +70,7 @@
             <field name="tracking">serial</field>
             <field name="order_create_serial">1</field>
             <field name="purchase_ok">1</field>
+            <field name="maple_syrup">1</field>
             <field name="categ_id" ref="maple_category"/>		
 		</record>	
 

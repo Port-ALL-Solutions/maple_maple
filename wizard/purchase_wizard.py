@@ -13,18 +13,18 @@ class MaplePurchaseOrder(models.TransientModel):
         domain=[('location_id', '=', 15)],
         help="Sets a destination location where to put the stock after reception."
         )
-    
+ 
     organic = fields.Boolean(
         string='Organic',
         help='Organic Maple Syrup'
         )
-    
+
     maple_type = fields.Selection([
         ('B', 'Organic'),
         ('R', 'Regular')],
         help="Maple Container Type. "
         ) 
-    
+
     container_type = fields.Selection([
         ('B', 'Barrel'),
         ('T', 'Tote')],
@@ -44,7 +44,7 @@ class MaplePurchaseOrder(models.TransientModel):
         required=True,
         index=True
         )
-    
+
     owner_id = fields.Many2one(
         comodel_name='res.partner',
         string='Buyer',
@@ -99,11 +99,11 @@ class MaplePurchaseOrder(models.TransientModel):
     
 #    devra être remplacé par l'actuel buyer
     
-    partner_phone_farm = fields.Char(
-        string='Phone',
-        related='partner_id.phone',
-        store = True
-        )
+#    partner_phone_farm = fields.Char(
+#        string='Phone',
+#        related='partner_id.phone',
+#        store = True
+#        )
     
     maple_bio_check_on_order = fields.Boolean(string="Must Confirm", 
         related='partner_id.maple_bio_check_on_order',                                              

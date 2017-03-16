@@ -3,12 +3,28 @@
 from openerp import models, fields, api
 from odoo.tools.yaml_tag import record_constructor
 
+class maple_control(models.Model):
+    _name = 'maple.control'
+    
+    light = fields.Integer(
+        string="Light",
+        help="% of light transmission defining maple syrup color class"
+        )
+    
+    brix = fields.Float(
+        string="Brix",
+        help="Sugar concentration of the maple syrup in degrees Brix - °Bx - defining its color class"
+        )    
+    
+    controler = fields.Many2one('hr.employee', string="Controled by")
+    
+
+
 # modifier le contact (partner) de Odoo pour inclure sa région et son numéro FPAQ
 class stockQuant(models.Model):
     _name = 'stock.quant'
-    _inherit = 'stock.quant'
+    _inherit = ['stock.quant', 'maple.control']
         
-
     maple_state = fields.Selection(
         [   ('ready', 'Ready to pick'),
             ('confirmed', 'Confimation for delivery'),

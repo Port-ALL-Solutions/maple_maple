@@ -28,6 +28,9 @@
 	                            <field name="qty_ordered" readonly="1"/>
 	                            <field name="qty_container"/>
                     		</group>
+                    		<group>
+	                            <field name="validate_each"/>
+                    		</group>
 	                        <footer>
 	                            <button string="Save" name="action_maple_reception" type="object" class="oe_highlight"/>
 	                            or

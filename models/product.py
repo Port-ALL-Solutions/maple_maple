@@ -43,6 +43,25 @@ class Product(models.Model):
 		help="Maple syrup class"
 		)
 
+	maple_type = fields.Selection(
+		[	('Bio', 'Organic Maple Syrup'),
+			('Regular', 'Regular Maple Syrup')],
+		string='Type',
+		help="Maple Syrup Type. "
+		)
+	
+	maple_state = fields.Selection(
+		[	('received', 'received'), 
+			('weighted', 'weighted'), 
+			('rated', 'rated'), 
+			('revised', 'revised'), 
+			('rejected', 'rejected'), 
+			('empty', 'empty'), 
+			('transformed', 'transformed'), 
+			('produced', 'produced')	], 
+		default='received'
+		)
+
 	expected_weight = fields.Float(
 		string='Expected weight',
 		help='Expected weight of the product.'

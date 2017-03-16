@@ -50,7 +50,7 @@
             action="available_maple_list_action"/>
 
 		<menuitem id="maple_available_menu_label" 
-			name="Create Maple Reception Label" 
+			name="Create Barel Label" 
 			parent="maple_available_menu_list"
             action="action_create_maple_reception_label"/>
 
@@ -81,6 +81,12 @@
         	name="All container"
         	parent="maple_container_menu"
             action="maple_container_list_action"/>
+
+        <menuitem id="maple_product_lot_menu_list"
+        	name="All maple"
+        	parent="maple_container_menu"
+            action="maple_product_lot_list_action"/>
+
 
 <!-- Location menu, just a menu entry, no action, parent of all partner related views -->
 		<menuitem id="maple_location_menu"

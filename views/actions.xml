@@ -113,6 +113,13 @@
             <field name="context">{'search_default_maple_container': 1,'default_maple_container': 1}</field>
         </record>
 
+        <record model="ir.actions.act_window" id="maple_product_lot_list_action">
+            <field name="name">Maple Product Lot</field>
+            <field name="res_model">stock.quant</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+        </record>
+
         <record model="ir.actions.act_window" id="maple_config_product_action">
             <field name="name">Maple Products</field>
             <field name="res_model">product.template</field>

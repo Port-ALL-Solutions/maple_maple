@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+   		<record model="ir.ui.view" id="mapleorder.ratinglist">
+      		<field name="name">Ratings</field>
+      		<field name="model">mapleorder.barrel</field>
+      		<field name="arch" type="xml">
+				<tree edit="1" create="false" editable="1">
+			          <field name="processStatus" invisible="1" />
+			          <field name="dateReceived" invisible="1" />
+			          <field name="inspectCntYear" invisible="1"/> <!-- pour que ce champs soit chargé en mémoire -->
+			          <field name="inspectCnt" invisible="1"/>
+			          <field name="nameproducer"  readonly="1"/>
+			          <field name="warehouse"  readonly="1"/>
+			          <field name="row"  readonly="1"/>
+			          <field name="grossweight" readonly="1" sum="1"/>
+			          <field name="barrelNumber" readonly="1" />
+			
+			          <field name="ratedBy" />
+			          <field name="ratedAt" />
+			          <field name="seal" />
+			          <field name="genre" />
+			          <field name="flavor" />
+			          <field name="default" />
+			          <field name="light" avg="1"/>
+			          <field name="brix" avg="1"/>
+			          <field name="grade"/>
+			          <field name="maple_type" readonly="1"/>
+    			</tree>
+			</field>
+		</record>
+	</data>
+</odoo>

@@ -77,6 +77,15 @@ class PurchaseOrder(models.Model):
                     qty += line.product_qty
             record.qty_container = qty
 
+
+#    @api.multi
+#    def _get_destination_location(self):
+#        result = super(PurchaseOrder, self)._get_destination_location()
+#        if self.location_id:
+#            return self.location_id.id
+#        return result
+
+
 # WORK FINE TO CREATE SERIAL ON PURCHASE ORDER BUT NOT NEEDED
 #    @api.multi
 #    def _create_picking(self):
@@ -100,6 +109,44 @@ class PurchaseOrder(models.Model):
 #                        operation_lot = operation_lot_obj.create(operation_lot_vals)
 #
 #        return result
+
+    @api.multi
+    def _create_picking(self):
+#
+        result = super(PurchaseOrder, self)._create_picking()
+#
+        pickings = self.picking_ids
+        for picking in pickings:
+            start_moves = picking.move_lines
+            for final_move in start_moves:
+                while final_move.move_dest_id : 
+                    final_move =final_move.move_dest_id
+                final_move.location_dest_id = self.location_id.id
+                final_picking = final_move.picking_id
+                final_picking.location_dest_id = self.location_id.id
+        return result
+                 
+            
+#        if len(pickings) == 1:
+#            pack_operations = pickings.pack_operation_ids
+#            for operation in pack_operations:
+#                product = operation.product_id
+#                if product.order_create_serial:
+#                    for x in range(0, int(operation.ordered_qty)):
+#                        operation_lot_vals = {
+#                            'operation_id':operation.id,
+#                            'lot_name':pickings.origin + "-"+ str(x+1) + "/" +  str(int(operation.ordered_qty)),                           
+#                            'qty':0,
+#                            'qty_todo':1
+#                            }
+#                        operation_lot = operation_lot_obj.create(operation_lot_vals)
+#
+#        return result
+
+
+
+
+
 
 class PurchaseOrderLine(models.Model):
 #    _name = "purchase.order"

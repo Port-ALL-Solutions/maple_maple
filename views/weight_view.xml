@@ -12,6 +12,7 @@
 	                <field name="owner_id" readonly="1"/>
 	                <field name="product_id" readonly="1"/>
 	                <field name="container_type"/>
+	                <field name="container_serial"/>
 	                <field name="container_state"/>
 	                <field name="container_ownership"/>               
 	                <field name="container_tar_weight"/>

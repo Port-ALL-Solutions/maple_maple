@@ -21,6 +21,11 @@ class maple_control(models.Model):
         string='Tare', 
         help='Weight of empty container.')
 
+    container_serial = fields.Char(
+        string='Barel Id', 
+        index=True 
+        )
+
     container_ownership = fields.Selection(
         [   ('A', 'Buyer'),
             ('P', 'Producer')   ], 
@@ -47,7 +52,7 @@ class maple_control(models.Model):
         'res.partner', 'Producer',
         help="Producer"
         )
-        
+
     maple_state = fields.Selection(
         [   ('ready', 'Ready to pick'),
             ('confirmed', 'Confimation for delivery'),
@@ -60,7 +65,8 @@ class maple_control(models.Model):
             ('empty', 'Empty container'),
             ('done', 'Locked'),
             ('cancel', 'Cancelled')     ], 
-        string='Status', 
+        string='Status',
+         
         readonly=True, 
         copy=False, 
         index=True, 
@@ -97,8 +103,26 @@ class maple_control(models.Model):
         track_visibility='onchange', 
         default='ready'
         )
-    
+
+    @api.onchange('container_type') # if these fields are changed, call method
+    def check_change_container_type(self):
+        self.container_tar_weight = self.container_type.weight
+
+        
+        
+#        partner_obj = self.env['res.partner']
+#        partner = partner_obj.browse([self.partner_id.id])
+#        owner = partner_obj.browse([partner.default_owner_id.id])
+
+#        if self.maple_bio_state in ['P','V']:
+#            self.maple_type = "B"
+#        else:
+#            self.maple_type = "R"
+#        self.owner_id = owner    
 # modifier le contact (partner) de Odoo pour inclure sa région et son numéro FPAQ
+
+
+
 class stockQuant(models.Model):
     _name = 'stock.quant'
     _inherit = ['stock.quant', 'maple.control']
@@ -112,5 +136,43 @@ class stockQuant(models.Model):
     producer = fields.Many2one(
         comodel_name='res.partner',
         string='Producer', 
-        related='product_id.categ_id',
-        readonly=True)
+        readonly=False)
+
+
+    def _quant_create_from_move(self, qty, move, lot_id=False, owner_id=False, src_package_id=False, dest_package_id=False, force_location_from=False, force_location_to=False):
+        quant = super(stockQuant, self)._quant_create_from_move(qty, move, 
+                                                                lot_id=lot_id, 
+                                                                owner_id=move.picking_partner_id.id, 
+                                                                src_package_id=src_package_id, 
+                                                                dest_package_id=dest_package_id, 
+                                                                force_location_from=force_location_from, 
+                                                                force_location_to=force_location_to)
+        return quant 
+
+
+   
+#    @api.onchange('history_ids') # if these fields are changed, call method
+#    def check_change(self):
+#        moves = self.history_ids
+#        for move in moves:
+#            if move.partner_id:
+#                self.producer = move.partner_id
+        
+#    def _quant_create_from_move(self, qty, move, lot_id=False, owner_id=False,
+#                                src_package_id=False, dest_package_id=False,
+#                                force_location_from=False, force_location_to=False):
+
+        
+#        result = super(stockQuant, self)._quant_create_from_move(qty, move, lot_id, owner_id,
+#                                src_package_id, dest_package_id,
+#                                force_location_from, force_location_to)
+
+#        result = super(stockQuant, self)._quant_create_from_move(qty, move, lot_id=False, owner_id=move.picking_partner_id.id,
+#                                src_package_id=False, dest_package_id=False,
+#                                force_location_from=False, force_location_to=False)
+
+        
+#        return result
+
+
+

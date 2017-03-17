@@ -10,7 +10,7 @@ class MapleReception(models.TransientModel):
     picking = fields.Many2one(
         comodel_name='stock.picking',
         string='Reception',
-        domain=[('state','in', ('confirmed', 'waiting', 'assigned'))],        
+        domain=[('state','=', 'assigned')],        
         help="Stock picking to receive. "
         )
 

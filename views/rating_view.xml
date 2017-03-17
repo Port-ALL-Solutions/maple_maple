@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	<data>		
+	
 		<record id="maple_rating_tree_view" model="ir.ui.view">
 			<field name="name">maple.rating.tree.view</field>
 			<field name="model">stock.quant</field>
@@ -9,12 +10,13 @@
 	                <field name="product_id" readonly="1"/>
 	                <field name="location_id" readonly="1" invisible="1"/>
 	                <field name="owner_id" groups="stock.group_tracking_owner" readonly="1"/>
-	                <field name="light" sum="1"/>
-	                <field name="brix" avg="1"/>
+	                <field name="maple_light" sum="1"/>
+	                <field name="maple_brix" avg="1"/>
 	                <field name="controler"/>
    				</tree>
 			</field>
-		</record>		
+		</record>	
+			
         <record model="ir.actions.act_window" id="maple_rating_list_action">
             <field name="name">Maple Rating</field>
             <field name="res_model">stock.quant</field>
@@ -25,6 +27,7 @@
                 <p class="oe_view_nocontent_create">Can not create anything from here. </p>
             </field>
         </record>
+        
 	    <menuitem id="maple_rating_menu_list"
 	    	name="Rating"
 	    	parent="maple_container_menu"

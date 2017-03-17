@@ -35,6 +35,7 @@ This module provides mosly fields and views.
 # Chargement des groups, users et rules pour la sécurité
         'data/lang.xml',        
         'data/identification.xml',        
+        'data/container_state.xml',        
  #       'data/res.groups.users.rel.csv',        
         'security/groups.xml',
 # COMMENTÉ CAR MESSAGE :
@@ -62,6 +63,7 @@ This module provides mosly fields and views.
         'views/maple_location_view.xml',
         'views/actions.xml',                
         'views/rating_view.xml',                
+        'views/weight_view.xml',                
         'views/stock_pack_operation.xml',                
         'wizard/purchase_wizard.xml',
         'wizard/reception_wizard.xml',        

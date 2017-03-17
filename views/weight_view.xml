@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>		
+	
+		<record id="maple_weight_tree_view" model="ir.ui.view">
+			<field name="name">maple.weight.tree.view</field>
+			<field name="model">stock.quant</field>
+			<field name="arch" type="xml">
+				<tree string="Maple to weight" editable="1" edit="1" create="0">
+	                <field name="location_id" readonly="1" invisible="1"/>
+	                <field name="lot_id" readonly="1"/>
+	                <field name="owner_id" readonly="1"/>
+	                <field name="product_id" readonly="1"/>
+	                <field name="container_type"/>
+	                <field name="container_state"/>
+	                <field name="container_ownership"/>               
+	                <field name="container_tar_weight"/>
+	                <field name="container_total_weight" sum="1"/>
+   				</tree>
+			</field>
+		</record>	
+			
+        <record model="ir.actions.act_window" id="maple_weight_list_action">
+            <field name="name">Maple Weight</field>
+            <field name="res_model">stock.quant</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+			<field name="view_id" ref="maple_weight_tree_view" /> 
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Can not create anything from here. </p>
+            </field>
+        </record>
+        
+	    <menuitem id="maple_weight_menu_list"
+	    	name="Weight"
+	    	parent="maple_container_menu"
+	        action="maple_weight_list_action"/>	
+	
+	</data>
+</odoo>

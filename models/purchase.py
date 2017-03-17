@@ -143,11 +143,6 @@ class PurchaseOrder(models.Model):
 #
 #        return result
 
-
-
-
-
-
 class PurchaseOrderLine(models.Model):
 #    _name = "purchase.order"
     _inherit = 'purchase.order.line'
@@ -155,7 +150,8 @@ class PurchaseOrderLine(models.Model):
     maple_outside_qc = fields.Boolean(string='HQ',
         related='partner_id.maple_outside_qc',
         help="This is an outside of Quebec Partner. ",
-        store=True)
+        store=True
+        )
 
     partner_fpaqCode = fields.Char(
         string='FPAQ',
@@ -198,7 +194,8 @@ class PurchaseOrderLine(models.Model):
 
     owner_id = fields.Many2one(
         'res.partner', 'Owner',
-        help="Default Owner")
+        help="Default Owner"
+        )
 
     owner_ref = fields.Char(
         string='Owner',
@@ -206,7 +203,8 @@ class PurchaseOrderLine(models.Model):
         )
 
     location_id = fields.Many2one(
-        comodele_name='stock.location',
+        comodel_name='stock.location',
         string='Destination Location',
         index=True, 
-        help="Sets a destination location where to put the stock after reception.")
+        help="Sets a destination location where to put the stock after reception."
+        )

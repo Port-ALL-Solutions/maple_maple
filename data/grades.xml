@@ -2,6 +2,7 @@
 <odoo>
 	<data>
 	
+	
 		<record id="grade_golden" model="maple.grade">
             <field name="name">Golden</field>
             <field name="code">G</field>
@@ -29,6 +30,7 @@
             <field name="minLight">0.0</field>
             <field name="taste">Strong taste</field>
 		</record>	
+
 	
 	</data>
 </odoo>

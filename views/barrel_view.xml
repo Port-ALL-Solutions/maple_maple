@@ -10,7 +10,6 @@
 		            <field name="name"
 		               filter_domain="['|','|',('name','ilike',self),('parent_id','ilike',self),('ref','=',self)]"/>
 		            <separator/>
-		            <filter string="Maple Container" name="maple_container" domain="[('product_categ_id','child_of',4)]"/>
 		        </search>
 		    </field>
 		</record>
@@ -22,7 +21,6 @@
 				<tree string="Maple Container">
 	                <field name="lot_id" groups="stock.group_production_lot"/>
 	                <field name="product_id"/>
-	                <field name="product_categ_id"/>
 	                <field name="product_uom_id" groups="product.group_uom"/>
 	                <field name="location_id"/>
 	                <field name="owner_id" groups="stock.group_tracking_owner"/>

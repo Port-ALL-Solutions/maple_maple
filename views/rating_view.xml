@@ -1,33 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-	<data>
-   		<record model="ir.ui.view" id="mapleorder.ratinglist">
-      		<field name="name">Ratings</field>
-      		<field name="model">mapleorder.barrel</field>
-      		<field name="arch" type="xml">
-				<tree edit="1" create="false" editable="1">
-			          <field name="processStatus" invisible="1" />
-			          <field name="dateReceived" invisible="1" />
-			          <field name="inspectCntYear" invisible="1"/> <!-- pour que ce champs soit chargé en mémoire -->
-			          <field name="inspectCnt" invisible="1"/>
-			          <field name="nameproducer"  readonly="1"/>
-			          <field name="warehouse"  readonly="1"/>
-			          <field name="row"  readonly="1"/>
-			          <field name="grossweight" readonly="1" sum="1"/>
-			          <field name="barrelNumber" readonly="1" />
-			
-			          <field name="ratedBy" />
-			          <field name="ratedAt" />
-			          <field name="seal" />
-			          <field name="genre" />
-			          <field name="flavor" />
-			          <field name="default" />
-			          <field name="light" avg="1"/>
-			          <field name="brix" avg="1"/>
-			          <field name="grade"/>
-			          <field name="maple_type" readonly="1"/>
-    			</tree>
+	<data>		
+		<record id="maple_rating_tree_view" model="ir.ui.view">
+			<field name="name">maple.rating.tree.view</field>
+			<field name="model">stock.quant</field>
+			<field name="arch" type="xml">
+				<tree string="Maple Rating" editable="1" edit="1" create="0">
+	                <field name="product_id" readonly="1"/>
+	                <field name="location_id" readonly="1" invisible="1"/>
+	                <field name="owner_id" groups="stock.group_tracking_owner" readonly="1"/>
+	                <field name="light" sum="1"/>
+	                <field name="brix" avg="1"/>
+	                <field name="controler"/>
+   				</tree>
 			</field>
-		</record>
+		</record>		
+        <record model="ir.actions.act_window" id="maple_rating_list_action">
+            <field name="name">Maple Rating</field>
+            <field name="res_model">stock.quant</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+			<field name="view_id" ref="maple_rating_tree_view" /> 
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Can not create anything from here. </p>
+            </field>
+        </record>
+	    <menuitem id="maple_rating_menu_list"
+	    	name="Rating"
+	    	parent="maple_container_menu"
+	        action="maple_rating_list_action"/>	
+	
 	</data>
 </odoo>

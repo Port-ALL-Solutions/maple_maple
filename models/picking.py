@@ -12,3 +12,26 @@ class Picking(models.Model):
         states={'done': [('readonly', True)], 'cancel': [('readonly', True)]},
         domain=[('maple_buyer', '=', True)],        
         help="Default Owner")
+    
+    pick_qty_done = fields.Float(
+        string='Qty done',
+        compute='_compute_qty',
+        store=True)
+
+    pick_qty_todo  = fields.Float(
+        string='Qty todo',
+        compute='_compute_qty',
+        store=True)
+
+    @api.depends('pack_operation_ids','pack_operation_ids.product_qty','pack_operation_ids.qty_done')
+    def _compute_qty(self):
+        for record in self:
+            packs = record.pack_operation_ids
+            qty_done = 0
+            qty_todo = 0
+            
+            for pack in packs :
+                qty_todo += pack.product_qty
+                qty_done += pack.qty_done
+            record.pick_qty_done = qty_done
+            record.pick_qty_todo = qty_todo

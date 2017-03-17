@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 from openerp import models, fields, api
 from odoo.tools.yaml_tag import record_constructor
 
@@ -17,8 +16,6 @@ class maple_control(models.Model):
         )    
     
     controler = fields.Many2one('hr.employee', string="Controled by")
-    
-
 
 # modifier le contact (partner) de Odoo pour inclure sa région et son numéro FPAQ
 class stockQuant(models.Model):
@@ -65,7 +62,6 @@ class stockQuant(models.Model):
         default='ready'
         )
 
-    
     product_categ_id = fields.Many2one(
         comodel_name='product.category',
         string='Product Category', 

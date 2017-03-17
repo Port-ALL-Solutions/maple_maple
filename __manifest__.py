@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-
 {
     'name': 'Maple',
     'category': 'Vertical',
@@ -62,6 +61,8 @@ This module provides mosly fields and views.
 # Chargement des actions et des menus
         'views/maple_location_view.xml',
         'views/actions.xml',                
+        'views/rating_view.xml',                
+        'views/stock_pack_operation.xml',                
         'wizard/purchase_wizard.xml',
         'wizard/reception_wizard.xml',        
         'views/menuitems.xml',                

@@ -17,7 +17,7 @@
 		<record id="container_very_b" model="maple.container_state">
             <field name="name">T</field>
             <field name="code">T</field>
-		</record><
+		</record>
 		<record id="container_rusty" model="maple.container_state">
             <field name="name">R</field>
             <field name="code">R</field>

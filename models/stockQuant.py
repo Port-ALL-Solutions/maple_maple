@@ -65,8 +65,7 @@ class maple_control(models.Model):
             ('empty', 'Empty container'),
             ('done', 'Locked'),
             ('cancel', 'Cancelled')     ], 
-        string='Status',
-         
+        string='Status',         
         readonly=True, 
         copy=False, 
         index=True, 
@@ -77,6 +76,13 @@ class maple_control(models.Model):
     maple_light = fields.Integer(
         string="Light",
         help="% of light transmission defining maple syrup color class"
+        )
+    
+    maple_grade = fields.Char(
+        compute='check_change_maple_light',
+        string="Class",
+        help="Maple syrup class",
+        readonly=True
         )
     
     maple_brix = fields.Float(
@@ -108,7 +114,20 @@ class maple_control(models.Model):
     def check_change_container_type(self):
         self.container_tar_weight = self.container_type.weight
 
-        
+    @api.onchange('maple_light') # if these fields are changed, call method
+    def check_change_maple_light(self):
+        for control in self:
+            if control.maple_brix > 0:
+                if control.maple_light <= 25 :
+                    control.maple_grade = 'TF'
+                elif control.maple_light < 50 :
+                    control.maple_grade = 'FO'
+                elif control.maple_light < 75 :
+                    control.maple_grade = 'AM'
+                else :
+                    control.maple_grade = 'DO'
+            else:
+                control.maple_grade = ''
         
 #        partner_obj = self.env['res.partner']
 #        partner = partner_obj.browse([self.partner_id.id])
@@ -138,6 +157,15 @@ class stockQuant(models.Model):
         string='Producer', 
         readonly=False)
 
+    buyer = fields.Many2one(
+        comodel_name='res.partner',
+        string='Buyer', 
+        readonly=False)
+    
+    buyer_code = fields.Char(
+        string='Buyer',
+        related='buyer.ref',
+        readonly=False)
 
     def _quant_create_from_move(self, qty, move, lot_id=False, owner_id=False, src_package_id=False, dest_package_id=False, force_location_from=False, force_location_to=False):
         quant = super(stockQuant, self)._quant_create_from_move(qty, move, 
@@ -147,6 +175,10 @@ class stockQuant(models.Model):
                                                                 dest_package_id=dest_package_id, 
                                                                 force_location_from=force_location_from, 
                                                                 force_location_to=force_location_to)
+        quant.sudo().write({
+            'producer': move.picking_partner_id.id,
+            'buyer': move.purchase_line_id.owner_id.id
+            })
         return quant 
 
 

@@ -9,7 +9,8 @@
 				<tree string="Maple to weight" editable="1" edit="1" create="0">
 	                <field name="location_id" readonly="1" invisible="1"/>
 	                <field name="lot_id" readonly="1"/>
-	                <field name="owner_id" readonly="1"/>
+	                <field name="buyer_code" readonly="1"/>
+	                <field name="producer" readonly="1"/>
 	                <field name="product_id" readonly="1"/>
 	                <field name="container_type"/>
 	                <field name="container_serial"/>

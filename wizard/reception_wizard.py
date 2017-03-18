@@ -6,7 +6,6 @@ class MapleReception(models.TransientModel):
     _name = 'maple.reception'
 #    _inherit = 'purchase.order'
     
-
     picking = fields.Many2one(
         comodel_name='stock.picking',
         string='Reception',
@@ -92,21 +91,41 @@ class MapleReception(models.TransientModel):
     def action_maple_reception(self):
         
         operation_lot_obj = self.env['stock.pack.operation.lot']
+        #picking_obj = self.env['stock.picking']
+        date_range_obj = self.env['ir.sequence.date_range']
+        
+        # Doit ont tous les checker un à un 
         if self.validate_each:
             placed_qty = 0
         else:
             placed_qty = 1
         
+#        pickings = picking_obj.browse(self.picking)
         pickings = self.picking
         if len(pickings) == 1:
+            my_sequence = self.env['ir.sequence'].next_by_code('stock.daily_in')
+#            pickings.write({'daily_in_sequence':my_sequence})
+            pickings.daily_in_sequence = my_sequence
+
             pack_operations = pickings.pack_operation_ids
+#            my_sequence = self.pool['ir.sequence'].get(cr, uid, 'stock.daily_in')
+#            for move in pickings.move_lines:
+#                my_sequence = self.env['ir.sequence'].next_by_code('stock.daily_in')
+#                move.daily_in_sequence = my_sequence
+#            daily_cpt = move.daily_in_cpt          
             for operation in pack_operations:
                 product = operation.product_id
                 if product.order_create_serial:
                     for x in range(0, int(self.qty_container)):
+                        if pickings.purchase_id.partner_id.ref :
+                            ref_name = pickings.purchase_id.partner_id.ref
+                        else:
+                            ref_name = "VIDE-FIX-ME"
+                        ref_date = date.today().strftime('%Y%m%d')
+#                        ref_day_seq = pickings.
                         operation_lot_vals = {
                             'operation_id':operation.id,
-                            'lot_name':pickings.origin + "-"+ str(x+1) + "/" +  str(int(operation.ordered_qty)),                           
+                            'lot_name':ref_name + "-" + ref_date + "-" + pickings.daily_in_cpt + "-" + str(x+1).zfill(3) + "-" +  str(int(self.qty_container)).zfill(3),                           
                             'qty':placed_qty,
                             'qty_todo':1
                             }
@@ -119,4 +138,5 @@ class MapleReception(models.TransientModel):
     @api.onchange('picking') # if these fields are changed, call method
     def check_change(self):
         self.qty_container = self.qty_ordered
-            
+        
+    

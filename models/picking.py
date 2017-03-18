@@ -23,6 +23,18 @@ class Picking(models.Model):
         compute='_compute_qty',
         store=True)
 
+    daily_in_cpt = fields.Char(
+        string='Daily Cpt',
+        compute='_compute_daily_id',
+                               )  
+    
+    daily_in_sequence = fields.Char('Daily Id')
+     
+    @api.depends('daily_in_sequence')
+    def _compute_daily_id(self):
+        for record in self:
+            record.daily_in_cpt = record.daily_in_sequence[-2:]
+            
     @api.depends('pack_operation_ids','pack_operation_ids.product_qty','pack_operation_ids.qty_done')
     def _compute_qty(self):
         for record in self:

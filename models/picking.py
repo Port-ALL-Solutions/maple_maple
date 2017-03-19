@@ -33,7 +33,10 @@ class Picking(models.Model):
     @api.depends('daily_in_sequence')
     def _compute_daily_id(self):
         for record in self:
-            record.daily_in_cpt = record.daily_in_sequence[-2:]
+            if record.daily_in_sequence:
+                record.daily_in_cpt = record.daily_in_sequence[-2:]
+            else:
+                record.daily_in_cpt = ''
             
     @api.depends('pack_operation_ids','pack_operation_ids.product_qty','pack_operation_ids.qty_done')
     def _compute_qty(self):

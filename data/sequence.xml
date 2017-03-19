@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+			
+		<record model="ir.sequence" id="seq_daily_in">
+   			<field name="name">Daily_In</field>
+   			<field name="code">stock.daily_in</field>
+   			<field name="prefix">%(year)s%(month)s%(day)s-</field>
+   			<field name="padding">3</field>
+   			<field name="use_date_range">True</field>
+		</record>
+		
+	</data>
+</odoo>

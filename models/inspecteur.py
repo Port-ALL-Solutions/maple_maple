@@ -9,8 +9,8 @@ from openerp import models, fields, api
 class Inspecteur(models.Model):
 	_name = 'hr.employee'
 	_inherit = 'hr.employee'
-	barrelCnt = fields.Integer(string="Barrel Count", default=1)
-	inspectNb = fields.Integer(string="Inspector No", default=0)
+	barrelCnt = fields.Integer(string="Barrel Count", default=1) #replace by sequence
+	inspectNb = fields.Char(string="Inspector No")
 		# Lorsqu'on accède l'Inspecteur, si l'année courante est différente de barrelCntYear
 		# on remet le barrelCnt à 1, et on met l'année courante dans barrelCntYear
-	barrelCntYear = fields.Integer(string="Barrel Count Year", default=999999
+#	barrelCntYear = fields.Integer(string="Barrel Count Year", default=999999)

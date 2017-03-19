@@ -2,6 +2,18 @@
 <odoo>
 	<data>		
 	
+		<record id="maple_weight_acer_tree_view" model="ir.ui.view">
+			<field name="name">maple.weight.acer.tree.view</field>
+			<field name="model">maple.weighing_picking</field>
+			<field name="arch" type="xml">
+				<tree string="Maple weight from Acer">
+	                <field name="maple_producer"/>
+	                <field name="employee_id"/>
+	                <field name="name"/>
+   				</tree>
+			</field>
+		</record>	
+
 		<record id="maple_weight_tree_view" model="ir.ui.view">
 			<field name="name">maple.weight.tree.view</field>
 			<field name="model">stock.quant</field>
@@ -21,7 +33,7 @@
    				</tree>
 			</field>
 		</record>	
-			
+
         <record model="ir.actions.act_window" id="maple_weight_list_action">
             <field name="name">Maple Weight</field>
             <field name="res_model">stock.quant</field>
@@ -37,6 +49,22 @@
 	    	name="Weight"
 	    	parent="maple_container_menu"
 	        action="maple_weight_list_action"/>	
-	
+
+         <record model="ir.actions.act_window" id="maple_weight_acer_list_action">
+           	<field name="name">Maple Weight Acer List</field>
+           	<field name="res_model">maple.weighing_picking</field>
+           	<field name="view_type">form</field>
+           	<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="maple_weight_acer_tree_view" /> 
+           	<field name="help" type="html">
+               <p class="oe_view_nocontent_create">No data imported from Acer. </p>
+           	</field>
+       </record>
+       
+       <menuitem id="maple_weight_acer_menu_list"
+	    	name="Weight from Acer"
+	    	parent="maple_container_menu"
+	        action="maple_weight_acer_list_action"/>
+
 	</data>
 </odoo>

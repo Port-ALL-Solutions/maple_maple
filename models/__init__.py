@@ -9,4 +9,6 @@ import stock_pack_operation
 import stockQuant
 import purchase
 import stockLocation
+import inspecteur
+import maple_weighing
 #import stock_move

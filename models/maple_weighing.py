@@ -1,22 +1,85 @@
 # -*- coding: utf-8 -*-
 from openerp import models, fields, api
 #from datetime import date
+class weighing_picking(models.Model):
+    _name = 'maple.weighing_picking'
+    _description = "Maple Syrup Weighing"
 
+    maple_producer = fields.Many2one(
+        comodel_name='res.partner',
+        string= 'Producer',
+        help="Producer. "
+        )
+
+    employee_id = fields.Many2one(
+        comodel_name='hr.employee',
+        string= 'Employee',
+        help="Employee. "
+#ajouter domaine pour limiter aux inspecteurs
+        )
+
+    name = fields.Char(
+        string='Weighing No.', 
+        help='Weighing Number. ')
+          
+    total_weight = fields.Float(
+        string='Total Weight', 
+        help='Total Weight. ')      
+
+    date_planned = fields.Date(
+        string='Date planned',
+        required=True,
+        index=True,
+        default=fields.Date.today,
+        help='Date at which weighing is planned to be done. '
+        )
+
+    date_done = fields.Date(
+        string='Date Done',
+        required=True,
+        index=True,
+        default=fields.Date.today,
+        help='Date at which weighing was done. '
+        )        
+
+    date_done = fields.Datetime(
+        string='Date done',
+        help='Date done. ')
+ 
+    qty_todo = fields.Integer(
+        string='Date done',
+        help='Date done. ') 
+ 
+    qty_done = fields.Integer(
+        string='Date done',
+        help='Date done. ') 
+ 
+    weighing_lines = fields.One2many(           
+        comodel_name='maple.weighing_picking_line', 
+        inverse_name='weighing_picking_id',
+        string="Weighing lines",
+        help='Weighing lines. ')
+    
+    acer_lines = fields.One2many(           
+        comodel_name='maple.import_acer', 
+        inverse_name='weighing_picking_id',
+        string="Weighing lines",
+        help='Weighing lines. ')
+    
 class Import_acer(models.Model):
     _name = 'maple.import_acer'
     _description = "Maple Syrup Classification by ACER"
-
 
     maple_producer = fields.Many2one(
         comodel_name='res.partner',
         string= 'Producer',
         help="Producer"
         )
-    
-    weighing = fields.Many2one(
-        comodel_name = 'maple.weighing_picking',
-        string = 'Weighing Counter',
-        help = 'Weighing Counter')
+
+    weighing_picking_id = fields.Many2one(
+        comodel_name='maple.weighing_picking',
+        string="weighing picking id"
+        )
 
     weighing_no = fields.Char(
         string = 'Imported Weighing No.',
@@ -247,82 +310,7 @@ class weighing_classif_site(models.Model):
         help='Classification Site Description. ')
 
 
-class weighing_picking(models.Model):
-    _name = 'maple.weighing_picking'
-    _description = "Maple Syrup Weighing"
 
-    maple_producer = fields.Many2one(
-        comodel_name='res.partner',
-        string= 'Producer',
-        help="Producer. "
-        )
-
-    employee_id = fields.Many2one(
-        comodel_name='hr.employee',
-        string= 'Employee',
-        help="Employee. "
-#ajouter domaine pour limiter aux inspecteurs
-        )
-
-    name = fields.Char(
-        string='Weighing No.', 
-        help='Weighing Number. ')
-    
-    weighing_picking_line_ids = fields.One2many(
-        comodel_name = 'maple.weighing_picking_line',
-        inverse = 'weighing_picking_id',
-        string='Weighing Report'
-        )
-    
-    acer_line_ids = fields.One2many(
-        comodel_name = 'maple.import_acer',
-        inverse = 'weighing',
-        string='Acer Report'
-        )
-    
-#    weighing_id = fields.Many2one(
-#        comodel_name='maple.weighing_picking',
-#        string= 'Weighing No.',
-#        help="Weighing Number. "
-#        )
-        
-    total_weight = fields.Float(
-        string='Total Weight', 
-        help='Total Weight. ')      
-
-    date_planned = fields.Date(
-        string='Date planned',
-        required=True,
-        index=True,
-        default=fields.Date.today,
-        help='Date at which weighing is planned to be done. '
-        )
-
-    date_done = fields.Date(
-        string='Date Done',
-        required=True,
-        index=True,
-        default=fields.Date.today,
-        help='Date at which weighing was done. '
-        )        
-
-    date_done = fields.Datetime(
-        string='Date done',
-        help='Date done. ')
- 
-    qty_todo = fields.Integer(
-        string='Date done',
-        help='Date done. ') 
- 
-    qty_done = fields.Integer(
-        string='Date done',
-        help='Date done. ') 
- 
-    weighing_lines = fields.One2many(           
-        comodel_name='maple.weighing_picking_line', 
-        inverse_name='weighing_picking_id',
-        string="Weighing lines",
-        help='Weighing lines. ')
     
 class weighing_picking_line(models.Model):
     _name = 'maple.weighing_picking_line'

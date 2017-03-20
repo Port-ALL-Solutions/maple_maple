@@ -65,13 +65,14 @@ This module provides mosly fields and views.
 # Chargement des actions et des menus
         'views/maple_location_view.xml',
         'views/actions.xml',                
-        'views/rating_view.xml',                
-        'views/weight_view.xml',                
         'views/stock_pack_operation.xml',                
         'wizard/purchase_wizard.xml',
         'wizard/reception_wizard.xml',        
         'views/menuitems.xml', 
         'views/acer_import.xml',             
+        'views/rating_view.xml',                
+        'views/weight_view.xml',                
+
     ],
     'qweb': [
 #        "static/src/xml/*.xml",

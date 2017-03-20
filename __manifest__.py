@@ -70,7 +70,8 @@ This module provides mosly fields and views.
         'views/stock_pack_operation.xml',                
         'wizard/purchase_wizard.xml',
         'wizard/reception_wizard.xml',        
-        'views/menuitems.xml',              
+        'views/menuitems.xml', 
+        'views/acer_import.xml',             
     ],
     'qweb': [
 #        "static/src/xml/*.xml",

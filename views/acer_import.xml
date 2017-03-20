@@ -2,15 +2,13 @@
 <odoo>
 	<data>
 
-	    <record id="grade_list" model="ir.ui.view">
-			<field name="name">maple.grade.list</field>
-		    <field name="model">maple.grade</field>
+	    <record id="acer_import_list" model="ir.ui.view">
+			<field name="name">maple.acer_import.list</field>
+		    <field name="model">maple.import_acer</field>
 		    <field name="arch" type="xml">
-                <tree string="List of Maple Syrup Grade" toolbar="1" >
-	     			<field name="name"/>
-    				<field name="code"/>
-    				<field name="minLight"/>
-    				<field name="taste"/>
+                <tree string="List of Acer Reports" toolbar="1" >
+	     			<field name="maple_producer"/>
+    				<field name="weighing_no"/>
 		    	</tree>          
 		    </field>
 	    </record>
@@ -31,6 +29,22 @@
 	          	</form>
 	      	</field>
 	    </record>
+	    
+	    <record model="ir.actions.act_window" id="maple_acer_import_list_action">
+           	<field name="name">Maple Acer Import List</field>
+           	<field name="res_model">maple.import_acer</field>
+           	<field name="view_type">form</field>
+           	<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="acer_import_list" /> 
+           	<field name="help" type="html">
+               <p class="oe_view_nocontent_create">No Acer import. </p>
+           	</field>
+       </record>
+
+		<menuitem id="maple_acer_import_menu" 
+			name="List Acer Results" 
+			parent="maple_available_menu_list"
+            action="maple_acer_import_list_action"/>
 
   	</data>
 </odoo>

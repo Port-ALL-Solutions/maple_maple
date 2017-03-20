@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="LB405QC" model="maple.weighing_classif_site">
+            <field name="description">LB/405 rue Principale/QC</field>
+            <field name="name">298</field>
+		</record>
+
+		<record id="LB296QC" model="maple.weighing_classif_site">
+            <field name="description">LB/296 rue Principale/QC</field>
+            <field name="name">375</field>
+		</record>
+		
+		<record id="LB296HQ" model="maple.weighing_classif_site">
+            <field name="description">LB/296 rue Principale/Hors QC</field>
+            <field name="name">LB1</field>
+		</record>
+		
+		<record id="LB405HQ" model="maple.weighing_classif_site">
+            <field name="description">LB/405 rue Principale/Hors QC</field>
+            <field name="name">LB3</field>
+		</record>
+		
+		<record id="LB025NB" model="maple.weighing_classif_site">
+            <field name="description">LB/New-Brunswick/Hors QC</field>
+            <field name="name">LBNB</field>
+		</record>
+		
+		<record id="SE405QC" model="maple.weighing_classif_site">
+            <field name="description">LB/405 rue Principale/QC</field>
+            <field name="name">177</field>
+		</record>
+
+		<record id="SE296QC" model="maple.weighing_classif_site">
+            <field name="description">SE/296 rue Principale/QC</field>
+            <field name="name">37O</field>
+		</record>
+		
+		<record id="SE296HQ" model="maple.weighing_classif_site">
+            <field name="description">SE/296 rue Principale/Hors QC</field>
+            <field name="name">SE1</field>
+		</record>
+		
+		<record id="SE405HQ" model="maple.weighing_classif_site">
+            <field name="description">SE/405 rue Principale/Hors QC</field>
+            <field name="name">SE3</field>
+		</record>
+		
+		<record id="SE025NB" model="maple.weighing_classif_site">
+            <field name="description">SE/New-Brunswick/Hors QC</field>
+            <field name="name">SENB</field>
+		</record>
+
+  	</data>
+</odoo>

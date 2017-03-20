@@ -120,7 +120,7 @@ class MapleReception(models.TransientModel):
                         if pickings.purchase_id.partner_id.ref :
                             ref_name = pickings.purchase_id.partner_id.ref
                         else:
-                            ref_name = "VIDE-FIX-ME"
+                            ref_name = pickings.purchase_id.partner_id.parent_id.ref
                         ref_date = date.today().strftime('%Y%m%d')
 #                        ref_day_seq = pickings.
                         operation_lot_vals = {

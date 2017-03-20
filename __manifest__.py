@@ -35,7 +35,9 @@ This module provides mosly fields and views.
 # Chargement des groups, users et rules pour la sécurité
         'data/lang.xml',        
         'data/identification.xml',        
-        'data/container_state.xml',        
+        'data/container_state.xml',
+        'data/sequence.xml',  
+        'data/classification_site.xml',        
  #       'data/res.groups.users.rel.csv',        
         'security/groups.xml',
 # COMMENTÉ CAR MESSAGE :
@@ -44,6 +46,7 @@ This module provides mosly fields and views.
 #        'security/users.xml',
 #        'security/rules.xml,
 # Chargement des modifications au vues standard
+        'views/employee_view.xml',
         'views/partner_view.xml',
         'views/product_view.xml',
         'views/stock_location_view.xml',
@@ -67,7 +70,8 @@ This module provides mosly fields and views.
         'views/stock_pack_operation.xml',                
         'wizard/purchase_wizard.xml',
         'wizard/reception_wizard.xml',        
-        'views/menuitems.xml',                
+        'views/menuitems.xml', 
+        'views/acer_import.xml',             
     ],
     'qweb': [
 #        "static/src/xml/*.xml",

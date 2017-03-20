@@ -46,8 +46,8 @@
         </record>
         
 	    <menuitem id="maple_weight_menu_list"
-	    	name="Weight"
-	    	parent="maple_container_menu"
+	    	name="Weighing"
+	    	parent="maple_preparation_menu"
 	        action="maple_weight_list_action"/>	
 
          <record model="ir.actions.act_window" id="maple_weight_acer_list_action">
@@ -62,8 +62,8 @@
        </record>
        
        <menuitem id="maple_weight_acer_menu_list"
-	    	name="Weight from Acer"
-	    	parent="maple_container_menu"
+	    	name="Weighing Acer Imports"
+	    	parent="maple_weight_menu_list"
 	        action="maple_weight_acer_list_action"/>
 
 	</data>

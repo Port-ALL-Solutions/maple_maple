@@ -7,12 +7,53 @@
 		    <field name="model">maple.import_acer</field>
 		    <field name="arch" type="xml">
                 <tree string="List of Acer Reports" toolbar="1" >
-	     			<field name="maple_producer"/>
-    				<field name="weighing_no"/>
+	     			<field name="weighing_no" invisible="0" />
+    				<field name="producer_fpaq" invisible="0" />
+    				<field name="report_no" invisible="0" />	     			
+    				<field name="classif_date" invisible="0" />
+    				<field name="producer_name" invisible="0" />
+    				<field name="maple_producer" invisible="1" />
+    				<field name="producer_city" invisible="1" />
+    				<field name="producer_zip" invisible="1" />
+    				<field name="producer_phone" invisible="1" />
+    				<field name="container_owner" invisible="0" />
+    				<field name="site_no" invisible="1" />
+    				<field name="fpaqContact_name" invisible="1" />
+    				<field name="fpaqContact_address" invisible="1" />
+    				<field name="fpaqContact_city" invisible="1" />
+    				<field name="fpaqContact_state" invisible="1" />
+    				<field name="fpaqContact_zip" invisible="1" />
+    				<field name="fpaqContact_phone" invisible="1" />
+    				<field name="supervised" invisible="0" />
+    				<field name="inspector" invisible="0" />
+    				<field name="seal_no" invisible="0" />
+    				<field name="container_no" invisible="0" />
+    				<field name="gross_weight" invisible="0" />
+    				<field name="tare" invisible="0" />
+    				<field name="net_weight" invisible="0" />
+    				<field name="container_state" invisible="0" />
+    				<field name="weight_adjust" invisible="0" />
+    				<field name="maple_grade" invisible="0" />
+    				<field name="maple_type" invisible="0" />
+    				<field name="maple_brix" invisible="0" />
+    				<field name="maple_light" invisible="0" />
+    				<field name="maple_flaw" invisible="0" />
+    				<field name="maple_flavor" invisible="0" />
+    				<field name="maple_clarity" invisible="1" />
+    				<field name="maple_si" invisible="1" />
+    				<field name="maple_ph" invisible="1" />
+    				<field name="maple_iodine" invisible="1" />
+    				<field name="maple_na" invisible="1" />
+    				<field name="maple_pb" invisible="1" />
+    				<field name="maple_held" invisible="1" />
+    				<field name="maple_specialTest" invisible="1" />
+    				<field name="classif_revision" invisible="0" />
+    				<field name="weighing_order" invisible="1" />
+    				<field name="container_type" invisible="0" />
 		    	</tree>          
 		    </field>
 	    </record>
-	
+
 	    <record id="grade_form" model="ir.ui.view">
 	    	<field name="name">maple.grade.form</field>
 	      	<field name="model">maple.grade</field>
@@ -42,8 +83,8 @@
        </record>
 
 		<menuitem id="maple_acer_import_menu" 
-			name="List Acer Results" 
-			parent="maple_available_menu_list"
+			name="Acer Classification Results" 
+			parent="maple_rating_menu_list"
             action="maple_acer_import_list_action"/>
 
   	</data>

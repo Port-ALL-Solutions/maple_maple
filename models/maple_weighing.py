@@ -203,12 +203,7 @@ class Import_acer(models.Model):
     container_state = fields.Char(
         string = 'Container State',
         help = 'Container State')
-        #état du baril 
-        
-    net_weight = fields.Integer(
-        string = 'Net Weight',
-        help = 'Net Weight')
-        #poids net
+        #état du baril
         
     weight_adjust = fields.Integer(
         string = 'Weight Adjustment',

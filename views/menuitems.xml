@@ -30,18 +30,18 @@
 
 <!-- Purchase menu, just a menu entry, no action, parent of all partner related views -->
 		<menuitem id="maple_entry_menu" 
-        	name="Incoming/Available Maple"
+        	name="Maple syrup Purchases"
         	sequence="20"
             parent="main_maple_menu"/>
 
 		<menuitem id="maple_purchase_list" 
-			name="Maple Purchase list" 
+			name="Purchase list" 
 			parent="maple_entry_menu"
             action="maple_purchase_list_action"/>
 
 		<menuitem id="create_maple_purchase_list" 
-			name="Create Maple Purchase" 
-			parent="maple_purchase_list"
+			name="Create Purchase" 
+			parent="maple_entry_menu"
             action="action_create_maple_purchase"/>
 
 		<menuitem id="maple_available_menu_list" 
@@ -50,7 +50,7 @@
             action="available_maple_list_action"/>
 
 		<menuitem id="maple_available_menu_label" 
-			name="Create Barel Label" 
+			name="Create Reception Labels" 
 			parent="maple_available_menu_list"
             action="action_create_maple_reception_label"/>
 
@@ -70,15 +70,22 @@
 			name="Maple pick-up list" 
 			parent="maple_pickup_menu"
             action="pickup_list_action"/>
+            
+<!-- Preparation menu, just a menu entry, no action, parent of all partner related views -->
+		<menuitem id="maple_preparation_menu" 
+        	name="Maple syrup Preparation"
+        	sequence="35"
+            parent="main_maple_menu"/>
+            
 
 <!-- Container menu, just a menu entry, no action, parent of all partner related views -->
 		<menuitem id="maple_container_menu"
-			name="Mapple container"
+			name="Maple syrup Containers"
         	sequence="40"
     		parent="main_maple_menu"/>
 
         <menuitem id="maple_container_menu_list"
-        	name="All container"
+        	name="All Containers"
         	parent="maple_container_menu"
             action="maple_container_list_action"/>
 

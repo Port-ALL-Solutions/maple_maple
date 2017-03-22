@@ -4,11 +4,11 @@ import partner
 import grade
 import product
 import region
-import picking
+import stock_picking
 import stock_pack_operation
-import stockQuant
+import stock_quant
 import purchase
-import stockLocation
+import stock_location
 import inspecteur
 import maple_weighing
 #import stock_move

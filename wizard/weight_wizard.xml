@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="create_weighing_picking_wizard_view">
+            <field name="name">Create List of Barel to weight</field>
+            <field name="model">maple.weight_wizard</field>
+                <field name="arch" type="xml">
+                    <form string="Create List of Barel to weight">
+                    	<sheet>
+                    		<group><h1>Weight Planing</h1></group>
+                    		<group>
+	                            <field name="maple_producer" readonly="1"/>
+  	                            <field name="partner_street" readonly="1"/>
+  	                            <field name="partner_city" readonly="1"/>
+  	                            <field name="partner_state" readonly="1"/>
+  	                            <field name="partner_region" readonly="1"/>
+                    		</group>
+                    		<group>
+	                            <field name="picking_type_id"/>
+                    		</group>
+                    		<group>
+	                            <field name="date_planed"/>
+	                            <field name="note"/>
+                    		</group>
+                    		<group>
+	                            <field name="related_ids"/>
+                    		</group>
+
+	                        <footer>
+	                            <button string="Create" name="create_weighing_picking" type="object" class="oe_highlight"/>
+	                            or
+	                            <button string="Cancel" class="oe_link" special="cancel"/>
+	                        </footer>                    		
+                        </sheet>
+                    </form>
+                </field>
+        </record>
+
+        <act_window id="action_weight_from_quant"
+            multi="True"
+            key2="client_action_multi" name="Plan weight"
+            res_model="maple.weight_wizard" src_model="stock.quant"
+            view_mode="form" target="new" view_type="form" />
+
+   </data>
+</openerp>

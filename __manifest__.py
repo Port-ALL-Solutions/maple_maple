@@ -60,14 +60,16 @@ This module provides mosly fields and views.
 # Devrait être au pluriel sauf exceptions
         'data/grades.xml',
         'data/product_categories.xml',        
+        'data/stock_location.xml',
         'data/products.xml',
         'data/product.template.csv',
 # Chargement des actions et des menus
-        'views/maple_location_view.xml',
+#        'views/maple_location_view.xml',
         'views/actions.xml',                
         'views/stock_pack_operation.xml',                
         'wizard/purchase_wizard.xml',
         'wizard/reception_wizard.xml',        
+        'wizard/weight_wizard.xml',        
         'views/menuitems.xml', 
         'views/acer_import.xml',             
         'views/rating_view.xml',                

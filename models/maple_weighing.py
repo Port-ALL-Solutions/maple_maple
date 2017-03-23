@@ -303,7 +303,6 @@ class weighing_classif_site(models.Model):
     description = fields.Char(
         string='Site Description', 
         help='Classification Site Description. ')
-
    
 class weighing_picking_line(models.Model):
     _name = 'maple.weighing_picking_line'

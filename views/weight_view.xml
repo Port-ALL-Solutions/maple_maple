@@ -14,6 +14,64 @@
 			</field>
 		</record>	
 
+		<record id="maple_weight_form_view" model="ir.ui.view">
+			<field name="name">maple.weight.form.view</field>
+			<field name="model">maple.weighing_picking</field>
+			<field name="arch" type="xml">
+				<form string="Weight Order">
+	               	<header>
+	               	</header>
+					<sheet>
+						<div class="oe_title">
+	                        <h1>
+	                            Here: <field name="name" readonly="1"/>
+	                        </h1>
+	                    </div>					
+						<div>
+							<group>
+								<group>
+					                <field name="maple_producer"/>
+								</group>
+								<group>
+				                	<field name="employee_id"/>
+								</group>
+		        		     </group>
+		        		</div>
+	                    <notebook>
+	                        <page string="Weight Lines">
+								<field name="weighing_lines" mode="tree">
+									<form>
+			                            <group>
+			                                <group>
+	                                            <field name="stock_quant_id"/>		                                
+			                                </group>
+		                                </group>
+	                               	</form>
+			                        <tree string="Weight Lines" editable="bottom">
+                                        <field name="stock_quant_id"/>		                                
+									</tree>
+	                            </field>
+	                        </page>
+	                        <page string="ACER Lines">
+								<field name="acer_lines" mode="tree">
+									<form>
+			                            <group>
+			                                <group>
+	                                            <field name="maple_producer"/>		                                
+			                                </group>
+		                                </group>
+	                               	</form>
+			                        <tree string="ACER lines">
+                                        <field name="maple_producer"/>		                                
+									</tree>
+	                            </field>
+	                        </page>
+	                    </notebook>
+		   			</sheet>
+   				</form>
+			</field>
+		</record>
+
 		<record id="maple_weight_tree_view" model="ir.ui.view">
 			<field name="name">maple.weight.tree.view</field>
 			<field name="model">stock.quant</field>

@@ -30,8 +30,9 @@
         </record>
         
 	    <menuitem id="maple_rating_menu_list"
-	    	name="Maple Classification"
+	    	name="Outside QC Classification"
 	    	parent="maple_preparation_menu"
+	    	sequence="46"
 	        action="maple_rating_list_action"/>	
 	
 	</data>

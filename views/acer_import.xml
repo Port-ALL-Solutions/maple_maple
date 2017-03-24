@@ -83,8 +83,9 @@
        </record>
 
 		<menuitem id="maple_acer_import_menu" 
-			name="Acer Classification Results" 
-			parent="maple_rating_menu_list"
+			name="Quebec Classification" 
+			parent="maple_preparation_menu"
+			sequence="48"
             action="maple_acer_import_list_action"/>
 
   	</data>

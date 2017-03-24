@@ -2,12 +2,12 @@
 <odoo>
 	<data>  
 
-<!-- Main menu of Maple, this is where we put the web_icon and parent of all other -->
+<!-- Main menu of Maple, holds company logo and all submenus -->
 		<menuitem id="main_maple_menu" 
         	name="Maple"
             web_icon="maple,static/description/icon.png"/>
 
-<!-- Partner menu, just a menu entry, no action, parent of all partner related views -->
+<!-- Partners menu, just a menu entry, no action, parent of all related views -->
 		<menuitem id="maple_partners_menu" 
         	name="Partners"
         	sequence="10"
@@ -28,8 +28,8 @@
         	parent="maple_partners_menu"
             action="buyer_list_action"/>
 
-<!-- Purchase menu, just a menu entry, no action, parent of all partner related views -->
-		<menuitem id="maple_entry_menu" 
+<!-- Purchases menu, just a menu entry, no action, parent of all related views -->
+		<menuitem id="maple_entry_menu"
         	name="Maple syrup Purchases"
         	sequence="20"
             parent="main_maple_menu"/>
@@ -43,27 +43,26 @@
 			name="Create Purchase" 
 			parent="maple_entry_menu"
             action="action_create_maple_purchase"/>
+            
+		<menuitem id="maple_available_menu_label" 
+			name="Create Reception Labels" 
+			parent="maple_entry_menu"
+            action="action_create_maple_reception_label"/>
 
 		<menuitem id="maple_available_menu_list" 
 			name="Available Maple list" 
 			parent="maple_entry_menu"
             action="available_maple_list_action"/>
 
-		<menuitem id="maple_available_menu_label" 
-			name="Create Reception Labels" 
-			parent="maple_available_menu_list"
-            action="action_create_maple_reception_label"/>
-
-
-<!-- Maple menu, just a menu entry, no action, parent of all partner related views -->
+<!-- Maple menu, just a menu entry, no action, parent of all related views -->
 		<menuitem id="maple_confirmed_menu_list" 
-			name="Confirmed Maple list" 
-        	sequence="30"
+			name="Confirmed Maple list"
 			parent="maple_entry_menu"
             action="confimed_maple_list_action"/>
 
-		<menuitem id="maple_pickup_menu" 
+		<menuitem id="maple_pickup_menu"
 			name="Maple pick-up"
+			sequence="30"
             parent="main_maple_menu"/>
 
 		<menuitem id="maple_pickup_menu_list" 
@@ -71,17 +70,16 @@
 			parent="maple_pickup_menu"
             action="pickup_list_action"/>
             
-<!-- Preparation menu, just a menu entry, no action, parent of all partner related views -->
+<!-- Production menu, just a menu entry, no action, parent of all related views -->
 		<menuitem id="maple_preparation_menu" 
-        	name="Maple syrup Preparation"
-        	sequence="35"
+        	name="Maple syrup Production"
+        	sequence="40"
             parent="main_maple_menu"/>
-            
 
-<!-- Container menu, just a menu entry, no action, parent of all partner related views -->
+<!-- Containers menu, just a menu entry, no action, parent of all partner related views -->
 		<menuitem id="maple_container_menu"
 			name="Maple syrup Containers"
-        	sequence="40"
+        	sequence="55"
     		parent="main_maple_menu"/>
 
         <menuitem id="maple_container_menu_list"
@@ -95,9 +93,9 @@
             action="maple_product_lot_list_action"/>
 
 
-<!-- Location menu, just a menu entry, no action, parent of all partner related views -->
+<!-- Locations menu, just a menu entry, no action, parent of all partner related views -->
 		<menuitem id="maple_location_menu"
-			name="Maple Stock Location"
+			name="Maple syrup Stock Locations"
         	sequence="50"
     		parent="main_maple_menu"/>
 
@@ -107,8 +105,8 @@
             action="stock_location_list_action"/>
 
         <menuitem id="maple_location_SE1_menu_list"
-        	name="SE1"
-        	parent="maple_location_menu_list"
+        	name="Entrepôt SE1"
+        	parent="maple_location_menu"
             action="stock_SE1STOCK_list_action"/>
 
 <!-- Config menu, just a menu entry, no action, parent of all partner related views -->

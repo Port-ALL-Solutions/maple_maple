@@ -3,31 +3,31 @@
 	<data>
 	
 		<record id="container_ok" model="maple.container_state">
-            <field name="name">O</field>
+            <field name="name">Ok</field>
             <field name="code">O</field>
 		</record>	
 		<record id="container_light_b" model="maple.container_state">
-            <field name="name">L</field>
+            <field name="name">Légèrement bossé</field>
             <field name="code">L</field>
 		</record>	
 		<record id="container_bumped" model="maple.container_state">
-            <field name="name">B</field>
+            <field name="name">Bossé</field>
             <field name="code">B</field>
 		</record>	
 		<record id="container_very_b" model="maple.container_state">
-            <field name="name">T</field>
+            <field name="name">Très bossé</field>
             <field name="code">T</field>
 		</record>
 		<record id="container_rusty" model="maple.container_state">
-            <field name="name">R</field>
+            <field name="name">Rouillé</field>
             <field name="code">R</field>
 		</record>
 		<record id="container_punctured" model="maple.container_state">
-            <field name="name">P</field>
+            <field name="name">Perforé</field>
             <field name="code">P</field>
 		</record>	
 		<record id="container_non_compliant" model="maple.container_state">
-            <field name="name">NC</field>
+            <field name="name">Non conforme</field>
             <field name="code">N</field>
 		</record>	
 	

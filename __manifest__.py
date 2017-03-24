@@ -36,6 +36,8 @@ This module provides mosly fields and views.
         'data/lang.xml',        
         'data/identification.xml',        
         'data/container_state.xml',
+        'data/container_material.xml',
+        'data/container_owner_type.xml',
         'data/sequence.xml',  
         'data/classification_site.xml',        
  #       'data/res.groups.users.rel.csv',        
@@ -60,20 +62,18 @@ This module provides mosly fields and views.
 # Devrait être au pluriel sauf exceptions
         'data/grades.xml',
         'data/product_categories.xml',        
-        'data/stock_location.xml',
         'data/products.xml',
         'data/product.template.csv',
 # Chargement des actions et des menus
-#        'views/maple_location_view.xml',
+        'views/maple_location_view.xml',
         'views/actions.xml',                
         'views/stock_pack_operation.xml',                
         'wizard/purchase_wizard.xml',
         'wizard/reception_wizard.xml',        
-        'wizard/weight_wizard.xml',        
-        'views/menuitems.xml', 
-        'views/acer_import.xml',             
+        'views/menuitems.xml',         
         'views/rating_view.xml',                
-        'views/weight_view.xml',                
+        'views/weight_view.xml',
+        'views/acer_import.xml',                
 
     ],
     'qweb': [

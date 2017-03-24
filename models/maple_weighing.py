@@ -123,16 +123,18 @@ class Import_acer(models.Model):
         string = 'Classification Site No.',
         help = 'Classification Site Number')
 
-        #298 = LB 405, rue Principale ( Classement QC)
-        #375 = LB 296, rue Principale (classement QC)
-        #LB1 = LB 296, rue Principale (Hors QC)
-        #LB3 = LB 405, Rue Principale (Hors QC)
-        #LBNB = LB 25, Rue Maple Lane Lake Edouard, NB (Hors QC)
-        #370 = SE 296, rue Prinicpale (Classement Québec Acer)
-        #177 = SE 405, Rue Pricipale (Classement Québec Acer)
-        #SE1 = SE 296, rue Principale (Hors Québec)
-        #SE3 = SE 405, Rue Principale (Hors Québec)
-        #SENB = SE 25, Maple Lane Lake Edouard NB (Hors Québec)
+        #Déterminé dès l'achat:
+        #(No site: Acheteur, Destination, provenance sirop)
+        #298 = LB SE3 QC
+        #375 = LB SE1 QC
+        #LB1 = LB SE1 Hors QC
+        #LB3 = LB SE3 Hors QC
+        #LBNB = LB NB Hors QC
+        #370 = SE SE1 QC
+        #177 = SE SE3 QC
+        #SE1 = SE SE1 Hors QC
+        #SE3 = SE SE3 Hors QC
+        #SENB = SE NB Hors QC
 
     site_no = fields.Char(
         string = 'Imported Site No.',
@@ -303,6 +305,7 @@ class weighing_classif_site(models.Model):
     description = fields.Char(
         string='Site Description', 
         help='Classification Site Description. ')
+
    
 class weighing_picking_line(models.Model):
     _name = 'maple.weighing_picking_line'

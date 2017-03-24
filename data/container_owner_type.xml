@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+	
+		<record id="container_owner_type_buyer" model="maple.container_owner_type">
+            <field name="name">A</field>
+            <field name="code">A</field>
+		</record>	
+		<record id="container_owner_type_producer" model="maple.container_owner_type">
+            <field name="name">P</field>
+            <field name="code">P</field>
+		</record>
+	
+	</data>
+</odoo>
+	

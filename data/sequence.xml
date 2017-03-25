@@ -9,6 +9,42 @@
    			<field name="padding">3</field>
    			<field name="use_date_range">True</field>
 		</record>
-		
+
+        <record id="ir_sequence_weighing_SE1" model="ir.sequence">
+            <field name="name">SE1 weighing sequence</field>
+            <field name="code">stock.SE1_weighing</field>
+            <field name="implementation">standard</field>
+            <field name="prefix">%(year)s%(month)s%(day)s-</field>
+            <field name="number_increment">1</field>
+            <field name="padding">3</field>
+            <field name="active">1</field>
+            <field name="use_date_range">True</field>
+            <field name="daily_date_range">True</field>    
+        </record>
+
+        <record id="ir_sequence_class1_SE1" model="ir.sequence">
+            <field name="name">SE1 class1 sequence</field>
+            <field name="code">stock.SE1_class1</field>
+            <field name="implementation">standard</field>
+            <field name="prefix">%(year)s%(month)s%(day)s-</field>
+            <field name="number_increment">1</field>
+            <field name="padding">3</field>
+            <field name="active">1</field>
+            <field name="use_date_range">True</field>
+            <field name="daily_date_range">True</field>    
+        </record>
+
+        <record id="ir_sequence_class2_SE1" model="ir.sequence">
+            <field name="name">SE1 class2 sequence</field>
+            <field name="code">stock.SE1_class2</field>
+            <field name="implementation">standard</field>
+            <field name="prefix">%(year)s%(month)s%(day)s-</field>
+            <field name="number_increment">1</field>
+            <field name="padding">3</field>
+            <field name="active">1</field>
+            <field name="use_date_range">True</field>
+            <field name="daily_date_range">True</field>    
+        </record>
+        
 	</data>
 </odoo>

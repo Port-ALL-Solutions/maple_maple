@@ -44,7 +44,8 @@
             <field name="res_model">stock.quant</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,kanban,form</field>
-			<field name="view_id" ref="maple_weight_tree_view" /> 
+			<field name="view_id" ref="maple_weight_tree_view" />
+			<field name="domain">[('location_id', '=', 42)]</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">Can not create anything from here. </p>
             </field>
@@ -61,7 +62,7 @@
            	<field name="res_model">maple.weighing_picking</field>
            	<field name="view_type">form</field>
            	<field name="view_mode">tree,form</field>
-			<field name="view_id" ref="maple_weight_acer_tree_view" /> 
+			<field name="view_id" ref="maple_weight_acer_tree_view" />
            	<field name="help" type="html">
                <p class="oe_view_nocontent_create">No data imported from Acer. </p>
            	</field>

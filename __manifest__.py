@@ -18,7 +18,7 @@ This module provides mosly fields and views.
         'auto_backup',
         'base',
 #        'base_phone',        
-        'base_location',        
+#        'base_location',        
         'contacts',
         'document',
         'fleet',

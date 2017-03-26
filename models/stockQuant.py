@@ -213,8 +213,34 @@ class stockQuant(models.Model):
             })
         return quant 
 
+    @api.constrains('container_total_weight','tmp_tare','container_serial','tmp_material','container_state','tmp_owner')
+    def _constrains_weighing_line(self):
+        for r in self:
+            if r.container_total_weight:
+                if r.container_total_weight < 400:
+                    raise models.ValidationError('Weight value too low')
+                elif r.container_total_weight > 5000:
+                    raise models.ValidationError('Weight value too high')
+                elif not r.tmp_tare:
+                    raise models.ValidationError('You must enter Tare value')
+                elif not r.container_serial:
+                    raise models.ValidationError('You must enter container serial number')
+                elif not r.tmp_material:
+                    raise models.ValidationError('You must select barrel material')
+                elif not r.container_state:
+                    raise models.ValidationError('You must select barrel state')
+                elif not r.tmp_owner:
+                    raise models.ValidationError('You must select barrel owner')
 
-   
+            if r.tmp_tare:
+                if r.tmp_tare < 2:
+                    raise models.ValidationError('Tare value too low')
+                elif r.tmp_tare > 200:
+                    raise models.ValidationError('Tare value too high')
+                elif r.tmp_tare >= r.container_total_weight:
+                    raise models.ValidationError('Tare can\'t be equal to or higher than total weight')
+
+
 #    @api.onchange('history_ids') # if these fields are changed, call method
 #    def check_change(self):
 #        moves = self.history_ids

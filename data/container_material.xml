@@ -2,25 +2,29 @@
 <odoo>
 	<data>
 	
-		<record id="material_galvanized" model="maple.container_material">
-            <field name="name">Galvanisé</field>
-            <field name="code">G</field>
-		</record>	
 		<record id="material_stainless" model="maple.container_material">
             <field name="name">Stainless</field>
             <field name="code">S</field>
-		</record>	
-		<record id="material_plastic" model="maple.container_material">
-            <field name="name">Plastique</field>
-            <field name="code">P</field>
 		</record>	
 		<record id="material_single_use" model="maple.container_material">
             <field name="name">Usage unique</field>
             <field name="code">U</field>
 		</record>
+		<record id="material_plastic" model="maple.container_material">
+            <field name="name">Plastique</field>
+            <field name="code">P</field>
+		</record>	
+		<record id="material_reused" model="maple.container_material">
+            <field name="name">Réutilisé (usage unique)</field>
+            <field name="code">R</field>
+		</record>
 		<record id="material_other" model="maple.container_material">
             <field name="name">Autre</field>
             <field name="code">A</field>
+		</record>
+		<record id="material_galvanized" model="maple.container_material">
+            <field name="name">Galvanisé</field>
+            <field name="code">G</field>
 		</record>
 	
 	</data>

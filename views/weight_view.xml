@@ -23,6 +23,7 @@
 	                <field name="producer" readonly="1" invisible="1"/>
 	                <field name="producer_name" readonly="1"/>
 	                <field name="product_id" string="Type" readonly="1"/>
+	                <field name="qty" string="Qty" readonly="1" sum="1"/>
 	                <field name="lot_id" string="Reception Label No." readonly="1"/>
 	                <field name="container_serial"/>
 					<field name="container_total_weight" sum="1"/>

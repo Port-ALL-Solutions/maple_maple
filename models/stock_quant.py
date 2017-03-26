@@ -166,6 +166,39 @@ class stockQuant(models.Model):
         string='Buyer',
         related='buyer.ref',
         readonly=False)
+    
+    class_site  = fields.Char(
+        string='Classification Site',
+        compute="_compute_class_site",
+        )
+    @api.depend("container_total_weight")
+    def _compute_class_site(self):
+        if self.buyer_code == "SE":
+            if self.location_id.location_id.name == "SENB":
+                self.class_site = "SENB"
+            elif self.location_id.location_id.name == "SE1":
+                if self.producer.state_id.code == "QC":
+                    self.class_site = "370"
+                else:   
+                    self.class_site = "SE1"
+            else:
+                if self.producer.state_id.code == "QC":
+                    self.class_site = "177"
+                else:   
+                    self.class_site = "SE3"
+        else:
+            if self.location_id.location_id.name == "SENB":
+                self.class_site = "LBNB"
+            elif self.location_id.location_id.name == "SE1":
+                if self.producer.state_id.code == "QC":
+                    self.class_site = "375"
+                else:   
+                    self.class_site = "LB1"
+            else:
+                if self.producer.state_id.code == "QC":
+                    self.class_site = "298"
+                else:   
+                    self.class_site = "LB3" 
 
     def _quant_create_from_move(self, qty, move, lot_id=False, owner_id=False, src_package_id=False, dest_package_id=False, force_location_from=False, force_location_to=False):
         quant = super(stockQuant, self)._quant_create_from_move(qty, move, 

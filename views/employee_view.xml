@@ -13,6 +13,9 @@
 					<h1>
 						<field name="inspectNb" placeholder="Inspector ID"/>
 					</h1>
+					<div>
+						<field name="barrelCnt" string="Barrel Count" placeholder="Barrel count"/>
+					</div>
         		</xpath>
       		</field>
     	</record>

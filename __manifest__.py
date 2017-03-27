@@ -39,7 +39,7 @@ This module provides mosly fields and views.
         'data/container_material.xml',
         'data/container_owner_type.xml',
         'data/sequence.xml',  
-        'data/classification_site.xml',           
+#        'data/classification_site.xml',           
  #       'data/res.groups.users.rel.csv',        
         'security/groups.xml',
 # COMMENTÉ CAR MESSAGE :

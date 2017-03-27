@@ -14,7 +14,7 @@
             <field name="name">SE1 weighing sequence</field>
             <field name="code">stock.location_weighing</field>
             <field name="implementation">standard</field>
-            <field name="prefix">%(year)s%(month)s%(day)s-</field>
+            <field name="prefix">PES/%(year)s%(month)s%(day)s-</field>
             <field name="number_increment">1</field>
             <field name="padding">3</field>
             <field name="active">1</field>
@@ -26,7 +26,7 @@
             <field name="name">SE1 class1 sequence</field>
             <field name="code">stock.location_class1</field>
             <field name="implementation">standard</field>
-            <field name="prefix">%(year)s%(month)s%(day)s-</field>
+            <field name="prefix">CL1%(year)s%(month)s%(day)s-</field>
             <field name="number_increment">1</field>
             <field name="padding">3</field>
             <field name="active">1</field>
@@ -38,7 +38,7 @@
             <field name="name">SE1 class2 sequence</field>
             <field name="code">stock.location_class2</field>
             <field name="implementation">standard</field>
-            <field name="prefix">%(year)s%(month)s%(day)s-</field>
+            <field name="prefix">CL2%(year)s%(month)s%(day)s-</field>
             <field name="number_increment">1</field>
             <field name="padding">3</field>
             <field name="active">1</field>

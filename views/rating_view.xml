@@ -10,10 +10,21 @@
 	                <field name="product_id" readonly="1"/>
 	                <field name="location_id" readonly="1" invisible="1"/>
 	                <field name="owner_id" groups="stock.group_tracking_owner" readonly="1"/>
+	                <field name="container_serial"/>
+	                <field name="tmp_owner" readonly="0"/>
+	                <field name="tmp_material" readonly="0"/>
+	                <field name="container_state" readonly="0"/>
+	                <field name="container_total_weight" sum="1"/>
+	                <field name="tmp_tare" sum="1"/>
+	                <field name="controler"/>
+	                <field name="maple_seal_no"/>
+	                <field name="maple_flavor"/>
+	                <field name="maple_flaw"/>
 	                <field name="maple_light" sum="1"/>
 	                <field name="maple_grade"/>
 	                <field name="maple_brix" avg="1"/>
-	                <field name="controler"/>
+	                <field name="maple_adjust_weight" avg="1"/>
+	                <field name="maple_adjust_price"/>
    				</tree>
 			</field>
 		</record>	

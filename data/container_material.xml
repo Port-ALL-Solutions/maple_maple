@@ -5,26 +5,32 @@
 		<record id="material_stainless" model="maple.container_material">
             <field name="name">Stainless</field>
             <field name="code">S</field>
+            <field name="sequence">5</field>
 		</record>	
 		<record id="material_single_use" model="maple.container_material">
             <field name="name">Usage unique</field>
             <field name="code">U</field>
+            <field name="sequence">10</field>
 		</record>
 		<record id="material_plastic" model="maple.container_material">
             <field name="name">Plastique</field>
             <field name="code">P</field>
+            <field name="sequence">15</field>
 		</record>	
 		<record id="material_reused" model="maple.container_material">
             <field name="name">Réutilisé (usage unique)</field>
             <field name="code">R</field>
+            <field name="sequence">20</field>
 		</record>
 		<record id="material_other" model="maple.container_material">
             <field name="name">Autre</field>
             <field name="code">A</field>
+            <field name="sequence">25</field>
 		</record>
 		<record id="material_galvanized" model="maple.container_material">
             <field name="name">Galvanisé</field>
             <field name="code">G</field>
+            <field name="sequence">30</field>
 		</record>
 	
 	</data>

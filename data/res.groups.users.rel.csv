@@ -1,9 +1,0 @@
-id,gid/id,uid/id
-admin_stock_locations,42,1
-defautl_stock_locations,42,3
-admin_stock_warehouses,43,1
-defautl_stock_warehouses,43,3
-admin_stock_serial,46,1
-defautl_stock_serial,46,3
-admin_stock_owner,49,1
-defautl_stock_owner,49,3

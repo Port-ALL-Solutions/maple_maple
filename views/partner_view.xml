@@ -2,6 +2,131 @@
 <odoo>
 	<data>
 	
+		<record id="maple_partner_filter_view" model="ir.ui.view">
+		    <field name="name">maple.producer.filter.view</field>
+		    <field name="model">res.partner</field>
+		    <field name="priority">50</field>
+		    <field name="arch" type="xml">
+		        <search string="Maple Producers">
+		            <field name="name"
+		               filter_domain="['|','|',('name','ilike',self),('parent_id','ilike',self),('ref','=',self)]"/>
+		            <separator/>
+		            <filter string="Maple Producers" name="maple_producer" domain="[('maple_producer','=',1)]"/>
+		            <filter string="Maple Farms" name="maple_farm" domain="[('maple_farm','=',1)]"/>
+		            <filter string="Maple Buyers" name="maple_buyer" domain="[('maple_buyer','=',1)]"/>
+		            <separator/>
+		            <group expand="0" string="Group By" colspan="10" col="8">
+		                <filter string="Region" domain="[]" context="{'group_by' : 'maple_region'}"/>
+		                <filter string="Producer" domain="[]" context="{'group_by' : 'parent_id'}"/>
+		            </group>
+		        </search>
+		    </field>
+		</record>	
+
+		<record id="buyer_filter_view" model="ir.ui.view">
+		    <field name="name">maple.buyer.filter.view</field>
+		    <field name="model">res.partner</field>
+		    <field name="priority">50</field>
+		    <field name="arch" type="xml">
+		        <search string="Maple Buyers">
+		            <field name="name"
+		               filter_domain="['|','|',('name','ilike',self),('parent_id','ilike',self),('ref','=',self)]"/>
+		            <separator/>
+		            <filter string="Maple Producers" name="maple_producer" domain="[('maple_producer','=',1)]"/>
+		            <filter string="Maple Buyers" name="maple_buyer" domain="[('maple_buyer','=',1)]"/>
+		            <separator/>
+		            <group expand="0" string="Group By" colspan="10" col="8">
+		                <filter string="Region" domain="[]" context="{'group_by' : 'maple_region'}"/>
+		            </group>
+		        </search>
+		    </field>
+		</record>
+
+		<record id="maple_location_filter_view" model="ir.ui.view">
+		    <field name="name">maple.location.filter.view</field>
+		    <field name="model">stock.location</field>
+		    <field name="priority">50</field>
+		    <field name="arch" type="xml">
+		        <search string="Maple Location">
+		            <field name="name" filter_domain="['|','|',('name','ilike',self),('parent_id','ilike',self),('ref','=',self)]"/>
+		            <separator/>
+		            <filter string="Stock" name="maple_stock_se1" domain="[('location_id','=',15)]"/>
+		        </search>
+		    </field>
+		</record>
+	
+		<record id="producer_tree_view" model="ir.ui.view">
+			<field name="name">maple.producer.tree.view</field>
+			<field name="model">res.partner</field>
+			<field name="arch" type="xml">
+				<tree string="Maple Producer">
+					<field name="name"/>
+					<field name="intCode"/>
+					<field name="fpaqCode"/>
+					<field name="city"/>
+					<field name="maple_region"/>
+					<field name="street"/>
+					<field name="maple_outside_qc"/>
+					<field name="state_id"/>				
+					<field name="phone"/>
+					<field name="default_owner_id"/>
+					<field name="id" invisible="1"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record id="buyer_filter_view" model="ir.ui.view">
+		    <field name="name">maple.buyer.filter.view</field>
+		    <field name="model">res.partner</field>
+		    <field name="priority">50</field>
+		    <field name="arch" type="xml">
+		        <search string="Maple Buyers">
+		            <field name="name"
+		               filter_domain="['|','|',('name','ilike',self),('parent_id','ilike',self),('ref','=',self)]"/>
+		            <separator/>
+		            <filter string="Maple Producers" name="maple_producer" domain="[('maple_producer','=',1)]"/>
+		            <filter string="Maple Buyers" name="maple_buyer" domain="[('maple_buyer','=',1)]"/>
+		            <separator/>
+		            <group expand="0" string="Group By" colspan="10" col="8">
+		                <filter string="Region" domain="[]" context="{'group_by' : 'maple_region'}"/>
+		            </group>
+		        </search>	
+
+		    </field>
+		</record>		
+		
+		
+		<record id="buyer_tree_view" model="ir.ui.view">
+			<field name="name">maple.buyer.tree.view</field>
+			<field name="model">res.partner</field>
+			<field name="arch" type="xml">
+				<tree string="Maple Buyers">
+					<field name="name"/>
+					<field name="phone"/>
+				</tree>
+			</field>
+		</record>
+	
+	
+		<record id="farm_tree_view" model="ir.ui.view">
+			<field name="name">maple.farm.tree.view</field>
+			<field name="model">res.partner</field>
+			<field name="arch" type="xml">
+				<tree string="Maple Farms">
+					<field name="parent_id" string="Producer"/>
+					<field name="name"/>
+					<field name="maple_region"/>
+					<field name="fpaqCode"/>				
+					<field name="street"/>				
+					<field name="city"/>
+					<field name="maple_outside_qc"/>				
+					<field name="phone"/>
+					<field name="default_owner_id"/>				
+					<field name="id" invisible="1"/>
+				</tree>
+			</field>
+		</record>
+	
     	<record id="maple_partner_view_region" model="ir.ui.view">
       		<field name="name">maple.partner_view</field>
       		<field name="model">res.partner</field>
@@ -72,6 +197,47 @@
         		</xpath>
       		</field>
     	</record>
+    	    	
+        <record model="ir.actions.act_window" id="producer_list_action">
+            <field name="name">Maple Producers List</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_id" ref="maple.producer_tree_view" />
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="search_view_id" ref="maple_partner_filter_view"/>            
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first maple producer</p>
+            </field>
+            <field name="context">{'search_default_maple_producer': 1,'default_customer': 1,'default_supplier': 1,'default_maple_producer': 1}</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="buyer_list_action">
+            <field name="name">Maple Buyer List</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_id" ref="maple.buyer_tree_view" />
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="search_view_id" ref="maple_partner_filter_view"/>            
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first maple buyer</p>
+            </field>
+            <field name="context">{'search_default_maple_buyer': 1,'default_customer': 1,'default_supplier': 1,'default_maple_buyer': 1}</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="farm_list_action">
+            <field name="name">Maple Farm List</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="view_id" ref="farm_tree_view" />            
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Go in producer to add a farm</p>
+            </field>
+			<field name="search_view_id" ref="maple_partner_filter_view"/>            
+            <field name="context">{'search_default_maple_farm': 1}</field> 
+        </record>   	
+    	
+    	
 
 	</data>
 </odoo>

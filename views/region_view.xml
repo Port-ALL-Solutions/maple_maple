@@ -13,6 +13,7 @@
 		    	</tree>          
 		    </field>
 	    </record>
+
 	
 	    <record id="region_form" model="ir.ui.view">
 	    	<field name="name">maple.region.form</field>
@@ -29,8 +30,15 @@
 	      	</field>
 	    </record>
 
+        <record model="ir.actions.act_window" id="maple_config_regions_action">
+            <field name="name">Maple Syrup Regions</field>
+            <field name="res_model">maple.region</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first maple region</p>
+            </field>
+        </record>
+
   	</data>
 </odoo>
-
-
-

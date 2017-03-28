@@ -53,7 +53,7 @@
         
 	    <menuitem id="maple_weight_menu_list"
 	    	name="Weighing"
-	    	parent="maple_preparation_menu"
+	    	parent=""
 	    	sequence="42"
 	        action="maple_weight_list_action"/>	
 
@@ -70,7 +70,7 @@
        
        <menuitem id="maple_weight_acer_menu_list"
 	    	name="Weighing Acer Imports"
-	    	parent="maple_preparation_menu"
+	    	parent=""
 	    	sequence="42"
 	        action="maple_weight_acer_list_action"/>
 

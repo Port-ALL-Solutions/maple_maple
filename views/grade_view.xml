@@ -31,7 +31,16 @@
 	          	</form>
 	      	</field>
 	    </record>
-
+        <record model="ir.actions.act_window" id="maple_config_grades_action">
+            <field name="name">Maple Syrup Grades</field>
+            <field name="res_model">maple.grade</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the maple syrup grade
+                </p>
+            </field>
+        </record>
   	</data>
 </odoo>
 

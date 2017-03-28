@@ -16,13 +16,12 @@ This module provides mosly fields and views.
         """,
     'depends': [
         'auto_backup',
-        'base',
-#        'base_phone',        
-#        'base_location',        
+        'base',     
         'contacts',
         'document',
         'fleet',
         'hr',
+        'ir_sequence_daily_range',
         'mrp',
         'partner_identification',
         'purchase',
@@ -51,12 +50,12 @@ This module provides mosly fields and views.
         'views/employee_view.xml',
         'views/partner_view.xml',
         'views/product_view.xml',
-        'views/stock_location_view.xml',
+#        'views/stock_location_view.xml',
 # Chargement des nouvelles vues spécifiques à Maple
         'views/barrel_view.xml',
         'views/grade_view.xml',
         'views/region_view.xml',
-        'views/producer_view.xml',
+#        'views/producer_view.xml',
         'views/purchase_view.xml',
 # Chargement d'enregistrements, les fichiers devraient correspondres au modèles
 # Devrait être au pluriel sauf exceptions
@@ -65,15 +64,18 @@ This module provides mosly fields and views.
         'data/products.xml',
         'data/product.template.csv',
 # Chargement des actions et des menus
-        'views/maple_location_view.xml',
-        'views/actions.xml',                
+#        'views/maple_location_view.xml',
+#        'views/actions.xml',                
         'views/stock_pack_operation.xml',                
         'wizard/purchase_wizard.xml',
         'wizard/reception_wizard.xml',        
-        'views/menuitems.xml',         
         'views/rating_view.xml',                
         'views/weight_view.xml',
         'views/acer_import.xml',                
+# other_actions = Action not define in views
+        'views/other_actions.xml',         
+# menuitems = The menu, need to be put last
+        'views/menuitems.xml',         
 
     ],
     'qweb': [

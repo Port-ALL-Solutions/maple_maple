@@ -42,7 +42,7 @@
         
 	    <menuitem id="maple_rating_menu_list"
 	    	name="Outside QC Classification"
-	    	parent="maple_preparation_menu"
+	    	parent=""
 	    	sequence="46"
 	        action="maple_rating_list_action"/>	
 	

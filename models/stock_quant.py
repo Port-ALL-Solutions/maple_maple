@@ -12,6 +12,7 @@ class container_condition(models.Model):
 class container_materiaL(models.Model):
     _name = 'maple.container_material'
 
+    sequence = fields.Integer('Sequence', index=True, default=100)
     name = fields.Char('Container material', index=True, required=True)
     code = fields.Char('Container material code', required=True, size=1, help="Specifies the material of the container. ")
 

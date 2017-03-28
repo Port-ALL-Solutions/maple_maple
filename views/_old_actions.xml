@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>  
+
+        <!-- window action -->
+        <!--
+            The following tag is an action definition for a "window action",
+            that is an action opening a view or a set of views
+        -->
+
+
+
+
+
+
+
+
+
+<!--
+        <record id="show_stock_location_inventory" model="ir.actions.act_window">
+            <field name="name">Show Stock Location Inventory</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">stock.quant</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+        </record>
+-->
+
+	</data>
+</odoo>

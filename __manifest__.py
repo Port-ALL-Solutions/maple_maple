@@ -75,7 +75,8 @@ This module provides mosly fields and views.
 # other_actions = Action not define in views
         'views/other_actions.xml',         
 # menuitems = The menu, need to be put last
-        'views/menuitems.xml',         
+        'views/menuitems.xml',
+        'report/fpaq_reception.xml',        
 
     ],
     'qweb': [

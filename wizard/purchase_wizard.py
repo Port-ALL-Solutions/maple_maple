@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
-from openerp import models, fields, api
+from openerp import models, fields, api, __init__
+from odoo.exceptions import UserError
 from datetime import date
+
 class MaplePurchaseOrder(models.TransientModel):
     _name = 'maple.purchase.order'
 #    _inherit = 'purchase.order'
@@ -123,6 +125,9 @@ class MaplePurchaseOrder(models.TransientModel):
         product_obj = self.env['product.product']
         purchase_obj = self.env['purchase.order']
         purchase_line_obj = self.env['purchase.order.line']
+        
+        if self.qty_container == 0 :
+            raise UserError(_("No quantity."))
                 
         purchase_vals = {
             'partner_id':self.partner_id.id,

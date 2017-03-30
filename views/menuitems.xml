@@ -60,6 +60,7 @@
 			parent="maple_entry_menu"
             action="confimed_maple_list_action"/>
 
+<!-- Pickup menu, just a menu entry, no action, parent of all related views -->
 		<menuitem id="maple_pickup_menu"
 			name="Maple pick-up"
 			sequence="30"
@@ -70,11 +71,35 @@
 			parent="maple_pickup_menu"
             action="pickup_list_action"/>
             
-<!-- Production menu, just a menu entry, no action, parent of all related views -->
+<!-- Classification menu, just a menu entry, no action, parent of all related views -->
 		<menuitem id="maple_preparation_menu" 
-        	name="Maple syrup Production"
+        	name="Maple syrup Classification"
         	sequence="40"
             parent="main_maple_menu"/>
+
+		<menuitem id="maple_weight_menu_list"
+	    	name="Weighing"
+	    	parent="maple_preparation_menu"
+	    	sequence="42"
+	        action="maple_weight_list_action"/>	
+		
+		<menuitem id="maple_weight_acer_menu_list"
+	    	name="Weighing Exports for Acer"
+	    	parent="maple_preparation_menu"
+	    	sequence="44"
+	        action="maple_weight_acer_list_action"/>
+            
+		<menuitem id="maple_acer_import_menu" 
+			name="Quebec Classification" 
+			parent="maple_preparation_menu"
+			sequence="46"
+            action="maple_acer_import_list_action"/>
+
+		<menuitem id="maple_rating_menu_list"
+	    	name="Outside QC Classification"
+	    	parent="maple_preparation_menu"
+	    	sequence="48"
+	        action="maple_rating_list_action"/>
 
 <!-- Containers menu, just a menu entry, no action, parent of all partner related views -->
 		<menuitem id="maple_container_menu"

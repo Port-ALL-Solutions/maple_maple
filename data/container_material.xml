@@ -30,7 +30,7 @@
 		<record id="material_galvanized" model="maple.container_material">
             <field name="name">Galvanisé</field>
             <field name="code">G</field>
-            <field name="sequence">30</field>
+            <field name="sequence">8</field>
 		</record>
 	
 	</data>

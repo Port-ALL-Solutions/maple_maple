@@ -1,35 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	<data>
-	
+
 		<record id="container_ok" model="maple.container_state">
             <field name="name">Ok</field>
             <field name="code">O</field>
-		</record>	
+            <field name="sequence">5</field>
+		</record>
 		<record id="container_light_b" model="maple.container_state">
             <field name="name">Légèrement bossé</field>
             <field name="code">L</field>
-		</record>	
+            <field name="sequence">30</field>
+		</record>
 		<record id="container_bumped" model="maple.container_state">
             <field name="name">Bossé</field>
             <field name="code">B</field>
-		</record>	
+            <field name="sequence">10</field>
+		</record>
 		<record id="container_very_b" model="maple.container_state">
             <field name="name">Très bossé</field>
             <field name="code">T</field>
+            <field name="sequence">20</field>
 		</record>
 		<record id="container_rusty" model="maple.container_state">
             <field name="name">Rouillé</field>
             <field name="code">R</field>
+            <field name="sequence">15</field>
 		</record>
 		<record id="container_punctured" model="maple.container_state">
             <field name="name">Perforé</field>
             <field name="code">P</field>
-		</record>	
+            <field name="sequence">35</field>
+		</record>
 		<record id="container_non_compliant" model="maple.container_state">
             <field name="name">Non conforme</field>
             <field name="code">N</field>
-		</record>	
+            <field name="sequence">25</field>
+		</record>
 	
 	</data>
 </odoo>

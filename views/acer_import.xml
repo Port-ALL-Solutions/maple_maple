@@ -82,12 +82,6 @@
            	</field>
        </record>
 
-		<menuitem id="maple_acer_import_menu" 
-			name="Quebec Classification" 
-			parent=""
-			sequence="48"
-            action="maple_acer_import_list_action"/>
-
   	</data>
 </odoo>
 

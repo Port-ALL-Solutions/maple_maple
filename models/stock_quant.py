@@ -4,13 +4,16 @@ from datetime import date
 
 class container_condition(models.Model):
     _name = 'maple.container_state'
+    _order = 'sequence'
 
+    sequence = fields.Integer('Sequence', index=True, default=100)
     name = fields.Char('Containter condition', index=True, required=True)
     code = fields.Char('Container condition code', required=True, size=1, help="Short name used to that container condition. ")
 
 
 class container_materiaL(models.Model):
     _name = 'maple.container_material'
+    _order = 'sequence'
 
     sequence = fields.Integer('Sequence', index=True, default=100)
     name = fields.Char('Container material', index=True, required=True)
@@ -26,7 +29,7 @@ class container_owner_type(models.Model):
 class maple_control(models.Model):
     _name = 'maple.control'
     
-    controler = fields.Many2one('hr.employee', string="Controled by")
+    controler = fields.Many2one('hr.employee', string="Controlled by")
     
     container_total_weight = fields.Integer(
         string='Weight', 
@@ -297,6 +300,25 @@ class stockQuant(models.Model):
         string='Classification Site',
         compute="_compute_class_site",
         )
+    
+    weighing_picking = fields.Many2one(
+       comodel_name='stock.picking',
+       string='Weighing picking', 
+       compute="_compute_weighing_picking",
+       store=True)
+    
+    weighing_no = fields.Integer(
+       string='Weighing no', 
+       compute="_compute_weighing_picking",
+       store=True)
+
+    @api.depends("container_total_weight")
+    def _compute_weighing_picking(self): 
+       for m in self.history_ids:
+           if m.location_dest_id.name == u"Pesée":
+               self.weighing_picking = m.picking_id
+               self.weighing_no = int(m.picking_id.name[-5:])
+    
     @api.depends("container_total_weight")
     def _compute_class_site(self):
         if self.buyer_code == "SE":

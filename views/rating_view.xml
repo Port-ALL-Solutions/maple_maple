@@ -11,12 +11,12 @@
 	                <field name="location_id" readonly="1" invisible="1"/>
 	                <field name="owner_id" groups="stock.group_tracking_owner" readonly="1"/>
 	                <field name="container_serial"/>
-	                <field name="tmp_owner" readonly="0"/>
-	                <field name="tmp_material" readonly="0"/>
-	                <field name="container_state" readonly="0"/>
+	                <field name="tmp_owner" readonly="0" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/>
+	                <field name="tmp_material" readonly="0" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/>
+	                <field name="container_state" readonly="0" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/>
 	                <field name="container_total_weight" sum="1"/>
 	                <field name="tmp_tare" sum="1"/>
-	                <field name="controler"/>
+	                <field name="controler" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/>
 	                <field name="maple_seal_no"/>
 	                <field name="maple_flavor"/>
 	                <field name="maple_flaw"/>
@@ -39,12 +39,6 @@
                 <p class="oe_view_nocontent_create">Can not create anything from here. </p>
             </field>
         </record>
-        
-	    <menuitem id="maple_rating_menu_list"
-	    	name="Outside QC Classification"
-	    	parent=""
-	    	sequence="46"
-	        action="maple_rating_list_action"/>	
 	
 	</data>
 </odoo>

@@ -39,7 +39,11 @@ This module provides mosly fields and views.
         'data/container_owner_type.xml',
         'data/sequence.xml',  
 #        'data/classification_site.xml',           
- #       'data/res.groups.users.rel.csv',        
+#        'data/res.groups.users.rel.csv',
+        'data/product_categories.xml',
+        'data/product_attributes.xml',
+  		'data/product.template.csv',
+		'data/product.product.csv',  
         'security/groups.xml',
 # COMMENTÉ CAR MESSAGE :
 # "You cannot create a new user from here.
@@ -60,9 +64,7 @@ This module provides mosly fields and views.
 # Chargement d'enregistrements, les fichiers devraient correspondres au modèles
 # Devrait être au pluriel sauf exceptions
         'data/grades.xml',
-        'data/product_categories.xml',        
         'data/products.xml',
-        'data/product.template.csv',
 # Chargement des actions et des menus
 #        'views/maple_location_view.xml',
 #        'views/actions.xml',                

@@ -23,7 +23,7 @@
 		</record>
 
 		<record id="regular_maple_barrel" model="product.template">
-            <field name="name">Regural Maple Syrup Barel</field>				
+            <field name="name">Regural Maple Syrup Barrel</field>				
             <field name="default_code">BR</field>		
             <field name="type">product</field>
             <field name="maple_container">1</field>
@@ -36,7 +36,7 @@
 		</record>	
 
 		<record id="organic_maple_barrel" model="product.template">
-            <field name="name">Organic Maple Syrup Barel</field>				
+            <field name="name">Organic Maple Syrup Barrel</field>				
             <field name="default_code">BB</field>		
             <field name="type">product</field>
             <field name="maple_container">1</field>

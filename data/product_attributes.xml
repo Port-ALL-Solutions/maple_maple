@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="attribute_organic" model="product.attribute">
+            <field name="name">Organic</field>
+            <field name="create_variant">1</field>
+		</record>
+
+		<record id="attribute_organic_true" model="product.attribute.value">
+            <field name="name">Organic</field>
+            <field name="attribute_id" ref="attribute_organic"/>	
+		</record>
+
+		<record id="attribute_organic_false" model="product.attribute.value">
+            <field name="name">Regular</field>
+            <field name="attribute_id" ref="attribute_organic"/>	
+		</record>
+
+		<record id="attribute_organic_pending" model="product.attribute.value">
+            <field name="name">Pending</field>
+            <field name="attribute_id" ref="attribute_organic"/>	
+		</record>
+
+		<record id="attribute_light" model="product.attribute">
+            <field name="name">Light</field>
+            <field name="create_variant">1</field>	
+		</record>
+
+		<record id="attribute_light_golden" model="product.attribute.value">
+            <field name="name">Golden</field>
+            <field name="attribute_id" ref="attribute_light"/>	
+		</record>
+
+		<record id="attribute_light_amber" model="product.attribute.value">
+            <field name="name">Amber</field>
+            <field name="attribute_id" ref="attribute_light"/>	
+		</record>
+		
+		<record id="attribute_light_dark" model="product.attribute.value">
+            <field name="name">Dark</field>
+            <field name="attribute_id" ref="attribute_light"/>	
+		</record>
+
+		<record id="attribute_light_verydark" model="product.attribute.value">
+            <field name="name">Very Dark</field>
+            <field name="attribute_id" ref="attribute_light"/>	
+		</record>
+
+		<record id="attribute_flaw" model="product.attribute">
+            <field name="name">Flaw</field>
+            <field name="create_variant">1</field>	
+		</record>
+
+		<record id="attribute_flaw_none" model="product.attribute.value">
+            <field name="name">None</field>
+            <field name="attribute_id" ref="attribute_flaw"/>	
+		</record>
+
+		<record id="attribute_flaw_v" model="product.attribute.value">
+            <field name="name">Crochet</field>
+            <field name="attribute_id" ref="attribute_flaw"/>	
+		</record>
+
+		<record id="attribute_flaw_vr1" model="product.attribute.value">
+            <field name="name">VR1</field>
+            <field name="attribute_id" ref="attribute_flaw"/>	
+		</record>
+
+		<record id="attribute_flaw_vr2" model="product.attribute.value">
+            <field name="name">VR2</field>
+            <field name="attribute_id" ref="attribute_flaw"/>	
+		</record>
+
+		<record id="attribute_flaw_vr4" model="product.attribute.value">
+            <field name="name">VR4</field>
+            <field name="attribute_id" ref="attribute_flaw"/>	
+		</record>
+
+		<record id="attribute_flaw_vr5" model="product.attribute.value">
+            <field name="name">VR5</field>
+            <field name="attribute_id" ref="attribute_flaw"/>	
+		</record>
+		
+		<record id="attribute_flaw_nc1" model="product.attribute.value">
+            <field name="name">NC1</field>
+            <field name="attribute_id" ref="attribute_flaw"/>	
+		</record>
+
+		<record id="attribute_flaw_nc2" model="product.attribute.value">
+            <field name="name">NC2</field>
+            <field name="attribute_id" ref="attribute_flaw"/>	
+		</record>
+
+		<record id="attribute_flaw_nc3" model="product.attribute.value">
+            <field name="name">NC3</field>
+            <field name="attribute_id" ref="attribute_flaw"/>	
+		</record>
+		
+		<record id="attribute_flaw_nc4" model="product.attribute.value">
+            <field name="name">NC4</field>
+            <field name="attribute_id" ref="attribute_flaw"/>	
+		</record>
+		
+		<record id="attribute_flaw_nc5" model="product.attribute.value">
+            <field name="name">NC5</field>
+            <field name="attribute_id" ref="attribute_flaw"/>	
+		</record>
+		
+		<record id="attribute_flaw_nc6" model="product.attribute.value">
+            <field name="name">NC6</field>
+            <field name="attribute_id" ref="attribute_flaw"/>	
+		</record>		
+
+	</data>
+</odoo>
+	

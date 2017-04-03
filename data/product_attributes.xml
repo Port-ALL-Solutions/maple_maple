@@ -2,24 +2,24 @@
 <odoo>
 	<data>
 
-		<record id="attribute_organic" model="product.attribute">
-            <field name="name">Organic</field>
+		<record id="attribute_type" model="product.attribute">
+            <field name="name">Type</field>
             <field name="create_variant">1</field>
 		</record>
 
-		<record id="attribute_organic_true" model="product.attribute.value">
+		<record id="attribute_type_organic" model="product.attribute.value">
             <field name="name">Organic</field>
-            <field name="attribute_id" ref="attribute_organic"/>	
+            <field name="attribute_id" ref="attribute_type"/>	
 		</record>
 
-		<record id="attribute_organic_false" model="product.attribute.value">
+		<record id="attribute_type_regular" model="product.attribute.value">
             <field name="name">Regular</field>
-            <field name="attribute_id" ref="attribute_organic"/>	
+            <field name="attribute_id" ref="attribute_type"/>	
 		</record>
 
-		<record id="attribute_organic_pending" model="product.attribute.value">
+		<record id="attribute_type_pending" model="product.attribute.value">
             <field name="name">Pending</field>
-            <field name="attribute_id" ref="attribute_organic"/>	
+            <field name="attribute_id" ref="attribute_type"/>	
 		</record>
 
 		<record id="attribute_light" model="product.attribute">

@@ -173,6 +173,14 @@ class maple_control(models.Model):
         store=True,
         help="Price Adjustment"
         )
+    
+    location_dest_id = fields.Many2one(
+        comodel_name='stock.location',
+        string='Destination Location',
+#        required=True, 
+        help="Location where this container will be stocked after classification. "
+        )
+
 
     @api.depends('acer_seal_no','controler','maple_brix') #barrelCnt, InspectNb
     def _compute_seal(self):
@@ -224,7 +232,7 @@ class maple_control(models.Model):
     def check_change_container_type(self):
         self.container_tar_weight = self.container_type.weight
 
-    @api.onchange('maple_light') # if these fields are changed, call method
+    @api.depends('maple_light') # if these fields are changed, call method
     def _check_change_maple_light(self):
         for control in self:
             if control.maple_light > 0:
@@ -311,6 +319,34 @@ class stockQuant(models.Model):
        string='Weighing no', 
        compute="_compute_weighing_picking",
        store=True)
+    
+    product_code = fields.Char(
+        string="Internal Product Code",
+        compute="_compute_product_code",
+        store=True,
+        help="Find the corresponding internal product code. "
+        )
+    
+    @api.depends('maple_grade','maple_flavor','maple_flaw')
+    def _compute_product_code(self):
+#        product_obj = self.env['stock.quant']
+        for r in self:
+            if r.maple_grade:
+                answer = ''
+                answer += r.product_id.default_code[1] + r.maple_grade
+                if not r.maple_flavor:
+                    answer += '--'
+                else:
+                    if len(r.maple_flavor) == 2:
+                        answer += r.maple_flavor[1]     
+                    elif len(r.maple_flavor) > 2:
+                        answer += "R"
+                    if not r.maple_flaw:
+                        answer += "0"
+                    else:
+                        answer += r.maple_flaw
+                if len(answer) == 5:
+                    self.product_code = answer                                          
 
     @api.depends("container_total_weight")
     def _compute_weighing_picking(self): 

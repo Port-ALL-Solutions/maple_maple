@@ -1,16 +1,40 @@
-id,default_code,name,type,weight,sale_ok,purchase_ok,maple_syrup,maple_container,categ_id/id,tracking,uom_id/id,uom_po_id/id,attribute_line_ids/attribute_id/id
-maple.srp4saleBDO--,BDO--,Maple Syrup BIO DO  ,product,,1,0,1,0,maple.maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_flaw
-maple.srp4saleBAM--,BAM--,Maple Syrup BIO AM  ,product,,1,0,1,0,maple.maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_flaw
-maple.srp4saleBFO--,BFO--,Maple Syrup BIO FO  ,product,,1,0,1,0,maple.maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_flaw
-maple.srp4saleBTF--,BTF--,Maple Syrup BIO TF  ,product,,1,0,1,0,maple.maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_flaw
-maple.srp4saleRDO--,RDO--,Maple Syrup REG DO  ,product,,1,0,1,0,maple.maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_flaw
-maple.srp4saleRAM--,RAM--,Maple Syrup REG AM  ,product,,1,0,1,0,maple.maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_flaw
-maple.srp4saleRFO--,RFO--,Maple Syrup REG FO  ,product,,1,0,1,0,maple.maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_flaw
-maple.srp4saleRTF--,RTF--,Maple Syrup REG TF  ,product,,1,0,1,0,maple.maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_flaw
-maple.srp4salePDO--,PDO--,Maple Syrup BI DO  ,product,,1,0,1,0,maple.maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_flaw
-maple.srp4salePAM--,PAM--,Maple Syrup BI AM  ,product,,1,0,1,0,maple.maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_flaw
-maple.srp4salePFO--,PFO--,Maple Syrup BI FO  ,product,,1,0,1,0,maple.maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_flaw
-maple.srp4salePTF--,PTF--,Maple Syrup BI TF  ,product,,1,0,1,0,maple.maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_flaw
+id,default_code,name,type,weight,sale_ok,purchase_ok,maple_syrup,maple_container,categ_id:id,tracking,uom_id/id,uom_po_id/id,attribute_line_ids/attribute_id/id
+srp4saleBDO--,BDO--,Maple Syrup BIO DO  ,product,,1,0,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
+,,,,,,,,,,,,,maple.attribute_light
+,,,,,,,,,,,,,maple.attribute_flaw
+srp4saleBAM--,BAM--,Maple Syrup BIO AM  ,product,,1,0,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
+,,,,,,,,,,,,,maple.attribute_light
+,,,,,,,,,,,,,maple.attribute_flaw
+srp4saleBFO--,BFO--,Maple Syrup BIO FO  ,product,,1,0,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
+,,,,,,,,,,,,,maple.attribute_light
+,,,,,,,,,,,,,maple.attribute_flaw
+srp4saleBTF--,BTF--,Maple Syrup BIO TF  ,product,,1,0,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
+,,,,,,,,,,,,,maple.attribute_light
+,,,,,,,,,,,,,maple.attribute_flaw
+srp4saleRDO--,RDO--,Maple Syrup REG DO  ,product,,1,0,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
+,,,,,,,,,,,,,maple.attribute_light
+,,,,,,,,,,,,,maple.attribute_flaw
+srp4saleRAM--,RAM--,Maple Syrup REG AM  ,product,,1,0,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
+,,,,,,,,,,,,,maple.attribute_light
+,,,,,,,,,,,,,maple.attribute_flaw
+srp4saleRFO--,RFO--,Maple Syrup REG FO  ,product,,1,0,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
+,,,,,,,,,,,,,maple.attribute_light
+,,,,,,,,,,,,,maple.attribute_flaw
+srp4saleRTF--,RTF--,Maple Syrup REG TF  ,product,,1,0,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
+,,,,,,,,,,,,,maple.attribute_light
+,,,,,,,,,,,,,maple.attribute_flaw
+srp4salePDO--,PDO--,Maple Syrup BI DO  ,product,,1,0,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
+,,,,,,,,,,,,,maple.attribute_light
+,,,,,,,,,,,,,maple.attribute_flaw
+srp4salePAM--,PAM--,Maple Syrup BI AM  ,product,,1,0,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
+,,,,,,,,,,,,,maple.attribute_light
+,,,,,,,,,,,,,maple.attribute_flaw
+srp4salePFO--,PFO--,Maple Syrup BI FO  ,product,,1,0,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
+,,,,,,,,,,,,,maple.attribute_light
+,,,,,,,,,,,,,maple.attribute_flaw
+srp4salePTF--,PTF--,Maple Syrup BI TF  ,product,,1,0,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
+,,,,,,,,,,,,,maple.attribute_light
+,,,,,,,,,,,,,maple.attribute_flaw
 container_A33,A33,Other barrel (tar:33),product,33,0,1,0,1,maple.container_category_a,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
 container_A34,A34,Other barrel (tar:34),product,34,0,1,0,1,maple.container_category_a,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
 container_G36,G36,Galvanized Steel barrel (tar:36),product,36,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,

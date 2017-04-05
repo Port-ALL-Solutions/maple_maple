@@ -17,7 +17,7 @@
             <field name="implementation">standard</field>
             <field name="prefix">PES/%(year)s%(month)s%(day)s-</field>
             <field name="number_increment">1</field>
-            <field name="padding">3</field>
+            <field name="padding">5</field>
             <field name="active">1</field>
             <field name="use_date_range">True</field>
             <field name="daily_date_range">True</field>    
@@ -29,7 +29,7 @@
             <field name="implementation">standard</field>
             <field name="prefix">CL1%(year)s%(month)s%(day)s-</field>
             <field name="number_increment">1</field>
-            <field name="padding">3</field>
+            <field name="padding">5</field>
             <field name="active">1</field>
             <field name="use_date_range">True</field>
             <field name="daily_date_range">True</field>    
@@ -41,7 +41,7 @@
             <field name="implementation">standard</field>
             <field name="prefix">CL2%(year)s%(month)s%(day)s-</field>
             <field name="number_increment">1</field>
-            <field name="padding">3</field>
+            <field name="padding">5</field>
             <field name="active">1</field>
             <field name="use_date_range">True</field>
             <field name="daily_date_range">True</field>    

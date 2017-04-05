@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-28 08:53-0400\n"
-"PO-Revision-Date: 2017-03-29 14:50-0400\n"
+"POT-Creation-Date: 2017-04-04 17:36-0400\n"
+"PO-Revision-Date: 2017-04-04 18:12-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr_CA\n"
@@ -18,6 +18,11 @@ msgstr ""
 "X-Generator: Poedit 1.8.7.1\n"
 
 #. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "#FPAQ"
+msgstr "#FPAQ"
+
+#. module: maple
 #: model:ir.model.fields,help:maple.field_maple_control_maple_light
 #: model:ir.model.fields,help:maple.field_product_template_light
 #: model:ir.model.fields,help:maple.field_stock_quant_maple_light
@@ -25,6 +30,11 @@ msgid "% of light transmission defining maple syrup color class"
 msgstr ""
 "Degré de transmission de lumière (en %) définissant la classe de couleur du "
 "sirop d'érable "
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "(adresse producteur)"
+msgstr "(adresse du producteur)"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_control_maple_flaw
@@ -37,37 +47,37 @@ msgstr ""
 "identifié 5:Bourgeon 6:Sirop filant"
 
 #. module: maple
-#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_barils_pleins_producteur
-msgid "<span class=\"pull-left\">Lot/Serial Number</span>"
-msgstr "<span class=\"pull-left\">No Lot/Scellé</span>"
-
-#. module: maple
-#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_barils_pleins_producteur
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
 msgid "<span><strong>Producer Address:</strong></span>"
-msgstr "<span><strong>Adresse du producteur:</strong></span>"
+msgstr "<span><strong>Addresse du Producteur:</strong></span>"
 
 #. module: maple
-#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_barils_pleins_producteur
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "<strong>ADRESSE DE RETOUR DES BARILS VIDES</strong>"
+msgstr "<strong>ADRESSE DE RETOUR DES BARILS VIDES</strong>"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
 msgid "<strong>Date</strong>"
 msgstr "<strong>Date</strong>"
 
 #. module: maple
-#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_barils_pleins_producteur
-msgid "<strong>Delivered Quantity</strong>"
-msgstr "<strong>Quantité livrée</strong>"
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "<strong>IDENTIFICATION DE L'ÉRABLIÈRE</strong>"
+msgstr "<strong>IDENTIFICATION DE L'ÉRABLIÈRE</strong>"
 
 #. module: maple
-#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_barils_pleins_producteur
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
 msgid "<strong>Order (Origin)</strong>"
 msgstr "<strong>Commande (Origine)</strong>"
 
 #. module: maple
-#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_barils_pleins_producteur
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
 msgid "<strong>Ordered Quantity</strong>"
 msgstr "<strong>Quantité commandée</strong>"
 
 #. module: maple
-#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_barils_pleins_producteur
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
 msgid "<strong>Product</strong>"
 msgstr "<strong>Produit</strong>"
 
@@ -78,6 +88,11 @@ msgid "Acer Seal No."
 msgstr "No scellé Acer"
 
 #. module: maple
+#: model:ir.model.fields,field_description:maple.field_stock_quant_acer_rule
+msgid "Acer rule for Quebec"
+msgstr ""
+
+#. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_fpaqContact_address
 #: model:ir.model.fields,field_description:maple.field_maple_purchase_order_partner_street
 #: model:ir.model.fields,field_description:maple.field_maple_reception_partner_street
@@ -85,6 +100,18 @@ msgstr "No scellé Acer"
 #: model:ir.model.fields,field_description:maple.field_purchase_order_partner_street
 msgid "Address"
 msgstr "Adresse"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_maple_control_maple_payable_weight
+#: model:ir.model.fields,field_description:maple.field_stock_quant_maple_payable_weight
+msgid "Adjusted (payable) Net Weight"
+msgstr "Poids ajusté"
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_maple_control_maple_payable_weight
+#: model:ir.model.fields,help:maple.field_stock_quant_maple_payable_weight
+msgid "Adjusted maple syrup net weight calculation, payable to the producer. "
+msgstr ""
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_product_template_adjusted_weight
@@ -103,6 +130,11 @@ msgstr ""
 "Canton,..."
 
 #. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "Adresse"
+msgstr "Adresse"
+
+#. module: maple
 #: model:ir.ui.view,arch_db:maple.view_pack_operation_lot_form
 msgid "All"
 msgstr "Tous"
@@ -113,15 +145,6 @@ msgid "All Containers"
 msgstr "Tous les contenants"
 
 #. module: maple
-#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_barils_pleins_producteur
-msgid ""
-"All items couldn't be shipped, the remaining ones will be shipped as soon as "
-"they become available."
-msgstr ""
-"Tous les items ne furent livrés, la balance sera expédiée dès qu'ils seront "
-"disponibles."
-
-#. module: maple
 #: model:ir.ui.menu,name:maple.maple_location_menu_list
 msgid "All locations"
 msgstr "Tous les emplacements"
@@ -129,10 +152,11 @@ msgstr "Tous les emplacements"
 #. module: maple
 #: model:ir.ui.menu,name:maple.maple_product_lot_menu_list
 msgid "All maple"
-msgstr "Tous les sirops d'érable"
+msgstr "Tous les sirops"
 
 #. module: maple
 #: model:maple.grade,name:maple.grade_amber
+#: model:product.attribute.value,name:maple.attribute_light_amber
 msgid "Amber"
 msgstr "Ambré"
 
@@ -140,6 +164,11 @@ msgstr "Ambré"
 #: model:ir.ui.menu,name:maple.maple_available_menu_list
 msgid "Available Maple list"
 msgstr "Liste du sirop disponible"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "B: Bossé"
+msgstr "B: Bossé"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_control_container_serial
@@ -202,11 +231,9 @@ msgid "CDL Plastic Container"
 msgstr "Contenant de plastique CDL"
 
 #. module: maple
-#: selection:maple.control,maple_flavor:0 selection:stock.quant,maple_flavor:0
-msgid "CROCHET"
-msgstr "CROCHET"
-
-#. module: maple
+#: model:ir.actions.act_window,help:maple.SE1_classif1_list_action
+#: model:ir.actions.act_window,help:maple.SE1_classif2_list_action
+#: model:ir.actions.act_window,help:maple.SENB_classif_list_action
 #: model:ir.actions.act_window,help:maple.maple_rating_list_action
 #: model:ir.actions.act_window,help:maple.maple_weight_list_action
 msgid "Can not create anything from here."
@@ -267,6 +294,11 @@ msgid "Class of maple syrup"
 msgstr "Grade de sirop d'érable"
 
 #. module: maple
+#: model:ir.ui.menu,name:maple.maple_classif_menu
+msgid "Classification"
+msgstr "Classement"
+
+#. module: maple
 #: model:ir.model.fields,help:maple.field_maple_import_acer_report_no
 msgid "Classification Report Number"
 msgstr "No de rapport de classement"
@@ -284,18 +316,18 @@ msgstr "Site de classement"
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_weighing_classif_site_description
 msgid "Classification Site Description. "
-msgstr "Description du site de classement"
+msgstr "Description du site de classement . "
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_weighing_classif_site_name
 msgid "Classification Site Identification. "
-msgstr "Identification du site de classement"
+msgstr "Identification du site de Classement ."
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_site
 #: model:ir.model.fields,field_description:maple.field_maple_weighing_picking_line_classif_site_no
 msgid "Classification Site No."
-msgstr "No site"
+msgstr "No site classement"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_import_acer_site
@@ -305,12 +337,12 @@ msgstr "Numéro du site de classement"
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_import_acer_site_no
 msgid "Classification Site Number imported from Acer. "
-msgstr "Numéro du site de classement importé d'Acer"
+msgstr "Numéro de site de classement importé de Acer."
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_weighing_picking_line_classif_site_no
 msgid "Classification Site Number. "
-msgstr "Numéro du site de classement"
+msgstr "Numéro du site de classement."
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_classif_date
@@ -330,7 +362,12 @@ msgstr "Code"
 #: model:ir.model.fields,help:maple.field_purchase_order_line_partner_region
 #: model:ir.model.fields,help:maple.field_purchase_order_partner_region
 msgid "Code of picking and delivery region"
-msgstr "Code de la région de cueillette"
+msgstr "Code de la région de cueillette et livraison"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "Code postal"
+msgstr "Code postal"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_stock_location_kanban_color
@@ -359,7 +396,7 @@ msgstr "Confirmation de la livraison"
 #. module: maple
 #: model:ir.ui.menu,name:maple.maple_confirmed_menu_list
 msgid "Confirmed Maple list"
-msgstr "Liste de sirop confirmé"
+msgstr "Liste de sirop confirmée"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_product_template_container_id
@@ -369,22 +406,22 @@ msgstr "Contenant"
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_container_no
 msgid "Container No."
-msgstr "Contenant No."
+msgstr "No Contenant"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_import_acer_container_no
 msgid "Container Number"
-msgstr "Contenant numéro"
+msgstr "No Contenant"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_container_owner
 msgid "Container Owner"
-msgstr "Propriétaire du contenant"
+msgstr "Propriétaire"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_container_owner_type_name
 msgid "Container Owner Type"
-msgstr "Propriétaire"
+msgstr "Type de propriétaire du contenant"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_control_container_state
@@ -406,22 +443,22 @@ msgstr "Genre"
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_container_state_code
 msgid "Container condition code"
-msgstr "Code d'état du baril"
+msgstr "Code d'état du contenant"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_container_material_name
 msgid "Container material"
-msgstr "Matériau du baril"
+msgstr "Matériau du contenant"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_container_material_code
 msgid "Container material code"
-msgstr "Code de matériau du baril"
+msgstr "Code de matériau du contenant"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_product_template_container_id
 msgid "Container of maple syrup. "
-msgstr "Contenant de sirop d'érable"
+msgstr "Contenant de sirop."
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_container_owner_type_code
@@ -436,13 +473,7 @@ msgstr "Genre"
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_container_state_name
 msgid "Containter condition"
-msgstr "État"
-
-#. module: maple
-#: model:ir.model.fields,field_description:maple.field_maple_control_controler
-#: model:ir.model.fields,field_description:maple.field_stock_quant_controler
-msgid "Controled by"
-msgstr "Vérificateur"
+msgstr "Condition du contenant"
 
 #. module: maple
 #: model:res.groups,name:maple.maple_group_controler
@@ -450,9 +481,15 @@ msgid "Controler"
 msgstr "Vérificateur"
 
 #. module: maple
+#: model:ir.model.fields,field_description:maple.field_maple_control_controler
+#: model:ir.model.fields,field_description:maple.field_stock_quant_controler
+msgid "Controlled by"
+msgstr "Vérifié par"
+
+#. module: maple
 #: model:ir.model.fields,help:maple.field_product_template_controlled_weight
 msgid "Controlled weight of the product."
-msgstr "Poids contrôlé du produit"
+msgstr "Poids contrôlé du produit."
 
 #. module: maple
 #: model:ir.actions.act_window,name:maple.action_create_maple_purchase
@@ -474,7 +511,7 @@ msgstr "Créer un achat"
 #. module: maple
 #: model:ir.ui.menu,name:maple.maple_available_menu_label
 msgid "Create Reception Labels"
-msgstr "Étiquettes de réception"
+msgstr "Créer les étiquettes de réception"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_product_template_order_create_serial
@@ -535,13 +572,15 @@ msgstr "Créer un grade de sirop d'érable"
 #. module: maple
 #: model:ir.actions.act_window,help:maple.maple_purchase_list_action
 msgid "Create your first maple purchase."
-msgstr "Créer votre premier achat"
+msgstr "Créer le premier achat de sirop"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_container_material_create_uid
 #: model:ir.model.fields,field_description:maple.field_maple_container_owner_type_create_uid
 #: model:ir.model.fields,field_description:maple.field_maple_container_state_create_uid
 #: model:ir.model.fields,field_description:maple.field_maple_control_create_uid
+#: model:ir.model.fields,field_description:maple.field_maple_flavors_create_uid
+#: model:ir.model.fields,field_description:maple.field_maple_flaws_create_uid
 #: model:ir.model.fields,field_description:maple.field_maple_grade_create_uid
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_create_uid
 #: model:ir.model.fields,field_description:maple.field_maple_purchase_order_create_uid
@@ -558,6 +597,8 @@ msgstr "Créé par"
 #: model:ir.model.fields,field_description:maple.field_maple_container_owner_type_create_date
 #: model:ir.model.fields,field_description:maple.field_maple_container_state_create_date
 #: model:ir.model.fields,field_description:maple.field_maple_control_create_date
+#: model:ir.model.fields,field_description:maple.field_maple_flavors_create_date
+#: model:ir.model.fields,field_description:maple.field_maple_flaws_create_date
 #: model:ir.model.fields,field_description:maple.field_maple_grade_create_date
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_create_date
 #: model:ir.model.fields,field_description:maple.field_maple_purchase_order_create_date
@@ -568,6 +609,11 @@ msgstr "Créé par"
 #: model:ir.model.fields,field_description:maple.field_maple_weighing_picking_line_create_date
 msgid "Created on"
 msgstr "Créé le"
+
+#. module: maple
+#: model:product.attribute.value,name:maple.attribute_flaw_v
+msgid "Crochet"
+msgstr "Crochet"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_control_maple_flavor
@@ -582,11 +628,6 @@ msgstr ""
 "NC5, NC6"
 
 #. module: maple
-#: model:ir.model.fields,field_description:maple.field_stock_location_current_rules
-msgid "Current rules"
-msgstr "Règles actuelles"
-
-#. module: maple
 #: model:ir.model.fields,field_description:maple.field_stock_picking_daily_in_cpt
 msgid "Daily Cpt"
 msgstr "Compteur quotidien"
@@ -598,6 +639,7 @@ msgstr "ID quotidien"
 
 #. module: maple
 #: model:maple.grade,name:maple.grade_dark
+#: model:product.attribute.value,name:maple.attribute_light_dark
 msgid "Dark"
 msgstr "Foncé"
 
@@ -618,17 +660,17 @@ msgstr "Terminé le"
 #: model:ir.model.fields,help:maple.field_maple_weighing_picking_qty_done
 #: model:ir.model.fields,help:maple.field_maple_weighing_picking_qty_todo
 msgid "Date done. "
-msgstr "Terminé le"
+msgstr "Date complétée."
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_weighing_picking_date_planned
 msgid "Date planned"
-msgstr "Planifié le"
+msgstr "Date planifiée"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_res_partner_default_owner_id
 msgid "Default Buyer"
-msgstr "Acheteur par défaut"
+msgstr "Acheteur habituel"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_reception_owner_id
@@ -636,12 +678,12 @@ msgstr "Acheteur par défaut"
 #: model:ir.model.fields,help:maple.field_purchase_order_owner_id
 #: model:ir.model.fields,help:maple.field_stock_location_current_owner
 msgid "Default Owner"
-msgstr "Propriétaire par défaut"
+msgstr "Propriétaire habituel"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_purchase_order_partner_default_buyer
 msgid "Default_Buyer"
-msgstr "Acheteur par défaut"
+msgstr "Default_Buyer"
 
 #. module: maple
 #: model:maple.grade,taste:maple.grade_golden
@@ -654,9 +696,11 @@ msgid "Destination"
 msgstr "Destination"
 
 #. module: maple
+#: model:ir.model.fields,field_description:maple.field_maple_control_location_dest_id
 #: model:ir.model.fields,field_description:maple.field_maple_purchase_order_location_id
 #: model:ir.model.fields,field_description:maple.field_purchase_order_line_location_id
 #: model:ir.model.fields,field_description:maple.field_purchase_order_location_id
+#: model:ir.model.fields,field_description:maple.field_stock_quant_location_dest_id
 msgid "Destination Location"
 msgstr "Emplacement de destination"
 
@@ -665,6 +709,8 @@ msgstr "Emplacement de destination"
 #: model:ir.model.fields,field_description:maple.field_maple_container_owner_type_display_name
 #: model:ir.model.fields,field_description:maple.field_maple_container_state_display_name
 #: model:ir.model.fields,field_description:maple.field_maple_control_display_name
+#: model:ir.model.fields,field_description:maple.field_maple_flavors_display_name
+#: model:ir.model.fields,field_description:maple.field_maple_flaws_display_name
 #: model:ir.model.fields,field_description:maple.field_maple_grade_display_name
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_display_name
 #: model:ir.model.fields,field_description:maple.field_maple_purchase_order_display_name
@@ -679,7 +725,7 @@ msgstr "Nom affiché"
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_reception_validate_each
 msgid "Do you need more confirmation than job done. "
-msgstr "Aimeriez-vous plus de confirmation que tâche complétée."
+msgstr "Aimeriez-vous plus de confirmation que simplement tâche complétée."
 
 #. module: maple
 #: model:res.groups,name:maple.maple_group_driver
@@ -712,12 +758,17 @@ msgstr "Entrepôt SE1"
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_product_template_expected_weight
 msgid "Expected weight"
-msgstr "Poids estimé"
+msgstr "Poids anticipé"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_product_template_expected_weight
 msgid "Expected weight of the product."
-msgstr "Poids estimé du produit."
+msgstr "Poids anticipé du produit"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "FORMULAIRE DE RÉCEPTION DES BARILS PLEINS DU PRODUCTEUR ("
+msgstr "FORMULAIRE DE RÉCEPTION DES BARILS PLEINS DU PRODUCTEUR ("
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_purchase_order_partner_fpaqCode
@@ -752,7 +803,7 @@ msgstr "Téléphone du contact FPAQ "
 #: model:ir.model.fields,help:maple.field_maple_import_acer_fpaqContact_state
 #: model:ir.model.fields,help:maple.field_maple_import_acer_fpaqContact_zip
 msgid "FPAQ Contact State"
-msgstr "Province du contact FPAQ "
+msgstr "Province FPAQ"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_producer_fpaq
@@ -762,7 +813,9 @@ msgstr "No FPAQ"
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_import_acer_producer_fpaq
 msgid "FPAQ Number of Quebec Producers"
-msgstr "Numéro FPAQ des producteurs du Québec"
+msgstr ""
+"No FPAQ des producteurs du \n"
+"Qc"
 
 #. module: maple
 #: model:ir.ui.menu,name:maple.maple_farm_menu_list
@@ -775,18 +828,37 @@ msgid "Fax:"
 msgstr "Télécopieur:"
 
 #. module: maple
+#: model:ir.model.fields,help:maple.field_maple_control_product_code
+#: model:ir.model.fields,help:maple.field_stock_quant_product_code
+msgid "Find the corresponding internal product code. "
+msgstr "Trouver le code interne de produit correspondant."
+
+#. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_control_maple_flavor
+#: model:ir.model.fields,field_description:maple.field_maple_flavors_name
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_maple_flavor
 #: model:ir.model.fields,field_description:maple.field_stock_quant_maple_flavor
 msgid "Flavor"
-msgstr "Saveur"
+msgstr "Goût"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_maple_flavors_code
+msgid "Flavor code"
+msgstr ""
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_control_maple_flaw
+#: model:ir.model.fields,field_description:maple.field_maple_flaws_name
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_maple_flaw
 #: model:ir.model.fields,field_description:maple.field_stock_quant_maple_flaw
+#: model:product.attribute,name:maple.attribute_flaw
 msgid "Flaw"
 msgstr "Défaut"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_maple_flaws_code
+msgid "Flaw code"
+msgstr ""
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_reception_owner_id
@@ -797,16 +869,6 @@ msgstr "Pour"
 #: model:ir.model.fields,field_description:maple.field_maple_reception_partner_id
 msgid "From"
 msgstr "De"
-
-#. module: maple
-#: selection:stock.location,current_rules:0
-msgid "From Outside"
-msgstr "Hors Québec"
-
-#. module: maple
-#: selection:stock.location,current_rules:0
-msgid "From Québec"
-msgstr "Du Québec"
 
 #. module: maple
 #: model:product.category,name:maple.container_category_g
@@ -876,17 +938,18 @@ msgstr "Baril acier galvanisé (tare:53)"
 
 #. module: maple
 #: model:ir.ui.view,arch_db:maple.maple_weight_tree_view
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
 msgid "Genre"
 msgstr "Genre"
 
 #. module: maple
 #: model:ir.actions.act_window,help:maple.farm_list_action
 msgid "Go in producer to add a farm"
-msgstr ""
-"L'ajout d'une Érablière doit être effectué via le sous-menu Producteurs."
+msgstr "Aller à Producteurs pour ajouter une érablière"
 
 #. module: maple
 #: model:maple.grade,name:maple.grade_golden
+#: model:product.attribute.value,name:maple.attribute_light_golden
 msgid "Golden"
 msgstr "Doré"
 
@@ -915,6 +978,7 @@ msgid "Gross Weight"
 msgstr "Poids brut"
 
 #. module: maple
+#: model:ir.ui.view,arch_db:maple.buyer_filter_view
 #: model:ir.ui.view,arch_db:maple.maple_partner_filter_view
 msgid "Group By"
 msgstr "Grouper par"
@@ -958,6 +1022,8 @@ msgstr "Tote IBC (1250L)"
 #: model:ir.model.fields,field_description:maple.field_maple_container_owner_type_id
 #: model:ir.model.fields,field_description:maple.field_maple_container_state_id
 #: model:ir.model.fields,field_description:maple.field_maple_control_id
+#: model:ir.model.fields,field_description:maple.field_maple_flavors_id
+#: model:ir.model.fields,field_description:maple.field_maple_flaws_id
 #: model:ir.model.fields,field_description:maple.field_maple_grade_id
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_id
 #: model:ir.model.fields,field_description:maple.field_maple_purchase_order_id
@@ -1016,6 +1082,12 @@ msgid "Internal Code"
 msgstr "Code interne"
 
 #. module: maple
+#: model:ir.model.fields,field_description:maple.field_maple_control_product_code
+#: model:ir.model.fields,field_description:maple.field_stock_quant_product_code
+msgid "Internal Product Code"
+msgstr "Code de produit interne"
+
+#. module: maple
 #: model:ir.model.fields,help:maple.field_res_partner_maple_region
 msgid ""
 "Internal code of the region where maple syrup picking and empty barrels "
@@ -1027,7 +1099,7 @@ msgstr ""
 #. module: maple
 #: model:ir.model,name:maple.model_stock_location
 msgid "Inventory Locations"
-msgstr "Emplacements de l'inventaire"
+msgstr "Emplacements d'inventaire"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_maple_iodine
@@ -1052,17 +1124,22 @@ msgstr "est un Acheteur"
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_res_partner_maple_producer
 msgid "Is a maple Producer"
-msgstr "est un Producteur de sirop d'érable"
+msgstr "est un Producteur"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_product_template_maple_container
 msgid "Is a maple syrup container"
-msgstr "est un Contenant de sirop d'érable"
+msgstr "est un Contenant de sirop"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_product_template_maple_syrup
 msgid "Is maple syrup"
 msgstr "est du Sirop d'érable"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "L: Légèrement bossé"
+msgstr "Légèrement bossé"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_res_partner_label_id
@@ -1074,6 +1151,8 @@ msgstr "No. d'étiquette"
 #: model:ir.model.fields,field_description:maple.field_maple_container_owner_type___last_update
 #: model:ir.model.fields,field_description:maple.field_maple_container_state___last_update
 #: model:ir.model.fields,field_description:maple.field_maple_control___last_update
+#: model:ir.model.fields,field_description:maple.field_maple_flavors___last_update
+#: model:ir.model.fields,field_description:maple.field_maple_flaws___last_update
 #: model:ir.model.fields,field_description:maple.field_maple_grade___last_update
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer___last_update
 #: model:ir.model.fields,field_description:maple.field_maple_purchase_order___last_update
@@ -1090,6 +1169,8 @@ msgstr "Dernière modification le"
 #: model:ir.model.fields,field_description:maple.field_maple_container_owner_type_write_uid
 #: model:ir.model.fields,field_description:maple.field_maple_container_state_write_uid
 #: model:ir.model.fields,field_description:maple.field_maple_control_write_uid
+#: model:ir.model.fields,field_description:maple.field_maple_flavors_write_uid
+#: model:ir.model.fields,field_description:maple.field_maple_flaws_write_uid
 #: model:ir.model.fields,field_description:maple.field_maple_grade_write_uid
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_write_uid
 #: model:ir.model.fields,field_description:maple.field_maple_purchase_order_write_uid
@@ -1099,13 +1180,15 @@ msgstr "Dernière modification le"
 #: model:ir.model.fields,field_description:maple.field_maple_weighing_picking_line_write_uid
 #: model:ir.model.fields,field_description:maple.field_maple_weighing_picking_write_uid
 msgid "Last Updated by"
-msgstr "Dernière mis à jour par"
+msgstr "Dernière mise à jour par"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_container_material_write_date
 #: model:ir.model.fields,field_description:maple.field_maple_container_owner_type_write_date
 #: model:ir.model.fields,field_description:maple.field_maple_container_state_write_date
 #: model:ir.model.fields,field_description:maple.field_maple_control_write_date
+#: model:ir.model.fields,field_description:maple.field_maple_flavors_write_date
+#: model:ir.model.fields,field_description:maple.field_maple_flaws_write_date
 #: model:ir.model.fields,field_description:maple.field_maple_grade_write_date
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_write_date
 #: model:ir.model.fields,field_description:maple.field_maple_purchase_order_write_date
@@ -1115,7 +1198,7 @@ msgstr "Dernière mis à jour par"
 #: model:ir.model.fields,field_description:maple.field_maple_weighing_picking_line_write_date
 #: model:ir.model.fields,field_description:maple.field_maple_weighing_picking_write_date
 msgid "Last Updated on"
-msgstr "Dernière mis à jour le"
+msgstr "Dernière mise à jour le"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_import_acer_maple_pb
@@ -1127,34 +1210,46 @@ msgstr "Teneur en plomb"
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_maple_light
 #: model:ir.model.fields,field_description:maple.field_product_template_light
 #: model:ir.model.fields,field_description:maple.field_stock_quant_maple_light
+#: model:product.attribute,name:maple.attribute_light
 msgid "Light"
 msgstr "Lumière"
 
 #. module: maple
 #: model:ir.ui.view,arch_db:maple.acer_import_list
 msgid "List of Acer Reports"
-msgstr "Rapports de classement Acer"
+msgstr "Liste des rapports ACER"
 
 #. module: maple
 #: model:ir.ui.view,arch_db:maple.grade_list
 msgid "List of Maple Syrup Grade"
-msgstr "Liste des grades de sirop d'érable"
+msgstr "Liste des grades de sirop"
 
 #. module: maple
 #: model:ir.ui.view,arch_db:maple.region_list
 msgid "List of Maple Syrup Picking Regions"
-msgstr "Liste des régions de cueillette de sirop d'érable"
+msgstr "Liste des régions de cueillette de sirop"
 
 #. module: maple
-#: model:ir.ui.view,arch_db:maple.stock_location_list
-msgid "List of maple location"
-msgstr "Liste des emplacements d'entreposage du sirop d'érable"
+#: model:ir.model.fields,help:maple.field_maple_control_location_dest_id
+#: model:ir.model.fields,help:maple.field_stock_quant_location_dest_id
+msgid "Location where this container will be stocked after classification. "
+msgstr "Emplacement de stockage éventuel après classification."
 
 #. module: maple
 #: selection:maple.control,maple_state:0 selection:maple.control,state:0
 #: selection:stock.quant,maple_state:0 selection:stock.quant,state:0
 msgid "Locked"
 msgstr "Barré"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "Logo LB"
+msgstr "Logo LB"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "Logo SE"
+msgstr "Logo LB"
 
 #. module: maple
 #: model:res.groups,name:maple.maple_group_manager
@@ -1168,25 +1263,16 @@ msgid "Maple"
 msgstr "Érable"
 
 #. module: maple
-#: model:ir.actions.act_window,name:maple.maple_acer_import_list_action
-msgid "Maple Acer Import List"
-msgstr "Liste des importations d'Acer"
-
-#. module: maple
 #: model:ir.actions.act_window,name:maple.buyer_list_action
 msgid "Maple Buyer List"
-msgstr "Liste des acheteurs"
+msgstr "Liste des acheteurs de sirop"
 
 #. module: maple
+#: model:ir.ui.view,arch_db:maple.buyer_filter_view
 #: model:ir.ui.view,arch_db:maple.buyer_tree_view
 #: model:ir.ui.view,arch_db:maple.maple_partner_filter_view
 msgid "Maple Buyers"
-msgstr "Acheteurs"
-
-#. module: maple
-#: model:ir.ui.view,arch_db:maple.maple_rating_tree_view
-msgid "Maple Classification - Outsise Quebec"
-msgstr "Classement hors QC"
+msgstr "Acheteurs de sirop"
 
 #. module: maple
 #: model:ir.actions.act_window,name:maple.maple_container_list_action
@@ -1194,14 +1280,14 @@ msgstr "Classement hors QC"
 #: model:ir.ui.view,arch_db:maple.maple_container_tree_view
 #: model:product.category,name:maple.container_category
 msgid "Maple Container"
-msgstr "Contenant de sirop d'érable"
+msgstr "Contenant de sirop"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_purchase_order_container_type
 #: model:ir.model.fields,help:maple.field_maple_purchase_order_maple_type
 #: model:ir.model.fields,help:maple.field_purchase_order_maple_type
 msgid "Maple Container Type. "
-msgstr "Genre de contenant"
+msgstr "Type de contenant de sirop"
 
 #. module: maple
 #: model:ir.actions.act_window,name:maple.farm_list_action
@@ -1226,24 +1312,20 @@ msgid "Maple Location"
 msgstr "Emplacement"
 
 #. module: maple
-#: model:ir.model.fields,help:maple.field_stock_location_current_rules
-msgid "Maple Origin. "
-msgstr "Origine"
-
-#. module: maple
 #: model:ir.actions.act_window,name:maple.pickup_list_action
 msgid "Maple Pick up"
-msgstr "Cueillette du sirop d'érable"
+msgstr "Cueillette de sirop"
 
 #. module: maple
 #: model:ir.ui.view,arch_db:maple.producer_tree_view
 msgid "Maple Producer"
-msgstr "Producteur de sirop d'érable"
+msgstr "Producteur de sirop"
 
 #. module: maple
+#: model:ir.ui.view,arch_db:maple.buyer_filter_view
 #: model:ir.ui.view,arch_db:maple.maple_partner_filter_view
 msgid "Maple Producers"
-msgstr "Producteurs de sirop d'érable"
+msgstr "Producteurs de sirop"
 
 #. module: maple
 #: model:ir.actions.act_window,name:maple.producer_list_action
@@ -1265,10 +1347,11 @@ msgstr "Produits d'érable"
 #. module: maple
 #: model:ir.actions.act_window,name:maple.maple_purchase_list_action
 msgid "Maple Purchase List"
-msgstr "Liste des achats"
+msgstr "Liste de Bons d'achat"
 
 #. module: maple
 #: model:ir.actions.act_window,name:maple.maple_rating_list_action
+#: model:ir.ui.view,arch_db:maple.maple_rating_tree_view
 msgid "Maple Rating"
 msgstr "Classement du Sirop d'érable"
 
@@ -1276,7 +1359,7 @@ msgstr "Classement du Sirop d'érable"
 #: model:ir.model,name:maple.model_maple_region
 #: model:ir.ui.view,arch_db:maple.region_form
 msgid "Maple Region"
-msgstr "Région de cueillette"
+msgstr "Région du Sirop"
 
 #. module: maple
 #: model:ir.actions.act_window,name:maple.stock_location_list_action
@@ -1286,12 +1369,120 @@ msgstr "Liste des emplacements"
 #. module: maple
 #: model:product.category,name:maple.maple_category
 msgid "Maple Syrup"
-msgstr "Sirop d'érable"
+msgstr "est du Sirop d'érable"
+
+#. module: maple
+#: model:product.product,name:maple.srp4saleBAMC1
+#: model:product.product,name:maple.srp4saleBAMC2
+#: model:product.product,name:maple.srp4saleBAMC3
+#: model:product.product,name:maple.srp4saleBAMC4
+#: model:product.product,name:maple.srp4saleBAMC5
+#: model:product.product,name:maple.srp4saleBAMC6
+#: model:product.product,name:maple.srp4saleBAMR0
+#: model:product.product,name:maple.srp4saleBAMR1
+#: model:product.product,name:maple.srp4saleBAMR2
+#: model:product.product,name:maple.srp4saleBAMR4
+#: model:product.product,name:maple.srp4saleBAMR5
+#: model:product.template,name:maple.srp4saleBAM--
+#: model:product.template,name:maple.srp4saleBAMC1_product_template
+#: model:product.template,name:maple.srp4saleBAMC2_product_template
+#: model:product.template,name:maple.srp4saleBAMC3_product_template
+#: model:product.template,name:maple.srp4saleBAMC4_product_template
+#: model:product.template,name:maple.srp4saleBAMC5_product_template
+#: model:product.template,name:maple.srp4saleBAMC6_product_template
+#: model:product.template,name:maple.srp4saleBAMR0_product_template
+#: model:product.template,name:maple.srp4saleBAMR1_product_template
+#: model:product.template,name:maple.srp4saleBAMR2_product_template
+#: model:product.template,name:maple.srp4saleBAMR4_product_template
+#: model:product.template,name:maple.srp4saleBAMR5_product_template
+msgid "Maple Syrup BIO AM"
+msgstr "Sirop d'érable BIO AM"
+
+#. module: maple
+#: model:product.product,name:maple.srp4saleBDOC1
+#: model:product.product,name:maple.srp4saleBDOC2
+#: model:product.product,name:maple.srp4saleBDOC3
+#: model:product.product,name:maple.srp4saleBDOC4
+#: model:product.product,name:maple.srp4saleBDOC5
+#: model:product.product,name:maple.srp4saleBDOC6
+#: model:product.product,name:maple.srp4saleBDOR0
+#: model:product.product,name:maple.srp4saleBDOR1
+#: model:product.product,name:maple.srp4saleBDOR2
+#: model:product.product,name:maple.srp4saleBDOR4
+#: model:product.product,name:maple.srp4saleBDOR5
+#: model:product.template,name:maple.srp4saleBDO--
+#: model:product.template,name:maple.srp4saleBDOC1_product_template
+#: model:product.template,name:maple.srp4saleBDOC2_product_template
+#: model:product.template,name:maple.srp4saleBDOC3_product_template
+#: model:product.template,name:maple.srp4saleBDOC4_product_template
+#: model:product.template,name:maple.srp4saleBDOC5_product_template
+#: model:product.template,name:maple.srp4saleBDOC6_product_template
+#: model:product.template,name:maple.srp4saleBDOR0_product_template
+#: model:product.template,name:maple.srp4saleBDOR1_product_template
+#: model:product.template,name:maple.srp4saleBDOR2_product_template
+#: model:product.template,name:maple.srp4saleBDOR4_product_template
+#: model:product.template,name:maple.srp4saleBDOR5_product_template
+msgid "Maple Syrup BIO DO"
+msgstr "Sirop d'érable BIO DO"
+
+#. module: maple
+#: model:product.product,name:maple.srp4saleBFOC1
+#: model:product.product,name:maple.srp4saleBFOC2
+#: model:product.product,name:maple.srp4saleBFOC3
+#: model:product.product,name:maple.srp4saleBFOC4
+#: model:product.product,name:maple.srp4saleBFOC5
+#: model:product.product,name:maple.srp4saleBFOC6
+#: model:product.product,name:maple.srp4saleBFOR0
+#: model:product.product,name:maple.srp4saleBFOR1
+#: model:product.product,name:maple.srp4saleBFOR2
+#: model:product.product,name:maple.srp4saleBFOR4
+#: model:product.product,name:maple.srp4saleBFOR5
+#: model:product.template,name:maple.srp4saleBFO--
+#: model:product.template,name:maple.srp4saleBFOC1_product_template
+#: model:product.template,name:maple.srp4saleBFOC2_product_template
+#: model:product.template,name:maple.srp4saleBFOC3_product_template
+#: model:product.template,name:maple.srp4saleBFOC4_product_template
+#: model:product.template,name:maple.srp4saleBFOC5_product_template
+#: model:product.template,name:maple.srp4saleBFOC6_product_template
+#: model:product.template,name:maple.srp4saleBFOR0_product_template
+#: model:product.template,name:maple.srp4saleBFOR1_product_template
+#: model:product.template,name:maple.srp4saleBFOR2_product_template
+#: model:product.template,name:maple.srp4saleBFOR4_product_template
+#: model:product.template,name:maple.srp4saleBFOR5_product_template
+msgid "Maple Syrup BIO FO"
+msgstr "Sirop d'érable BIO FO"
+
+#. module: maple
+#: model:product.product,name:maple.srp4saleBTFC1
+#: model:product.product,name:maple.srp4saleBTFC2
+#: model:product.product,name:maple.srp4saleBTFC3
+#: model:product.product,name:maple.srp4saleBTFC4
+#: model:product.product,name:maple.srp4saleBTFC5
+#: model:product.product,name:maple.srp4saleBTFC6
+#: model:product.product,name:maple.srp4saleBTFR0
+#: model:product.product,name:maple.srp4saleBTFR1
+#: model:product.product,name:maple.srp4saleBTFR2
+#: model:product.product,name:maple.srp4saleBTFR4
+#: model:product.product,name:maple.srp4saleBTFR5
+#: model:product.template,name:maple.srp4saleBTF--
+#: model:product.template,name:maple.srp4saleBTFC1_product_template
+#: model:product.template,name:maple.srp4saleBTFC2_product_template
+#: model:product.template,name:maple.srp4saleBTFC3_product_template
+#: model:product.template,name:maple.srp4saleBTFC4_product_template
+#: model:product.template,name:maple.srp4saleBTFC5_product_template
+#: model:product.template,name:maple.srp4saleBTFC6_product_template
+#: model:product.template,name:maple.srp4saleBTFR0_product_template
+#: model:product.template,name:maple.srp4saleBTFR1_product_template
+#: model:product.template,name:maple.srp4saleBTFR2_product_template
+#: model:product.template,name:maple.srp4saleBTFR4_product_template
+#: model:product.template,name:maple.srp4saleBTFR5_product_template
+msgid "Maple Syrup BIO TF"
+msgstr "Sirop d'érable BIO TF"
 
 #. module: maple
 #: model:ir.model,name:maple.model_maple_grade
 msgid "Maple Syrup Classification"
-msgstr "Classement du sirop d'érable"
+msgstr "Classement du sirop"
 
 #. module: maple
 #: model:ir.model,name:maple.model_maple_import_acer
@@ -1317,7 +1508,7 @@ msgstr "État du contenant de sirop d'érable."
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_import_acer_maple_brix
 msgid "Maple Syrup Density in Brix degrees"
-msgstr "Densité du sirop d'érable en degrés Brix"
+msgstr "Densité en degrés Brix du sirop"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_import_acer_maple_flaw
@@ -1327,17 +1518,233 @@ msgstr "Code de défaut du sirop d'érable"
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_import_acer_maple_grade
 msgid "Maple Syrup Grade"
-msgstr "Grade de sirop d'érable"
+msgstr "Grade du sirop"
 
 #. module: maple
 #: model:ir.actions.act_window,name:maple.maple_config_grades_action
 msgid "Maple Syrup Grades"
-msgstr "Grades de sirop d'érable"
+msgstr "Grades de sirop"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_import_acer_maple_light
 msgid "Maple Syrup Light Transmission Percentage"
 msgstr "% de transmission de lumière du sirop d'érable"
+
+#. module: maple
+#: model:product.product,name:maple.srp4salePAMC1
+#: model:product.product,name:maple.srp4salePAMC2
+#: model:product.product,name:maple.srp4salePAMC3
+#: model:product.product,name:maple.srp4salePAMC4
+#: model:product.product,name:maple.srp4salePAMC5
+#: model:product.product,name:maple.srp4salePAMC6
+#: model:product.product,name:maple.srp4salePAMR0
+#: model:product.product,name:maple.srp4salePAMR1
+#: model:product.product,name:maple.srp4salePAMR2
+#: model:product.product,name:maple.srp4salePAMR4
+#: model:product.product,name:maple.srp4salePAMR5
+#: model:product.template,name:maple.srp4salePAM--
+#: model:product.template,name:maple.srp4salePAMC1_product_template
+#: model:product.template,name:maple.srp4salePAMC2_product_template
+#: model:product.template,name:maple.srp4salePAMC3_product_template
+#: model:product.template,name:maple.srp4salePAMC4_product_template
+#: model:product.template,name:maple.srp4salePAMC5_product_template
+#: model:product.template,name:maple.srp4salePAMC6_product_template
+#: model:product.template,name:maple.srp4salePAMR0_product_template
+#: model:product.template,name:maple.srp4salePAMR1_product_template
+#: model:product.template,name:maple.srp4salePAMR2_product_template
+#: model:product.template,name:maple.srp4salePAMR4_product_template
+#: model:product.template,name:maple.srp4salePAMR5_product_template
+msgid "Maple Syrup R-B AM"
+msgstr "Sirop d'érable R-B AM"
+
+#. module: maple
+#: model:product.product,name:maple.srp4salePDOC1
+#: model:product.product,name:maple.srp4salePDOC2
+#: model:product.product,name:maple.srp4salePDOC3
+#: model:product.product,name:maple.srp4salePDOC4
+#: model:product.product,name:maple.srp4salePDOC5
+#: model:product.product,name:maple.srp4salePDOC6
+#: model:product.product,name:maple.srp4salePDOR0
+#: model:product.product,name:maple.srp4salePDOR1
+#: model:product.product,name:maple.srp4salePDOR2
+#: model:product.product,name:maple.srp4salePDOR4
+#: model:product.product,name:maple.srp4salePDOR5
+#: model:product.template,name:maple.srp4salePDO--
+#: model:product.template,name:maple.srp4salePDOC1_product_template
+#: model:product.template,name:maple.srp4salePDOC2_product_template
+#: model:product.template,name:maple.srp4salePDOC3_product_template
+#: model:product.template,name:maple.srp4salePDOC4_product_template
+#: model:product.template,name:maple.srp4salePDOC5_product_template
+#: model:product.template,name:maple.srp4salePDOC6_product_template
+#: model:product.template,name:maple.srp4salePDOR0_product_template
+#: model:product.template,name:maple.srp4salePDOR1_product_template
+#: model:product.template,name:maple.srp4salePDOR2_product_template
+#: model:product.template,name:maple.srp4salePDOR4_product_template
+#: model:product.template,name:maple.srp4salePDOR5_product_template
+msgid "Maple Syrup R-B DO"
+msgstr "Sirop d'érable R-B DO"
+
+#. module: maple
+#: model:product.product,name:maple.srp4salePFOC1
+#: model:product.product,name:maple.srp4salePFOC2
+#: model:product.product,name:maple.srp4salePFOC3
+#: model:product.product,name:maple.srp4salePFOC4
+#: model:product.product,name:maple.srp4salePFOC5
+#: model:product.product,name:maple.srp4salePFOC6
+#: model:product.product,name:maple.srp4salePFOR0
+#: model:product.product,name:maple.srp4salePFOR1
+#: model:product.product,name:maple.srp4salePFOR2
+#: model:product.product,name:maple.srp4salePFOR4
+#: model:product.product,name:maple.srp4salePFOR5
+#: model:product.template,name:maple.srp4salePFO--
+#: model:product.template,name:maple.srp4salePFOC1_product_template
+#: model:product.template,name:maple.srp4salePFOC2_product_template
+#: model:product.template,name:maple.srp4salePFOC3_product_template
+#: model:product.template,name:maple.srp4salePFOC4_product_template
+#: model:product.template,name:maple.srp4salePFOC5_product_template
+#: model:product.template,name:maple.srp4salePFOC6_product_template
+#: model:product.template,name:maple.srp4salePFOR0_product_template
+#: model:product.template,name:maple.srp4salePFOR1_product_template
+#: model:product.template,name:maple.srp4salePFOR2_product_template
+#: model:product.template,name:maple.srp4salePFOR4_product_template
+#: model:product.template,name:maple.srp4salePFOR5_product_template
+msgid "Maple Syrup R-B FO"
+msgstr "Sirop d'érable R-B FO"
+
+#. module: maple
+#: model:product.product,name:maple.srp4salePTFC1
+#: model:product.product,name:maple.srp4salePTFC2
+#: model:product.product,name:maple.srp4salePTFC3
+#: model:product.product,name:maple.srp4salePTFC4
+#: model:product.product,name:maple.srp4salePTFC5
+#: model:product.product,name:maple.srp4salePTFC6
+#: model:product.product,name:maple.srp4salePTFR0
+#: model:product.product,name:maple.srp4salePTFR1
+#: model:product.product,name:maple.srp4salePTFR2
+#: model:product.product,name:maple.srp4salePTFR4
+#: model:product.product,name:maple.srp4salePTFR5
+#: model:product.template,name:maple.srp4salePTF--
+#: model:product.template,name:maple.srp4salePTFC1_product_template
+#: model:product.template,name:maple.srp4salePTFC2_product_template
+#: model:product.template,name:maple.srp4salePTFC3_product_template
+#: model:product.template,name:maple.srp4salePTFC4_product_template
+#: model:product.template,name:maple.srp4salePTFC5_product_template
+#: model:product.template,name:maple.srp4salePTFC6_product_template
+#: model:product.template,name:maple.srp4salePTFR0_product_template
+#: model:product.template,name:maple.srp4salePTFR1_product_template
+#: model:product.template,name:maple.srp4salePTFR2_product_template
+#: model:product.template,name:maple.srp4salePTFR4_product_template
+#: model:product.template,name:maple.srp4salePTFR5_product_template
+msgid "Maple Syrup R-B TF"
+msgstr "Sirop d'érable R-B TF"
+
+#. module: maple
+#: model:product.product,name:maple.srp4saleRAMC1
+#: model:product.product,name:maple.srp4saleRAMC2
+#: model:product.product,name:maple.srp4saleRAMC3
+#: model:product.product,name:maple.srp4saleRAMC4
+#: model:product.product,name:maple.srp4saleRAMC5
+#: model:product.product,name:maple.srp4saleRAMC6
+#: model:product.product,name:maple.srp4saleRAMR0
+#: model:product.product,name:maple.srp4saleRAMR1
+#: model:product.product,name:maple.srp4saleRAMR2
+#: model:product.product,name:maple.srp4saleRAMR4
+#: model:product.product,name:maple.srp4saleRAMR5
+#: model:product.template,name:maple.srp4saleRAM--
+#: model:product.template,name:maple.srp4saleRAMC1_product_template
+#: model:product.template,name:maple.srp4saleRAMC2_product_template
+#: model:product.template,name:maple.srp4saleRAMC3_product_template
+#: model:product.template,name:maple.srp4saleRAMC4_product_template
+#: model:product.template,name:maple.srp4saleRAMC5_product_template
+#: model:product.template,name:maple.srp4saleRAMC6_product_template
+#: model:product.template,name:maple.srp4saleRAMR0_product_template
+#: model:product.template,name:maple.srp4saleRAMR1_product_template
+#: model:product.template,name:maple.srp4saleRAMR2_product_template
+#: model:product.template,name:maple.srp4saleRAMR4_product_template
+#: model:product.template,name:maple.srp4saleRAMR5_product_template
+msgid "Maple Syrup REG AM"
+msgstr "Sirop d'érable REG AM"
+
+#. module: maple
+#: model:product.product,name:maple.srp4saleRDOC1
+#: model:product.product,name:maple.srp4saleRDOC2
+#: model:product.product,name:maple.srp4saleRDOC3
+#: model:product.product,name:maple.srp4saleRDOC4
+#: model:product.product,name:maple.srp4saleRDOC5
+#: model:product.product,name:maple.srp4saleRDOC6
+#: model:product.product,name:maple.srp4saleRDOR0
+#: model:product.product,name:maple.srp4saleRDOR1
+#: model:product.product,name:maple.srp4saleRDOR2
+#: model:product.product,name:maple.srp4saleRDOR4
+#: model:product.product,name:maple.srp4saleRDOR5
+#: model:product.template,name:maple.srp4saleRDO--
+#: model:product.template,name:maple.srp4saleRDOC1_product_template
+#: model:product.template,name:maple.srp4saleRDOC2_product_template
+#: model:product.template,name:maple.srp4saleRDOC3_product_template
+#: model:product.template,name:maple.srp4saleRDOC4_product_template
+#: model:product.template,name:maple.srp4saleRDOC5_product_template
+#: model:product.template,name:maple.srp4saleRDOC6_product_template
+#: model:product.template,name:maple.srp4saleRDOR0_product_template
+#: model:product.template,name:maple.srp4saleRDOR1_product_template
+#: model:product.template,name:maple.srp4saleRDOR2_product_template
+#: model:product.template,name:maple.srp4saleRDOR4_product_template
+#: model:product.template,name:maple.srp4saleRDOR5_product_template
+msgid "Maple Syrup REG DO"
+msgstr "Sirop d'érable REG DO"
+
+#. module: maple
+#: model:product.product,name:maple.srp4saleRFOC1
+#: model:product.product,name:maple.srp4saleRFOC2
+#: model:product.product,name:maple.srp4saleRFOC3
+#: model:product.product,name:maple.srp4saleRFOC4
+#: model:product.product,name:maple.srp4saleRFOC5
+#: model:product.product,name:maple.srp4saleRFOC6
+#: model:product.product,name:maple.srp4saleRFOR0
+#: model:product.product,name:maple.srp4saleRFOR1
+#: model:product.product,name:maple.srp4saleRFOR2
+#: model:product.product,name:maple.srp4saleRFOR4
+#: model:product.product,name:maple.srp4saleRFOR5
+#: model:product.template,name:maple.srp4saleRFO--
+#: model:product.template,name:maple.srp4saleRFOC1_product_template
+#: model:product.template,name:maple.srp4saleRFOC2_product_template
+#: model:product.template,name:maple.srp4saleRFOC3_product_template
+#: model:product.template,name:maple.srp4saleRFOC4_product_template
+#: model:product.template,name:maple.srp4saleRFOC5_product_template
+#: model:product.template,name:maple.srp4saleRFOC6_product_template
+#: model:product.template,name:maple.srp4saleRFOR0_product_template
+#: model:product.template,name:maple.srp4saleRFOR1_product_template
+#: model:product.template,name:maple.srp4saleRFOR2_product_template
+#: model:product.template,name:maple.srp4saleRFOR4_product_template
+#: model:product.template,name:maple.srp4saleRFOR5_product_template
+msgid "Maple Syrup REG FO"
+msgstr "Sirop d'érable REG FO"
+
+#. module: maple
+#: model:product.product,name:maple.srp4saleRTFC1
+#: model:product.product,name:maple.srp4saleRTFC2
+#: model:product.product,name:maple.srp4saleRTFC3
+#: model:product.product,name:maple.srp4saleRTFC4
+#: model:product.product,name:maple.srp4saleRTFC5
+#: model:product.product,name:maple.srp4saleRTFC6
+#: model:product.product,name:maple.srp4saleRTFR0
+#: model:product.product,name:maple.srp4saleRTFR1
+#: model:product.product,name:maple.srp4saleRTFR2
+#: model:product.product,name:maple.srp4saleRTFR4
+#: model:product.product,name:maple.srp4saleRTFR5
+#: model:product.template,name:maple.srp4saleRTF--
+#: model:product.template,name:maple.srp4saleRTFC1_product_template
+#: model:product.template,name:maple.srp4saleRTFC2_product_template
+#: model:product.template,name:maple.srp4saleRTFC3_product_template
+#: model:product.template,name:maple.srp4saleRTFC4_product_template
+#: model:product.template,name:maple.srp4saleRTFC5_product_template
+#: model:product.template,name:maple.srp4saleRTFC6_product_template
+#: model:product.template,name:maple.srp4saleRTFR0_product_template
+#: model:product.template,name:maple.srp4saleRTFR1_product_template
+#: model:product.template,name:maple.srp4saleRTFR2_product_template
+#: model:product.template,name:maple.srp4saleRTFR4_product_template
+#: model:product.template,name:maple.srp4saleRTFR5_product_template
+msgid "Maple Syrup REG TF"
+msgstr "Sirop d'érable REG TF"
 
 #. module: maple
 #: model:ir.actions.act_window,name:maple.maple_config_regions_action
@@ -1349,17 +1756,17 @@ msgstr "Régions de ceuillette"
 #: model:ir.model.fields,help:maple.field_maple_import_acer_maple_flavor
 #: model:ir.model.fields,help:maple.field_maple_import_acer_maple_type
 msgid "Maple Syrup Type"
-msgstr "Type de sirop d'érable"
+msgstr "Type de sirop"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_product_template_maple_type
 msgid "Maple Syrup Type. "
-msgstr "Type de sirop d'érable"
+msgstr "Type de sirop d'érable."
 
 #. module: maple
 #: model:ir.model,name:maple.model_maple_weighing_picking
 msgid "Maple Syrup Weighing"
-msgstr "Pesée du sirop d'érable"
+msgstr "Pesée de sirop"
 
 #. module: maple
 #: model:ir.model,name:maple.model_maple_weighing_classif_site
@@ -1374,22 +1781,22 @@ msgstr "Ligne de pesée du sirop d'érable"
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_maple_type
 msgid "Maple Type"
-msgstr "Type"
+msgstr "Type de sirop"
 
 #. module: maple
 #: model:ir.actions.act_window,name:maple.maple_weight_list_action
 msgid "Maple Weight"
-msgstr "Pesée des contenants de sirop d'érable"
+msgstr "Poids du sirop"
 
 #. module: maple
 #: model:ir.actions.act_window,name:maple.maple_weight_acer_list_action
 msgid "Maple Weight Acer List"
-msgstr "Liste des pesées pour Acer"
+msgstr "Liste de pesée Acer"
 
 #. module: maple
 #: model:ir.actions.act_window,name:maple.available_maple_list_action
 msgid "Maple available"
-msgstr "Sirop d'érable disponible"
+msgstr "Sirop disponible"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_res_partner_maple_bio_state
@@ -1399,17 +1806,17 @@ msgstr "État de la certification biologique"
 #. module: maple
 #: model:ir.actions.act_window,name:maple.confimed_maple_list_action
 msgid "Maple confirmed"
-msgstr "Confirmé"
+msgstr "Sirop d'érable confirmé"
 
 #. module: maple
 #: model:ir.ui.menu,name:maple.maple_pickup_menu
 msgid "Maple pick-up"
-msgstr "Cueillette"
+msgstr "Cueillette de sirop"
 
 #. module: maple
 #: model:ir.ui.menu,name:maple.maple_pickup_menu_list
 msgid "Maple pick-up list"
-msgstr "Bon de cueillette"
+msgstr "Liste de cueillette de sirop"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_product_template_maple_state
@@ -1420,52 +1827,47 @@ msgstr "État du sirop d'érable"
 #: selection:maple.control,maple_state:0 selection:maple.control,state:0
 #: selection:stock.quant,maple_state:0 selection:stock.quant,state:0
 msgid "Maple stock after classify"
-msgstr "Inventaire après classement"
+msgstr "Inventaire de sirop après classification"
 
 #. module: maple
 #: selection:maple.control,maple_state:0 selection:maple.control,state:0
 #: selection:stock.quant,maple_state:0 selection:stock.quant,state:0
 msgid "Maple stock as been classified"
-msgstr "Inventaire classifié"
+msgstr "L'inventaire de sirop a été classifié"
 
 #. module: maple
 #: selection:maple.control,maple_state:0 selection:maple.control,state:0
 #: selection:stock.quant,maple_state:0 selection:stock.quant,state:0
 msgid "Maple stock as been weitgh"
-msgstr "Inventaire pesé"
+msgstr "L'inventaire de sirop a été pesé"
 
 #. module: maple
 #: selection:maple.control,maple_state:0 selection:maple.control,state:0
 #: selection:stock.quant,maple_state:0 selection:stock.quant,state:0
 msgid "Maple stock as rejected"
-msgstr "Sirop d'érable rejeté"
+msgstr "L'inventaire de sirop a été rejeté"
 
 #. module: maple
 #: selection:maple.control,maple_state:0 selection:maple.control,state:0
 #: selection:stock.quant,maple_state:0 selection:stock.quant,state:0
 msgid "Maple stock before classify"
-msgstr "Sirop d'érable avant classement"
+msgstr "Inventaire de sirop avant classement"
 
 #. module: maple
 #: selection:maple.control,maple_state:0 selection:maple.control,state:0
 #: selection:stock.quant,maple_state:0 selection:stock.quant,state:0
 msgid "Maple stock tagged"
-msgstr "Sirop d'érable étiqueté"
+msgstr "Inventaire coché"
 
 #. module: maple
 #: model:ir.ui.menu,name:maple.maple_container_menu
 msgid "Maple syrup Containers"
-msgstr "Contenants de sirop d'érable"
-
-#. module: maple
-#: model:ir.ui.menu,name:maple.maple_preparation_menu
-msgid "Maple syrup Production"
-msgstr "Classement du sirop d'érable"
+msgstr "Contenants de sirop"
 
 #. module: maple
 #: model:ir.ui.menu,name:maple.maple_entry_menu
 msgid "Maple syrup Purchases"
-msgstr "Achats"
+msgstr "Achats de sirop"
 
 #. module: maple
 #: model:ir.ui.menu,name:maple.maple_location_menu
@@ -1480,9 +1882,15 @@ msgid "Maple syrup class"
 msgstr "Grade de sirop d'érable"
 
 #. module: maple
+#: model:ir.model.fields,help:maple.field_maple_control_maple_net_weight
+#: model:ir.model.fields,help:maple.field_stock_quant_maple_net_weight
+msgid "Maple syrup net weight calculation. "
+msgstr ""
+
+#. module: maple
 #: model:ir.model.fields,help:maple.field_maple_grade_taste
 msgid "Maple taste or flavor characterizing this color class"
-msgstr "Saveur de sirop d'érable caractérisant ce grade"
+msgstr "Goût ou saveur d'érable caractérisant cette classe de couleur"
 
 #. module: maple
 #: model:ir.ui.view,arch_db:maple.maple_weight_tree_view
@@ -1493,7 +1901,7 @@ msgstr "Sirop à peser"
 #: model:ir.model.fields,field_description:maple.field_maple_purchase_order_maple_type
 #: model:ir.model.fields,field_description:maple.field_purchase_order_maple_type
 msgid "Maple type"
-msgstr "Type"
+msgstr "Type de sirop"
 
 #. module: maple
 #: model:ir.ui.view,arch_db:maple.maple_weight_acer_tree_view
@@ -1501,14 +1909,9 @@ msgid "Maple weight from Acer"
 msgstr "Poids de sirop de Acer"
 
 #. module: maple
-#: model:ir.ui.view,arch_db:maple.stock_location_kanban
-msgid "Max:"
-msgstr "Max:"
-
-#. module: maple
 #: model:ir.model.fields,field_description:maple.field_stock_location_maxItem
 msgid "Maximum capacity"
-msgstr "Capacité maximale:"
+msgstr "Capacité maximale"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_product_template_controlled_weight
@@ -1552,12 +1955,42 @@ msgstr "Plus d'un produit."
 #: model:ir.model.fields,field_description:maple.field_maple_purchase_order_maple_bio_check_on_order
 #: model:ir.model.fields,field_description:maple.field_res_partner_maple_bio_check_on_order
 msgid "Must Confirm"
-msgstr "Doit confirmer"
+msgstr "Confirmation requse"
 
 #. module: maple
-#: selection:maple.control,maple_flavor:0 selection:stock.quant,maple_flavor:0
-msgid "NC"
-msgstr "NC"
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "N: Non conforme"
+msgstr "N: Non conforme"
+
+#. module: maple
+#: model:product.attribute.value,name:maple.attribute_flaw_nc1
+msgid "NC1"
+msgstr "NC1"
+
+#. module: maple
+#: model:product.attribute.value,name:maple.attribute_flaw_nc2
+msgid "NC2"
+msgstr "NC2"
+
+#. module: maple
+#: model:product.attribute.value,name:maple.attribute_flaw_nc3
+msgid "NC3"
+msgstr "NC3"
+
+#. module: maple
+#: model:product.attribute.value,name:maple.attribute_flaw_nc4
+msgid "NC4"
+msgstr "NC4"
+
+#. module: maple
+#: model:product.attribute.value,name:maple.attribute_flaw_nc5
+msgid "NC5"
+msgstr "NC5"
+
+#. module: maple
+#: model:product.attribute.value,name:maple.attribute_flaw_nc6
+msgid "NC6"
+msgstr "NC6"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_maple_na
@@ -1572,7 +2005,7 @@ msgstr "Nom"
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_region_description
 msgid "Name of picking and delivery region"
-msgstr "Nom de la région de cueillette"
+msgstr "Nom de la région de cueillette et livraison"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_producer_name
@@ -1581,32 +2014,33 @@ msgid "Name of the Producer"
 msgstr "Nom du producteur"
 
 #. module: maple
-#: model:ir.model.fields,field_description:maple.field_maple_control_net_adjusted_weight
-#: model:ir.model.fields,field_description:maple.field_stock_quant_net_adjusted_weight
-msgid "Net Adjusted Weight"
-msgstr "Poids net ajusté"
-
-#. module: maple
+#: model:ir.model.fields,field_description:maple.field_maple_control_maple_net_weight
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_net_weight
+#: model:ir.model.fields,field_description:maple.field_stock_quant_maple_net_weight
 #: model:ir.model.fields,help:maple.field_maple_import_acer_net_weight
 msgid "Net Weight"
 msgstr "Poids net"
 
 #. module: maple
-#: model:ir.model.fields,help:maple.field_maple_control_net_adjusted_weight
-#: model:ir.model.fields,help:maple.field_stock_quant_net_adjusted_weight
-msgid "Net adjusted weight"
-msgstr "Poids net ajusté."
-
-#. module: maple
+#: model:ir.actions.act_window,help:maple.classif2_acer_import_list_action
 #: model:ir.actions.act_window,help:maple.maple_acer_import_list_action
 msgid "No Acer import."
-msgstr "Aucun rapport de classement importé d'Acer"
+msgstr "No d'importation Acer"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "No Baril"
+msgstr "No Baril"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "No FPAQ du producteur"
+msgstr "No FPAQ du producteur"
 
 #. module: maple
 #: model:ir.actions.act_window,help:maple.maple_weight_acer_list_action
 msgid "No data imported from Acer."
-msgstr "Aucune donnée importée d'Acer"
+msgstr "Aucune donnée importée d'Acer."
 
 #. module: maple
 #: code:addons/maple/wizard/weight_wizard.py:118
@@ -1624,7 +2058,13 @@ msgstr "Aucun producteur."
 #: code:addons/maple/wizard/weight_wizard.py:106
 #, python-format
 msgid "No product."
-msgstr "Aucun produit"
+msgstr "Aucun produit."
+
+#. module: maple
+#: code:addons/maple/wizard/purchase_wizard.py:130
+#, python-format
+msgid "No quantity."
+msgstr "Aucune quantité."
 
 #. module: maple
 #: selection:product.template,container_state:0
@@ -1632,29 +2072,30 @@ msgid "Non compliant"
 msgstr "Non conforme"
 
 #. module: maple
+#: model:product.attribute.value,name:maple.attribute_flaw_none
 #: selection:res.partner,maple_bio_state:0
 msgid "None"
 msgstr "Aucun"
 
 #. module: maple
-#: model:ir.ui.view,arch_db:maple.stock_location_kanban
-msgid "Now:"
-msgstr "Actuelle:"
-
-#. module: maple
 #: model:ir.model.fields,help:maple.field_maple_purchase_order_qty_container
 msgid "Number of container(s)"
-msgstr "Nom de contenants"
+msgstr "Nombre de contenant(s)"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_reception_qty_ordered
 msgid "Number of container(s) ordered"
-msgstr "Nom de contenants commandés"
+msgstr "Nombre de contenant(s) commandés"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_reception_qty_container
 msgid "Number of container(s) received"
 msgstr "Nombre de contenant(s) reçus"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "O: Bon"
+msgstr "O: Bon"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_weighing_order
@@ -1669,6 +2110,7 @@ msgstr "Date de commande"
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_purchase_order_organic
 #: selection:maple.purchase.order,maple_type:0
+#: model:product.attribute.value,name:maple.attribute_type_organic
 #: selection:purchase.order,maple_type:0
 msgid "Organic"
 msgstr "Biologique"
@@ -1692,7 +2134,7 @@ msgstr "Sirop biologique"
 
 #. module: maple
 #: model:product.template,name:maple.organic_maple_barrel
-msgid "Organic Maple Syrup Barel"
+msgid "Organic Maple Syrup Barrel"
 msgstr "Baril de sirop biologique"
 
 #. module: maple
@@ -1709,6 +2151,11 @@ msgstr "Certification biologique"
 #: model:ir.model.fields,field_description:maple.field_maple_reception_from_location_id
 msgid "Origin"
 msgstr "Origine"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_stock_quant_origin
+msgid "Origin of maple syrup"
+msgstr ""
 
 #. module: maple
 #: selection:product.template,container_type:0
@@ -1736,6 +2183,32 @@ msgid "Outside QC Classification"
 msgstr "Classement hors Québec"
 
 #. module: maple
+#: model:ir.actions.act_window,name:maple.SE1_classif1_list_action
+msgid "Outside QC | SE1 Room 1"
+msgstr ""
+
+#. module: maple
+#: model:ir.actions.act_window,name:maple.SE1_classif2_list_action
+msgid "Outside QC | SE1 Room 2"
+msgstr ""
+
+#. module: maple
+#: model:ir.ui.menu,name:maple.maple_SE1_classif1_menu
+msgid "Outside QC | SE1 room 1"
+msgstr ""
+
+#. module: maple
+#: model:ir.ui.menu,name:maple.maple_SE1_classif2_menu
+msgid "Outside QC | SE1 room 2"
+msgstr ""
+
+#. module: maple
+#: model:ir.actions.act_window,name:maple.SENB_classif_list_action
+#: model:ir.ui.menu,name:maple.maple_SENB_classif_menu
+msgid "Outside QC | SENB"
+msgstr ""
+
+#. module: maple
 #: model:ir.model.fields,field_description:maple.field_purchase_order_line_owner_id
 #: model:ir.model.fields,field_description:maple.field_purchase_order_line_owner_ref
 #: model:ir.model.fields,field_description:maple.field_purchase_order_owner_id
@@ -1743,7 +2216,7 @@ msgstr "Classement hors Québec"
 #: model:ir.model.fields,field_description:maple.field_stock_location_current_owner
 #: model:ir.model.fields,field_description:maple.field_stock_quant_tmp_owner
 msgid "Owner"
-msgstr "Prop"
+msgstr "Propriétaire"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_import_acer_container_owner
@@ -1754,7 +2227,12 @@ msgstr "Propriétaire du contenant: [P]roducteur ou [A]cheteur"
 #: model:ir.model.fields,field_description:maple.field_maple_control_container_ownership
 #: model:ir.model.fields,field_description:maple.field_stock_quant_container_ownership
 msgid "Ownership"
-msgstr "Prop"
+msgstr "Propriété"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "P: Perforé"
+msgstr "P: Perforé"
 
 #. module: maple
 #: model:ir.model,name:maple.model_stock_pack_operation
@@ -1782,6 +2260,7 @@ msgid "Pb"
 msgstr "Pb"
 
 #. module: maple
+#: model:product.attribute.value,name:maple.attribute_type_pending
 #: selection:res.partner,maple_bio_state:0
 msgid "Pending"
 msgstr "En attente"
@@ -1808,14 +2287,9 @@ msgid "Phone:"
 msgstr "Téléphone:"
 
 #. module: maple
-#: model:ir.ui.view,arch_db:maple.stock_location_kanban
-msgid "Plan:"
-msgstr "Plan:"
-
-#. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_purchase_order_date_planed
 msgid "Planed Date"
-msgstr "Planifiée:"
+msgstr "Date planifiée"
 
 #. module: maple
 #: model:product.category,name:maple.container_category_p
@@ -1884,6 +2358,11 @@ msgid "Plastic barrel (tar:48)"
 msgstr "Baril de plastique (Tar:48)"
 
 #. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "Poids brut"
+msgstr "Poids brut"
+
+#. module: maple
 #: model:ir.model.fields,field_description:maple.field_res_partner_maple_pound_produced
 msgid "Pound Produced"
 msgstr "Livres produites"
@@ -1899,7 +2378,7 @@ msgstr "Livres de sirop d'érable produites cette saison."
 #: model:ir.model.fields,help:maple.field_maple_control_maple_adjust_price
 #: model:ir.model.fields,help:maple.field_stock_quant_maple_adjust_price
 msgid "Price Adjustment"
-msgstr "Ajust prix"
+msgstr "Ajustement prix"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_control_maple_producer
@@ -1941,7 +2420,7 @@ msgstr ""
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_weighing_picking_maple_producer
 msgid "Producer. "
-msgstr "Producteur"
+msgstr "Producteur."
 
 #. module: maple
 #: model:ir.ui.menu,name:maple.maple_producers_menu_list
@@ -1950,6 +2429,7 @@ msgstr "Producteurs"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_reception_product_id
+#: model:ir.ui.view,arch_db:maple.maple_rating_tree_view
 msgid "Product"
 msgstr "Produit"
 
@@ -1959,6 +2439,11 @@ msgid "Product Category"
 msgstr "Catégorie de produit"
 
 #. module: maple
+#: model:ir.model.fields,help:maple.field_stock_location_current_rules
+msgid "Product Rules. "
+msgstr "Règles du produit"
+
+#. module: maple
 #: model:ir.model.fields,field_description:maple.field_stock_location_spaceLeft
 msgid "Product Space Left"
 msgstr "Espace de produit disponible"
@@ -1966,7 +2451,17 @@ msgstr "Espace de produit disponible"
 #. module: maple
 #: model:ir.model,name:maple.model_product_template
 msgid "Product Template"
-msgstr "Modèle de produit"
+msgstr "Gabarit de produit"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "Prop"
+msgstr "Propio"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "Province"
+msgstr "Province"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_purchase_order_partner_state
@@ -1974,18 +2469,23 @@ msgstr "Modèle de produit"
 #: model:ir.model.fields,field_description:maple.field_purchase_order_line_partner_state
 #: model:ir.model.fields,field_description:maple.field_purchase_order_partner_state
 msgid "Province / State"
-msgstr "Province/État"
+msgstr "Province / État"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "Prénom et Nom"
+msgstr "Prénom et Nom"
 
 #. module: maple
 #: selection:product.template,container_state:0
 msgid "Punctured"
-msgstr "Percé"
+msgstr "Perforé"
 
 #. module: maple
 #: model:ir.model,name:maple.model_purchase_order
 #: model:ir.ui.view,arch_db:maple.purchase_view_list
 msgid "Purchase Order"
-msgstr "Bon d'achat"
+msgstr "Ligne de bon d'achat"
 
 #. module: maple
 #: model:ir.model,name:maple.model_purchase_order_line
@@ -1995,7 +2495,7 @@ msgstr "Ligne de bon d'achat"
 #. module: maple
 #: model:ir.ui.menu,name:maple.maple_purchase_list
 msgid "Purchase list"
-msgstr "Liste des achats"
+msgstr "Liste de Bons d'achat"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_stock_location_purchase_lines
@@ -2057,12 +2557,17 @@ msgstr "Quantité reçue"
 #. module: maple
 #: model:ir.model,name:maple.model_stock_quant
 msgid "Quants"
-msgstr "Quantités"
+msgstr "Articles"
 
 #. module: maple
-#: model:ir.ui.menu,name:maple.maple_acer_import_menu
+#: model:ir.ui.menu,name:maple.classif1_acer_import_menu
 msgid "Quebec Classification"
 msgstr "Classement Québec"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "R: Rouillé"
+msgstr "R: Rouillé"
 
 #. module: maple
 #: selection:product.template,container_type:0
@@ -2098,6 +2603,7 @@ msgstr "Référence"
 #: model:ir.model.fields,field_description:maple.field_purchase_order_partner_region
 #: model:ir.model.fields,field_description:maple.field_res_partner_maple_region
 #: model:ir.model.fields,field_description:maple.field_res_partner_region
+#: model:ir.ui.view,arch_db:maple.buyer_filter_view
 #: model:ir.ui.view,arch_db:maple.maple_partner_filter_view
 msgid "Region"
 msgstr "Région"
@@ -2109,6 +2615,7 @@ msgstr "Régions"
 
 #. module: maple
 #: selection:maple.purchase.order,maple_type:0
+#: model:product.attribute.value,name:maple.attribute_type_regular
 #: selection:purchase.order,maple_type:0
 msgid "Regular"
 msgstr "Régulier"
@@ -2125,8 +2632,8 @@ msgstr "Sirop d'érable régulier"
 
 #. module: maple
 #: model:product.template,name:maple.regular_maple_barrel
-msgid "Regural Maple Syrup Barel"
-msgstr "Baril de sirop d'érable régulier"
+msgid "Regural Maple Syrup Barrel"
+msgstr ""
 
 #. module: maple
 #: model:product.template,name:maple.regular_maple_tote
@@ -2159,12 +2666,17 @@ msgid "Robust taste"
 msgstr "Goût robuste"
 
 #. module: maple
+#: model:ir.model.fields,field_description:maple.field_stock_location_current_rules
+msgid "Rules"
+msgstr "Règles"
+
+#. module: maple
 #: selection:product.template,container_state:0
 msgid "Rusty"
 msgstr "Rouillé"
 
 #. module: maple
-#: model:ir.actions.report.xml,name:maple.report_fpaq_reception_barils_pleins_producteur
+#: model:ir.actions.report.xml,name:maple.report_fpaq_reception
 msgid "Réception barils pleins producteur"
 msgstr "Réception barils pleins producteur"
 
@@ -2174,9 +2686,19 @@ msgid "SE1 Location List"
 msgstr "SE1 Liste d'emplacements"
 
 #. module: maple
+#: model:ir.actions.act_window,name:maple.classif2_acer_import_list_action
+msgid "SE1 Room 2 Acer Import List"
+msgstr ""
+
+#. module: maple
 #: model:ir.ui.view,arch_db:maple.location_filter_view
 msgid "SE1/Stock"
 msgstr "SE1/Inventaire"
+
+#. module: maple
+#: model:ir.actions.act_window,name:maple.maple_acer_import_list_action
+msgid "SE1_Room_1_Acer_Import_List"
+msgstr ""
 
 #. module: maple
 #: model:ir.ui.view,arch_db:maple.create_maple_purchase_view
@@ -2196,7 +2718,7 @@ msgstr "Scellé no"
 #: model:ir.model.fields,help:maple.field_maple_import_acer_seal_no
 #: model:ir.model.fields,help:maple.field_stock_quant_maple_seal_no
 msgid "Seal Number"
-msgstr "Numéro nde scellé"
+msgstr "Numéro de scellé"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_stock_quant_product_categ_id
@@ -2208,6 +2730,14 @@ msgstr "Sélectionner la catégorie de ce produit"
 #: model:ir.model.fields,help:maple.field_res_partner_default_owner_id
 msgid "Select the default buyer of this maple producer."
 msgstr "Sélectionner l'acheteur habituel de ce productur de sirop d'érable."
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_maple_container_material_sequence
+#: model:ir.model.fields,field_description:maple.field_maple_container_state_sequence
+#: model:ir.model.fields,field_description:maple.field_maple_flavors_sequence
+#: model:ir.model.fields,field_description:maple.field_maple_flaws_sequence
+msgid "Sequence"
+msgstr "Séquence"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_product_template_order_create_serial
@@ -2379,6 +2909,11 @@ msgid "Slightly bumped"
 msgstr "Légèrement bossé"
 
 #. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "Société"
+msgstr "Société"
+
+#. module: maple
 #: model:ir.model.fields,help:maple.field_maple_import_acer_maple_na
 msgid "Sodium Content"
 msgstr "Teneur en Sodium"
@@ -2390,6 +2925,16 @@ msgid "Special Test"
 msgstr "Test spécial"
 
 #. module: maple
+#: model:ir.model.fields,help:maple.field_maple_flaws_code
+msgid "Specifies the code of the default of maple. "
+msgstr ""
+
+#. module: maple
+#: model:ir.model.fields,help:maple.field_maple_flavors_code
+msgid "Specifies the flavor default of maple. "
+msgstr ""
+
+#. module: maple
 #: model:ir.model.fields,help:maple.field_maple_container_material_code
 msgid "Specifies the material of the container. "
 msgstr "Spécifie le matériel du contenant."
@@ -2397,7 +2942,7 @@ msgstr "Spécifie le matériel du contenant."
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_container_owner_type_code
 msgid "Specifies the type of owner. [A:Buyer, P:Producer]. "
-msgstr "Propriétaire contenant: Producteur (P) ou Acheteur (A)"
+msgstr "Spécifie le propriétaire contenant: Producteur (P) ou Acheteur (A)"
 
 #. module: maple
 #: model:product.category,name:maple.container_category_s
@@ -2408,7 +2953,7 @@ msgstr "Contenant en acier inoxydable"
 #. module: maple
 #: model:product.template,name:maple.container_S23
 msgid "Stainless Steel barrel (tar:23)"
-msgstr "Baril en acier inoxydable"
+msgstr "Contenant en acier inoxydable (tar:23)"
 
 #. module: maple
 #: model:product.template,name:maple.container_S41
@@ -2513,10 +3058,16 @@ msgid "Supervised"
 msgstr "Supervisé"
 
 #. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "T: Très bossé"
+msgstr "T: Très bossé"
+
+#. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_control_container_tar_weight
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_tare
 #: model:ir.model.fields,field_description:maple.field_stock_quant_container_tar_weight
 #: model:ir.model.fields,field_description:maple.field_stock_quant_tmp_tare
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
 msgid "Tare"
 msgstr "Tare"
 
@@ -2560,6 +3111,11 @@ msgstr ""
 "production cette saison."
 
 #. module: maple
+#: model:ir.model.fields,help:maple.field_stock_quant_origin
+msgid "The state code."
+msgstr ""
+
+#. module: maple
 #: model:ir.model.fields,help:maple.field_res_partner_maple_buyer
 msgid "This contact is a maple buyer."
 msgstr "Ce contact est un acheteur de sirop d'érable."
@@ -2567,18 +3123,18 @@ msgstr "Ce contact est un acheteur de sirop d'érable."
 #. module: maple
 #: model:ir.model.fields,help:maple.field_res_partner_maple_producer
 msgid "This contact is a maple producer."
-msgstr "Est un producteur de sirop d'érable"
+msgstr "Ce contact est un producteur de sirop d'érable."
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_res_partner_maple_outside_qc
 msgid "This is an outside of Quebec Partner."
-msgstr "Partenaire hors Québec"
+msgstr "Ce contact est un Partenaire hors Québec"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_purchase_order_line_maple_outside_qc
 #: model:ir.model.fields,help:maple.field_purchase_order_maple_outside_qc
 msgid "This is an outside of Quebec Partner. "
-msgstr "Partenaire hors Québec"
+msgstr "Ce contact est un Partenaire hors Québec"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_res_partner_maple_farm
@@ -2599,21 +3155,16 @@ msgid "This product is maple syrup."
 msgstr "Ce produit est du sirop d'érable."
 
 #. module: maple
-#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_barils_pleins_producteur
-msgid "This shipment is a backorder of"
-msgstr "Cette livraison est en "
-
-#. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_weighing_picking_line_stock_quant_id
 #: model:ir.model.fields,field_description:maple.field_maple_weighing_picking_total_weight
 msgid "Total Weight"
-msgstr "Poids brut"
+msgstr "Poids total"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_weighing_picking_line_stock_quant_id
 #: model:ir.model.fields,help:maple.field_maple_weighing_picking_total_weight
 msgid "Total Weight. "
-msgstr "Poids brut."
+msgstr "Poids total."
 
 #. module: maple
 #: selection:maple.purchase.order,container_type:0
@@ -2624,15 +3175,22 @@ msgstr "Tote"
 #. module: maple
 #: model:ir.model,name:maple.model_stock_picking
 msgid "Transfer"
-msgstr "Transfert"
+msgstr "Transférer"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_maple_clarity
 #: model:ir.model.fields,field_description:maple.field_product_template_maple_type
 #: model:ir.model.fields,field_description:maple.field_stock_quant_tmp_material
 #: model:ir.ui.view,arch_db:maple.maple_weight_tree_view
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+#: model:product.attribute,name:maple.attribute_type
 msgid "Type"
 msgstr "Type"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "Téléphone"
+msgstr "Téléphone"
 
 #. module: maple
 #: model:maple.grade,code:maple.grade_verydark
@@ -2640,9 +3198,24 @@ msgid "VD"
 msgstr "VD"
 
 #. module: maple
-#: selection:maple.control,maple_flavor:0 selection:stock.quant,maple_flavor:0
-msgid "VR"
-msgstr "VR"
+#: model:product.attribute.value,name:maple.attribute_flaw_vr1
+msgid "VR1"
+msgstr "VR1"
+
+#. module: maple
+#: model:product.attribute.value,name:maple.attribute_flaw_vr2
+msgid "VR2"
+msgstr "VR2"
+
+#. module: maple
+#: model:product.attribute.value,name:maple.attribute_flaw_vr4
+msgid "VR4"
+msgstr "VR4"
+
+#. module: maple
+#: model:product.attribute.value,name:maple.attribute_flaw_vr5
+msgid "VR5"
+msgstr "VR5"
 
 #. module: maple
 #: selection:res.partner,maple_bio_state:0
@@ -2652,12 +3225,17 @@ msgstr "Valide"
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_reception_validate_each
 msgid "Validate each"
-msgstr "Valider individuellement"
+msgstr "Valider chacun"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_product_template_container_valve
 msgid "Valve"
 msgstr "Valve"
+
+#. module: maple
+#: model:product.attribute.value,name:maple.attribute_light_verydark
+msgid "Very Dark"
+msgstr "Très foncé"
 
 #. module: maple
 #: selection:product.template,container_state:0
@@ -2670,24 +3248,30 @@ msgid "Very dark"
 msgstr "Très foncé"
 
 #. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "Ville"
+msgstr "Ville"
+
+#. module: maple
+#: model:ir.ui.menu,name:maple.maple_weighing_menu
 #: model:ir.ui.menu,name:maple.maple_weight_menu_list
 msgid "Weighing"
 msgstr "Pesée"
 
 #. module: maple
 #: model:ir.ui.menu,name:maple.maple_weight_acer_menu_list
-msgid "Weighing Acer Imports"
-msgstr "Import de pesée Acer"
+msgid "Weighing Exports for Acer"
+msgstr "Exports de pesée pour Acer"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_weighing_picking_name
 msgid "Weighing No."
-msgstr "No. de pesée"
+msgstr "No pesée"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_weighing_picking_name
 msgid "Weighing Number. "
-msgstr "Numéro de pesée"
+msgstr "Numéro de pesée."
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_import_acer_container_type
@@ -2699,13 +3283,23 @@ msgstr "Séquence de pesée"
 #: model:ir.model.fields,field_description:maple.field_maple_weighing_picking_acer_lines
 #: model:ir.model.fields,field_description:maple.field_maple_weighing_picking_weighing_lines
 msgid "Weighing lines"
-msgstr "Lignes de la pesée"
+msgstr "Lignes de pesée"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_weighing_picking_acer_lines
 #: model:ir.model.fields,help:maple.field_maple_weighing_picking_weighing_lines
 msgid "Weighing lines. "
-msgstr "Lignes de la pesée."
+msgstr "Lignes de pesée."
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_stock_quant_weighing_no
+msgid "Weighing no"
+msgstr "No pesée"
+
+#. module: maple
+#: model:ir.model.fields,field_description:maple.field_stock_quant_weighing_picking
+msgid "Weighing picking"
+msgstr "Transfert à la pesée"
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_control_container_total_weight
@@ -2721,7 +3315,7 @@ msgstr "Poids"
 #: model:ir.model.fields,help:maple.field_maple_import_acer_weight_adjust
 #: model:ir.model.fields,help:maple.field_stock_quant_maple_adjust_weight
 msgid "Weight Adjustment"
-msgstr "Ajustement"
+msgstr "Ajustement de poids"
 
 #. module: maple
 #: model:ir.model.fields,help:maple.field_maple_control_container_tar_weight
@@ -2733,7 +3327,7 @@ msgstr "Poids du contenant vide."
 #: model:ir.model.fields,help:maple.field_maple_control_container_total_weight
 #: model:ir.model.fields,help:maple.field_stock_quant_container_total_weight
 msgid "Weight of the maple container."
-msgstr "Poids du contenant vide."
+msgstr "Poids du contenant de sirop."
 
 #. module: maple
 #: model:ir.model.fields,field_description:maple.field_maple_import_acer_producer_zip
@@ -2776,6 +3370,16 @@ msgid "maple.control"
 msgstr "maple.control"
 
 #. module: maple
+#: model:ir.model,name:maple.model_maple_flavors
+msgid "maple.flavors"
+msgstr ""
+
+#. module: maple
+#: model:ir.model,name:maple.model_maple_flaws
+msgid "maple.flaws"
+msgstr ""
+
+#. module: maple
 #: model:ir.model,name:maple.model_maple_purchase_order
 msgid "maple.purchase.order"
 msgstr "maple.purchase.order"
@@ -2788,7 +3392,7 @@ msgstr "maple.reception"
 #. module: maple
 #: model:ir.ui.view,arch_db:maple.view_pack_operation_lot_form
 msgid "none"
-msgstr "Aucun"
+msgstr "aucun"
 
 #. module: maple
 #: model:ir.ui.view,arch_db:maple.create_maple_purchase_view
@@ -2842,3 +3446,31 @@ msgstr "id transfert  pesée"
 #: selection:product.template,maple_state:0
 msgid "weighted"
 msgstr "pesé"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "État"
+msgstr "État"
+
+#. module: maple
+#: model:ir.ui.view,arch_db:maple.qweb_fpaq_reception_document
+msgid "État du baril"
+msgstr "État du baril"
+
+#~ msgid "CROCHET"
+#~ msgstr "CROCHET"
+
+#~ msgid "Maple Acer Import List"
+#~ msgstr "Liste des importations d'Acer"
+
+#~ msgid "Maple syrup Classification"
+#~ msgstr "Classement du sirop"
+
+#~ msgid "NC"
+#~ msgstr "NC"
+
+#~ msgid "REG"
+#~ msgstr "RÉG"
+
+#~ msgid "VR"
+#~ msgstr "VR"

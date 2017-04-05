@@ -32,7 +32,9 @@ This module provides mosly fields and views.
     ],
     'data': [
 # Chargement des groups, users et rules pour la sécurité
-        'data/lang.xml',        
+        'data/lang.xml',
+        'data/flavors.xml',
+        'data/flaws.xml',       
         'data/identification.xml',        
         'data/container_state.xml',
         'data/container_material.xml',

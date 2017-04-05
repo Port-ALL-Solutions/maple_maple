@@ -10,6 +10,23 @@ class container_condition(models.Model):
     name = fields.Char('Containter condition', index=True, required=True)
     code = fields.Char('Container condition code', required=True, size=1, help="Short name used to that container condition. ")
 
+class flavors(models.Model):
+    _name = 'maple.flavors'
+    _order = 'sequence'
+
+    sequence = fields.Integer('Sequence', index=True, default=100)
+    name = fields.Char('Flavor', index=True, required=True)
+    code = fields.Char('Flavor code', required=True, size=1, help="Specifies the flavor default of maple. ")
+
+
+class flaws(models.Model):
+    _name = 'maple.flaws'
+    _order = 'sequence'
+
+    sequence = fields.Integer('Sequence', index=True, default=100)
+    name = fields.Char('Flaw', index=True, required=True)
+    code = fields.Char('Flaw code', required=True, size=1, help="Specifies the code of the default of maple. ")
+
 
 class container_materiaL(models.Model):
     _name = 'maple.container_material'
@@ -38,6 +55,20 @@ class maple_control(models.Model):
     container_tar_weight = fields.Integer(
         string='Tare', 
         help='Weight of empty container.')
+
+    maple_net_weight = fields.Integer(
+        string="Net Weight",
+        compute="_compute_line_data",
+        store=True,
+        help="Maple syrup net weight calculation. "
+        )
+    
+    maple_payable_weight = fields.Integer(
+        string="Adjusted (payable) Net Weight",
+        compute="_compute_line_data",
+        store=True,
+        help="Adjusted maple syrup net weight calculation, payable to the producer. "
+        )
 
     container_serial = fields.Char(
         string='Barel Id', 
@@ -108,7 +139,7 @@ class maple_control(models.Model):
         )
     
     maple_grade = fields.Char(
-        compute='_check_change_maple_light',
+        compute='_compute_line_data',
         string="Grade",
         help="Maple syrup class",
         store=True
@@ -119,27 +150,20 @@ class maple_control(models.Model):
         help="Sugar concentration of the maple syrup in degrees Brix - °Bx - defining its color class"
         )    
      
-    maple_flavor = fields.Selection(
-        [   ('CROCHET', 'CROCHET'),
-            ('VR', 'VR'),
-            ('NC', 'NC')   ], 
+    maple_flavor = fields.Many2one(
+        comodel_name='maple.flavors',
         string='Flavor', 
         help='Crochet: légère trace de goût et d’odeur indésirables; VR: Saveur et odeur désagréables - VR1, VR2, VR4, VR5; NC: Non conforme - NC1, NC2, NC3, NC4. NC5, NC6', 
         index=True,
         )
     
-    maple_flaw = fields.Selection(
-        [   ('1', '1'),
-            ('2', '2'),
-            ('3', '3'),
-            ('4', '4'),
-            ('5', '5'),
-            ('6', '6')   ], 
-        string='Flaw', 
+    maple_flaw = fields.Many2one(
+        comodel_name='maple.flaws',
+        string='Flaw',
         help='1:Origine naturelle 2:Origine microbiologique 3:Origine chimique 4:Non identifié 5:Bourgeon 6:Sirop filant',
         index=True,
         )
-      
+    
     state = fields.Selection(
         [   ('ready', 'Ready to pick'),
             ('confirmed', 'Confimation for delivery'),
@@ -162,14 +186,14 @@ class maple_control(models.Model):
     
     maple_adjust_weight = fields.Integer(
         string="Weight Adjustment",
-        compute="_compute_adjust_weight_price",
+        compute="_compute_line_data",
         store=True,
         help="Weight Adjustment"
         )
     
     maple_adjust_price = fields.Float(
         string="Price Adjustment",
-        compute="_compute_adjust_weight_price",
+        compute="_compute_line_data",
         store=True,
         help="Price Adjustment"
         )
@@ -180,8 +204,89 @@ class maple_control(models.Model):
 #        required=True, 
         help="Location where this container will be stocked after classification. "
         )
+    
+    product_code = fields.Char(
+        string="Internal Product Code",
+        compute="_compute_line_data",
+        store=True,
+        help="Find the corresponding internal product code. "
+        )
+    
+    @api.depends('maple_light','maple_brix') # if these fields are changed, call method
+    def _compute_line_data(self):
+        for r in self:
 
+#            Grade calculation based on light value
+            if r.maple_light > 0:
+                if r.maple_light <= 25 :
+                    r.maple_grade = 'TF'
+                elif r.maple_light < 50 :
+                    r.maple_grade = 'FO'
+                elif r.maple_light < 75 :
+                    r.maple_grade = 'AM'
+                else :
+                    r.maple_grade = 'DO'
+            else:
+                r.maple_grade = ''
 
+#            Weight and Price adjustments calculation based on Brix value
+            if r.maple_brix:
+                if r.maple_brix < 60.5:
+                    r.maple_adjust_weight = None #Non-conforme
+                elif r.maple_brix > 67.:
+                    if r.maple_brix > 68.999:
+                        brix = 68.999
+                    else:
+                        brix = r.maple_brix
+                    r.maple_adjust_weight = (brix - 67.) * 0.015 * (r.container_total_weight - r.container_tar_weight)
+                elif r.maple_brix < 66.:
+                    r.maple_adjust_weight = (r.maple_brix- 66.) * 0.015 * (r.container_total_weight - r.container_tar_weight)
+                else:
+                    r.maple_adjust_weight = 0
+                
+                if r.maple_brix < 60.5 or r.maple_brix > 65.7:
+                    r.maple_adjust_price = 0
+                elif r.maple_brix <= 63.4:
+                    r.maple_adjust_price = -0.2
+                else:
+                    r.maple_adjust_price = -0.1
+#                    La pesanteur initiale du Produit en Baril est révisée à la hausse pour le Produit en Baril d'une densité supérieure à 67° Brix,
+#                    de 0,15 % par dixième de degré Brix, jusqu'à un maximum de 68,999° Brix et est révisée à la baisse pour une densité inférieure à 66° Brix,
+#                    de 0,15 % par dixième de degré Brix. Au surplus, pour le Produit dont la densité se situe entre 63,5° et 65,7° Brix, le prix est inférieur
+#                    de 0,10 $/livre par classe selon la grille des prix minimums applicables. Pour le Produit en Baril dont la densité se situe entre 60,5° et 63,4° Brix,
+#                    le prix est inférieur de 0,20 $/livre par classe selon la grille des prix par classe prévue à la Convention. Enfin, le Produit en Baril dont la densité
+#                    est inférieure à 60,5° Brix est considéré (NC).
+
+#            Net weight calculation
+            if r.container_total_weight > 0 and r.tmp_tare > 0:
+                r.maple_net_weight = r.container_total_weight - r.tmp_tare
+
+#            Payable weight calculation    
+            if r.maple_adjust_weight != 0:
+                r.maple_payable_weight = r.maple_net_weight + r.maple_adjust_weight
+            elif r.maple_net_weight > 0:
+                r.maple_payable_weight = r.maple_net_weight
+
+#            Sale Product code alculation                 
+            if r.maple_grade:
+                answer = ''
+                answer += r.product_id.default_code[1] + r.maple_grade
+                if not r.maple_flavor:
+                    answer += '--'
+                else:
+                    if len(r.maple_flavor.name) == 2:
+                        answer += r.maple_flavor.name[1]     
+                    elif len(r.maple_flavor.name) > 2:
+                        answer += "R"
+                    if not r.maple_flaw:
+                        answer += "0"
+                    else:
+                        if r.maple_flaw:
+                            answer += r.maple_flaw.code
+                if len(answer) == 5:
+                    self.product_code = answer 
+                
+    
     @api.depends('acer_seal_no','controler','maple_brix') #barrelCnt, InspectNb
     def _compute_seal(self):
         employee_obj = self.env['hr.employee']
@@ -197,55 +302,9 @@ class maple_control(models.Model):
                         ctrl_code = date.today().strftime('%y') + str(int(r.controler.inspectNb)).zfill(2) + "-" + str(cpt).zfill(5)
                         r.maple_seal_no = ctrl_code
 
-    @api.depends('maple_brix','container_total_weight','container_tar_weight')
-    def _compute_adjust_weight_price(self):
-        for r in self:
-            if r.maple_brix < 60.5:
-                r.maple_adjust_weight = None #Non-conforme
-            elif r.maple_brix > 67.:
-                if r.maple_brix > 68.999:
-                    brix = 68.999
-                else:
-                    brix = r.maple_brix
-                r.maple_adjust_weight = (brix - 67.) * 0.015 * (r.container_total_weight - r.container_tar_weight)
-            elif r.maple_brix < 66.:
-                r.maple_adjust_weight = (r.maple_brix- 66.) * 0.015 * (r.container_total_weight - r.container_tar_weight)
-            else:
-                r.maple_adjust_weight = 0
-            
-            if r.maple_brix < 60.5 or r.maple_brix > 65.7:
-                r.maple_adjust_price = 0
-            elif r.maple_brix <= 63.4:
-                r.maple_adjust_price = -0.2
-            else:
-                r.maple_adjust_price = -0.1
-        
-#    La pesanteur initiale du Produit en Baril est révisée à la hausse pour le Produit en Baril d'une densité supérieure à 67° Brix,
-#    de 0,15 % par dixième de degré Brix, jusqu'à un maximum de 68,999° Brix et est révisée à la baisse pour une densité inférieure à 66° Brix,
-#    de 0,15 % par dixième de degré Brix. Au surplus, pour le Produit dont la densité se situe entre 63,5° et 65,7° Brix, le prix est inférieur
-#    de 0,10 $/livre par classe selon la grille des prix minimums applicables. Pour le Produit en Baril dont la densité se situe entre 60,5° et 63,4° Brix,
-#    le prix est inférieur de 0,20 $/livre par classe selon la grille des prix par classe prévue à la Convention. Enfin, le Produit en Baril dont la densité
-#    est inférieure à 60,5° Brix est considéré (NC).
-
-
     @api.onchange('container_type') # if these fields are changed, call method
     def check_change_container_type(self):
         self.container_tar_weight = self.container_type.weight
-
-    @api.depends('maple_light') # if these fields are changed, call method
-    def _check_change_maple_light(self):
-        for control in self:
-            if control.maple_light > 0:
-                if control.maple_light <= 25 :
-                    control.maple_grade = 'TF'
-                elif control.maple_light < 50 :
-                    control.maple_grade = 'FO'
-                elif control.maple_light < 75 :
-                    control.maple_grade = 'AM'
-                else :
-                    control.maple_grade = 'DO'
-            else:
-                control.maple_grade = ''
         
 #        partner_obj = self.env['res.partner']
 #        partner = partner_obj.browse([self.partner_id.id])
@@ -257,8 +316,6 @@ class maple_control(models.Model):
 #            self.maple_type = "R"
 #        self.owner_id = owner    
 # modifier le contact (partner) de Odoo pour inclure sa région et son numéro FPAQ
-
-
 
 class stockQuant(models.Model):
     _name = 'stock.quant'
@@ -320,33 +377,15 @@ class stockQuant(models.Model):
        compute="_compute_weighing_picking",
        store=True)
     
-    product_code = fields.Char(
-        string="Internal Product Code",
-        compute="_compute_product_code",
-        store=True,
-        help="Find the corresponding internal product code. "
-        )
+    acer_rule = fields.Boolean(
+       string='Acer rule for Quebec', 
+       compute="_compute_class_site",
+       store=True)  
     
-    @api.depends('maple_grade','maple_flavor','maple_flaw')
-    def _compute_product_code(self):
-#        product_obj = self.env['stock.quant']
-        for r in self:
-            if r.maple_grade:
-                answer = ''
-                answer += r.product_id.default_code[1] + r.maple_grade
-                if not r.maple_flavor:
-                    answer += '--'
-                else:
-                    if len(r.maple_flavor) == 2:
-                        answer += r.maple_flavor[1]     
-                    elif len(r.maple_flavor) > 2:
-                        answer += "R"
-                    if not r.maple_flaw:
-                        answer += "0"
-                    else:
-                        answer += r.maple_flaw
-                if len(answer) == 5:
-                    self.product_code = answer                                          
+    origin = fields.Char(
+       string='Origin of maple syrup', 
+       related='producer.state_id.code',
+       store=True)                                     
 
     @api.depends("container_total_weight")
     def _compute_weighing_picking(self): 
@@ -382,7 +421,8 @@ class stockQuant(models.Model):
                 if self.producer.state_id.code == "QC":
                     self.class_site = "298"
                 else:   
-                    self.class_site = "LB3" 
+                    self.class_site = "LB3"
+        self.acer_rule = self.owner_id.state_id.code == "QC"
 
     def _quant_create_from_move(self, qty, move, lot_id=False, owner_id=False, src_package_id=False, dest_package_id=False, force_location_from=False, force_location_to=False):
         quant = super(stockQuant, self)._quant_create_from_move(qty, move, 

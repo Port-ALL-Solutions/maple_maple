@@ -10,23 +10,26 @@
 	                <field name="product_id" readonly="1"/>
 	                <field name="location_id" readonly="1" invisible="1"/>
 	                <field name="owner_id" groups="stock.group_tracking_owner" readonly="1"/>
-	                <field name="container_serial"/>
-	                <field name="tmp_owner" readonly="0" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/>
-	                <field name="tmp_material" readonly="0" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/>
-	                <field name="container_state" readonly="0" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/>
-	                <field name="container_total_weight" sum="1"/>
-	                <field name="tmp_tare" sum="1"/>
-	                <field name="controler" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/>
-	                <field name="maple_seal_no"/>
-	                <field name="maple_flavor"/>
-	                <field name="maple_flaw"/>
-	                <field name="maple_light" sum="1"/>
+	                <field name="container_serial" attrs="{'readonly': [('origin', '=', 'QC')]}"/>
+	                <field name="tmp_owner" attrs="{'readonly': [('origin', '=', 'QC')]}" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/>
+	                <field name="tmp_material" attrs="{'readonly': [('origin', '=', 'QC')]}" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/>
+	                <field name="container_state" attrs="{'readonly': [('origin', '=', 'QC')]}" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/>
+	                <field name="container_total_weight" sum="1" attrs="{'readonly': [('origin', '=', 'QC')]}"/>
+	                <field name="tmp_tare" sum="1" attrs="{'readonly': [('origin', '=', 'QC')]}"/>
+	                <field name="origin" invisible="1"/>
+	                <field name="maple_net_weight" sum="1" attrs="{'readonly': [('origin', '=', 'QC')]}"/>
+	                <field name="controler" attrs="{'readonly': [('origin', '=', 'QC')]}" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/>
+	                <field name="maple_seal_no" attrs="{'readonly': [('origin', '=', 'QC')]}"/>
+	                <field name="maple_flavor" attrs="{'readonly': [('origin', '=', 'QC')]}" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/> 
+					<field name="maple_flaw" attrs="{'readonly': [('origin', '=', 'QC')]}" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/>
+	                <field name="maple_light" avg="1" attrs="{'readonly': [('origin', '=', 'QC')]}"/>
 	                <field name="maple_grade"/>
-	                <field name="maple_brix" avg="1"/>
-	                <field name="maple_adjust_weight" avg="1"/>
+	                <field name="maple_brix" avg="1" attrs="{'readonly': [('origin', '=', 'QC')]}"/>
+	                <field name="maple_adjust_weight" sum="1"/>
+	                <field name="maple_payable_weight" sum="1"/>
 	                <field name="maple_adjust_price"/>
 	                <!-- field name="location_dest_id"/ -->
-	                <field name="product_code" readonly="1"/>
+	                <field name="product_code" string="Product" readonly="1"/>
    				</tree>
 			</field>
 		</record>	
@@ -41,6 +44,42 @@
                 <p class="oe_view_nocontent_create">Can not create anything from here. </p>
             </field>
         </record>
-	
+        
+        <record model="ir.actions.act_window" id="SE1_classif1_list_action">
+            <field name="name">Outside QC | SE1 Room 1</field>
+            <field name="res_model">stock.quant</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+			<field name="view_id" ref="maple_rating_tree_view" />
+			<!-- field name="domain">[('location_id', '=', 43)]</field -->
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Can not create anything from here. </p>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="SE1_classif2_list_action">
+            <field name="name">Outside QC | SE1 Room 2</field>
+            <field name="res_model">stock.quant</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+			<field name="view_id" ref="maple_rating_tree_view" />
+			<field name="domain">[('location_id', '=', 44)]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Can not create anything from here. </p>
+            </field>
+        </record>
+        
+		<record model="ir.actions.act_window" id="SENB_classif_list_action">
+            <field name="name">Outside QC | SENB</field>
+            <field name="res_model">stock.quant</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+			<field name="view_id" ref="maple_rating_tree_view" />
+			<field name="domain">[('location_id', '=', 89)]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Can not create anything from here. </p>
+            </field>
+        </record>
+
 	</data>
 </odoo>

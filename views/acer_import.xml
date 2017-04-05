@@ -6,50 +6,50 @@
 			<field name="name">maple.acer_import.list</field>
 		    <field name="model">maple.import_acer</field>
 		    <field name="arch" type="xml">
-                <tree string="List of Acer Reports" toolbar="1" >
-	     			<field name="weighing_no" invisible="0" />
-    				<field name="producer_fpaq" invisible="0" />
-    				<field name="report_no" invisible="0" />	     			
-    				<field name="classif_date" invisible="0" />
-    				<field name="producer_name" invisible="0" />
-    				<field name="maple_producer" invisible="1" />
-    				<field name="producer_city" invisible="1" />
-    				<field name="producer_zip" invisible="1" />
-    				<field name="producer_phone" invisible="1" />
-    				<field name="container_owner" invisible="0" />
-    				<field name="site_no" invisible="1" />
-    				<field name="fpaqContact_name" invisible="1" />
-    				<field name="fpaqContact_address" invisible="1" />
-    				<field name="fpaqContact_city" invisible="1" />
-    				<field name="fpaqContact_state" invisible="1" />
-    				<field name="fpaqContact_zip" invisible="1" />
-    				<field name="fpaqContact_phone" invisible="1" />
-    				<field name="supervised" invisible="0" />
-    				<field name="inspector" invisible="0" />
-    				<field name="seal_no" invisible="0" />
-    				<field name="container_no" invisible="0" />
-    				<field name="gross_weight" invisible="0" />
-    				<field name="tare" invisible="0" />
-    				<field name="net_weight" invisible="0" />
-    				<field name="container_state" invisible="0" />
-    				<field name="weight_adjust" invisible="0" />
-    				<field name="maple_grade" invisible="0" />
-    				<field name="maple_type" invisible="0" />
-    				<field name="maple_brix" invisible="0" />
-    				<field name="maple_light" invisible="0" />
-    				<field name="maple_flaw" invisible="0" />
-    				<field name="maple_flavor" invisible="0" />
-    				<field name="maple_clarity" invisible="1" />
-    				<field name="maple_si" invisible="1" />
-    				<field name="maple_ph" invisible="1" />
-    				<field name="maple_iodine" invisible="1" />
-    				<field name="maple_na" invisible="1" />
-    				<field name="maple_pb" invisible="1" />
-    				<field name="maple_held" invisible="1" />
-    				<field name="maple_specialTest" invisible="1" />
-    				<field name="classif_revision" invisible="0" />
-    				<field name="weighing_order" invisible="1" />
-    				<field name="container_type" invisible="0" />
+                <tree string="List of Acer Reports" toolbar="1" editable="1" edit="1" create="0">
+	     			<field name="weighing_no" invisible="0" readonly="1"/>
+    				<field name="producer_fpaq" invisible="0" readonly="1"/>
+    				<field name="report_no" invisible="0" readonly="1"/>	     			
+    				<field name="classif_date" invisible="0" readonly="1"/>
+    				<field name="producer_name" invisible="0" readonly="1"/>
+    				<field name="maple_producer" invisible="1" readonly="1"/>
+    				<field name="producer_city" invisible="1" readonly="1"/>
+    				<field name="producer_zip" invisible="1" readonly="1"/>
+    				<field name="producer_phone" invisible="1" readonly="1"/>
+    				<field name="container_owner" invisible="0" readonly="1"/>
+    				<field name="site_no" invisible="1" readonly="1"/>
+    				<field name="fpaqContact_name" invisible="1" readonly="1"/>
+    				<field name="fpaqContact_address" invisible="1" readonly="1"/>
+    				<field name="fpaqContact_city" invisible="1" readonly="1"/>
+    				<field name="fpaqContact_state" invisible="1" readonly="1"/>
+    				<field name="fpaqContact_zip" invisible="1" readonly="1"/>
+    				<field name="fpaqContact_phone" invisible="1" readonly="1"/>
+    				<field name="supervised" invisible="0" readonly="1"/>
+    				<field name="inspector" invisible="0" readonly="1"/>
+    				<field name="seal_no" invisible="0" readonly="1"/>
+    				<field name="container_no" invisible="0" readonly="1"/>
+    				<field name="gross_weight" invisible="0" readonly="1"/>
+    				<field name="tare" invisible="0" readonly="1"/>
+    				<field name="net_weight" invisible="0" readonly="1"/>
+    				<field name="container_state" invisible="0" readonly="1"/>
+    				<field name="weight_adjust" invisible="0" readonly="1"/>
+    				<field name="maple_grade" invisible="0" readonly="1"/>
+    				<field name="maple_type" invisible="0" readonly="1"/>
+    				<field name="maple_brix" invisible="0" readonly="1"/>
+    				<field name="maple_light" invisible="0" readonly="1"/>
+    				<field name="maple_flaw" invisible="0" readonly="1"/>
+    				<field name="maple_flavor" invisible="0" readonly="1"/>
+    				<field name="maple_clarity" invisible="1" readonly="1"/>
+    				<field name="maple_si" invisible="1" readonly="1"/>
+    				<field name="maple_ph" invisible="1" readonly="1"/>
+    				<field name="maple_iodine" invisible="1" readonly="1"/>
+    				<field name="maple_na" invisible="1" readonly="1"/>
+    				<field name="maple_pb" invisible="1" readonly="1"/>
+    				<field name="maple_held" invisible="1" readonly="1"/>
+    				<field name="maple_specialTest" invisible="1" readonly="1"/>
+    				<field name="classif_revision" invisible="0" readonly="1"/>
+    				<field name="weighing_order" invisible="1" readonly="1"/>
+    				<field name="container_type" invisible="0" readonly="1"/>
 		    	</tree>          
 		    </field>
 	    </record>
@@ -72,11 +72,22 @@
 	    </record>
 	    
 	    <record model="ir.actions.act_window" id="maple_acer_import_list_action">
-           	<field name="name">Maple Acer Import List</field>
+           	<field name="name">SE1_Room_1_Acer_Import_List</field>
            	<field name="res_model">maple.import_acer</field>
            	<field name="view_type">form</field>
            	<field name="view_mode">tree,form</field>
-			<field name="view_id" ref="acer_import_list" /> 
+			<field name="view_id" ref="acer_import_list" />
+           	<field name="help" type="html">
+               <p class="oe_view_nocontent_create">No Acer import. </p>
+           	</field>
+       </record>
+       
+		<record model="ir.actions.act_window" id="classif2_acer_import_list_action">
+           	<field name="name">SE1 Room 2 Acer Import List</field>
+           	<field name="res_model">maple.import_acer</field>
+           	<field name="view_type">form</field>
+           	<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="acer_import_list" />
            	<field name="help" type="html">
                <p class="oe_view_nocontent_create">No Acer import. </p>
            	</field>

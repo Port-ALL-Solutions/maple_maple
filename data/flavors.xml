@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+	
+		<record id="flavor_V" model="maple.flavors">
+            <field name="name">CROCHET</field>
+            <field name="code">CROCHET</field>
+            <field name="sequence">2</field>
+		</record>	
+		<record id="flavor_VR" model="maple.flavors">
+            <field name="name">VR</field>
+            <field name="code">VR</field>
+            <field name="sequence">3</field>
+		</record>
+		<record id="flavor_NC" model="maple.flavors">
+            <field name="name">NC</field>
+            <field name="code">NC</field>
+            <field name="sequence">4</field>
+		</record>	
+	
+	</data>
+</odoo>
+	

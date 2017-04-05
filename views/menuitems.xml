@@ -43,7 +43,7 @@
 			name="Create Purchase" 
 			parent="maple_entry_menu"
             action="action_create_maple_purchase"/>
-            
+
 		<menuitem id="maple_available_menu_label" 
 			name="Create Reception Labels" 
 			parent="maple_entry_menu"
@@ -70,36 +70,60 @@
 			name="Maple pick-up list" 
 			parent="maple_pickup_menu"
             action="pickup_list_action"/>
-            
-<!-- Classification menu, just a menu entry, no action, parent of all related views -->
-		<menuitem id="maple_preparation_menu" 
-        	name="Maple syrup Classification"
-        	sequence="40"
+
+<!-- Weighing menu, just a menu entry, no action, parent of all related views -->
+		<menuitem id="maple_weighing_menu" 
+        	name="Weighing"
+        	sequence="38"
             parent="main_maple_menu"/>
 
 		<menuitem id="maple_weight_menu_list"
 	    	name="Weighing"
-	    	parent="maple_preparation_menu"
+	    	parent="maple_weighing_menu"
 	    	sequence="42"
 	        action="maple_weight_list_action"/>	
-		
-		<menuitem id="maple_weight_acer_menu_list"
-	    	name="Weighing Exports for Acer"
-	    	parent="maple_preparation_menu"
-	    	sequence="44"
-	        action="maple_weight_acer_list_action"/>
-            
-		<menuitem id="maple_acer_import_menu" 
-			name="Quebec Classification" 
-			parent="maple_preparation_menu"
+
+<!-- Classification menu, just a menu entry, no action, parent of all related views -->
+		<menuitem id="maple_classif_menu" 
+        	name="Classification"
+        	sequence="40"
+            parent="main_maple_menu"/>
+
+		<menuitem id="maple_SE1_classif1_menu" 
+			name="Outside QC | SE1 room 1" 
+			parent="maple_classif_menu"
+			sequence="42"
+            action="SE1_classif1_list_action"/>
+
+		<menuitem id="maple_SE1_classif2_menu" 
+			name="Outside QC | SE1 room 2" 
+			parent="maple_classif_menu"
+			sequence="43"
+            action="SE1_classif2_list_action"/>
+
+		<menuitem id="maple_SENB_classif_menu" 
+			name="Outside QC | SENB" 
+			parent="maple_classif_menu"
+			sequence="44"
+            action="SENB_classif_list_action"/>
+
+		<menuitem id="classif1_acer_import_menu"
+			name="Quebec Classification"
+			parent="maple_classif_menu"
 			sequence="46"
             action="maple_acer_import_list_action"/>
 
 		<menuitem id="maple_rating_menu_list"
 	    	name="Outside QC Classification"
-	    	parent="maple_preparation_menu"
+	    	parent="maple_classif_menu"
 	    	sequence="48"
 	        action="maple_rating_list_action"/>
+	        
+		<menuitem id="maple_weight_acer_menu_list"
+	    	name="Weighing Exports for Acer"
+	    	parent="maple_weighing_menu"
+	    	sequence="49"
+	        action="maple_weight_acer_list_action"/>
 
 <!-- Containers menu, just a menu entry, no action, parent of all partner related views -->
 		<menuitem id="maple_container_menu"

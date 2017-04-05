@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+	
+		<record id="flaw1" model="maple.flaws">
+            <field name="name">1</field>
+            <field name="code">1</field>
+            <field name="sequence">1</field>
+		</record>	
+		<record id="flaw2" model="maple.flaws">
+            <field name="name">2</field>
+            <field name="code">2</field>
+            <field name="sequence">2</field>
+		</record>
+		<record id="flaw3" model="maple.flaws">
+            <field name="name">3</field>
+            <field name="code">3</field>
+            <field name="sequence">3</field>
+		</record>	
+		<record id="flaw4" model="maple.flaws">
+            <field name="name">4</field>
+            <field name="code">4</field>
+            <field name="sequence">4</field>
+		</record>
+		<record id="flaw5" model="maple.flaws">
+            <field name="name">5</field>
+            <field name="code">5</field>
+            <field name="sequence">5</field>
+		</record>
+		<record id="flaw6" model="maple.flaws">
+            <field name="name">6</field>
+            <field name="code">6</field>
+            <field name="sequence">6</field>
+		</record>
+	
+	</data>
+</odoo>
+	

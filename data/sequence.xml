@@ -19,8 +19,8 @@
             <field name="number_increment">1</field>
             <field name="padding">5</field>
             <field name="active">1</field>
-            <field name="use_date_range">True</field>
-            <field name="daily_date_range">True</field>    
+            <field name="use_date_range">False</field>
+            <field name="daily_date_range">False</field>    
         </record>
 
         <record id="ir_sequence_class1_SE1" model="ir.sequence">
@@ -45,6 +45,30 @@
             <field name="active">1</field>
             <field name="use_date_range">True</field>
             <field name="daily_date_range">True</field>    
+        </record>
+        
+        <record id="ir_sequence_class1_SE1_out" model="ir.sequence">
+            <field name="name">SE1 class1 out sequence</field>
+            <field name="code">stock.location_class1</field>
+            <field name="implementation">standard</field>
+            <field name="prefix">CL1/OUT/%(year)s%(month)s%(day)s-</field>
+            <field name="number_increment">1</field>
+            <field name="padding">5</field>
+            <field name="active">1</field>
+            <field name="use_date_range">True</field>
+            <field name="daily_date_range">True</field>    
+        </record>
+
+        <record id="ir_sequence_class2_SE1_out" model="ir.sequence">
+            <field name="name">SE1 class2 out sequence</field>
+            <field name="code">stock.location_class2</field>
+            <field name="implementation">standard</field>
+            <field name="prefix">CL2/OUT/%(year)s%(month)s%(day)s-</field>
+            <field name="number_increment">1</field>
+            <field name="padding">5</field>
+            <field name="active">1</field>
+            <field name="use_date_range">True</field>
+            <field name="daily_date_range">True</field>
         </record>
         
 	</data>

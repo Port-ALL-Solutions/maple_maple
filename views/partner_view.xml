@@ -51,6 +51,10 @@
 		            <field name="name" filter_domain="['|','|',('name','ilike',self),('parent_id','ilike',self),('ref','=',self)]"/>
 		            <separator/>
 		            <filter string="Stock" name="maple_stock_se1" domain="[('location_id','=',15)]"/>
+		            <filter string="Stock" name="maple_stock_se2" domain="[('location_id','=',18)]"/>
+		            <filter string="Stock" name="maple_stock_se3" domain="[('location_id','=',24)]"/>
+		            <filter string="Stock" name="maple_stock_seExt" domain="[('location_id','=',378)]"/>
+		            <filter string="Stock" name="maple_stock_seNB" domain="[('location_id','=',36)]"/>
 		        </search>
 		    </field>
 		</record>

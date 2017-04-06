@@ -34,9 +34,22 @@
         	sequence="20"
             parent="main_maple_menu"/>
 
+		<menuitem id="pickings_dashboard" 
+			name="Pickings Dashboard"
+			parent="maple_entry_menu"
+			sequence="21"
+            action="maple_pickings_dashboard"/>
+
+		<menuitem id="all_pickings" 
+			name="All Pickings"
+			parent="maple_entry_menu"
+			sequence="22"
+            action="maple_all_pickings"/>
+
 		<menuitem id="maple_purchase_list" 
 			name="Purchase list" 
 			parent="maple_entry_menu"
+			sequence="28"
             action="maple_purchase_list_action"/>
 
 		<menuitem id="create_maple_purchase_list" 
@@ -157,6 +170,26 @@
         	name="Entrepôt SE1"
         	parent="maple_location_menu"
             action="stock_SE1STOCK_list_action"/>
+           
+		<menuitem id="maple_location_filter_view_SE2"
+        	name="Entrepôt SE2"
+        	parent="maple_location_menu"
+            action="stock_SE2STOCK_list_action"/>
+            
+		<menuitem id="maple_location_filter_view_SE3"
+        	name="Entrepôt SE3"
+        	parent="maple_location_menu"
+            action="stock_SE3STOCK_list_action"/>
+            
+		<menuitem id="maple_location_filter_view_SEEXT"
+        	name="Entrepôt SE EXT"
+        	parent="maple_location_menu"
+            action="stock_SEEXTSTOCK_list_action"/>
+            
+		<menuitem id="maple_location_filter_view_SENB"
+        	name="Entrepôt SE NB"
+        	parent="maple_location_menu"
+            action="stock_SENBSTOCK_list_action"/>
 
 <!-- Config menu, just a menu entry, no action, parent of all partner related views -->
 		<menuitem id="maple_config_menu"

@@ -121,5 +121,32 @@
                 </p>
             </field>
         </record>
+        
+		<record model="ir.actions.act_window" id="maple_pickings_dashboard">
+           	<field name="name">Pickings Dashboard</field>
+           	<field name="res_model">stock.picking.type</field>
+           	<field name="view_type">form</field>
+           	<field name="view_mode">kanban,tree,form</field>
+			<field name="view_id" ref="stock.stock_picking_type_kanban" /> 
+           	<field name="help" type="html">
+               <p class="oe_view_nocontent_create">Create your first warehouse. </p>
+           	</field>
+       </record>
+       
+		<record model="ir.actions.act_window" id="maple_all_pickings">
+           	<field name="name">All Pickings</field>
+           	<field name="res_model">stock.picking</field>
+           	<field name="view_type">form</field>
+           	<field name="view_mode">tree,calendar,kanban,form</field>
+			<field name="view_id" ref="stock.vpicktree" /> 
+           	<field name="help" type="html">
+               <p class="oe_view_nocontent_create">No picking to do. </p>
+           	</field>
+       </record>
+       
+       
+       
+
+        
 	</data>
 </odoo>

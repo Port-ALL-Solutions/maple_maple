@@ -1,97 +1,61 @@
-id,default_code,name,type,weight,sale_ok,purchase_ok,maple_syrup,maple_container,categ_id:id,tracking,uom_id/id,uom_po_id/id,attribute_line_ids/attribute_id/id
-srp4saleBDO--,BDO--,Maple Syrup BIO DO  ,consu,,1,1,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
-,,,,,,,,,,,,,maple.attribute_light
-,,,,,,,,,,,,,maple.attribute_flaw
-srp4saleBAM--,BAM--,Maple Syrup BIO AM  ,consu,,1,1,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
-,,,,,,,,,,,,,maple.attribute_light
-,,,,,,,,,,,,,maple.attribute_flaw
-srp4saleBFO--,BFO--,Maple Syrup BIO FO  ,consu,,1,1,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
-,,,,,,,,,,,,,maple.attribute_light
-,,,,,,,,,,,,,maple.attribute_flaw
-srp4saleBTF--,BTF--,Maple Syrup BIO TF  ,consu,,1,1,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
-,,,,,,,,,,,,,maple.attribute_light
-,,,,,,,,,,,,,maple.attribute_flaw
-srp4saleRDO--,RDO--,Maple Syrup REG DO  ,consu,,1,1,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
-,,,,,,,,,,,,,maple.attribute_light
-,,,,,,,,,,,,,maple.attribute_flaw
-srp4saleRAM--,RAM--,Maple Syrup REG AM  ,consu,,1,1,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
-,,,,,,,,,,,,,maple.attribute_light
-,,,,,,,,,,,,,maple.attribute_flaw
-srp4saleRFO--,RFO--,Maple Syrup REG FO  ,consu,,1,1,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
-,,,,,,,,,,,,,maple.attribute_light
-,,,,,,,,,,,,,maple.attribute_flaw
-srp4saleRTF--,RTF--,Maple Syrup REG TF  ,consu,,1,1,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
-,,,,,,,,,,,,,maple.attribute_light
-,,,,,,,,,,,,,maple.attribute_flaw
-srp4salePDO--,PDO--,Maple Syrup BI DO  ,consu,,1,1,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
-,,,,,,,,,,,,,maple.attribute_light
-,,,,,,,,,,,,,maple.attribute_flaw
-srp4salePAM--,PAM--,Maple Syrup BI AM  ,consu,,1,1,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
-,,,,,,,,,,,,,maple.attribute_light
-,,,,,,,,,,,,,maple.attribute_flaw
-srp4salePFO--,PFO--,Maple Syrup BI FO  ,consu,,1,1,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
-,,,,,,,,,,,,,maple.attribute_light
-,,,,,,,,,,,,,maple.attribute_flaw
-srp4salePTF--,PTF--,Maple Syrup BI TF  ,consu,,1,1,1,0,maple_category,none,product.product_uom_lb,product.product_uom_lb,maple.attribute_type
-,,,,,,,,,,,,,maple.attribute_light
-,,,,,,,,,,,,,maple.attribute_flaw
-container_A33,A33,Other barrel (tar:33),product,33,0,1,0,1,maple.container_category_a,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_A34,A34,Other barrel (tar:34),product,34,0,1,0,1,maple.container_category_a,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_G36,G36,Galvanized Steel barrel (tar:36),product,36,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_G37,G37,Galvanized Steel barrel (tar:37),product,37,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_G39,G39,Galvanized Steel barrel (tar:39),product,39,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_G40,G40,Galvanized Steel barrel (tar:40),product,40,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_G41,G41,Galvanized Steel barrel (tar:41),product,41,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_G42,G42,Galvanized Steel barrel (tar:42),product,42,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_G44,G44,Galvanized Steel barrel (tar:44),product,44,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_G45,G45,Galvanized Steel barrel (tar:45),product,45,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_G46,G46,Galvanized Steel barrel (tar:46),product,46,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_G47,G47,Galvanized Steel barrel (tar:47),product,47,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_G48,G48,Galvanized Steel barrel (tar:48),product,48,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_G53,G53,Galvanized Steel barrel (tar:53),product,53,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_P20,P20,Plastic barrel (tar:20),product,20,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_P23,P23,Plastic barrel (tar:23),product,23,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_P24,P24,Plastic barrel (tar:24),product,24,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_P30,P30,Plastic barrel (tar:30),product,30,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_P32,P32,Plastic barrel (tar:32),product,32,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_P33,P33,Plastic barrel (tar:33),product,33,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_P34,P34,Plastic barrel (tar:34),product,34,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_P35,P35,Plastic barrel (tar:35),product,35,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_P40,P40,Plastic barrel (tar:40),product,40,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_P41,P41,Plastic barrel (tar:41),product,41,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_P44,P44,Plastic barrel (tar:44),product,44,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_P48,P48,Plastic barrel (tar:48),product,48,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_S23,S23,Stainless Steel barrel (tar:23),product,23,0,1,0,1,maple.container_category_s,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_S41,S41,Stainless Steel barrel (tar:41),product,41,0,1,0,1,maple.container_category_s,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_S44,S44,Stainless Steel barrel (tar:44),product,44,0,1,0,1,maple.container_category_s,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_S45,S45,Stainless Steel barrel (tar:45),product,45,0,1,0,1,maple.container_category_s,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_S47,S47,Stainless Steel barrel (tar:47),product,47,0,1,0,1,maple.container_category_s,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_S48,S48,Stainless Steel barrel (tar:48),product,48,0,1,0,1,maple.container_category_s,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_S49,S49,Stainless Steel barrel (tar:49),product,49,0,1,0,1,maple.container_category_s,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_S50,S50,Stainless Steel barrel (tar:50),product,50,0,1,0,1,maple.container_category_s,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_S53,S53,Stainless Steel barrel (tar:53),product,53,0,1,0,1,maple.container_category_s,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_S59,S59,Stainless Steel barrel (tar:59),product,59,0,1,0,1,maple.container_category_s,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_U32,U32,Single Use barrel (tar:32),product,32,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_U33,U33,Single Use barrel (tar:33),product,33,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_U34,U34,Single Use barrel (tar:34),product,34,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_U35,U35,Single Use barrel (tar:35),product,35,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_U36,U36,Single Use barrel (tar:36),product,36,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_U37,U37,Single Use barrel (tar:37),product,37,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_U38,U38,Single Use barrel (tar:38),product,38,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_U39,U39,Single Use barrel (tar:39),product,39,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_U40,U40,Single Use barrel (tar:40),product,40,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_U41,U41,Single Use barrel (tar:41),product,41,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_U42,U42,Single Use barrel (tar:42),product,42,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_U43,U43,Single Use barrel (tar:43),product,43,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_U44,U44,Single Use barrel (tar:44),product,44,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_U45,U45,Single Use barrel (tar:45),product,45,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_U46,U46,Single Use barrel (tar:46),product,46,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_U47,U47,Single Use barrel (tar:47),product,47,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_U48,U48,Single Use barrel (tar:48),product,48,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_U49,U49,Single Use barrel (tar:49),product,49,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_U50,U50,Single Use barrel (tar:50),product,50,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_U51,U51,Single Use barrel (tar:51),product,51,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_U52,U52,Single Use barrel (tar:52),product,52,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_U53,U53,Single Use barrel (tar:53),product,53,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_T1040,T1040,IBC Tote (1040 L),product,200,0,1,0,1,maple.container_category_t,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
-container_T1250,T1250,IBC Tote (1250 L),product,230,0,1,0,1,maple.container_category_t,serial,product.product_uom_categ_unit,product.product_uom_categ_unit,
+id,default_code,name,type,weight,sale_ok,purchase_ok,maple_syrup,maple_container,categ_id:id,tracking,uom_id/id,uom_po_id/id
+container_A33,A33,Other barrel (tar:33),product,33,0,1,0,1,maple.container_category_a,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_A34,A34,Other barrel (tar:34),product,34,0,1,0,1,maple.container_category_a,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_G36,G36,Galvanized Steel barrel (tar:36),product,36,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_G37,G37,Galvanized Steel barrel (tar:37),product,37,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_G39,G39,Galvanized Steel barrel (tar:39),product,39,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_G40,G40,Galvanized Steel barrel (tar:40),product,40,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_G41,G41,Galvanized Steel barrel (tar:41),product,41,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_G42,G42,Galvanized Steel barrel (tar:42),product,42,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_G44,G44,Galvanized Steel barrel (tar:44),product,44,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_G45,G45,Galvanized Steel barrel (tar:45),product,45,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_G46,G46,Galvanized Steel barrel (tar:46),product,46,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_G47,G47,Galvanized Steel barrel (tar:47),product,47,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_G48,G48,Galvanized Steel barrel (tar:48),product,48,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_G53,G53,Galvanized Steel barrel (tar:53),product,53,0,1,0,1,maple.container_category_g,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_P20,P20,Plastic barrel (tar:20),product,20,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_P23,P23,Plastic barrel (tar:23),product,23,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_P24,P24,Plastic barrel (tar:24),product,24,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_P30,P30,Plastic barrel (tar:30),product,30,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_P32,P32,Plastic barrel (tar:32),product,32,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_P33,P33,Plastic barrel (tar:33),product,33,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_P34,P34,Plastic barrel (tar:34),product,34,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_P35,P35,Plastic barrel (tar:35),product,35,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_P40,P40,Plastic barrel (tar:40),product,40,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_P41,P41,Plastic barrel (tar:41),product,41,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_P44,P44,Plastic barrel (tar:44),product,44,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_P48,P48,Plastic barrel (tar:48),product,48,0,1,0,1,maple.container_category_p,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_S23,S23,Stainless Steel barrel (tar:23),product,23,0,1,0,1,maple.container_category_s,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_S41,S41,Stainless Steel barrel (tar:41),product,41,0,1,0,1,maple.container_category_s,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_S44,S44,Stainless Steel barrel (tar:44),product,44,0,1,0,1,maple.container_category_s,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_S45,S45,Stainless Steel barrel (tar:45),product,45,0,1,0,1,maple.container_category_s,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_S47,S47,Stainless Steel barrel (tar:47),product,47,0,1,0,1,maple.container_category_s,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_S48,S48,Stainless Steel barrel (tar:48),product,48,0,1,0,1,maple.container_category_s,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_S49,S49,Stainless Steel barrel (tar:49),product,49,0,1,0,1,maple.container_category_s,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_S50,S50,Stainless Steel barrel (tar:50),product,50,0,1,0,1,maple.container_category_s,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_S53,S53,Stainless Steel barrel (tar:53),product,53,0,1,0,1,maple.container_category_s,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_S59,S59,Stainless Steel barrel (tar:59),product,59,0,1,0,1,maple.container_category_s,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_U32,U32,Single Use barrel (tar:32),product,32,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_U33,U33,Single Use barrel (tar:33),product,33,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_U34,U34,Single Use barrel (tar:34),product,34,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_U35,U35,Single Use barrel (tar:35),product,35,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_U36,U36,Single Use barrel (tar:36),product,36,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_U37,U37,Single Use barrel (tar:37),product,37,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_U38,U38,Single Use barrel (tar:38),product,38,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_U39,U39,Single Use barrel (tar:39),product,39,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_U40,U40,Single Use barrel (tar:40),product,40,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_U41,U41,Single Use barrel (tar:41),product,41,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_U42,U42,Single Use barrel (tar:42),product,42,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_U43,U43,Single Use barrel (tar:43),product,43,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_U44,U44,Single Use barrel (tar:44),product,44,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_U45,U45,Single Use barrel (tar:45),product,45,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_U46,U46,Single Use barrel (tar:46),product,46,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_U47,U47,Single Use barrel (tar:47),product,47,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_U48,U48,Single Use barrel (tar:48),product,48,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_U49,U49,Single Use barrel (tar:49),product,49,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_U50,U50,Single Use barrel (tar:50),product,50,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_U51,U51,Single Use barrel (tar:51),product,51,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_U52,U52,Single Use barrel (tar:52),product,52,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_U53,U53,Single Use barrel (tar:53),product,53,0,1,0,1,maple.container_category_u,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_T1040,T1040,IBC Tote (1040 L),product,200,0,1,0,1,maple.container_category_t,serial,product.product_uom_categ_unit,product.product_uom_categ_unit
+container_T1250,T1250,IBC Tote (1250 L),product,230,0,1,0,1,maple.container_category_t,serial,product.product_uom_categ_unit,product.product_uom_categ_unit

@@ -45,7 +45,9 @@ This module provides mosly fields and views.
         'data/product_categories.xml',
         'data/product_attributes.xml',
   		'data/product.template.csv',
-		'data/product.product.csv',  
+#		'data/product.product.csv',
+  		'data/product.template.xml',
+		'data/product.product.xml',
         'security/groups.xml',
 # COMMENTÉ CAR MESSAGE :
 # "You cannot create a new user from here.

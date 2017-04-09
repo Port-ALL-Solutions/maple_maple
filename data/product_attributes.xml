@@ -17,11 +17,6 @@
             <field name="attribute_id" ref="attribute_type"/>	
 		</record>
 
-		<record id="attribute_type_pending" model="product.attribute.value">
-            <field name="name">Pending</field>
-            <field name="attribute_id" ref="attribute_type"/>	
-		</record>
-
 		<record id="attribute_light" model="product.attribute">
             <field name="name">Light</field>
             <field name="create_variant">1</field>	

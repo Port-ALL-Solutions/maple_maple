@@ -399,33 +399,34 @@ class stockQuant(models.Model):
     
     @api.depends("container_total_weight")
     def _compute_class_site(self):
-        if self.buyer_code == "SE":
-            if self.location_id.location_id.name == "SENB":
-                self.class_site = "SENB"
-            elif self.location_id.location_id.name == "SE1":
-                if self.producer.state_id.code == "QC":
-                    self.class_site = "370"
-                else:   
-                    self.class_site = "SE1"
+        for r in self:
+            if r.buyer_code == "SE":
+                if r.location_id.location_id.name == "SENB":
+                    r.class_site = "SENB"
+                elif r.location_id.location_id.name == "SE1":
+                    if r.producer.state_id.code == "QC":
+                        r.class_site = "370"
+                    else:   
+                        r.class_site = "SE1"
+                else:
+                    if r.producer.state_id.code == "QC":
+                        r.class_site = "177"
+                    else:   
+                        r.class_site = "SE3"
             else:
-                if self.producer.state_id.code == "QC":
-                    self.class_site = "177"
-                else:   
-                    self.class_site = "SE3"
-        else:
-            if self.location_id.location_id.name == "SENB":
-                self.class_site = "LBNB"
-            elif self.location_id.location_id.name == "SE1":
-                if self.producer.state_id.code == "QC":
-                    self.class_site = "375"
-                else:   
-                    self.class_site = "LB1"
-            else:
-                if self.producer.state_id.code == "QC":
-                    self.class_site = "298"
-                else:   
-                    self.class_site = "LB3"
-        self.acer_rule = self.owner_id.state_id.code == "QC"
+                if r.location_id.location_id.name == "SENB":
+                    r.class_site = "LBNB"
+                elif r.location_id.location_id.name == "SE1":
+                    if r.producer.state_id.code == "QC":
+                        r.class_site = "375"
+                    else:   
+                        r.class_site = "LB1"
+                else:
+                    if r.producer.state_id.code == "QC":
+                        r.class_site = "298"
+                    else:   
+                        r.class_site = "LB3"
+            r.acer_rule = r.owner_id.state_id.code == "QC"
 
     def _quant_create_from_move(self, qty, move, lot_id=False, owner_id=False, src_package_id=False, dest_package_id=False, force_location_from=False, force_location_to=False):
         quant = super(stockQuant, self)._quant_create_from_move(qty, move, 

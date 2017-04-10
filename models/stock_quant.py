@@ -124,9 +124,9 @@ class maple_control(models.Model):
 
     maple_seal_no = fields.Char(
         string="Seal No.",
-        compute="_compute_seal",
-        help="Seal Number",
-        store=True
+#        compute="_compute_seal",
+        help="Seal Number"
+#        store=True
         )
     
     acer_seal_no = fields.Char(
@@ -288,20 +288,20 @@ class maple_control(models.Model):
                     self.product_code = answer 
                 
     
-    @api.depends('acer_seal_no','controler','maple_brix') #barrelCnt, InspectNb
-    def _compute_seal(self):
-        employee_obj = self.env['hr.employee']
-        for r in self:
-            if not r.maple_seal_no:
-                if r.acer_seal_no:
-                    r.maple_seal_no = r.acer_seal_no
-                else:
-                    if r.controler and r.maple_brix != 0:
-                        employee = employee_obj.browse([r.controler.id])
-                        cpt = employee.barrelCnt + 1
-                        employee.write({'barrelCnt':cpt})
-                        ctrl_code = date.today().strftime('%y') + str(int(r.controler.inspectNb)).zfill(2) + "-" + str(cpt).zfill(5)
-                        r.maple_seal_no = ctrl_code
+#     @api.depends('acer_seal_no','controler','maple_brix') #barrelCnt, InspectNb
+#     def _compute_seal(self):
+            employee_obj = self.env['hr.employee']
+            for r in self:
+                if not r.maple_seal_no:
+                    if r.acer_seal_no:
+                        r.maple_seal_no = r.acer_seal_no
+                    else:
+                        if r.controler and r.maple_brix != 0:
+                            employee = employee_obj.browse([r.controler.id])
+                            cpt = employee.barrelCnt + 1
+                            employee.write({'barrelCnt':cpt})
+                            ctrl_code = date.today().strftime('%y') + str(int(r.controler.inspectNb)).zfill(2) + "-" + str(cpt).zfill(5)
+                            r.maple_seal_no = ctrl_code
 
     @api.onchange('container_type') # if these fields are changed, call method
     def check_change_container_type(self):

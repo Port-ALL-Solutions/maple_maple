@@ -125,7 +125,8 @@ class maple_control(models.Model):
     maple_seal_no = fields.Char(
         string="Seal No.",
         compute="_compute_seal",
-        help="Seal Number"
+        help="Seal Number",
+        store=True
         )
     
     acer_seal_no = fields.Char(
@@ -305,7 +306,7 @@ class maple_control(models.Model):
     @api.onchange('container_type') # if these fields are changed, call method
     def check_change_container_type(self):
         self.container_tar_weight = self.container_type.weight
-        
+
 #        partner_obj = self.env['res.partner']
 #        partner = partner_obj.browse([self.partner_id.id])
 #        owner = partner_obj.browse([partner.default_owner_id.id])
@@ -364,6 +365,7 @@ class stockQuant(models.Model):
     class_site  = fields.Char(
         string='Classification Site',
         compute="_compute_class_site",
+        store=True
         )
     
     weighing_picking = fields.Many2one(
@@ -375,7 +377,8 @@ class stockQuant(models.Model):
     weighing_no = fields.Integer(
        string='Weighing no', 
        compute="_compute_weighing_picking",
-       store=True)
+       store=True
+       )
     
     acer_rule = fields.Boolean(
        string='Acer rule for Quebec', 

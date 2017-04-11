@@ -125,7 +125,7 @@ class maple_control(models.Model):
     maple_seal_no = fields.Char(
         string="Seal No.",
 #        compute="_compute_seal",
-        help="Seal Number"
+        help="Seal Number",
 #        store=True
         )
     
@@ -286,22 +286,40 @@ class maple_control(models.Model):
                             answer += r.maple_flaw.code
                 if len(answer) == 5:
                     self.product_code = answer 
-                
-    
-#     @api.depends('acer_seal_no','controler','maple_brix') #barrelCnt, InspectNb
+                    
+
+    @api.multi
+    def write(self, vals):
+        brix = self.maple_brix or vals.get('maple_brix')
+        ctrl = self.controler.id or vals.get('controler')            
+        
+        if not self.maple_seal_no and (self.acer_seal_no or (brix and ctrl)):
+            employee = self.env['hr.employee'].browse([ctrl])
+            cpt = employee.barrelCnt + 1
+            employee.write({'barrelCnt':cpt})
+            vals['maple_seal_no'] = date.today().strftime('%y') + str(int(employee.inspectNb)).zfill(2) + "-" + str(cpt).zfill(5)                 
+            #        if vals.get('project_id'):
+#            project = self.env['project.project'].browse(vals.get('project_id'))
+#            vals['account_id'] = project.analytic_account_id.id
+        return super(maple_control, self).write(vals)
+#     @api.onchange('acer_seal_no','maple_brix') #barrelCnt, InspectNb
 #     def _compute_seal(self):
-            employee_obj = self.env['hr.employee']
-            for r in self:
-                if not r.maple_seal_no:
-                    if r.acer_seal_no:
-                        r.maple_seal_no = r.acer_seal_no
-                    else:
-                        if r.controler and r.maple_brix != 0:
-                            employee = employee_obj.browse([r.controler.id])
-                            cpt = employee.barrelCnt + 1
-                            employee.write({'barrelCnt':cpt})
-                            ctrl_code = date.today().strftime('%y') + str(int(r.controler.inspectNb)).zfill(2) + "-" + str(cpt).zfill(5)
-                            r.maple_seal_no = ctrl_code
+#         employee_obj = self.env['hr.employee']
+#         for r in self:
+#             ctrl_code = r.maple_seal_no
+#             if not ctrl_code:
+#                 if r.acer_seal_no:
+#                     r.maple_seal_no = r.acer_seal_no
+#                 else:
+#                     if r.controler and r.maple_brix != 0:
+#                         employee = employee_obj.browse([self.controler.id])
+#                         cpt = employee.barrelCnt + 1
+#                         employee.write({'barrelCnt':cpt})
+#                         ctrl_code = date.today().strftime('%y') + str(int(self.controler.inspectNb)).zfill(2) + "-" + str(cpt).zfill(5)                        
+#                         r.maple_seal_no = ctrl_code
+#             else:
+#                 r.maple_seal_no = ctrl_code           
+                
 
     @api.onchange('container_type') # if these fields are changed, call method
     def check_change_container_type(self):
@@ -363,7 +381,7 @@ class stockQuant(models.Model):
         readonly=False)
     
     class_site  = fields.Char(
-        string='Classification Site',
+        string='Classification Site', 
         compute="_compute_class_site",
         store=True
         )

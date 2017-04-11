@@ -357,6 +357,11 @@ class stockQuant(models.Model):
         related='producer.name',
         readonly=False)
     
+    producer_code = fields.Char(
+        string='producer',
+        related='producer.ref',
+        readonly=False)
+
     tmp_material = fields.Many2one(
         comodel_name='maple.container_material',
         string='Type', 

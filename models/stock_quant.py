@@ -354,12 +354,12 @@ class stockQuant(models.Model):
 
     producer_name = fields.Char(
         string='Producer',
-        related='producer.name',
+        related='owner_id.name',
         readonly=False)
     
     producer_code = fields.Char(
         string='producer',
-        related='producer.ref',
+        related='owner_id.parent_id.ref',
         readonly=False)
 
     tmp_material = fields.Many2one(

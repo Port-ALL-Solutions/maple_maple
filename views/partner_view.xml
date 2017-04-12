@@ -67,6 +67,7 @@
 					<field name="name"/>
 					<field name="intCode"/>
 					<field name="fpaqCode"/>
+					<field name="ref"/>
 					<field name="city"/>
 					<field name="maple_region"/>
 					<field name="street"/>

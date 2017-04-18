@@ -2,28 +2,48 @@
 <odoo>
     <data>
 
-        <template id="stock.reception_labels">
+		<!-- Qweb Report design -->
+        <template id="view_reception_labels_document">
             <t t-foreach="docs" t-as="o">
-                <div class="page" style="margin:0; padding:0; width:73mm; height:47mm">
-                    <table class="table table-condensed" t-if="o.pack_operation_ids" width="100%" border="1" style="margin: 0;padding: 0; border:none !important; background-color:grey">
+                <div class="page" style="margin:0; padding:0;">
+                    <table class="table table-condensed" t-if="o.pack_operation_ids" style="border:none !important; margin-left:31.75mm; padding:0;">
                         <t t-set="has_serial_number" t-value="o.pack_operation_ids.filtered('pack_lot_ids')" groups="stock.group_production_lot"/>
                         <tbody style="margin: 0;padding: 0">
                             <t t-set="pack_operation_ids" t-value="o.pack_operation_ids"/>
                             <t groups="base.group_portal" t-set="pack_operation_ids" t-value="o.pack_operation_ids.sudo()"/>
-                            <tr t-foreach="pack_operation_ids" t-as="pack_operation">
-                                <td t-if="has_serial_number" style="margin:0; padding:0">
-                                    <table class="table table-condensed" t-if="pack_operation.pack_lot_ids" border="1" cellpadding="0" cellspacing="0" style="border:none !important;">
-                                        <tr t-foreach="pack_operation.pack_lot_ids" t-as="packlot">
-                                            <td style="text-align:center; margin:0; padding:0">
-                                                <span t-field="packlot.lot_id"/>
-                                                <t t-if="not packlot.lot_id">
-                                                    <t t-set="recp_no" t-value="packlot.lot_name"/>
-                                                    <span t-esc="recp_no[0:recp_no.find('-')]" style="font-weight:bolder; font-size:3em; margin:0; padding:0;"/>
-                                                    <!-- span t-esc="recp_no[recp_no.find('-')+1:len(recp_no)]" style="font-size:.5em"/ -->
-                                                    <p style="margin:0; padding:0"><img class="barcode" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1' % ('Code128', recp_no, 600, 100)" style="width:300px;height:50px"/></p>
-                                                </t>
-                                            </td>
-                                        </tr>
+                            <tr t-foreach="pack_operation_ids" t-as="pack_operation" style="margin: 0; padding: 0; border:none;">
+                                <td t-if="has_serial_number" style="margin:0; padding:0; border:none">
+                                    <table class="table table-condensed" t-if="pack_operation.pack_lot_ids" style="margin: 0; padding: 0; border:none !important;">
+	                                    <tr style="text-align:center; margin:0; padding:0; border:none;">
+	                                        <td style="text-align:center; margin:0; padding:0; white-space: nowrap; float: left; width:158.4mm;">
+	                                    		<t t-foreach="pack_operation.pack_lot_ids" t-as="packlot">
+		                                            <div t-if="packlot_even" style="width:76.2mm; height:50.8mm; float: left; border: 1px solid lightgrey;">
+			                                            <span t-field="packlot.lot_id"/>
+			                                            <t t-if="not packlot.lot_id">
+			                                                <t t-set="recp_no" t-value="packlot.lot_name"/>
+			                                                <p style="font-size:32pt; font-weight:bolder; margin:0; padding:0;">			                                                
+			                                                	<t t-esc="recp_no[0:recp_no.find('-')]"/><br/>
+			                                                    <img class="barcode" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1' % ('Code128', recp_no, 600, 100)" style="width:300px;height:100px"/>
+			                                                </p>
+			                                            </t>
+		                                            </div>
+		                                            <div t-if="packlot_odd" class="clearfix" style="width:76.2mm; height:50.8mm; float: left; border: 1px solid lightgrey;">
+			                                            <span t-field="packlot.lot_id"/>
+			                                            <t t-if="not packlot.lot_id">
+			                                                <t t-set="recp_no" t-value="packlot.lot_name"/>
+			                                                <p style="font-size:32pt; font-weight:bolder; margin:0; padding:0;">		                                                
+			                                                	<t t-esc="recp_no[0:recp_no.find('-')]"/><br/>
+			                                                    <img class="barcode" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1' % ('Code128', recp_no, 600, 100)" style="width:300px;height:100px"/>
+			                                                </p>
+			                                            </t>
+		                                            </div>
+		                                            <!-- div t-if="packlot_odd" class="clearfix" style="clear: both; height: 0; width: 100%;"><![CDATA[&nbsp;]]></div> -->
+		                                            <p t-if="(packlot_index +1) % 8 == 0" style="page-break-after:always; margin:0; padding:0; line-height:1mm;"><![CDATA[&nbsp;]]></p>
+	                                                <!-- <p t-if="(packlot_index +1) % 8 == 0" style="page-break-after:always; margin:0; padding:0">.</p>
+	                                                 page-break-inside: auto -->
+	                                            </t>
+	                                        </td>
+	                                    </tr>
                                     </table>
                                 </td>
                             </tr>
@@ -33,6 +53,24 @@
                 <!-- p style="page-break-after:always; margin:0; padding:0"> </p -->
             </t>
         </template>
+
+		<template id="view_reception_labels">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="maple.view_reception_labels_document" t-lang="o.partner_id.lang"/>
+            </t>
+        </template>
+
+		<report id="report_reception_labels"
+        		model="stock.picking"
+        		string="Reception Labels"
+        		report_type="qweb-pdf"
+        		name="maple.view_reception_labels"
+        		file="maple.view_reception_labels"
+        		/>
+
+        <record id="report_reception_labels" model="ir.actions.report.xml">
+        	<field name="paperformat_id" ref="maple.paperformat_Labels_2x3in" />
+        </record>
 
     </data>
 </odoo>

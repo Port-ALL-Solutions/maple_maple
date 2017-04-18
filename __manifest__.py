@@ -82,7 +82,10 @@ This module provides mosly fields and views.
         'views/other_actions.xml',         
 # menuitems = The menu, need to be put last
         'views/menuitems.xml',
-        'report/fpaq_reception.xml',        
+# reports
+        'report/fpaq_reception.xml',
+        'data/report_paperformat.xml',
+        'report/reception_labels.xml',
 
     ],
     'qweb': [

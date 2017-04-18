@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from openerp import models, fields, api
 #from datetime import date
+
 class weighing_picking(models.Model):
     _name = 'maple.weighing_picking'
     _description = "Maple Syrup Weighing"
@@ -65,7 +66,9 @@ class weighing_picking(models.Model):
         inverse_name='weighing_picking_id',
         string="Weighing lines",
         help='Weighing lines. ')
-    
+
+
+
 class Import_acer(models.Model):
     _name = 'maple.import_acer'
     _description = "Maple Syrup Classification by ACER"

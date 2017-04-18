@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+        <report id="reception_labels"
+        		model="stock.picking"
+        		string="Reception Labels"
+        		report_type="qweb-pdf"
+        		name="maple.reception_labels"
+        		file="maple.reception_labels"
+        		/>
+        		
+        <record id="maple.reception_labels" model="ir.actions.report.xml">
+        	<field name="paperformat_id" ref="maple.paperformat_Labels_2x3in" />
+        </record>
+
+    </data>
+</odoo>

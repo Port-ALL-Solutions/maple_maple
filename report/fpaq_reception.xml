@@ -3,64 +3,82 @@
     <data>
 
         <template id="qweb_fpaq_reception_document">
-
-            <style type="text/css">
-                table, th, td {
-                    border: 1px solid black;
-                    background-color: yellow;
-                }
-                
-                h5 {
-                    font-weight: bolder;
-                    text-align: center;
-                }
-            </style>
-
             <t t-name="maple.qweb_fpaq_reception_document">
                 <t t-call="report.html_container">
-                    <!-- t t-call="report.external_layout" --> <!-- Remplacer par entete avec logos FPAQ-Acheteur [SE/LB] -->
+                    <!-- t t-call="report.external_layout">  --><!-- Remplacer par entete avec logos FPAQ-Acheteur [SE/LB] -->
+
+                    <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})"/>
+                    <t t-if="o.id != 42">
+                    	<p>Ce rapport est réservé aux emplacements où s'effectuent la pesée.</p>
+                    </t>
+					
+					<!-- Producers list -->
+					<t t-set="producers" t-value="[]"/>
+					<t t-foreach="o.stock_lines" t-as="r">
+					    <t t-set="producers" t-value="producers+[r.producer]"/>
+					</t>
+					<t t-foreach="set(producers)" t-as="pro">
+					    <div><strong t-esc="pro.name"/></div>
+					    <t t-foreach="o.stock_lines" t-as="line">
+					        <t t-if="pro.id==line.producer.id">
+					            <div><span t-field="line.producer"/></div>
+					        </t>
+					    </t>
+					</t>
+					
 
                     <div class="header">
                         <div class="row">
                             <div class="col-xs-6">
-                                <img src="/static/img/fpaq_logo_rapport.jpg" style="max-height: 60px;"/>
-                                <!-- img t-att-src="'/report/barcode/?type=%s&value=%s&width=%s&height=%s'%('Codabar', 'text', 200, 200)"/ -->
+                                <img src="maple/static/img/fpaq_logo_rapport.jpg" style="max-width:75mm;"/>
+                                <p style="margin-left:12mm; font-size:7pt; line_height:8pt;">Maison de l'UPA<br/>555, boul. Rloand-Thérrien Bureau 525<br/>Longueuil QC J4H 4J5<br/>
+                                	<i class="fa fa-phone"/> 450 679-7021<br/><i class="fa fa-fax"/> 450 679-0139<br/><i class="fa fa-globe"/> http://www.siropderable.ca
+                                </p>
                             </div>
-                            <div class="col-xs-6">
-                                <t t-if="o.move_lines[0].lot_ids[0].quant_ids[0].buyer_code == 'SE'">
-                                    Logo SE<!-- img t-att-src="/static/img/siropdelest.png" style="max-width: 300px;"/ -->
-                                </t>
-                                <t t-if="o.move_lines[0].lot_ids[0].quant_ids[0].buyer_code == 'LB'">
-                                    Logo LB<!-- src="/maple/static/img/logo-lbmapletreat.png" style="max-width: 300px;"/ -->
-                                </t>
-                            </div>
-                        </div>
-                        <div class="row zero_min_height">
-                            <div class="col-xs-12">
-                                <div style="border-bottom: 1px solid black;"/>
-                            </div>
-                        </div>
+                            <div class="col-xs-6" style="border:1px solid lightgray;">
+<!--  À CORRIGER APRÈS FILTRE PRODUCTEURS -->
+                                <div class="row">
+                            		<div class="col-xs-5">
+		                                <t t-if="o.stock_lines[0].buyer.ref != 'LB'">
+		                                    <img src="maple/static/img/siropdelest.png" style="max-height:27mm;"/>
+		                                </t>
+		                                <t t-if="line.buyer.ref == 'LB'">
+		                                    <img src="maple/static/img/logo-lbmapletreat.png" style="max-height:27mm;"/>
+		                                </t>
+                            		</div>
+                                	<div class="col-xs-5">
+		                                <p t-if="o.stock_lines[0].buyer.ref != 'LB'">
+                               				<t t-if="o.stock_lines[0].buyer.phone"><i class="fa fa-phone"/><span t-esc="o.stock_lines[0].buyer.phone"/></t><br/>
+                               				<t t-if="o.stock_lines[0].buyer.mobile"><i class="fa fa-fax"/><span t-esc="o.stock_lines[0].buyer.mobile"/></t><br/>
+                               				<t t-if="o.stock_lines[0].buyer.fax"><i class="fa fa-globe"/><span t-esc="o.stock_lines[0].buyer.fax"/></t>
+                               			</p>
+                            		</div>
+                            		<div class="col-xs-2" style="font-size:24pt; font-weight:bolder; background-color:#eeeeee;">
+	                                    <span class="page"/>
+                            		</div>
+                            	</div>
+                            	<div class="row">
+	                            	<div class="col-xs-12">
+										<p t-if="o.stock_lines[0].class_site">
+											<t t-set="site" t-value="o.stock_lines[0].class_site"/>
+	                             			Numéro de site: <span t-esc="o.stock_lines[0].class_site" style="font-weight:bolder;"/><br/>
+	                             			<i class="fa fa-map-marker"/>
+	                             			<t t-if="site =='370' or site =='375' or site =='SE1' or site =='LB1'">296, Principale, Saint-Eusèbe QC G0L 2Y0</t>
+	                             			<t t-if="site =='177' or site =='298' or site =='SE3' or site =='LB3'">405, Principale, Saint-Eusèbe QC G0L 2Y0</t>
+	                             			<t t-if="site =='SENB' or site =='LBNB'">25, Maple Lane, Lake Edward NB E7G 4J2</t>
+	                              		</p>
+                              		</div>
+                            	</div>
+                        	</div>
+                        </div> 	
                     </div>
 
-                        <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})"/>
                         <div class="page">
-                            <div class="row" name="producer_address">
-                                <div class="col-xs-4 pull-right">
-                                    <div>
-                                        <span><strong>Producer Address:</strong></span>
-                                    </div>
-                                    <div>
-                                        <span t-esc="o.move_lines[0].lot_ids[0].quant_ids[0].maple_producer.name"/>
-                                    </div>
-                                    <!-- div t-if="o.move_lines[0].lot_ids[0].lot_id.quant_ids[0].maple_producer" name="partner_header" -->
-                                        <!-- div t-field="o.move_lines[0].lot_ids[0].lot_id.quant_ids[0].maple_producer" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;, &quot;fax&quot;], &quot;no_marker&quot;: True}"/ -->
-                                    <!-- /div -->
-                                </div>
-                            </div>
-                            <h5 style="text-align: center;">
-                                FORMULAIRE DE RÉCEPTION DES BARILS PLEINS DU PRODUCTEUR (<span t-field="o.name"/>)
-                            </h5>
-                            <table class="table table-condensed">
+                            <p style="text-align: center;font-weight:bolder; margin:0; padding:0;">
+                                FORMULAIRE DE RÉCEPTION DES BARILS PLEINS DU PRODUCTEUR
+                            </p>
+                            
+                            <table class="table table-condensed" style="border: 1px solid grey; font-size:10pt; line-height:11pt;">
                                 <thead>
                                     <tr>
                                         <th colspan="2" width="50%"><strong>IDENTIFICATION DE L'ÉRABLIÈRE</strong></th>
@@ -70,99 +88,59 @@
                                 <tbody>
                                     <tr style="border: 1px solid black;">
                                         <td width="25%">No FPAQ du producteur</td>
-                                        <td width="25%" style="text-align:right">#FPAQ</td>
+                                        <td width="25%" style="text-align:right">pro.fpaqCode</td>
                                         <td width="25%">Adresse</td>
                                         <td width="25%" style="text-align:right">(adresse producteur)</td>
                                     </tr>
                                     <tr>
                                         <td width="25%">Société</td>
-                                        <td width="25%" style="text-align:right"><span t-esc="o.move_lines[0].lot_ids[0].quant_ids[0].maple_producer.name"/></td>
+                                        <td width="25%" style="text-align:right"><span t-esc="o.stock_lines[0].buyer.name"/></td>
                                         <td width="25%">Ville</td>
-                                        <td width="25%" style="text-align:right"><span t-esc="o.move_lines[0].lot_ids[0].quant_ids[0].maple_producer.city"/></td>
+                                        <td width="25%" style="text-align:right"><span t-esc="o.stock_lines[0].buyer.city"/></td>
                                     </tr>
                                     <tr>
                                         <td width="25%">Prénom et Nom</td>
                                         <td width="25%" style="text-align:right">...</td>
                                         <td width="25%">Code postal</td>
-                                        <td width="25%" style="text-align:right"><span t-esc="o.move_lines[0].lot_ids[0].quant_ids[0].maple_producer.zip"/></td>
+                                        <td width="25%" style="text-align:right"><span t-esc="o.stock_lines[0].buyer.zip"/></td>
                                     </tr>
                                     <tr>
                                         <td width="25%">Adresse</td>
-                                        <td width="25%" style="text-align:right"><span t-esc="o.move_lines[0].lot_ids[0].quant_ids[0].maple_producer.street"/></td>
+                                        <td width="25%" style="text-align:right"><span t-esc="o.stock_lines[0].buyer.street"/></td>
                                         <td width="50%" colspan="2">État du baril</td>
                                     </tr>
                                     <tr>
                                         <td width="25%">Ville</td>
-                                        <td width="25%" style="text-align:right"><span t-esc="o.move_lines[0].lot_ids[0].quant_ids[0].maple_producer.city"/></td>
+                                        <td width="25%" style="text-align:right"><span t-esc="o.stock_lines[0].buyer.city"/></td>
                                         <td width="25%">O: Bon</td>
                                         <td width="25%">R: Rouillé</td>
                                     </tr>
                                     <tr>
                                         <td width="25%">Province</td>
-                                        <td width="25%" style="text-align:right"><span t-esc="o.move_lines[0].lot_ids[0].quant_ids[0].maple_producer.state_id"/></td>
+                                        <td width="25%" style="text-align:right"><span t-esc="o.stock_lines[0].buyer.state_id"/></td>
                                         <td width="25%">L: Légèrement bossé</td>
                                         <td width="25%">P: Perforé</td>
                                     </tr>
                                     <tr>
                                         <td width="25%">Code postal</td>
-                                        <td width="25%" style="text-align:right"><span t-esc="o.move_lines[0].lot_ids[0].quant_ids[0].maple_producer.zip"/></td>
+                                        <td width="25%" style="text-align:right"><span t-esc="o.stock_lines[0].buyer.zip"/></td>
                                         <td width="25%">B: Bossé</td>
                                         <td width="25%">N: Non conforme</td>
                                     </tr>
                                     <tr>
                                         <td width="25%">Téléphone</td>
-                                        <td width="25%" style="text-align:right"><span t-esc="o.move_lines[0].lot_ids[0].quant_ids[0].maple_producer.phone"/></td>
+                                        <td width="25%" style="text-align:right"><span t-esc="o.stock_lines[0].buyer.phone"/></td>
                                         <td width="50%">T: Très bossé</td>
                                     </tr>
                                 </tbody>
                             </table>
-                            <table class="table table-condensed">
+                            
+                            <table class="table table-condensed mt48" t-if="o.stock_lines">
+                                <!--  t t-set="has_serial_number" t-value="o.pack_operation_ids.filtered('pack_lot_ids')" groups="stock.group_production_lot"/> -->
                                 <thead>
-                                    <tr>
-                                        <th t-if="o.origin"><strong>Order (Origin)</strong></th>
-                                        <th name="td_sched_date_h">
-                                            <strong>Date</strong>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td t-if="o.origin">
-                                            <span t-field="o.origin"/>
-                                        </td>
-                                        <td name="td_sched_date">
-                                           <t t-if="o.state == 'done'">
-                                                <span t-field="o.date_done"/>
-                                           </t>
-                                           <t t-if="o.state != 'done'">
-                                                <span t-field="o.min_date"/>
-                                           </t>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <table class="table table-condensed mt48" t-if="not o.pack_operation_ids">
-                                <thead>
-                                    <tr>
-                                        <th><strong>Product</strong></th>
-                                        <th><strong>Ordered Quantity</strong></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr t-foreach="o.move_lines" t-as="move">
-                                        <td><span t-field="move.product_id"/></td>
-                                        <td>
-                                            <span t-field="move.ordered_qty"/>
-                                            <span t-field="move.product_uom"/>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <t t-set="backorder" t-value="False"/>
-                            <table class="table table-condensed mt48" t-if="o.pack_operation_ids">
-                                <t t-set="has_serial_number" t-value="o.pack_operation_ids.filtered('pack_lot_ids')" groups="stock.group_production_lot"/>
-                                <thead>
-                                    <tr>
+                                    <tr style="text-align:center;">
+                                        <th>No.</th>
+                                        <th>Producer</th>
                                         <th>No Baril</th>
                                         <th>Poids brut</th>
                                         <th>Tare</th>
@@ -173,51 +151,166 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr t-foreach="o.pack_operation_ids" t-as="pack_operation">
-                                        <td>
-                                            <span t-field="pack_operation.product_id"/>
-                                            <t t-if="not pack_operation.product_id and pack_operation.package_id">
-                                                <span t-field="pack_operation.package_id"/>
-                                            </t>
-                                        </td>
-                                        <t t-if="has_serial_number">
-                                            <td t-if="pack_operation.pack_lot_ids">
-                                                <table class="table table-condensed" t-if="pack_operation.pack_lot_ids">
-                                                    <tr t-foreach="pack_operation.pack_lot_ids" t-as="packlot">
-                                                    
-                                                        <td name="barrel_no">
-                                                            <span t-field="packlot.lot_id.quant_ids[0].container_serial"/>
-                                                        </td>
-                                                        <td name="barrel_gross_weight">
-                                                            <span t-field="packlot.lot_id.quant_ids[0].container_total_weight"/>
-                                                        </td>
-                                                        <td name="barrel_tare">
-                                                            <span t-field="packlot.lot_id.quant_ids[0].tmp_tare"/>
-                                                        </td>
-                                                        <td name="barrel_material">
-                                                            <span t-field="packlot.lot_id.quant_ids[0].tmp_material[:1]"/>
-                                                        </td>
-                                                        <td name="barrel_state">
-                                                            <span t-field="packlot.lot_id.quant_ids[0].container_state[:1]"/>
-                                                        </td>
-                                                        <td name="barrel_owner">
-                                                            <span t-field="packlot.lot_id.quant_ids[0].tmp_owner"/>
-                                                        </td>
-                                                        <td name="maple_type">
-                                                            <span t-field="packlot.lot_id.quant_ids[0].container_state"/>
-                                                        </td>
-                                                        
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                            <td t-if="not pack_operation.pack_lot_ids"/>
-                                        </t>
+                                    <tr t-foreach="o.stock_lines" t-as="line">
+	                                    <!-- t t-if="weighing_no" -->
+	                                        <td name="No" style="text-align:center;">
+	                                            <span t-esc="line_index + 1"/>
+	                                        </td>
+	                                        <td name="Producer">
+	                                            <span t-field="line.producer_name"/>
+	                                        </td>
+	                                        <td name="barrel_no" style="text-align:center;">
+	                                            <t t-if="line.container_serial"><span t-field="line.container_serial"/></t>
+	                                            <t t-if="not line.container_serial"><![CDATA[&nbsp;]]></t>
+	                                        </td>
+	                                        <td name="barrel_gross_weight" style="text-align:center;">
+	                                            <t t-if="line.container_total_weight"><span t-field="line.container_total_weight"/></t>
+	                                            <t t-if="not line.container_total_weight"><![CDATA[&nbsp;]]></t>
+	                                        </td>
+	                                        <td name="barrel_tare" style="text-align:center;">
+	                                            <t t-if="line.tmp_tare"><span t-field="line.tmp_tare"/></t>
+	                                            <t t-if="line.container_tar_weight and not line.tmp_tare"><span t-field="line.container_tar_weight"/></t>
+	                                            <t t-if="not line.tmp_tare and not line.container_tar_weight"><![CDATA[&nbsp;]]></t>
+	                                        </td>
+	                                        <td name="barrel_material" style="text-align:center;">
+	                                            <t t-if="line.tmp_material"><span t-field="line.tmp_material.code"/></t>
+	                                            <t t-if="not line.tmp_material"><![CDATA[&nbsp;]]></t>
+	                                        </td>
+	                                        <td name="barrel_state" style="text-align:center;">
+	                                            <t t-if="line.container_state"><span t-field="line.container_state.code"/></t>
+	                                            <t t-if="not line.container_state"><![CDATA[&nbsp;]]></t>
+	                                        </td>
+	                                        <td name="barrel_owner" style="text-align:center;">
+	                                            <t t-if="line.tmp_owner"><span t-field="line.tmp_owner"/></t>
+	                                            <t t-if="line.container_ownership and not line.tmp_owner"><span t-field="line.container_ownership"/></t>
+	                                            <t t-if="not line.tmp_owner and not line.container_ownership"><![CDATA[&nbsp;]]></t>
+	                                        </td>
+	                                        <td name="maple_type" style="text-align:center;">
+	                                            <t t-if="line.product_id"><span t-esc="line.product_id.default_code[:1]"/></t>
+	                                            <t t-if="not line.product_id"><![CDATA[&nbsp;]]></t>
+	                                        </td>
+	                                    <!-- /t -->
                                     </tr>
                                 </tbody>
                             </table>
+                            
+                            
+                            <table class="table table-condensed mt48" t-if="o.stock_lines">
+                                <thead>
+                                    <tr style="text-align:center;">
+                                        <th>No.</th>
+                                        <th>Producer</th>
+                                        <th>No Baril</th>
+                                        <th>Poids brut</th>
+                                        <th>Tare</th>
+                                        <th>Genre</th>
+                                        <th>État</th>
+                                        <th>Prop</th>
+                                        <th>Type</th>
+                                        <th>No.</th>
+                                        <th>Producer</th>
+                                        <th>No Baril</th>
+                                        <th>Poids brut</th>
+                                        <th>Tare</th>
+                                        <th>Genre</th>
+                                        <th>État</th>
+                                        <th>Prop</th>
+                                        <th>Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="o.stock_lines" t-as="line">
+	                                    <!-- t t-if="weighing_no" -->
+	                                    <td style="text-align:center; margin:0; padding:0; white-space: nowrap; float: left; width:205mm;">
+                                    	    <t t-foreach="o.stock_lines" t-as="line">
+                                    	    	
+                                    	    	<t t-if="line_even">
+		                                            <div name="No" style="width:7mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
+			                                            <span t-esc="line_index + 1"/>
+		                                            </div>
+			                                        <div name="Producer" style="width:24mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
+			                                            <span t-field="line.producer_name"/>
+			                                        </div>
+			                                        <div name="barrel_no" style="width:15mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
+			                                            <t t-if="line.container_serial"><span t-field="line.container_serial"/></t>
+			                                            <t t-if="not line.container_serial"><![CDATA[&nbsp;]]></t>
+			                                        </div>
+			                                        <div name="barrel_gross_weight" style="width:8mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
+			                                            <t t-if="line.container_total_weight"><span t-field="line.container_total_weight"/></t>
+			                                            <t t-if="not line.container_total_weight"><![CDATA[&nbsp;]]></t>
+			                                        </div>
+			                                        <div name="barrel_tare" style="width:8mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
+			                                            <t t-if="line.tmp_tare"><span t-field="line.tmp_tare"/></t>
+			                                            <t t-if="line.container_tar_weight and not line.tmp_tare"><span t-field="line.container_tar_weight"/></t>
+			                                            <t t-if="not line.tmp_tare and not line.container_tar_weight"><![CDATA[&nbsp;]]></t>
+			                                        </div>
+			                                        <div name="barrel_material" style="width:8mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
+			                                            <t t-if="line.tmp_material"><span t-field="line.tmp_material.code"/></t>
+			                                            <t t-if="not line.tmp_material"><![CDATA[&nbsp;]]></t>
+			                                        </div>
+			                                        <div name="barrel_state" style="width:8mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
+			                                            <t t-if="line.container_state"><span t-field="line.container_state.code"/></t>
+			                                            <t t-if="not line.container_state"><![CDATA[&nbsp;]]></t>
+			                                        </div>
+			                                        <div name="barrel_owner" style="width:8mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
+			                                            <t t-if="line.tmp_owner"><span t-field="line.tmp_owner"/></t>
+			                                            <t t-if="line.container_ownership and not line.tmp_owner"><span t-field="line.container_ownership"/></t>
+			                                            <t t-if="not line.tmp_owner and not line.container_ownership"><![CDATA[&nbsp;]]></t>
+			                                        </div>
+			                                        <div name="maple_type" style="width:8mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
+			                                            <t t-if="line.product_id"><span t-esc="line.product_id.default_code[:1]"/></t>
+			                                            <t t-if="not line.product_id"><![CDATA[&nbsp;]]></t>
+			                                        </div>
+	                                            </t>
+	                                            <t t-if="line_odd" class="clearfix" >
+		                                            <div name="No" style="width:7mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
+			                                            <span t-esc="line_index + 1"/>
+		                                            </div>
+			                                        <div name="Producer" style="width:24mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
+			                                            <span t-field="line.producer_name"/>
+			                                        </div>
+			                                        <div name="barrel_no" style="width:15mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
+			                                            <t t-if="line.container_serial"><span t-field="line.container_serial"/></t>
+			                                            <t t-if="not line.container_serial"><![CDATA[&nbsp;]]></t>
+			                                        </div>
+			                                        <div name="barrel_gross_weight" style="width:8mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
+			                                            <t t-if="line.container_total_weight"><span t-field="line.container_total_weight"/></t>
+			                                            <t t-if="not line.container_total_weight"><![CDATA[&nbsp;]]></t>
+			                                        </div>
+			                                        <div name="barrel_tare" style="width:8mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
+			                                            <t t-if="line.tmp_tare"><span t-field="line.tmp_tare"/></t>
+			                                            <t t-if="line.container_tar_weight and not line.tmp_tare"><span t-field="line.container_tar_weight"/></t>
+			                                            <t t-if="not line.tmp_tare and not line.container_tar_weight"><![CDATA[&nbsp;]]></t>
+			                                        </div>
+			                                        <div name="barrel_material" style="width:8mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
+			                                            <t t-if="line.tmp_material"><span t-field="line.tmp_material.code"/></t>
+			                                            <t t-if="not line.tmp_material"><![CDATA[&nbsp;]]></t>
+			                                        </div>
+			                                        <div name="barrel_state" style="width:8mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
+			                                            <t t-if="line.container_state"><span t-field="line.container_state.code"/></t>
+			                                            <t t-if="not line.container_state"><![CDATA[&nbsp;]]></t>
+			                                        </div>
+			                                        <div name="barrel_owner" style="width:8mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
+			                                            <t t-if="line.tmp_owner"><span t-field="line.tmp_owner"/></t>
+			                                            <t t-if="line.container_ownership and not line.tmp_owner"><span t-field="line.container_ownership"/></t>
+			                                            <t t-if="not line.tmp_owner and not line.container_ownership"><![CDATA[&nbsp;]]></t>
+			                                        </div>
+			                                        <div name="maple_type" style="width:8mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
+			                                            <t t-if="line.product_id"><span t-esc="line.product_id.default_code[:1]"/></t>
+			                                            <t t-if="not line.product_id"><![CDATA[&nbsp;]]></t>
+			                                        </div>
+	                                    		</t>
+	                                    		
+	                                    	</t>
+                                    	</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            
                         </div>
-                    <!-- /t -->
-                 </t>
+                    <!--  /t>  -->
+                </t>
             </t>
         </template>
         
@@ -229,9 +322,11 @@
 
         <report id="report_fpaq_reception"
             name="maple.qweb_fpaq_reception"
-            model="stock.picking"
-            string="Réception barils pleins producteur"
-            report_type="qweb-pdf" />
-    
+            model="stock.location"
+            string="Réception barils pleins"
+            report_type="qweb-pdf"
+            file="maple.qweb_fpaq_reception"
+            />
+
 	</data>
 </odoo>

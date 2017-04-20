@@ -294,14 +294,15 @@ class maple_control(models.Model):
             brix = self.maple_brix or vals.get('maple_brix')
             ctrl = self.controler.id or vals.get('controler')            
             
-            if not self.maple_seal_no and (self.acer_seal_no or (brix and ctrl)):
-                employee = self.env['hr.employee'].browse([ctrl])
-                cpt = employee.barrelCnt + 1
-                employee.write({'barrelCnt':cpt})
-                vals['maple_seal_no'] = date.today().strftime('%y') + str(int(employee.inspectNb)).zfill(2) + "-" + str(cpt).zfill(5)                 
-                #        if vals.get('project_id'):
-    #            project = self.env['project.project'].browse(vals.get('project_id'))
-    #            vals['account_id'] = project.analytic_account_id.id
+            if not vals['maple_seal_no'] and not self.maple_seal_no and brix and ctrl:
+                if not self.maple_seal_no and (self.acer_seal_no or (brix and ctrl)):
+                    employee = self.env['hr.employee'].browse([ctrl])
+                    cpt = employee.barrelCnt + 1
+                    employee.write({'barrelCnt':cpt})
+                    vals['maple_seal_no'] = date.today().strftime('%y') + str(int(employee.inspectNb)).zfill(2) + "-" + str(cpt).zfill(5)                 
+                    #        if vals.get('project_id'):
+        #            project = self.env['project.project'].browse(vals.get('project_id'))
+        #            vals['account_id'] = project.analytic_account_id.id
         return super(maple_control, self).write(vals)
 #     @api.onchange('acer_seal_no','maple_brix') #barrelCnt, InspectNb
 #     def _compute_seal(self):

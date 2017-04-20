@@ -103,7 +103,23 @@
 
     <!-- Maple Syrup Barrels -->
 
-        <record id="BBDO--" model="product.product"><field name="name">Baril BIO DO</field><field name="type">product</field><field name="sale_ok">1</field><field name="purchase_ok">0</field><field name="maple_syrup">0</field><field name="maple_container">1</field><field name="categ_id" ref="container_category"/><field name="tracking">serial</field><field name="uom_id" ref="product.product_uom_categ_unit"/><field name="uom_po_id" ref="product.product_uom_categ_unit"/><field name="product_tmpl_id" ref="BBDO"/><field name="default_code">BBDO--</field><field name="attribute_value_ids" eval="[(6,0,[ref('attribute_type_organic'),ref('attribute_light_golden'),ref('attribute_flaw_none')])]"/><field name="lst_price">3.13</field></record>
+        <record id="BBDO--" model="product.product">
+	        <field name="name">Baril BIO DO</field>
+	        <field name="type">product</field>
+	        <field name="sale_ok">1</field>
+	        <field name="purchase_ok">0</field>
+	        <field name="maple_syrup">0</field>
+	        <field name="maple_container">1</field>
+	        <field name="categ_id" ref="container_category"/>
+	        <field name="tracking">serial</field>
+	        <field name="uom_id" ref="product.product_uom_categ_unit"/>
+	        <field name="uom_po_id" ref="product.product_uom_categ_unit"/>
+	        <field name="product_tmpl_id" ref="BBDO"/>
+	        <field name="default_code">BBDO--</field>
+	        <field name="attribute_value_ids" eval="[(6,0,[ref('attribute_type_organic'),ref('attribute_light_golden'),ref('attribute_flaw_none')])]"/>
+	        <field name="lst_price">3.13</field>
+        </record>
+        
         <record id="BBAM--" model="product.product"><field name="name">Baril BIO AM</field><field name="type">product</field><field name="sale_ok">1</field><field name="purchase_ok">0</field><field name="maple_syrup">0</field><field name="maple_container">1</field><field name="categ_id" ref="container_category"/><field name="tracking">serial</field><field name="uom_id" ref="product.product_uom_categ_unit"/><field name="uom_po_id" ref="product.product_uom_categ_unit"/><field name="product_tmpl_id" ref="BBAM"/><field name="default_code">BBAM--</field><field name="attribute_value_ids" eval="[(6,0,[ref('attribute_type_organic'),ref('attribute_light_amber'),ref('attribute_flaw_none')])]"/><field name="lst_price">3.12</field></record>
         <record id="BBFO--" model="product.product"><field name="name">Baril BIO FO</field><field name="type">product</field><field name="sale_ok">1</field><field name="purchase_ok">0</field><field name="maple_syrup">0</field><field name="maple_container">1</field><field name="categ_id" ref="container_category"/><field name="tracking">serial</field><field name="uom_id" ref="product.product_uom_categ_unit"/><field name="uom_po_id" ref="product.product_uom_categ_unit"/><field name="product_tmpl_id" ref="BBFO"/><field name="default_code">BBFO--</field><field name="attribute_value_ids" eval="[(6,0,[ref('attribute_type_organic'),ref('attribute_light_dark'),ref('attribute_flaw_none')])]"/><field name="lst_price">3.03</field></record>
         <record id="BBTF--" model="product.product"><field name="name">Baril BIO TF</field><field name="type">product</field><field name="sale_ok">1</field><field name="purchase_ok">0</field><field name="maple_syrup">0</field><field name="maple_container">1</field><field name="categ_id" ref="container_category"/><field name="tracking">serial</field><field name="uom_id" ref="product.product_uom_categ_unit"/><field name="uom_po_id" ref="product.product_uom_categ_unit"/><field name="product_tmpl_id" ref="BBTF"/><field name="default_code">BBTF--</field><field name="attribute_value_ids" eval="[(6,0,[ref('attribute_type_organic'),ref('attribute_light_verydark'),ref('attribute_flaw_none')])]"/><field name="lst_price">2.73</field></record>

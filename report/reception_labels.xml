@@ -37,10 +37,8 @@
 			                                                </p>
 			                                            </t>
 		                                            </div>
-		                                            <!-- div t-if="packlot_odd" class="clearfix" style="clear: both; height: 0; width: 100%;"><![CDATA[&nbsp;]]></div> -->
+		                                            <!-- page break - 8 labels per page -->
 		                                            <p t-if="(packlot_index +1) % 8 == 0" style="page-break-after:always; margin:0; padding:0; line-height:1mm;"><![CDATA[&nbsp;]]></p>
-	                                                <!-- <p t-if="(packlot_index +1) % 8 == 0" style="page-break-after:always; margin:0; padding:0">.</p>
-	                                                 page-break-inside: auto -->
 	                                            </t>
 	                                        </td>
 	                                    </tr>

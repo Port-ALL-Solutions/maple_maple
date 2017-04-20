@@ -26,17 +26,23 @@ class Picking(models.Model):
     daily_in_cpt = fields.Char(
         string='Daily Cpt',
         compute='_compute_daily_id',
-                               )  
+        )
+    
+    partner_ref = fields.Char(
+        string='Producer',
+        compute='_partner_ref',
+        store=True
+        )  
     
     daily_in_sequence = fields.Char('Daily Id')
      
-    @api.depends('daily_in_sequence')
-    def _compute_daily_id(self):
+    @api.depends('partner_id')
+    def _partner_ref(self):
         for record in self:
-            if record.daily_in_sequence:
-                record.daily_in_cpt = record.daily_in_sequence[-2:]
+            if record.partner_id.ref:
+                record.partner_ref = record.partner_id.ref
             else:
-                record.daily_in_cpt = ''
+                record.partner_ref = record.partner_id.parent_id.ref
             
     @api.depends('pack_operation_ids','pack_operation_ids.product_qty','pack_operation_ids.qty_done')
     def _compute_qty(self):
@@ -50,3 +56,11 @@ class Picking(models.Model):
                 qty_done += pack.qty_done
             record.pick_qty_done = qty_done
             record.pick_qty_todo = qty_todo
+            
+    @api.depends('daily_in_sequence')
+    def _compute_daily_id(self):
+        for record in self:
+            if record.daily_in_sequence:
+                record.daily_in_cpt = record.daily_in_sequence[-2:]
+            else:
+                record.daily_in_cpt = ''

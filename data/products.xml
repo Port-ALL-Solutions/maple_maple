@@ -3,7 +3,7 @@
 	<data>
 
 		<record id="regular_maple" model="product.template">
-            <field name="name">Regular Maple</field>				
+            <field name="name">Regular Maple Syrup</field>				
             <field name="default_code">R</field>		
             <field name="type">product</field>
             <field name="maple_syrup">1</field>
@@ -24,7 +24,7 @@
 
 		<record id="regular_maple_barrel" model="product.template">
             <field name="name">Regural Maple Syrup Barrel</field>				
-            <field name="default_code">BR</field>		
+            <field name="default_code">BRt</field>		
             <field name="type">product</field>
             <field name="maple_container">1</field>
             <field name="sale_ok">0</field>
@@ -37,7 +37,7 @@
 
 		<record id="organic_maple_barrel" model="product.template">
             <field name="name">Organic Maple Syrup Barrel</field>				
-            <field name="default_code">BB</field>		
+            <field name="default_code">BBt</field>		
             <field name="type">product</field>
             <field name="maple_container">1</field>
             <field name="sale_ok">0</field>
@@ -50,7 +50,7 @@
 
 		<record id="regular_maple_tote" model="product.template">
             <field name="name">Regural Maple Syrup Tote</field>				
-            <field name="default_code">TR</field>		
+            <field name="default_code">TRt</field>		
             <field name="type">product</field>
             <field name="maple_container">1</field>
             <field name="sale_ok">0</field>
@@ -63,7 +63,7 @@
 
 		<record id="organic_maple_tote" model="product.template">
             <field name="name">Organic Maple Syrup Tote</field>				
-            <field name="default_code">TB</field>		
+            <field name="default_code">TBt</field>		
             <field name="type">product</field>
             <field name="maple_container">1</field>
             <field name="sale_ok">0</field>
@@ -73,6 +73,69 @@
             <field name="maple_syrup">1</field>
             <field name="categ_id" ref="maple_category"/>		
 		</record>	
+
+<!-- product.product counter parts created to avoid unappropriate substituion of
+product.templates by product.product having the same id in bom lines -->
+
+		<record id="regular_maple_barrel_variant" model="product.product">
+            <field name="name">REG Barrel</field>
+            <field name="default_code">BR</field>
+            <field name="type">product</field>
+            <field name="maple_container">1</field>
+            <field name="sale_ok">0</field>
+            <field name="tracking">serial</field>
+            <field name="maple_syrup">1</field>
+            <field name="purchase_ok">1</field>
+            <field name="categ_id" ref="maple_category"/>
+           	<field name="uom_id" ref="product.product_uom_categ_unit"/>
+	        <field name="uom_po_id" ref="product.product_uom_categ_unit"/>
+            <field name="product_tmpl_id" ref="maple.regular_maple_barrel"/>
+		</record>
+
+		<record id="organic_maple_barrel_variant" model="product.product">
+            <field name="name">BIO Barrel</field>				
+            <field name="default_code">BB</field>		
+            <field name="type">product</field>
+            <field name="maple_container">1</field>
+            <field name="sale_ok">0</field>
+            <field name="tracking">serial</field>
+            <field name="maple_syrup">1</field>
+            <field name="purchase_ok">1</field>
+            <field name="categ_id" ref="maple_category"/>
+           	<field name="uom_id" ref="product.product_uom_categ_unit"/>
+	        <field name="uom_po_id" ref="product.product_uom_categ_unit"/>
+            <field name="product_tmpl_id" ref="maple.organic_maple_barrel"/>	
+		</record>	
+
+		<record id="regular_maple_tote_variant" model="product.product">
+            <field name="name">REG Tote</field>				
+            <field name="default_code">TR</field>		
+            <field name="type">product</field>
+            <field name="maple_container">1</field>
+            <field name="sale_ok">0</field>
+            <field name="tracking">serial</field>
+            <field name="maple_syrup">1</field>
+            <field name="purchase_ok">1</field>
+            <field name="categ_id" ref="maple_category"/>
+           	<field name="uom_id" ref="product.product_uom_categ_unit"/>
+	        <field name="uom_po_id" ref="product.product_uom_categ_unit"/>
+            <field name="product_tmpl_id" ref="maple.regular_maple_tote"/>		
+		</record>	
+
+		<record id="organic_maple_tote_variant" model="product.product">
+            <field name="name">BIO Tote</field>				
+            <field name="default_code">TB</field>		
+            <field name="type">product</field>
+            <field name="maple_container">1</field>
+            <field name="sale_ok">0</field>
+            <field name="tracking">serial</field>
+            <field name="maple_syrup">1</field>
+            <field name="purchase_ok">1</field>
+            <field name="categ_id" ref="maple_category"/>
+           	<field name="uom_id" ref="product.product_uom_categ_unit"/>
+	        <field name="uom_po_id" ref="product.product_uom_categ_unit"/>
+            <field name="product_tmpl_id" ref="maple.organic_maple_tote"/>		
+		</record>
 
 	</data>
 </odoo>

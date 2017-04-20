@@ -34,7 +34,23 @@ class Picking(models.Model):
         store=True
         )  
     
+    farm_region = fields.Char(
+        string='Farm Region',
+        compute='_farm_region',
+        store=True
+        )
+    
     daily_in_sequence = fields.Char('Daily Id')
+
+    @api.depends('partner_id')
+    def _farm_region(self):
+        for record in self:
+            if record.partner_id.maple_region:
+                record.farm_region = record.partner_id.maple_region.name
+            elif record.partner_id.parent_id.maple_region:
+                record.farm_region = record.partner_id.parent_id.maple_region.name
+            else:
+                record.farm_region = 'N/D'
      
     @api.depends('partner_id')
     def _partner_ref(self):

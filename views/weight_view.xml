@@ -46,6 +46,32 @@
 			</field>
 		</record>
 
+		<record id="maple_weighing_acer_export_view" model="ir.ui.view">
+			<field name="name">maple.weighing.export.view</field>
+			<field name="model">stock.quant</field>
+			<field name="arch" type="xml">
+				<tree
+					string="Weighing Data for Export"
+					editable="0"
+					edit="0"
+					create="0"
+					class="maple_table"
+					>
+				    <field name="location_id" readonly="1" invisible="1"/>
+				    <field name="producer" readonly="1" invisible="1"/>
+				    <field name="weighing_no" string="# Pesée" readonly="1"/>
+				    <field name="container_serial" string="# Baril" readonly="1"/>
+				    <field name="container_state_code" string="État" readonly="1"/>
+				    <field name="container_total_weight" string="Poids brut" readonly="1"/>
+				    <field name="tmp_tare" string="Tare" readonly="1"/>
+				    <field name="maple_product_type" string="Type" readonly="1"/>
+				    <field name="tmp_owner" string="Prop" readonly="1"/>
+				    <field name="class_site" string="Site" readonly="1"/>
+				    <field name="tmp_material_code" string="Genre" readonly="1"/>
+				</tree>
+			</field>
+		</record>
+
         <record model="ir.actions.act_window" id="maple_weight_list_action">
             <field name="name">Maple Weight</field>
             <field name="res_model">stock.quant</field>
@@ -57,6 +83,17 @@
                 <p class="oe_view_nocontent_create">Can not create anything from here. </p>
             </field>
         </record>
+        
+		<record model="ir.actions.act_window" id="maple_weighing_acer_export_action">
+           	<field name="name">Maple Weighing Acer Export</field>
+           	<field name="res_model">stock.quant</field>
+           	<field name="view_type">form</field>
+           	<field name="view_mode">tree</field>
+			<field name="view_id" ref="maple_weighing_acer_export_view" />
+           	<field name="help" type="html">
+               <p class="oe_view_nocontent_create">No weighing data to export to Acer. </p>
+           	</field>
+       	</record>
         
          <record model="ir.actions.act_window" id="maple_weight_acer_list_action">
            	<field name="name">Maple Weight Acer List</field>

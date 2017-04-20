@@ -97,11 +97,17 @@ class maple_control(models.Model):
         help="Maple Syrup Container State"
         )
     
+    container_state_code = fields.Char(
+        string='One-char Container State',
+        help="Maple Syrup Container one-character State",
+        related='container_state.code'
+        )
+    
     maple_producer = fields.Many2one(
         'res.partner', 'Producer',
         help="Producer"
         )
-
+    
     maple_state = fields.Selection(
         [   ('ready', 'Ready to pick'),
             ('confirmed', 'Confimation for delivery'),
@@ -212,6 +218,7 @@ class maple_control(models.Model):
         store=True,
         help="Find the corresponding internal product code. "
         )
+          
     
     @api.depends('maple_light','maple_brix') # if these fields are changed, call method
     def _compute_line_data(self):
@@ -342,6 +349,12 @@ class stockQuant(models.Model):
     _name = 'stock.quant'
     _inherit = ['stock.quant', 'maple.control']
     
+    maple_product_type = fields.Char(
+        string="Maple Syrup one-character Type",
+        compute="_maple_type_onechar",
+        help="Maple Syrup one-character Type (R:regular, B:biologique.) "
+        )
+    
     product_categ_id = fields.Many2one(
         comodel_name='product.category',
         string='Product Category', 
@@ -367,6 +380,12 @@ class stockQuant(models.Model):
         comodel_name='maple.container_material',
         string='Type', 
         readonly=False)
+    
+    tmp_material_code = fields.Char(
+        string='One-char Container Material',
+        help="Maple Syrup Container one-character Material",
+        related='tmp_material.code'
+        )
     
     tmp_owner = fields.Many2one(
         comodel_name='maple.container_owner_type',
@@ -413,7 +432,32 @@ class stockQuant(models.Model):
     origin = fields.Char(
        string='Origin of maple syrup', 
        related='producer.state_id.code',
-       store=True)                                     
+       store=True)
+    
+    producer_contact = fields.Char(
+        compute='_compute_contact',
+        string="Contact",
+        help="Name of producers's main contact displayed on weighing and classification forms"
+        #store=True
+        )
+    
+    @api.depends('product_id') # if these fields are changed, call method
+    def _maple_type_onechar(self):
+        for r in self:
+            r.maple_product_type = r.product_id.default_code[1] #Second character of product_id's default code 
+    
+    @api.depends('producer') # if these fields are changed, call method
+    def _compute_contact(self):
+        for r in self:
+            if r.producer.parent_id:
+                contact = r.producer.parent_id.child_ids.filtered(lambda x: x.type=='contact')
+            else:
+                contact = r.producer.child_ids.filtered(lambda x: x.type=='contact')
+            if contact:
+                r.producer_contact = contact[0].name
+            else:
+                r.producer_contact = 'N/D'
+        return
 
     @api.depends("container_total_weight")
     def _compute_weighing_picking(self): 
@@ -465,7 +509,7 @@ class stockQuant(models.Model):
             'producer': move.picking_partner_id.id,
             'buyer': move.purchase_line_id.owner_id.id
             })
-        return quant 
+        return quant
 
     @api.constrains('container_total_weight','tmp_tare','container_serial','tmp_material','container_state','tmp_owner')
     def _constrains_weighing_line(self):

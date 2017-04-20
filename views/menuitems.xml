@@ -89,6 +89,12 @@
         	name="Weighing"
         	sequence="38"
             parent="main_maple_menu"/>
+            
+		<menuitem id="maple_weighing_acer_export_menu"
+	    	name="Acer Export"
+	    	parent="maple_weighing_menu"
+	    	sequence="40"
+	        action="maple_weighing_acer_export_action"/>
 
 		<menuitem id="maple_weight_menu_list"
 	    	name="Weighing"

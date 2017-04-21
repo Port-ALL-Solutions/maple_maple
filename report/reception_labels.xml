@@ -6,7 +6,7 @@
         <template id="view_reception_labels_document">
             <t t-foreach="docs" t-as="o">
                 <div class="page" style="margin:0; padding:0;">
-                    <table class="table table-condensed" t-if="o.pack_operation_ids" style="border:none !important; margin-left:31.75mm; padding:0;">
+                    <table class="table table-condensed" t-if="o.pack_operation_ids" style="border:none !important; margin:0; padding:0;">
                         <t t-set="has_serial_number" t-value="o.pack_operation_ids.filtered('pack_lot_ids')" groups="stock.group_production_lot"/>
                         <tbody style="margin: 0;padding: 0">
                             <t t-set="pack_operation_ids" t-value="o.pack_operation_ids"/>

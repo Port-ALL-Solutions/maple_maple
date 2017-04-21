@@ -27,7 +27,7 @@
 			                                                </p>
 			                                            </t>
 		                                            </div>
-		                                            <div t-if="packlot_odd" class="clearfix" style="width:76.2mm; height:50.8mm; float: left; border: 1px solid lightgrey;">
+		                                            <div t-if="packlot_odd" style="width:76.2mm; height:50.8mm; float: left; border: 1px solid lightgrey;">
 			                                            <span t-field="packlot.lot_id"/>
 			                                            <t t-if="not packlot.lot_id">
 			                                                <t t-set="recp_no" t-value="packlot.lot_name"/>
@@ -37,6 +37,8 @@
 			                                                </p>
 			                                            </t>
 		                                            </div>
+		                                            <!-- right of line filling -->
+		                                            <div t-if="packlot_odd" style="clear: both; height: 0; width: 100%;"/>
 		                                            <!-- page break - 8 labels per page -->
 		                                            <p t-if="(packlot_index +1) % 8 == 0" style="page-break-after:always; margin:0; padding:0; line-height:1mm;"><![CDATA[&nbsp;]]></p>
 	                                            </t>

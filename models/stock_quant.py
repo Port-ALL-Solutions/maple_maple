@@ -300,16 +300,17 @@ class maple_control(models.Model):
         if len(self) == 1:
             brix = self.maple_brix or vals.get('maple_brix')
             ctrl = self.controler.id or vals.get('controler')            
-            
-            if not vals['maple_seal_no'] and not self.maple_seal_no and brix and ctrl:
-                if not self.maple_seal_no and (self.acer_seal_no or (brix and ctrl)):
+
+            if 'maple_seal_no' not in vals:
+                if not self.maple_seal_no and brix and ctrl:
+#                    if not self.maple_seal_no and (self.acer_seal_no or (brix and ctrl)):
                     employee = self.env['hr.employee'].browse([ctrl])
                     cpt = employee.barrelCnt + 1
                     employee.write({'barrelCnt':cpt})
                     vals['maple_seal_no'] = date.today().strftime('%y') + str(int(employee.inspectNb)).zfill(2) + "-" + str(cpt).zfill(5)                 
                     #        if vals.get('project_id'):
-        #            project = self.env['project.project'].browse(vals.get('project_id'))
-        #            vals['account_id'] = project.analytic_account_id.id
+            #            project = self.env['project.project'].browse(vals.get('project_id'))
+            #            vals['account_id'] = project.analytic_account_id.id
         return super(maple_control, self).write(vals)
 #     @api.onchange('acer_seal_no','maple_brix') #barrelCnt, InspectNb
 #     def _compute_seal(self):
@@ -394,7 +395,8 @@ class stockQuant(models.Model):
     
     tmp_tare = fields.Integer(
         string='Tare',
-        readonly=False)
+        readonly=False
+        )
 
     buyer = fields.Many2one(
         comodel_name='res.partner',
@@ -404,12 +406,25 @@ class stockQuant(models.Model):
     buyer_code = fields.Char(
         string='Buyer',
         related='buyer.ref',
-        readonly=False)
+        readonly=False
+        )
     
     class_site  = fields.Char(
         string='Classification Site', 
         compute="_compute_class_site",
         store=True
+        )
+    
+    class_date  = fields.Date(
+        string='Classification Date', 
+        help=' Imported Classification Date',
+        readonly=False
+        )
+    
+    acer_report_no  = fields.Char(
+        string='Acer Classification Report No.', 
+        help='Imported Acer Classification Report No.',
+        readonly=False
         )
     
     weighing_picking = fields.Many2one(

@@ -40,6 +40,8 @@ class Picking(models.Model):
         store=True
         )
     
+    
+    
     daily_in_sequence = fields.Char('Daily Id')
 
     @api.depends('partner_id')

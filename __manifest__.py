@@ -83,9 +83,10 @@ This module provides mosly fields and views.
 # menuitems = The menu, need to be put last
         'views/menuitems.xml',
 # reports
-        'report/fpaq_reception.xml',
         'data/report_paperformat.xml',
+        'report/fpaq_reception.xml',
         'report/reception_labels.xml',
+        'report/acer_classification.xml',
 
     ],
     'qweb': [

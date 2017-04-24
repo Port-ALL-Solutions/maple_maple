@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="qweb_classif_acer_producer_document">
+            <t t-name="maple.qweb_classif_acer_producer_document">
+                <t t-call="report.html_container">
+                    <!-- t t-call="report.external_layout">  --><!-- Remplacer par entete avec logos FPAQ-Acheteur [SE/LB] -->
+
+                    <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})"/>
+                    <t t-if="o.id != 43 and o.id != 44"> <!-- ajouter SENB -->
+                    	<p>Ce rapport est réservé aux emplacements où s'effectuent la classification du sirop d'érable.</p>
+                    </t>
+					
+					<!-- Producers list -->
+					<t t-set="producers" t-value="[]"/>
+					<t t-foreach="o.stock_lines" t-as="r">
+					    <t t-set="producers" t-value="producers+[r.producer]"/>
+					</t>
+					<t t-foreach="set(producers)" t-as="pro">
+
+            			<!-- Individual Producer Report -->					    
+							 <div class="header">
+		                        <div class="row">
+		                            <div class="col-xs-3">
+		                                <img src="maple/static/img/logo_acer_rapport.png" style="max-width:50mm;"/>
+	                                </div>
+	                                <div class="col-xs-3">
+		                                <p style="font-size:7pt; line_height:8pt;">142, rang Lainesse<br/>St-Norbert-d'Arthabaska   QC<br/>G0P 1B0 
+		                                	<i class="fa fa-phone"/> 819-369-8106
+		                                </p>
+		                            </div>
+		                            <div class="col-xs-6">
+							            <p style="text-align: right; font-size:7pt; line_height:8pt;">
+		                                	Page <span class="page"/> de <span class="topage"/><br/>
+		                                	Imprimé le <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M:%S')"/>
+		                                </p>
+		                            </div>
+		                        </div> 	
+		                    </div>
+		                    
+		                    <!-- Producer information - 1st page of report -->
+		                    <div class="page">
+	                            <table class="table table-condensed" style="margin:0; padding:0; font-size:8pt; line-height:9pt; border: 2px solid black; border-radius: 10px;">
+	                                <thead>
+	                                    <tr>
+	                                        <th colspan="8" style="font-size:8pt; line-height:9pt; font-weight:bold; text-align:center; width:100%; border-bottom: 1px solid grey; ">
+	                                        	Rapport de classification du sirop d'érable en grands contenants
+	                                        </th>
+	                                    </tr>
+	                                </thead>
+	                                <tbody>
+	                                    <tr>
+	                                        <td style="font-weight:bold">Producteur:</td>
+	                                        <td style="white-space: nowrap;">
+	                                        	<span t-esc="pro.name"/><br/>
+	                                        	<span t-esc="pro.street"/><br/>
+	                                        	<t t-if="pro.street2"><span t-esc="pro.street2"/><br/></t>
+	                                        	<span t-esc="pro.city"/>, <span t-esc="pro.state_id.code"/>, <span t-esc="pro.country_id.code"/><br/>
+	                                        	<span t-esc="pro.zip"/> <i class="fa fa-phone"/> <span t-esc="pro.phone"/>
+	                                        </td>
+	                                        <td style="vertical-align: bottom;"># FPAQ: <span t-esc="pro.fpaqCode"/></td>
+	                                        <td style="font-weight:bold; text-align:right;">Site:</td>
+	                                        <td style="white-space: nowrap;">
+	                                        	<span t-esc="o.stock_lines[0].buyer.name"/><br/>
+												<t t-if="o.stock_lines[0].class_site">
+													<t t-set="site" t-value="o.stock_lines[0].class_site"/>
+			                             			<t t-if="site =='370' or site =='375' or site =='SE1' or site =='LB1'">296, Principale<br/>Saint-Eusèbe, QC<br/>G0L 2Y0</t>
+			                             			<t t-if="site =='177' or site =='298' or site =='SE3' or site =='LB3'">405, Principale<br/>Saint-Eusèbe, QC<br/>G0L 2Y0</t>
+			                             			<t t-if="site =='SENB' or site =='LBNB'">25, Maple Lane<br/>Lake Edward NB<br/>E7G 4J2</t>
+			                              		</t>
+	                                        	<t t-if="o.stock_lines[0].buyer.phone"><i class="fa fa-phone"/><span t-esc="o.stock_lines[0].buyer.phone"/></t>
+	                                        </td>
+	                                        <td style="vertical-align: bottom;">
+	                                        	# Site: 
+	                                        	<t t-if="o.stock_lines[0].class_site"><span t-esc="o.stock_lines[0].class_site" style="font-weight:bolder;"/></t>
+	                                        	<t t-if="not o.stock_lines[0].class_site">N/D</t>
+	                                        </td>
+	                                        <td style="font-weight:bold; text-align:right; white-space: nowrap;">
+	                                        	N<sup>o</sup> rapport:<br/>
+	                                        	Date:<br/>
+	                                        	Producteur présent:
+	                                        </td>
+	                                        <td style="white-space: nowrap;">
+	                                        	<t t-if="o.stock_lines[0].acer_report_no"><span t-esc="o.stock_lines[0].acer_report_no"/></t><br/>
+	                                        	<t t-if="o.stock_lines[0].class_date"><span t-esc="o.stock_lines[0].class_date"/></t><br/>
+	                                        	N/D
+                                        	</td>	                                        
+	                                    </tr>
+	                                </tbody>
+	                            </table>
+							            
+						        <table class="table table-condensed mt48" t-if="o.stock_lines" style="margin:0; padding:0; width:100%;">
+	                                <thead>
+	                                    <tr style="margin:0; padding:0; font-size:7pt; line-height:8pt; border-bottom: 1px solid black;">
+	                                        <th colspan="9" style="white-space: nowrap; font-size:8pt; line-height:9pt; font-weight:bold; width:100%; border-bottom: 1px solid grey;">
+	                                        	Renseignements fournis par l'acheteur ou le site de classement
+	                                        </th>
+	                                        <th colspan="13" style="white-space: nowrap; font-size:8pt; line-height:9pt; font-weight:bold; width:100%; border-bottom: 1px solid grey;">
+	                                        	Données constatées par le vérificateur de qualité
+	                                        </th>
+	                                    </tr>
+	                                	<tr style="margin:0; padding:0; font-size:7pt; line-height:8pt; border-bottom: 1px solid black;">
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; white-space: nowrap; vertical-align:bottom;">N<sup>o</sup> scellé</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; white-space: nowrap; vertical-align:bottom;">N<sup>o</sup> baril</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Poids<br/>brut</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Tare</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Poids<br/>net</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; white-space: nowrap; vertical-align:bottom;">+ Sucre<br/>- Eau</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; white-space: nowrap; vertical-align:bottom;">Genre<br/>de baril</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; white-space: nowrap; vertical-align:bottom;">État du<br/>baril</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Type</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Brix</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Lum</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Grade</td>
+	                                		<td colspan="2" style="text-align:center; margin:0; padding:0;">Défauts</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Limp</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; white-space: nowrap; vertical-align:bottom;">S.I.</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Iode</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Na</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Pb</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; white-space: nowrap;">Test<br/>spécial</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Rev</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">RE</td>
+	                                	</tr>
+	                                	<tr style="margin:0; padding:0;font-size:7pt; line-height:8pt; border-bottom: 1px solid black;">
+	                                		<td style="text-align:center; margin:0; padding:0;">Saveur</td>
+	                                		<td style="text-align:center; margin:0; padding:0;">Code</td>
+	                                	</tr>
+	                                </thead>
+	                                <tbody>
+	                                   	<t t-foreach="o.stock_lines" t-as="line">
+	                                    	<t t-if="pro.id==line.producer.id">
+	                                    		<tr style="font-size:7pt; line-height:8pt; text-align:center;">	
+		                                            <!-- Classification site data -->
+		                                            <td name="seal" style="height:5mm; margin:0; padding:0;">
+			                                            <t t-if="line.maple_seal_no"><span t-field="line.maple_seal_no"/></t>
+			                                            <t t-if="not line.maple_seal_no"><![CDATA[&nbsp;]]></t>
+		                                            </td>
+			                                        <td name="barrel_no" style="height:5mm; margin:0; padding:0;">
+			                                            <t t-if="line.container_serial"><span t-field="line.container_serial"/></t>
+			                                            <t t-if="not line.container_serial"><![CDATA[&nbsp;]]></t>
+			                                        </td>
+			                                        <td name="barrel_gross_weight" style="height:5mm; margin:0; padding:0;">
+			                                            <t t-if="line.container_total_weight"><span t-field="line.container_total_weight"/></t>
+			                                            <t t-if="not line.container_total_weight"><![CDATA[&nbsp;]]></t>
+			                                        </td>
+			                                        <td name="barrel_tare" style="height:5mm; margin:0; padding:0;">
+			                                            <t t-if="line.tmp_tare"><span t-field="line.tmp_tare"/></t>
+			                                            <t t-if="line.container_tar_weight and not line.tmp_tare"><span t-field="line.container_tar_weight"/></t>
+			                                            <t t-if="not line.tmp_tare and not line.container_tar_weight"><![CDATA[&nbsp;]]></t>
+			                                        </td>
+			                                        <td name="barrel_net_weight" style="height:5mm; margin:0; padding:0;">
+			                                            <t t-if="line.maple_payable_weight"><span t-field="line.maple_payable_weight"/></t>
+			                                            <t t-if="not line.maple_payable_weight"><![CDATA[&nbsp;]]></t>
+			                                        </td>
+			                                        <td name="sugar_water_content" style="height:5mm; margin:0; padding:0;">
+			                                            <t t-if="line.maple_adjust_weight"><span t-field="line.maple_adjust_weight"/></t>
+			                                            <t t-if="not line.maple_adjust_weight"><![CDATA[&nbsp;]]></t>
+			                                        </td>
+			                                        <td name="barrel_material" style="height:5mm; margin:0; padding:0;">
+			                                            <t t-if="line.tmp_material"><span t-field="line.tmp_material.code"/></t>
+			                                            <t t-if="not line.tmp_material"><![CDATA[&nbsp;]]></t>
+			                                        </td>
+			                                        <td name="barrel_state" style="height:5mm; margin:0; padding:0;">
+			                                            <t t-if="line.container_state"><span t-field="line.container_state.code"/></t>
+			                                            <t t-if="not line.container_state"><![CDATA[&nbsp;]]></t>
+			                                        </td>
+			                                        <td name="maple_type" style="height:5mm; margin:0; padding:0;">
+			                                            <t t-if="line.product_id"><span t-esc="line.product_id.default_code[:1]"/></t>
+			                                            <t t-if="not line.product_id"><![CDATA[&nbsp;]]></t>
+			                                        </td>
+			                                        
+			                                        <!-- Quality inspection data -->
+			                                        <t t-set="maple_re" t-value="False"/>
+			                                        <td name="maple_brix" style="height:5mm; margin:0; padding:0;">
+			                                            <t t-if="line.maple_brix"><span t-field="line.maple_brix"/></t>
+			                                            <t t-if="not line.maple_brix"><![CDATA[&nbsp;]]></t>
+			                                        </td>
+		                                            <td name="maple_light" style="height:5mm; margin:0; padding:0;">
+			                                            <t t-if="line.maple_light"><span t-field="line.maple_light"/></t>
+			                                            <t t-if="not line.maple_light"><![CDATA[&nbsp;]]></t>
+		                                            </td>
+			                                        <td name="maple_grade" style="height:5mm; margin:0; padding:0;">
+			                                            <t t-if="line.maple_grade"><span t-field="line.maple_grade"/></t>
+			                                            <t t-if="not line.maple_grade"><![CDATA[&nbsp;]]></t>
+			                                        </td>
+			                                        <td name="maple_flavor" style="height:5mm; margin:0; padding:0;">
+			                                            <t t-if="line.maple_flavor">
+			                                            	<t t-if="line.maple_flavor.name == 'CROCHET' or line.maple_flavor.name == 'VR'">
+			                                            		<i class="fa fa-check-square-o"/>
+		                                            		</t>
+			                                            	<t t-if="line.maple_flavor.name == 'NC'">
+			                                            		<i class="fa fa-check-square-o"/>
+			                                            		<t t-set="maple_re" t-value="True"/>
+		                                            		</t>
+			                                            </t>
+			                                            <t t-if="not line.maple_flavor"><i class="fa fa-square-o"/></t>
+			                                        </td>
+			                                        <td name="maple_flaw" style="height:5mm; margin:0; padding:0;">
+			                                            <t t-if="line.maple_flaw"><span t-field="line.maple_flaw"/></t>
+			                                            <t t-if="not line.maple_flaw"><![CDATA[&nbsp;]]></t>
+			                                        </td>
+			                                        <td name="Limp" style="height:5mm; margin:0; padding:0;">
+			                                            <t t-if="line.tmp_material"><span t-field="line.tmp_material.code"/></t>
+			                                            <t t-if="not line.tmp_material"><![CDATA[&nbsp;]]></t>
+			                                        </td>
+			                                        <td name="si" style="height:5mm; margin:0; padding:0;">
+			                                            <t t-if="line.container_state"><span t-field="line.container_state.code"/></t>
+			                                            <t t-if="not line.container_state"><![CDATA[&nbsp;]]></t>
+			                                        </td>
+			                                        <td name="iodine" style="height:5mm; margin:0; padding:0;">
+			                                            <t t-if="line.tmp_owner"><span t-field="line.tmp_owner"/></t>
+			                                            <t t-if="line.container_ownership and not line.tmp_owner"><span t-field="line.container_ownership"/></t>
+			                                            <t t-if="not line.tmp_owner and not line.container_ownership"><![CDATA[&nbsp;]]></t>
+			                                        </td>
+			                                        <td name="Na" style="height:5mm; margin:0; padding:0;">
+			                                            <t t-if="line.product_id"><span t-esc="line.product_id.default_code[:1]"/></t>
+			                                            <t t-if="not line.product_id"><![CDATA[&nbsp;]]></t>
+			                                        </td>
+			                                        <td name="Pb" style="height:5mm; margin:0; padding:0;">
+			                                            <t t-if="line.product_id"><span t-esc="line.product_id.default_code[:1]"/></t>
+			                                            <t t-if="not line.product_id"><![CDATA[&nbsp;]]></t>
+			                                        </td>
+			                                        <td name="special_test" style="height:5mm; margin:0; padding:0;">
+			                                            <t t-if="line.tmp_material"><span t-field="line.tmp_material.code"/></t>
+			                                            <t t-if="not line.tmp_material"><![CDATA[&nbsp;]]></t>
+			                                        </td>
+			                                        <td name="Rev" style="height:5mm; margin:0; padding:0;">
+			                                            <i class="fa fa-square-o"/>
+			                                        </td>
+			                                        <td name="RE" style="height:5mm; margin:0; padding:0;">
+			                                            <t t-if="maple_re == True"><i class="fa fa-check-square-o"/></t>
+			                                            <t t-if="maple_re == False"><i class="fa fa-square-o"/></t>
+			                                        </td>					                                    		
+		                                    	</tr>
+	                                    	</t>
+	                                    </t>
+	                                </tbody>
+	                            </table>
+	                            
+	                            <!-- Classification Summary -->
+	                            
+	                            <!-- page break -->
+	                            <p style="page-break-before:always; margin:0; padding:0; line-height:1mm;"><![CDATA[&nbsp;]]></p>
+	                            
+	                            <!-- Create maple products list -->
+	                            <t t-set="grades" t-value="[]"/>
+	                            
+								<t t-foreach="o.stock_lines" t-as="g">
+					    			<t t-set="grade" t-value="g.product_code[:3]"/>
+					    			<t t-set="grades" t-value="grades+[grade]"/>
+					    			GRADES = <span t-esc="grades"/>
+								</t>
+								
+								<t t-set="T1" t-value="0"/>
+								<t t-set="T2" t-value="0"/>
+								<t t-set="T3" t-value="0"/>
+								<t t-set="T4" t-value="0"/>
+								<t t-set="T5" t-value="0"/>
+								<t t-set="T6" t-value="0"/>
+								
+								<table class="table table-condensed mt36" t-if="o.stock_lines" style="font-size:7pt; line-height:8pt; margin:0; padding:0; width:190mm; text-align:right;">
+	                                <thead>
+	                                	<tr>
+	                                		<th style="text-align:left;">Sommaire du classement</th>
+	                                		<th style="text-align:right;">Vr</th>
+	                                		<th style="text-align:right;">Retenu</th>
+	                                		<th style="text-align:right;">Test spécial</th>
+	                                		<th style="text-align:right;">En révision</th>
+	                                		<th style="text-align:right;">Barils</th>
+	                                		<th style="text-align:right;">Poids</th>
+	                                	</tr>
+	                                </thead>
+	                                <tbody>
+										<t t-set="N1" t-value="0"/>
+										<t t-set="N2" t-value="0"/>
+										<t t-set="N3" t-value="0"/>
+										<t t-set="N4" t-value="0"/>
+										<t t-set="N5" t-value="0"/>
+										<t t-set="N6" t-value="0"/>									
+										
+										<t t-foreach="grades" t-as="grade">
+										
+											<!-- grade summary lines -->
+											<tr>
+												<t t-foreach="o.stock_lines" t-as="line">
+													<!-- vr count -->
+													<t t-if="grade == line.product_code[:3]">
+														<t t-if="line.maple_flavor.name == 'CROCHET' or line.maple_flavor.name == 'VR'">
+			                                				<t t-set="N1" t-value="N1+1"/>
+			                                				<t t-set="T1" t-value="T1+1"/>
+		                                				</t>
+			                                				
+		                                				<!-- retenu count -->
+			                                			<t t-set="T2" t-value="T2+1"/>
+			                                			
+			                                			<!-- special test -->
+	                                					<t t-set="T3" t-value="T3+1"/>
+	                                					
+	                                					<!-- revision -->
+	                                					<t t-set="T4" t-value="T4+1"/>
+	                                					
+	                                					<!-- barrel count -->
+		                                				<t t-set="N5" t-value="N5+1"/>
+			                                			<t t-set="T5" t-value="T5+1"/>
+			                                			
+			                                			<!-- weight count -->
+	                               						<t t-if="line.maple_payable_weight">
+			                                				<t t-set="N6" t-value="N6 + line.maple_payable_weight"/>
+			                                				<t t-set="T6" t-value="T6+line.maple_payable_weight"/>
+		                                				</t>
+	                                				</t>
+	                                				
+	                                				<!-- grade summary line -->
+	                                				<t t-if="line_last">
+	                                				
+				                                    	<td name="grade" style="text-align:left;">
+				                                    		<span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
+				                                    		<![CDATA[&nbsp;]]>
+				                                    		<span t-esc="grade[-2:]"/>
+				                                    		<![CDATA[&nbsp;]]>
+				                                    		<t t-if="grade[0] == 'B'"><span t-esc="'BIO'" /></t>
+				                                    		<t t-if="grade[0] == 'R'"><span t-esc="'REG'" /></t>
+				                                    	</td>
+				                                		<td name="vr">
+			                                				<span t-if="N1 == 0" t-esc="N1" style="color:lightgrey; font-weight:lighter;"/>
+			                                				<span t-if="N1 != 0" t-esc="N1" style="color:black;"/>
+		                                				</td>
+				                                		<td >
+				                                			<span t-if="N2 == 0" t-esc="N2" style="color:lightgrey; font-weight:lighter;"/>
+			                                				<span t-if="N2 != 0" t-esc="N2" style="color:black;"/>
+				                                		</td>
+				                                		<td name="special_test">
+				                                			<span t-if="N3 == 0" t-esc="N3" style="color:lightgrey; font-weight:lighter;"/>
+			                                				<span t-if="N3 != 0" t-esc="N3" style="color:black;"/>
+				                                		</td>
+				                                		<td name="revision">
+				                                			<span t-if="N4 == 0" t-esc="N4" style="color:lightgrey; font-weight:lighter;"/>
+			                                				<span t-if="N4 != 0" t-esc="N4" style="color:black;"/>
+				                                		</td>
+				                                		<td name="barrels">
+				                                			<span t-if="N5 == 0" t-esc="N5" style="color:lightgrey; font-weight:lighter;"/>
+			                                				<span t-if="N5 != 0" t-esc="N5" style="color:black;"/>
+				                                		</td>
+				                                		<td name="weight" style="font-weight:bold;">
+			                                				<span t-if="N6 == 0" t-esc="N6" style="color:lightgrey; font-weight:lighter;"/>
+			                                				<span t-if="N6 != 0" t-esc="N6" style="color:black;"/>
+				                                		</td>
+			                                		</t>
+	                                			</t>
+	                                		</tr>
+	                                		<tr t-if="grade_last" style="border-top: 1px solid black;">
+		                                    	<td name="tot" style="text-align:right; font-weight:bold;">
+		                                    		Grand Total:
+		                                    	</td>
+		                                		<td name="tot_vr">
+	                                				<span t-if="T1 == 0" t-esc="T1" style="color:lightgrey; font-weight:lighter;"/>
+	                                				<span t-if="T1 != 0" t-esc="T1" style="color:black; font-weight:bold;"/>
+		                                		</td>
+		                                		<td name="tot_retenu">
+		                                			<span t-if="T2 == 0" t-esc="T2" style="color:lightgrey; font-weight:lighter;"/>
+	                                				<span t-if="T2 != 0" t-esc="T2" style="color:black; font-weight:bold;"/>
+		                                		</td>
+		                                		<td name="tot_special_test">
+		                                			<span t-if="T3 == 0" t-esc="T3" style="color:lightgrey; font-weight:lighter;"/>
+	                                				<span t-if="T3 != 0" t-esc="T3" style="color:black; font-weight:bold;"/>
+		                                		</td>
+		                                		<td name="tot_revision">
+		                                			<span t-if="T4 == 0" t-esc="T4" style="color:lightgrey; font-weight:lighter;"/>
+	                                				<span t-if="T4 != 0" t-esc="T4" style="color:black; font-weight:bold;"/>
+		                                		</td>
+		                                		<td name="tot_barrels">
+		                                			<span t-if="T5 == 0" t-esc="T5" style="color:lightgrey; font-weight:lighter;"/>
+	                                				<span t-if="T5 != 0" t-esc="T5" style="color:black; font-weight:bold;"/>
+		                                		</td>
+		                                		<td name="tot_weight" style="font-weight:bold;">
+		                                			<span t-if="T6 == 0" t-esc="T6" style="color:lightgrey; font-weight:lighter;"/>
+	                                				<span t-if="T6 != 0" t-esc="T6" style="color:black; font-weight:bold;"/>
+		                                		</td>	                                		
+	                                		</tr>
+                                		</t>	                                		
+                               		</tbody>
+                             	</table>
+						    </div>
+						    
+						    <div class="footer">
+						        <table class="table table-condensed" style="text-align:center; border: 1 px solid white; font-size:7pt; line-height:8pt;">
+						            <tr>
+						                <td><![CDATA[&nbsp;]]></td>
+						                <td><![CDATA[&nbsp;]]></td>
+						                <td><span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/></td>
+						                <!--  span t-esc="time.strftime('%m/%d/%Y',time.strptime(object.datetimefield,'%Y-%m-%d %H:%M:%S'))"/ -->
+						                <td><![CDATA[&nbsp;]]></td>
+						                <td><![CDATA[&nbsp;]]></td>
+					                </tr>
+					                <tr>
+						                <td style="border-top:1px solid black; width:30%;">Signature du producteur</td>
+						                <td style="width:5%;"><![CDATA[&nbsp;]]></td>
+						                <td style="border-top:1px solid black; width:30%;">Date d'expédition</td>
+						                <td style="width:5%;"><![CDATA[&nbsp;]]></td>
+						                <td style="border-top:1px solid black; width:30%;">Signature de l'acheteur</td>
+						            </tr>
+					            </table>
+						    </div>
+						    
+					<!-- End of reports -->
+					</t>
+
+                </t>
+            </t>
+        </template>
+        
+        <template id="qweb_classif_acer_producer">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="maple.qweb_classif_acer_producer_document" t-lang="o.partner_id.lang"/>
+            </t>
+        </template>
+
+        <report id="report_classif_acer_producer"
+            name="maple.qweb_classif_acer_producer"
+            model="stock.location"
+            string="Rapport de classification Acer (producteur)"
+            report_type="qweb-pdf"
+            file="maple.qweb_classif_acer_producer"
+            />
+
+	</data>
+</odoo>

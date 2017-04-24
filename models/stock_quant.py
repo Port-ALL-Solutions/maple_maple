@@ -171,6 +171,56 @@ class maple_control(models.Model):
         index=True,
         )
     
+    maple_clarity = fields.Integer(
+        string="Clarity",
+        help="Maple syrup Clarity. "
+        )
+    
+    maple_si = fields.Float(
+        string="Silicium",
+        help="Maple syrup Silicium content. "
+        )
+    
+    maple_ph = fields.Integer(
+        string="pH",
+        help="Maple syrup pH. "
+        )
+    
+    maple_iodine = fields.Integer(
+        string="Iodine",
+        help="Maple syrup Iodine content. "
+        )
+    
+    maple_na = fields.Integer(
+        string="Sodium",
+        help="Maple syrup Sodium content. "
+        )
+    
+    maple_pb = fields.Integer(
+        string="Lead",
+        help="Maple syrup Lead content. "
+        )
+    
+    maple_retained = fields.Boolean(
+        string="Retained Barrel",
+        help="Retained Barrel. "
+        )
+    
+    maple_special_test = fields.Char(
+        string="SpecialTest",
+        help="SpecialTest. "
+        )
+    
+    classif_revision = fields.Boolean(
+        string="Classification under Revision",
+        help="Classification under Revision. "
+        )
+    
+    supervised = fields.Boolean(
+        string="Supervised",
+        help="Supervised. "
+        )
+    
     state = fields.Selection(
         [   ('ready', 'Ready to pick'),
             ('confirmed', 'Confimation for delivery'),

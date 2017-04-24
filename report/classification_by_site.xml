@@ -2,8 +2,8 @@
 <odoo>
     <data>
 
-        <template id="qweb_classif_acer_producer_document">
-            <t t-name="maple.qweb_classif_acer_producer_document">
+        <template id="qweb_classif_by_site_document">
+            <t t-name="maple.qweb_classif_by_site_document">
                 <t t-call="report.html_container">
                     <!-- t t-call="report.external_layout"  -->
 
@@ -12,12 +12,20 @@
                     	<p>Ce rapport est réservé aux emplacements où s'effectuent la classification du sirop d'érable.</p>
                     </t>
 					
-					<!-- Producers list -->
-					<t t-set="producers" t-value="[]"/>
+					1 boucle site > acheteur > adresse
+					2 boucle type: bio / reg
+					3 boucle grade
+						sous-boucle défauts
+					4 boucle retenu
+
+					<!-- Site list -->
+					<t t-set="sites" t-value="[]"/>
 					<t t-foreach="o.stock_lines" t-as="r">
-					    <t t-set="producers" t-value="producers+[r.producer]"/>
+						<t t-if="r not in sites">
+						    <t t-set="sites" t-value="sites+[r.class_site]"/>
+						</t>
 					</t>
-					<t t-foreach="set(producers)" t-as="pro">
+					<t t-foreach="set(sites)" t-as="site">
 
             			<!-- Individual Producer Report -->					    
 							 <div class="header">
@@ -45,15 +53,15 @@
 	                                <thead>
 	                                    <tr>
 	                                        <th colspan="8" style="font-size:8pt; line-height:9pt; font-weight:bold; text-align:center; width:100%; border-bottom: 1px solid grey; ">
-	                                        	Rapport de classification du sirop d'érable en grands contenants
+	                                        	Rapport des barils classés par site
 	                                        </th>
 	                                    </tr>
 	                                </thead>
 	                                <tbody>
 	                                    <tr>
-	                                        <td style="font-weight:bold">Producteur:</td>
+	                                        <td style="font-weight:bold">Site:</td>
 	                                        <td style="white-space: nowrap;">
-	                                        	<span t-esc="pro.name"/><br/>
+	                                        	<span t-esc="site.name"/><br/>
 	                                        	<span t-esc="pro.street"/><br/>
 	                                        	<t t-if="pro.street2"><span t-esc="pro.street2"/><br/></t>
 	                                        	<span t-esc="pro.city"/>, <span t-esc="pro.state_id.code"/>, <span t-esc="pro.country_id.code"/><br/>
@@ -255,23 +263,37 @@
 					    			</t>
 								</t>
 								
-								<t t-set="T1" t-value="0"/>
-								<t t-set="T2" t-value="0"/>
-								<t t-set="T3" t-value="0"/>
-								<t t-set="T4" t-value="0"/>
-								<t t-set="T5" t-value="0"/>
-								<t t-set="T6" t-value="0"/>
+								<t t-set="TJ1" t-value="0"/>
+								<t t-set="TJ2" t-value="0"/>
+								<t t-set="TJ3" t-value="0"/>
+								<t t-set="TJ4" t-value="0"/>
+								<t t-set="TJ5" t-value="0"/>
+								<t t-set="TJ6" t-value="0"/>
+								
+								<t t-set="STRB1" t-value="0"/>
+								<t t-set="STRB2" t-value="0"/>
+								<t t-set="STRB3" t-value="0"/>
+								<t t-set="STRB4" t-value="0"/>
+								<t t-set="STRB5" t-value="0"/>
+								<t t-set="STRB6" t-value="0"/>
+								
+								<t t-set="ST1" t-value="0"/>
+								<t t-set="ST2" t-value="0"/>
+								<t t-set="ST3" t-value="0"/>
+								<t t-set="ST4" t-value="0"/>
+								<t t-set="ST5" t-value="0"/>
+								<t t-set="ST6" t-value="0"/>
 								
 								<table class="table table-condensed mt36" t-if="o.stock_lines" style="font-size:7pt; line-height:8pt; margin:0; padding:0; width:190mm; text-align:right;">
 	                                <thead>
 	                                	<tr>
-	                                		<th style="text-align:left;">Sommaire du classement</th>
-	                                		<th style="text-align:right;">Vr</th>
-	                                		<th style="text-align:right;">Retenu</th>
-	                                		<th style="text-align:right;">Test spécial</th>
-	                                		<th style="text-align:right;">En révision</th>
-	                                		<th style="text-align:right;">Barils</th>
-	                                		<th style="text-align:right;">Poids</th>
+	                                		<th style="text-align:left;"><![CDATA[&nbsp;]]></th>
+	                                		<th style="text-align:right;">Nb barils</th>
+	                                		<th style="text-align:right;">Poids brut</th>
+	                                		<th style="text-align:right;">Tare</th>
+	                                		<th style="text-align:right;">Poids net</th>
+	                                		<th style="text-align:right;">+ Sucre<br/>- Eau</th>
+	                                		<th style="text-align:right;">Poids net<br/>ajusté</th>
 	                                	</tr>
 	                                </thead>
 	                                <tbody>
@@ -421,23 +443,23 @@
             </t>
         </template>
         
-        <template id="qweb_classif_acer_producer">
+        <template id="qweb_classif_by_site">
             <t t-foreach="docs" t-as="o">
-                <t t-call="maple.qweb_classif_acer_producer_document" t-lang="o.partner_id.lang"/>
+                <t t-call="maple.qweb_classif_by_site_document" t-lang="o.partner_id.lang"/>
             </t>
         </template>
 
-        <report id="report_classif_acer_producer"
-            name="maple.qweb_classif_acer_producer"
+        <report id="report_classif_by_site"
+            name="maple.qweb_classif_by_site"
             model="stock.location"
-            string="Rapport de classification Acer (producteur)"
+            string="Rapport des barils classés par site"
             report_type="qweb-pdf"
-            file="maple.qweb_classif_acer_producer"
+            file="maple.qweb_classif_by_site"
             />
             
-		<record id="report_classif_acer_producer" model="ir.actions.report.xml">
-    		<field name="paperformat_id" ref="paperformat_classif_acer_producer" />
-		</record>
+		<!-- record id="report_classif_by_site" model="ir.actions.report.xml" -->
+    		<!--  field name="paperformat_id" ref="paperformat_classif_by_site" / -->
+		<!--  /record -->
 
 	</data>
 </odoo>

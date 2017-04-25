@@ -46,7 +46,7 @@ class container_owner_type(models.Model):
 class maple_control(models.Model):
     _name = 'maple.control'
     
-    controler = fields.Many2one('hr.employee', string="Controlled by")
+    controler = fields.Many2one('hr.employee', string="Controlled by", related='')
     
     container_total_weight = fields.Integer(
         string='Weight', 
@@ -270,6 +270,10 @@ class maple_control(models.Model):
         )
           
     
+    
+    
+    
+    
     @api.depends('maple_light','maple_brix') # if these fields are changed, call method
     def _compute_line_data(self):
         for r in self:
@@ -357,7 +361,22 @@ class maple_control(models.Model):
                     employee = self.env['hr.employee'].browse([ctrl])
                     cpt = employee.barrelCnt + 1
                     employee.write({'barrelCnt':cpt})
-                    vals['maple_seal_no'] = date.today().strftime('%y') + str(int(employee.inspectNb)).zfill(2) + "-" + str(cpt).zfill(5)                 
+                    vals['maple_seal_no'] = date.today().strftime('%y') + str(int(employee.inspectNb)).zfill(2) + "-" + str(cpt).zfill(5)       
+            
+            
+            weighing_picking_type = self.env['stock.picking.type'].browse([42,48]) #se1 et senb (name) ilike (casse ou pas)
+            weighing_move = self.history_ids.filtered(lambda m: m.picking_id.picking_type_id in weighing_picking_type) #[picking type = weight - identifier move de pesée dans histo quant
+            if weighing_move and not ctrl and weighing_move.picking_id.tmp_controller:
+                vals['controler'] = weighing_move.picking_id.tmp_controller.id
+                vals['producer_present'] = weighing_move.picking_id.producer_present.id
+                
+                #donne acc;es au picking
+#                move.picking_id #picking_id fu quant
+#                étiquette
+#                obj stock picking type créer objet pesée se1 et senb
+            
+            
+            #quant > move > picking          
                     #        if vals.get('project_id'):
             #            project = self.env['project.project'].browse(vals.get('project_id'))
             #            vals['account_id'] = project.analytic_account_id.id

@@ -39,8 +39,17 @@ class Picking(models.Model):
         compute='_farm_region',
         store=True
         )
+
+    tmp_controller = fields.Many2one(
+        comodel_name='hr.employee',
+        string='Expected Controller',
+        readonly=False
+        ) #valeur par défaut modifiable; ajoputer comme valeur par défaut à stock_quant
     
-    
+    producer_present = fields.Boolean(
+        string="Producer present",
+        help="Indicates if the producer will be present at classification. "
+        )
     
     daily_in_sequence = fields.Char('Daily Id')
 

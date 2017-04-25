@@ -44,11 +44,11 @@ This module provides mosly fields and views.
 #        'data/res.groups.users.rel.csv',
         'data/product_categories.xml',
         'data/product_attributes.xml',
-  		'data/product.template.csv',
-        'data/products.xml',          
+#        'data/products.xml',          
 #		'data/product.product.csv',
   		'data/product.template.xml',
 		'data/product.product.xml',
+        'data/product.template.csv',
         'data/grades.xml',
         'security/groups.xml',
 # COMMENTÉ CAR MESSAGE :

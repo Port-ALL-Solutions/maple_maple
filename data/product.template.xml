@@ -1,33 +1,273 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data noupdate="1">
-
-
-    <!-- Maple Syrup -->
-
-
-        <record id="BDO" model="product.template"><field name="name">BIO DO</field><field name="sale_ok">1</field><field name="purchase_ok">1</field><field name="maple_syrup">1</field><field name="maple_container">0</field><field name="categ_id" ref="maple_category"/><field name="tracking">none</field><field name="uom_id" ref="product.product_uom_lb"/><field name="uom_po_id" ref="product.product_uom_lb"/><field name="default_code">BDO</field></record>
-        <record id="BAM" model="product.template"><field name="name">BIO AM</field><field name="sale_ok">1</field><field name="purchase_ok">1</field><field name="maple_syrup">1</field><field name="maple_container">0</field><field name="categ_id" ref="maple_category"/><field name="tracking">none</field><field name="uom_id" ref="product.product_uom_lb"/><field name="uom_po_id" ref="product.product_uom_lb"/><field name="default_code">BAM</field></record>
-        <record id="BFO" model="product.template"><field name="name">BIO FO</field><field name="sale_ok">1</field><field name="purchase_ok">1</field><field name="maple_syrup">1</field><field name="maple_container">0</field><field name="categ_id" ref="maple_category"/><field name="tracking">none</field><field name="uom_id" ref="product.product_uom_lb"/><field name="uom_po_id" ref="product.product_uom_lb"/><field name="default_code">BFO</field></record>
-        <record id="BTF" model="product.template"><field name="name">BIO TF</field><field name="sale_ok">1</field><field name="purchase_ok">1</field><field name="maple_syrup">1</field><field name="maple_container">0</field><field name="categ_id" ref="maple_category"/><field name="tracking">none</field><field name="uom_id" ref="product.product_uom_lb"/><field name="uom_po_id" ref="product.product_uom_lb"/><field name="default_code">BTF</field></record>
-        <record id="RDO" model="product.template"><field name="name">REG DO</field><field name="sale_ok">1</field><field name="purchase_ok">1</field><field name="maple_syrup">1</field><field name="maple_container">0</field><field name="categ_id" ref="maple_category"/><field name="tracking">none</field><field name="uom_id" ref="product.product_uom_lb"/><field name="uom_po_id" ref="product.product_uom_lb"/><field name="default_code">RDO</field></record>
-        <record id="RAM" model="product.template"><field name="name">REG AM</field><field name="sale_ok">1</field><field name="purchase_ok">1</field><field name="maple_syrup">1</field><field name="maple_container">0</field><field name="categ_id" ref="maple_category"/><field name="tracking">none</field><field name="uom_id" ref="product.product_uom_lb"/><field name="uom_po_id" ref="product.product_uom_lb"/><field name="default_code">RAM</field></record>
-        <record id="RFO" model="product.template"><field name="name">REG FO</field><field name="sale_ok">1</field><field name="purchase_ok">1</field><field name="maple_syrup">1</field><field name="maple_container">0</field><field name="categ_id" ref="maple_category"/><field name="tracking">none</field><field name="uom_id" ref="product.product_uom_lb"/><field name="uom_po_id" ref="product.product_uom_lb"/><field name="default_code">RFO</field></record>
-        <record id="RTF" model="product.template"><field name="name">REG TF</field><field name="sale_ok">1</field><field name="purchase_ok">1</field><field name="maple_syrup">1</field><field name="maple_container">0</field><field name="categ_id" ref="maple_category"/><field name="tracking">none</field><field name="uom_id" ref="product.product_uom_lb"/><field name="uom_po_id" ref="product.product_uom_lb"/><field name="default_code">RTF</field></record>
-
-
-    <!-- Maple Syrup Barrels -->
-
-
-        <record id="BBDO" model="product.template"><field name="name">Baril BIO DO</field><field name="sale_ok">1</field><field name="purchase_ok">0</field><field name="maple_syrup">0</field><field name="maple_container">1</field><field name="categ_id" ref="container_category"/><field name="tracking">serial</field><field name="uom_id" ref="product.product_uom_categ_unit"/><field name="uom_po_id" ref="product.product_uom_categ_unit"/><field name="default_code">BBDO</field><field name="route_ids" eval="[(6,0,[ref('mrp.route_warehouse0_manufacture')])]"/></record>
-        <record id="BBAM" model="product.template"><field name="name">Baril BIO AM</field><field name="sale_ok">1</field><field name="purchase_ok">0</field><field name="maple_syrup">0</field><field name="maple_container">1</field><field name="categ_id" ref="container_category"/><field name="tracking">serial</field><field name="uom_id" ref="product.product_uom_categ_unit"/><field name="uom_po_id" ref="product.product_uom_categ_unit"/><field name="default_code">BBAM</field><field name="route_ids" eval="[(6,0,[ref('mrp.route_warehouse0_manufacture')])]"/></record>
-        <record id="BBFO" model="product.template"><field name="name">Baril BIO FO</field><field name="sale_ok">1</field><field name="purchase_ok">0</field><field name="maple_syrup">0</field><field name="maple_container">1</field><field name="categ_id" ref="container_category"/><field name="tracking">serial</field><field name="uom_id" ref="product.product_uom_categ_unit"/><field name="uom_po_id" ref="product.product_uom_categ_unit"/><field name="default_code">BBFO</field><field name="route_ids" eval="[(6,0,[ref('mrp.route_warehouse0_manufacture')])]"/></record>
-        <record id="BBTF" model="product.template"><field name="name">Baril BIO TF</field><field name="sale_ok">1</field><field name="purchase_ok">0</field><field name="maple_syrup">0</field><field name="maple_container">1</field><field name="categ_id" ref="container_category"/><field name="tracking">serial</field><field name="uom_id" ref="product.product_uom_categ_unit"/><field name="uom_po_id" ref="product.product_uom_categ_unit"/><field name="default_code">BBTF</field><field name="route_ids" eval="[(6,0,[ref('mrp.route_warehouse0_manufacture')])]"/></record>
-        <record id="BRDO" model="product.template"><field name="name">Baril REG DO</field><field name="sale_ok">1</field><field name="purchase_ok">0</field><field name="maple_syrup">0</field><field name="maple_container">1</field><field name="categ_id" ref="container_category"/><field name="tracking">serial</field><field name="uom_id" ref="product.product_uom_categ_unit"/><field name="uom_po_id" ref="product.product_uom_categ_unit"/><field name="default_code">BRDO</field><field name="route_ids" eval="[(6,0,[ref('mrp.route_warehouse0_manufacture')])]"/></record>
-        <record id="BRAM" model="product.template"><field name="name">Baril REG AM</field><field name="sale_ok">1</field><field name="purchase_ok">0</field><field name="maple_syrup">0</field><field name="maple_container">1</field><field name="categ_id" ref="container_category"/><field name="tracking">serial</field><field name="uom_id" ref="product.product_uom_categ_unit"/><field name="uom_po_id" ref="product.product_uom_categ_unit"/><field name="default_code">BRAM</field><field name="route_ids" eval="[(6,0,[ref('mrp.route_warehouse0_manufacture')])]"/></record>
-        <record id="BRFO" model="product.template"><field name="name">Baril REG FO</field><field name="sale_ok">1</field><field name="purchase_ok">0</field><field name="maple_syrup">0</field><field name="maple_container">1</field><field name="categ_id" ref="container_category"/><field name="tracking">serial</field><field name="uom_id" ref="product.product_uom_categ_unit"/><field name="uom_po_id" ref="product.product_uom_categ_unit"/><field name="default_code">BRFO</field><field name="route_ids" eval="[(6,0,[ref('mrp.route_warehouse0_manufacture')])]"/></record>
-        <record id="BRTF" model="product.template"><field name="name">Baril REG TF</field><field name="sale_ok">1</field><field name="purchase_ok">0</field><field name="maple_syrup">0</field><field name="maple_container">1</field><field name="categ_id" ref="container_category"/><field name="tracking">serial</field><field name="uom_id" ref="product.product_uom_categ_unit"/><field name="uom_po_id" ref="product.product_uom_categ_unit"/><field name="default_code">BRTF</field><field name="route_ids" eval="[(6,0,[ref('mrp.route_warehouse0_manufacture')])]"/></record>
-
-
-    </data>
+   <data noupdate="0">
+      <record id="regular_maple" model="product.template">
+         <field name="name">Regular Maple Syrup</field>
+         <field name="default_code">R</field>
+         <field name="type">product</field>
+         <field name="maple_syrup">1</field>
+         <field name="sale_ok">1</field>
+         <field name="purchase_ok">1</field>
+         <field name="categ_id" ref="maple_category" />
+      </record>
+      <record id="organic_maple" model="product.template">
+         <field name="name">Organic Maple Syrup</field>
+         <field name="default_code">O</field>
+         <field name="type">product</field>
+         <field name="maple_syrup">1</field>
+         <field name="sale_ok">1</field>
+         <field name="purchase_ok">1</field>
+         <field name="categ_id" ref="maple_category" />
+      </record>
+      <record id="regular_maple_barrel" model="product.template">
+         <field name="name">Regural Maple Syrup Barrel</field>
+         <field name="default_code">BRt</field>
+         <field name="type">product</field>
+         <field name="maple_container">1</field>
+         <field name="sale_ok">0</field>
+         <field name="tracking">serial</field>
+         <field name="order_create_serial">1</field>
+         <field name="maple_syrup">1</field>
+         <field name="purchase_ok">1</field>
+         <field name="categ_id" ref="maple_category" />
+      </record>
+      <record id="organic_maple_barrel" model="product.template">
+         <field name="name">Organic Maple Syrup Barrel</field>
+         <field name="default_code">BBt</field>
+         <field name="type">product</field>
+         <field name="maple_container">1</field>
+         <field name="sale_ok">0</field>
+         <field name="tracking">serial</field>
+         <field name="order_create_serial">1</field>
+         <field name="maple_syrup">1</field>
+         <field name="purchase_ok">1</field>
+         <field name="categ_id" ref="maple_category" />
+      </record>
+      <record id="regular_maple_tote" model="product.template">
+         <field name="name">Regural Maple Syrup Tote</field>
+         <field name="default_code">TRt</field>
+         <field name="type">product</field>
+         <field name="maple_container">1</field>
+         <field name="sale_ok">0</field>
+         <field name="tracking">serial</field>
+         <field name="order_create_serial">1</field>
+         <field name="purchase_ok">1</field>
+         <field name="maple_syrup">1</field>
+         <field name="categ_id" ref="maple_category" />
+      </record>
+      <record id="organic_maple_tote" model="product.template">
+         <field name="name">Organic Maple Syrup Tote</field>
+         <field name="default_code">TBt</field>
+         <field name="type">product</field>
+         <field name="maple_container">1</field>
+         <field name="sale_ok">0</field>
+         <field name="tracking">serial</field>
+         <field name="order_create_serial">1</field>
+         <field name="purchase_ok">1</field>
+         <field name="maple_syrup">1</field>
+         <field name="categ_id" ref="maple_category" />
+      </record>
+      <!-- Maple Syrup -->
+      <record id="BDO" model="product.template">
+         <field name="name">BIO DO</field>
+         <field name="sale_ok">1</field>
+         <field name="purchase_ok">1</field>
+         <field name="maple_syrup">1</field>
+         <field name="maple_container">0</field>
+         <field name="categ_id" ref="maple_category" />
+         <field name="tracking">none</field>
+         <field name="uom_id" ref="product.product_uom_lb" />
+         <field name="uom_po_id" ref="product.product_uom_lb" />
+         <field name="default_code">BDO</field>
+      </record>
+      <record id="BAM" model="product.template">
+         <field name="name">BIO AM</field>
+         <field name="sale_ok">1</field>
+         <field name="purchase_ok">1</field>
+         <field name="maple_syrup">1</field>
+         <field name="maple_container">0</field>
+         <field name="categ_id" ref="maple_category" />
+         <field name="tracking">none</field>
+         <field name="uom_id" ref="product.product_uom_lb" />
+         <field name="uom_po_id" ref="product.product_uom_lb" />
+         <field name="default_code">BAM</field>
+      </record>
+      <record id="BFO" model="product.template">
+         <field name="name">BIO FO</field>
+         <field name="sale_ok">1</field>
+         <field name="purchase_ok">1</field>
+         <field name="maple_syrup">1</field>
+         <field name="maple_container">0</field>
+         <field name="categ_id" ref="maple_category" />
+         <field name="tracking">none</field>
+         <field name="uom_id" ref="product.product_uom_lb" />
+         <field name="uom_po_id" ref="product.product_uom_lb" />
+         <field name="default_code">BFO</field>
+      </record>
+      <record id="BTF" model="product.template">
+         <field name="name">BIO TF</field>
+         <field name="sale_ok">1</field>
+         <field name="purchase_ok">1</field>
+         <field name="maple_syrup">1</field>
+         <field name="maple_container">0</field>
+         <field name="categ_id" ref="maple_category" />
+         <field name="tracking">none</field>
+         <field name="uom_id" ref="product.product_uom_lb" />
+         <field name="uom_po_id" ref="product.product_uom_lb" />
+         <field name="default_code">BTF</field>
+      </record>
+      <record id="RDO" model="product.template">
+         <field name="name">REG DO</field>
+         <field name="sale_ok">1</field>
+         <field name="purchase_ok">1</field>
+         <field name="maple_syrup">1</field>
+         <field name="maple_container">0</field>
+         <field name="categ_id" ref="maple_category" />
+         <field name="tracking">none</field>
+         <field name="uom_id" ref="product.product_uom_lb" />
+         <field name="uom_po_id" ref="product.product_uom_lb" />
+         <field name="default_code">RDO</field>
+      </record>
+      <record id="RAM" model="product.template">
+         <field name="name">REG AM</field>
+         <field name="sale_ok">1</field>
+         <field name="purchase_ok">1</field>
+         <field name="maple_syrup">1</field>
+         <field name="maple_container">0</field>
+         <field name="categ_id" ref="maple_category" />
+         <field name="tracking">none</field>
+         <field name="uom_id" ref="product.product_uom_lb" />
+         <field name="uom_po_id" ref="product.product_uom_lb" />
+         <field name="default_code">RAM</field>
+      </record>
+      <record id="RFO" model="product.template">
+         <field name="name">REG FO</field>
+         <field name="sale_ok">1</field>
+         <field name="purchase_ok">1</field>
+         <field name="maple_syrup">1</field>
+         <field name="maple_container">0</field>
+         <field name="categ_id" ref="maple_category" />
+         <field name="tracking">none</field>
+         <field name="uom_id" ref="product.product_uom_lb" />
+         <field name="uom_po_id" ref="product.product_uom_lb" />
+         <field name="default_code">RFO</field>
+      </record>
+      <record id="RTF" model="product.template">
+         <field name="name">REG TF</field>
+         <field name="sale_ok">1</field>
+         <field name="purchase_ok">1</field>
+         <field name="maple_syrup">1</field>
+         <field name="maple_container">0</field>
+         <field name="categ_id" ref="maple_category" />
+         <field name="tracking">none</field>
+         <field name="uom_id" ref="product.product_uom_lb" />
+         <field name="uom_po_id" ref="product.product_uom_lb" />
+         <field name="default_code">RTF</field>
+      </record>
+      <!-- Maple Syrup Barrels -->
+      <record id="BBDO" model="product.template">
+         <field name="name">Baril BIO DO</field>
+         <field name="sale_ok">1</field>
+         <field name="purchase_ok">0</field>
+         <field name="maple_syrup">0</field>
+         <field name="maple_container">1</field>
+         <field name="categ_id" ref="container_category" />
+         <field name="tracking">serial</field>
+         <field name="uom_id" ref="product.product_uom_categ_unit" />
+         <field name="uom_po_id" ref="product.product_uom_categ_unit" />
+         <field name="default_code">BBDO</field>
+         <field name="route_ids" eval="[(6,0,[ref('mrp.route_warehouse0_manufacture')])]" />
+      </record>
+      <record id="BBAM" model="product.template">
+         <field name="name">Baril BIO AM</field>
+         <field name="sale_ok">1</field>
+         <field name="purchase_ok">0</field>
+         <field name="maple_syrup">0</field>
+         <field name="maple_container">1</field>
+         <field name="categ_id" ref="container_category" />
+         <field name="tracking">serial</field>
+         <field name="uom_id" ref="product.product_uom_categ_unit" />
+         <field name="uom_po_id" ref="product.product_uom_categ_unit" />
+         <field name="default_code">BBAM</field>
+         <field name="route_ids" eval="[(6,0,[ref('mrp.route_warehouse0_manufacture')])]" />
+      </record>
+      <record id="BBFO" model="product.template">
+         <field name="name">Baril BIO FO</field>
+         <field name="sale_ok">1</field>
+         <field name="purchase_ok">0</field>
+         <field name="maple_syrup">0</field>
+         <field name="maple_container">1</field>
+         <field name="categ_id" ref="container_category" />
+         <field name="tracking">serial</field>
+         <field name="uom_id" ref="product.product_uom_categ_unit" />
+         <field name="uom_po_id" ref="product.product_uom_categ_unit" />
+         <field name="default_code">BBFO</field>
+         <field name="route_ids" eval="[(6,0,[ref('mrp.route_warehouse0_manufacture')])]" />
+      </record>
+      <record id="BBTF" model="product.template">
+         <field name="name">Baril BIO TF</field>
+         <field name="sale_ok">1</field>
+         <field name="purchase_ok">0</field>
+         <field name="maple_syrup">0</field>
+         <field name="maple_container">1</field>
+         <field name="categ_id" ref="container_category" />
+         <field name="tracking">serial</field>
+         <field name="uom_id" ref="product.product_uom_categ_unit" />
+         <field name="uom_po_id" ref="product.product_uom_categ_unit" />
+         <field name="default_code">BBTF</field>
+         <field name="route_ids" eval="[(6,0,[ref('mrp.route_warehouse0_manufacture')])]" />
+      </record>
+      <record id="BRDO" model="product.template">
+         <field name="name">Baril REG DO</field>
+         <field name="sale_ok">1</field>
+         <field name="purchase_ok">0</field>
+         <field name="maple_syrup">0</field>
+         <field name="maple_container">1</field>
+         <field name="categ_id" ref="container_category" />
+         <field name="tracking">serial</field>
+         <field name="uom_id" ref="product.product_uom_categ_unit" />
+         <field name="uom_po_id" ref="product.product_uom_categ_unit" />
+         <field name="default_code">BRDO</field>
+         <field name="route_ids" eval="[(6,0,[ref('mrp.route_warehouse0_manufacture')])]" />
+      </record>
+      <record id="BRAM" model="product.template">
+         <field name="name">Baril REG AM</field>
+         <field name="sale_ok">1</field>
+         <field name="purchase_ok">0</field>
+         <field name="maple_syrup">0</field>
+         <field name="maple_container">1</field>
+         <field name="categ_id" ref="container_category" />
+         <field name="tracking">serial</field>
+         <field name="uom_id" ref="product.product_uom_categ_unit" />
+         <field name="uom_po_id" ref="product.product_uom_categ_unit" />
+         <field name="default_code">BRAM</field>
+         <field name="route_ids" eval="[(6,0,[ref('mrp.route_warehouse0_manufacture')])]" />
+      </record>
+      <record id="BRFO" model="product.template">
+         <field name="name">Baril REG FO</field>
+         <field name="sale_ok">1</field>
+         <field name="purchase_ok">0</field>
+         <field name="maple_syrup">0</field>
+         <field name="maple_container">1</field>
+         <field name="categ_id" ref="container_category" />
+         <field name="tracking">serial</field>
+         <field name="uom_id" ref="product.product_uom_categ_unit" />
+         <field name="uom_po_id" ref="product.product_uom_categ_unit" />
+         <field name="default_code">BRFO</field>
+         <field name="route_ids" eval="[(6,0,[ref('mrp.route_warehouse0_manufacture')])]" />
+      </record>
+      <record id="BRTF" model="product.template">
+         <field name="name">Baril REG TF</field>
+         <field name="sale_ok">1</field>
+         <field name="purchase_ok">0</field>
+         <field name="maple_syrup">0</field>
+         <field name="maple_container">1</field>
+         <field name="categ_id" ref="container_category" />
+         <field name="tracking">serial</field>
+         <field name="uom_id" ref="product.product_uom_categ_unit" />
+         <field name="uom_po_id" ref="product.product_uom_categ_unit" />
+         <field name="default_code">BRTF</field>
+         <field name="route_ids" eval="[(6,0,[ref('mrp.route_warehouse0_manufacture')])]" />
+      </record>
+   </data>
 </odoo>

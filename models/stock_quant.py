@@ -652,24 +652,24 @@ class stockQuant(models.Model):
 #        return result
 
 
-    @api.multi
-    def write(self, vals):
-        if len(self) == 1:
-            if self.location_id.id in [42, 48] and not self.weighing_sequence:
-                seq = self.weighing_sequence or vals.get('weighing_sequence')            
-                if not seq:
-                    vals['weighing_sequence'] = self.location_id.counter + 1
-                    self.location_id.write({'counter':self.location_id.counter + 1})
-                    
-                                                            
-    #                    if not self.maple_seal_no and (self.acer_seal_no or (brix and ctrl)):
-    #                 employee = self.env['hr.employee'].browse([ctrl])
-    #                 cpt = employee.barrelCnt + 1
-    #                 employee.write({'barrelCnt':cpt})
-    #                 vals['maple_seal_no'] = date.today().strftime('%y') + str(int(employee.inspectNb)).zfill(2) + "-" + str(cpt).zfill(5) 
-                
-    #            self.write({'weighing_sequence':self.location_id.qty_stock+1})
-        super(stockQuant,self).write(vals)
+#     @api.multi
+#     def write(self, vals):
+#         if len(self) == 1:
+#             if self.location_id.id in [42, 48] and not self.weighing_sequence:
+#                 seq = self.weighing_sequence or vals.get('weighing_sequence')            
+#                 if not seq:
+#                     vals['weighing_sequence'] = self.location_id.counter + 1
+#                     self.location_id.write({'counter':self.location_id.counter + 1})
+#                     
+#                                                             
+#     #                    if not self.maple_seal_no and (self.acer_seal_no or (brix and ctrl)):
+#     #                 employee = self.env['hr.employee'].browse([ctrl])
+#     #                 cpt = employee.barrelCnt + 1
+#     #                 employee.write({'barrelCnt':cpt})
+#     #                 vals['maple_seal_no'] = date.today().strftime('%y') + str(int(employee.inspectNb)).zfill(2) + "-" + str(cpt).zfill(5) 
+#                 
+#     #            self.write({'weighing_sequence':self.location_id.qty_stock+1})
+#         super(stockQuant,self).write(vals)
             
         
         

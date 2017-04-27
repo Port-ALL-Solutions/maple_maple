@@ -3,199 +3,203 @@
 	<data>  
 
 <!-- Main menu of Maple, holds company logo and all submenus -->
+
 		<menuitem id="main_maple_menu" 
         	name="Maple"
             web_icon="maple,static/description/icon.png"/>
 
-<!-- Partners menu, just a menu entry, no action, parent of all related views -->
-		<menuitem id="maple_partners_menu" 
-        	name="Partners"
+<!-- Pickings menu  -->
+		<menuitem id="maple_pickings_menu"
+			name="Transferts"
         	sequence="10"
-            parent="main_maple_menu"/>
-
-		<menuitem id="maple_producers_menu_list" 
-        	name="Producers" 
-        	parent="maple_partners_menu"
-            action="producer_list_action"/>
-
-		<menuitem id="maple_farm_menu_list"
-        	name="Farms" 
-        	parent="maple_partners_menu"
-            action="farm_list_action"/>
-
-		<menuitem id="maple_buyers_menu_list" 
-        	name="Buyers" 
-        	parent="maple_partners_menu"
-            action="buyer_list_action"/>
-
-<!-- Purchases menu, just a menu entry, no action, parent of all related views -->
-		<menuitem id="maple_entry_menu"
-        	name="Maple syrup Purchases"
-        	sequence="20"
-            parent="main_maple_menu"/>
+    		parent="main_maple_menu"/>
 
 		<menuitem id="pickings_dashboard" 
 			name="Pickings Dashboard"
-			parent="maple_entry_menu"
-			sequence="21"
+			parent="maple_pickings_menu"
+			sequence="11"
             action="maple_pickings_dashboard"/>
 
 		<menuitem id="all_pickings" 
 			name="All Pickings"
-			parent="maple_entry_menu"
-			sequence="22"
+			parent="maple_pickings_menu"
+			sequence="12"
             action="maple_all_pickings"/>
 
-		<menuitem id="maple_purchase_list" 
-			name="Purchase list" 
-			parent="maple_entry_menu"
-			sequence="28"
-            action="maple_purchase_list_action"/>
+<!-- Inventory menu -->
 
-		<menuitem id="create_maple_purchase_list" 
-			name="Create Purchase" 
-			parent="maple_entry_menu"
-            action="action_create_maple_purchase"/>
-
-		<menuitem id="maple_available_menu_label" 
-			name="Create Reception Labels" 
-			parent="maple_entry_menu"
-            action="action_create_maple_reception_label"/>
-
-		<menuitem id="maple_available_menu_list" 
-			name="Available Maple list" 
-			parent="maple_entry_menu"
-            action="available_maple_list_action"/>
-
-<!-- Maple menu, just a menu entry, no action, parent of all related views -->
-		<menuitem id="maple_confirmed_menu_list" 
-			name="Confirmed Maple list"
-			parent="maple_entry_menu"
-            action="confimed_maple_list_action"/>
-
-<!-- Pickup menu, just a menu entry, no action, parent of all related views -->
-		<menuitem id="maple_pickup_menu"
-			name="Maple pick-up"
-			sequence="30"
-            parent="main_maple_menu"/>
-
-		<menuitem id="maple_pickup_menu_list" 
-			name="Maple pick-up list" 
-			parent="maple_pickup_menu"
-            action="pickup_list_action"/>
-
-<!-- Weighing menu, just a menu entry, no action, parent of all related views -->
-		<menuitem id="maple_weighing_menu" 
-        	name="Weighing"
-        	sequence="38"
-            parent="main_maple_menu"/>
-            
-		<menuitem id="maple_weighing_acer_export_menu"
-	    	name="Acer Export"
-	    	parent="maple_weighing_menu"
-	    	sequence="40"
-	        action="maple_weighing_acer_export_action"/>
-
-		<menuitem id="maple_weight_menu_list"
-	    	name="Weighing"
-	    	parent="maple_weighing_menu"
-	    	sequence="42"
-	        action="maple_weight_list_action"/>	
-
-<!-- Classification menu, just a menu entry, no action, parent of all related views -->
-		<menuitem id="maple_classif_menu" 
-        	name="Classification"
-        	sequence="40"
-            parent="main_maple_menu"/>
-
-		<menuitem id="maple_SE1_classif1_menu" 
-			name="Outside QC | SE1 room 1" 
-			parent="maple_classif_menu"
-			sequence="42"
-            action="SE1_classif1_list_action"/>
-
-		<menuitem id="maple_SE1_classif2_menu" 
-			name="Outside QC | SE1 room 2" 
-			parent="maple_classif_menu"
-			sequence="43"
-            action="SE1_classif2_list_action"/>
-
-		<menuitem id="maple_SENB_classif_menu" 
-			name="Outside QC | SENB" 
-			parent="maple_classif_menu"
-			sequence="44"
-            action="SENB_classif_list_action"/>
-
-		<menuitem id="classif1_acer_import_menu"
-			name="Quebec Classification"
-			parent="maple_classif_menu"
-			sequence="46"
-            action="maple_acer_import_list_action"/>
-
-		<menuitem id="maple_rating_menu_list"
-	    	name="Outside QC Classification"
-	    	parent="maple_classif_menu"
-	    	sequence="48"
-	        action="maple_rating_list_action"/>
-	        
-		<menuitem id="maple_weight_acer_menu_list"
-	    	name="Weighing Exports for Acer"
-	    	parent="maple_weighing_menu"
-	    	sequence="49"
-	        action="maple_weight_acer_list_action"/>
-
-<!-- Containers menu, just a menu entry, no action, parent of all partner related views -->
-		<menuitem id="maple_container_menu"
-			name="Maple syrup Containers"
-        	sequence="55"
+		<menuitem id="maple_location_menu"
+			name="Inventaire"
+        	sequence="20"
     		parent="main_maple_menu"/>
 
         <menuitem id="maple_container_menu_list"
         	name="All Containers"
-        	parent="maple_container_menu"
+        	parent="maple_location_menu"
+        	sequence="21"
             action="maple_container_list_action"/>
 
         <menuitem id="maple_product_lot_menu_list"
         	name="All maple"
-        	parent="maple_container_menu"
+        	parent="maple_location_menu"
+        	sequence="22"
             action="maple_product_lot_list_action"/>
-
-
-<!-- Locations menu, just a menu entry, no action, parent of all partner related views -->
-		<menuitem id="maple_location_menu"
-			name="Maple syrup Stock Locations"
-        	sequence="50"
-    		parent="main_maple_menu"/>
 
         <menuitem id="maple_location_menu_list"
         	name="All locations"
         	parent="maple_location_menu"
+        	sequence="23"
             action="stock_location_list_action"/>
 
         <menuitem id="maple_location_SE1_menu_list"
         	name="Entrepôt SE1"
         	parent="maple_location_menu"
+        	sequence="24"
             action="stock_SE1STOCK_list_action"/>
            
 		<menuitem id="maple_location_filter_view_SE2"
         	name="Entrepôt SE2"
         	parent="maple_location_menu"
+        	sequence="25"
             action="stock_SE2STOCK_list_action"/>
             
 		<menuitem id="maple_location_filter_view_SE3"
         	name="Entrepôt SE3"
         	parent="maple_location_menu"
+        	sequence="26"
             action="stock_SE3STOCK_list_action"/>
             
 		<menuitem id="maple_location_filter_view_SEEXT"
         	name="Entrepôt SE EXT"
         	parent="maple_location_menu"
+        	sequence="27"
             action="stock_SEEXTSTOCK_list_action"/>
             
 		<menuitem id="maple_location_filter_view_SENB"
         	name="Entrepôt SE NB"
         	parent="maple_location_menu"
+        	sequence="28"
             action="stock_SENBSTOCK_list_action"/>
+
+<!-- Purchases menu, just a menu entry, no action, parent of all related views -->
+		<menuitem id="maple_entry_menu"
+        	name="Maple syrup Purchases"
+        	sequence="30"
+            parent="main_maple_menu"/>
+
+		<menuitem id="maple_purchase_list" 
+			name="Purchase list" 
+			parent="maple_entry_menu"
+			sequence="31"
+            action="maple_purchase_list_action"/>
+
+		<menuitem id="create_maple_purchase_list" 
+			name="Create Purchase" 
+			parent="maple_entry_menu"
+			sequence="32"
+            action="action_create_maple_purchase"/>
+
+		<menuitem id="maple_available_menu_label" 
+			name="Create Reception Labels" 
+			parent="maple_entry_menu"
+			sequence="33"
+            action="action_create_maple_reception_label"/>
+
+<!-- Pickup menu, just a menu entry, no action, parent of all related views -->
+		<menuitem id="maple_pickup_menu"
+			name="Maple pick-up"
+			sequence="40"
+            parent="main_maple_menu"/>
+
+		<menuitem id="maple_pickup_menu_list" 
+			name="Maple pick-up list" 
+			parent="maple_pickup_menu"
+			sequence="41"
+            action="pickup_list_action"/>
+
+<!-- Weighing menu, just a menu entry, no action, parent of all related views -->
+		<menuitem id="maple_weighing_menu" 
+        	name="Weighing"
+        	sequence="50"
+            parent="main_maple_menu"/>
+            
+		<menuitem id="maple_weighing_acer_export_menu"
+	    	name="Acer Export"
+	    	parent="maple_weighing_menu"
+	    	sequence="51"
+	        action="maple_weighing_acer_export_action"/>
+
+		<menuitem id="maple_weight_menu_list"
+	    	name="Weighing"
+	    	parent="maple_weighing_menu"
+	    	sequence="52"
+	        action="maple_weight_list_action"/>	
+
+<!-- Classification menu, just a menu entry, no action, parent of all related views -->
+		<menuitem id="maple_classif_menu" 
+        	name="Classification"
+        	sequence="60"
+            parent="main_maple_menu"/>
+
+		<menuitem id="maple_SE1_classif1_menu" 
+			name="Outside QC | SE1 room 1" 
+			parent="maple_classif_menu"
+			sequence="61"
+            action="SE1_classif1_list_action"/>
+
+		<menuitem id="maple_SE1_classif2_menu" 
+			name="Outside QC | SE1 room 2" 
+			parent="maple_classif_menu"
+			sequence="62"
+            action="SE1_classif2_list_action"/>
+
+		<menuitem id="maple_SENB_classif_menu" 
+			name="Outside QC | SENB" 
+			parent="maple_classif_menu"
+			sequence="63"
+            action="SENB_classif_list_action"/>
+
+		<menuitem id="classif1_acer_import_menu"
+			name="Quebec Classification"
+			parent="maple_classif_menu"
+			sequence="64"
+            action="maple_acer_import_list_action"/>
+
+		<menuitem id="maple_rating_menu_list"
+	    	name="Outside QC Classification"
+	    	parent="maple_classif_menu"
+	    	sequence="65"
+	        action="maple_rating_list_action"/>
+	        
+		<menuitem id="maple_weight_acer_menu_list"
+	    	name="Weighing Exports for Acer"
+	    	parent="maple_weighing_menu"
+	    	sequence="66"
+	        action="maple_weight_acer_list_action"/>
+            
+<!-- Partners menu, just a menu entry, no action, parent of all related views -->
+		<menuitem id="maple_partners_menu" 
+        	name="Partners"
+        	sequence="70"
+            parent="main_maple_menu"/>
+
+		<menuitem id="maple_producers_menu_list" 
+        	name="Producers" 
+        	parent="maple_partners_menu"
+        	sequence="71"
+            action="producer_list_action"/>
+
+		<menuitem id="maple_farm_menu_list"
+        	name="Farms" 
+        	parent="maple_partners_menu"
+        	sequence="72"
+            action="farm_list_action"/>
+
+		<menuitem id="maple_buyers_menu_list" 
+        	name="Buyers" 
+        	parent="maple_partners_menu"
+        	sequence="72"
+            action="buyer_list_action"/>
 
 <!-- Config menu, just a menu entry, no action, parent of all partner related views -->
 		<menuitem id="maple_config_menu"

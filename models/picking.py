@@ -43,6 +43,7 @@ class Picking(models.Model):
     tmp_controller = fields.Many2one(
         comodel_name='hr.employee',
         string='Expected Controller',
+        domain="[('inspectNb', '!=', False)]",
         readonly=False
         ) #valeur par défaut modifiable; ajoputer comme valeur par défaut à stock_quant
     

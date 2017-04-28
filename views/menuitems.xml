@@ -29,7 +29,7 @@
 <!-- Inventory menu -->
 
 		<menuitem id="maple_location_menu"
-			name="Inventaire"
+			name="Inventory"
         	sequence="20"
     		parent="main_maple_menu"/>
 
@@ -88,7 +88,7 @@
             parent="main_maple_menu"/>
 
 		<menuitem id="maple_purchase_list" 
-			name="Purchase list" 
+			name="Purchase list"
 			parent="maple_entry_menu"
 			sequence="31"
             action="maple_purchase_list_action"/>
@@ -122,18 +122,24 @@
         	name="Weighing"
         	sequence="50"
             parent="main_maple_menu"/>
+ 
+		<menuitem id="maple_weight_menu_list"
+	    	name="Weighing"
+	    	parent="maple_weighing_menu"
+	    	sequence="51"
+	        action="maple_weight_list_action"/>
             
 		<menuitem id="maple_weighing_acer_export_menu"
 	    	name="Acer Export"
 	    	parent="maple_weighing_menu"
-	    	sequence="51"
-	        action="maple_weighing_acer_export_action"/>
-
-		<menuitem id="maple_weight_menu_list"
-	    	name="Weighing"
-	    	parent="maple_weighing_menu"
 	    	sequence="52"
-	        action="maple_weight_list_action"/>	
+	        action="maple_weighing_acer_export_action"/>
+	        
+		<!-- menuitem id="maple_weight_acer_menu_list"
+	    	name="Weighing Exports for Acer"
+	    	parent="maple_weighing_menu"
+	    	sequence="66"
+	        action="maple_weight_acer_list_action"/ -->
 
 <!-- Classification menu, just a menu entry, no action, parent of all related views -->
 		<menuitem id="maple_classif_menu" 
@@ -159,23 +165,17 @@
 			sequence="63"
             action="SENB_classif_list_action"/>
 
-		<menuitem id="classif1_acer_import_menu"
+		<!-- menuitem id="classif1_acer_import_menu"
 			name="Quebec Classification"
 			parent="maple_classif_menu"
 			sequence="64"
-            action="maple_acer_import_list_action"/>
+            action="maple_acer_import_list_action"/ -->
 
-		<menuitem id="maple_rating_menu_list"
+		<!-- menuitem id="maple_rating_menu_list"
 	    	name="Outside QC Classification"
 	    	parent="maple_classif_menu"
 	    	sequence="65"
-	        action="maple_rating_list_action"/>
-	        
-		<menuitem id="maple_weight_acer_menu_list"
-	    	name="Weighing Exports for Acer"
-	    	parent="maple_weighing_menu"
-	    	sequence="66"
-	        action="maple_weight_acer_list_action"/>
+	        action="maple_rating_list_action"/ -->
             
 <!-- Partners menu, just a menu entry, no action, parent of all related views -->
 		<menuitem id="maple_partners_menu" 

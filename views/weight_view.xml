@@ -25,23 +25,25 @@
 					create="0"
 					class="maple_table"
 					>
-	                <field name="location_id" readonly="1" invisible="1"/>
-	                <field name="producer" readonly="1" invisible="1"/>
-					<field name="weighing_no" readonly="1"/>
-	                <field name="producer_name" readonly="1"/>
-	                <field name="product_id" string="Type" readonly="1"/>
-	                <field name="qty" string="Qty" readonly="1" sum="1"/>
-	                <field name="lot_id" string="Reception Label No." readonly="1"/>
-	                <field name="container_serial"/>
-					<field name="container_total_weight" sum="1"/>
-	                <field name="tmp_tare" />
-	                <field name="container_tar_weight" invisible="1"/>
-	                <field name="container_type" invisible="1"/>
-	                <field name="tmp_material" string="Genre" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/>
-	                <field name="container_state" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/>
-	                <field name="buyer_code" readonly="1"/>
-	                <field name="tmp_owner" options='{"no_open": True,"no_create": 1, "no_create_edit": 1}'/>
-	                <field name="container_ownership" invisible="1"/> 
+                    <field name="location_id" readonly="1" invisible="1"/>
+                    <field name="producer" readonly="1" invisible="1"/>
+                    <field name="weighing_no" readonly="1" invisible="0"/>
+                    <field name="weighing_sequence" string="#" readonly="0"/>
+                    <field name="producer_name" readonly="1"/>
+                    <field name="product_id" invisible="1"/>
+                    <field name="maple_product_type" string="Type" readonly="1"/>
+                    <field name="qty" string="Qty" readonly="1" sum="1"/>
+                    <field name="lot_id" string="Reception Label No." readonly="1"/>
+                    <field name="container_serial" placeholder="No baril"/>
+                    <field name="container_total_weight" placeholder="poids brut" sum="1"/>
+                    <field name="tmp_tare" placeholder="tare"/>
+                    <field name="container_tar_weight" invisible="1"/>
+                    <field name="container_type" invisible="1"/>
+                    <field name="tmp_material" string="Genre" placeholder="genre" options="{&quot;no_open&quot;: True,&quot;no_create&quot;: 1, &quot;no_create_edit&quot;: 1}"/>
+                    <field name="container_state" placeholder="état" options="{&quot;no_open&quot;: True,&quot;no_create&quot;: 1, &quot;no_create_edit&quot;: 1}"/>
+                    <field name="buyer_code" readonly="1"/>
+                    <field name="tmp_owner" placeholder="prop" options="{&quot;no_open&quot;: True,&quot;no_create&quot;: 1, &quot;no_create_edit&quot;: 1}"/>
+                    <field name="container_ownership" invisible="1"/> 
    				</tree>
 			</field>
 		</record>

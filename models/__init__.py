@@ -4,6 +4,7 @@ import inspecteur
 import maple_weighing
 import partner
 import picking
+import stock_picking_wave
 import purchase
 import product
 import region

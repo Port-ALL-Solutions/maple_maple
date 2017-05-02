@@ -31,21 +31,23 @@
 		                                	<i class="fa fa-phone"/> 450 679-7021<br/><i class="fa fa-fax"/> 450 679-0139<br/><i class="fa fa-globe"/> http://www.siropderable.ca
 		                                </p>
 		                            </div>
+<!-- Sélectionner d'abord le buyer correspondant au producteur en cours  -->
+		                            
 		                            <div class="col-xs-6" style="border:1px solid lightgray;">
 		                                <div class="row">
 		                            		<div class="col-xs-5">
 				                                <t t-if="o.stock_lines[0].buyer.ref != 'LB'">
-				                                    <img src="maple/static/img/siropdelest.png" style="max-height:25mm;"/>
+				                                    <img src="maple/static/img/siropdelest.png" style="max-height:20mm;"/>
 				                                </t>
 				                                <t t-if="o.stock_lines[0].buyer.ref == 'LB'">
-				                                    <img src="maple/static/img/logo-lbmapletreat.png" style="max-height:25mm;"/>
+				                                    <img src="maple/static/img/logo-lbmapletreat.png" style="max-height:20mm;"/>
 				                                </t>
 		                            		</div>
 		                                	<div class="col-xs-5">
-				                                <p t-if="o.stock_lines[0].buyer.ref != 'LB'">
-		                               				<t t-if="o.stock_lines[0].buyer.phone"><i class="fa fa-phone"/><span t-esc="o.stock_lines[0].buyer.phone"/></t><br/>
-		                               				<t t-if="o.stock_lines[0].buyer.mobile"><i class="fa fa-fax"/><span t-esc="o.stock_lines[0].buyer.mobile"/></t><br/>
-		                               				<t t-if="o.stock_lines[0].buyer.fax"><i class="fa fa-globe"/><span t-esc="o.stock_lines[0].buyer.fax"/></t>
+				                                <p t-if="o.stock_lines[0].buyer.ref != 'LB'" style="font-size:8pt; padding-top:10px;">
+		                               				<t t-if="o.stock_lines[0].buyer.phone"><i class="fa fa-phone"/><span t-esc="o.stock_lines[0].buyer.phone"/><br/></t>
+		                               				<t t-if="o.stock_lines[0].buyer.mobile"><i class="fa fa-mobile"/><span t-esc="o.stock_lines[0].buyer.mobile"/><br/></t>
+		                               				<t t-if="o.stock_lines[0].buyer.fax"><i class="fa fa-fax"/><span t-esc="o.stock_lines[0].buyer.fax"/></t>
 		                               			</p>
 		                            		</div>
 		                            		<div class="col-xs-2" style="font-size:24pt; font-weight:bolder; background-color:#eeeeee;">
@@ -54,7 +56,7 @@
 		                            	</div>
 		                            	<div class="row">
 			                            	<div class="col-xs-12">
-												<p t-if="o.stock_lines[0].class_site">
+												<p t-if="o.stock_lines[0].class_site" style="font-size:8pt; padding-top:10px;">
 													<t t-set="site" t-value="o.stock_lines[0].class_site"/>
 			                             			Numéro de site: <span t-esc="o.stock_lines[0].class_site" style="font-weight:bolder;"/><br/>
 			                             			<i class="fa fa-map-marker"/>
@@ -70,190 +72,211 @@
 		                    
 		                    <!-- Producer information - 1st page of report -->
 		                    <div class="page">
-	                            <p t-if="is_first == True" style="text-align: center;font-weight:bolder; margin:0; padding:0;">
+	                            <p t-if="is_first == True" style="text-align: center;font-weight:bolder; margin:0; padding:0; padding-top:15px;">
 	                                FORMULAIRE DE RÉCEPTION DES BARILS PLEINS DU PRODUCTEUR
 	                            </p>
-	                            <table t-if="is_first == True" class="table table-condensed" style="border: 1px solid grey; font-size:10pt; line-height:11pt;">
+	                            <table t-if="is_first == True" class="table table-condensed" style="border: 1px solid grey; border-top:2px solid black; font-size:10pt; line-height:10pt;">
 	                                <thead>
 	                                    <tr>
-	                                        <th colspan="2" width="50%"><strong>IDENTIFICATION DE L'ÉRABLIÈRE</strong></th>
-	                                        <th colspan="2" width="50%"><strong>ADRESSE DE RETOUR DES BARILS VIDES</strong></th>
+	                                        <th colspan="2" width="50%" style="margin:0; padding:0; padding-left:5px; border-right: 1px solid grey;"><strong>IDENTIFICATION DE L'ÉRABLIÈRE</strong></th>
+	                                        <th colspan="2" width="50%" style="margin:0; padding:0; padding-left:5px;"><strong>ADRESSE DE RETOUR DES BARILS VIDES</strong></th>
 	                                    </tr>
 	                                </thead>
 	                                <tbody>
-	                                    <tr style="border: 2px solid black;">
-	                                        <td width="25%">No FPAQ du producteur</td>
-	                                        <td width="25%" style="text-align:right"><span t-esc="pro.fpaqCode"/></td>
-	                                        <td width="25%">Adresse</td>
-	                                        <td width="25%" style="text-align:right; white-space: nowrap;"><span t-esc="pro.street"/></td>
+	                                    <tr style="margin:0; padding:0;">
+	                                        <td width="25%" style="margin:0; padding:0; padding-left:5px; white-space: nowrap; font-style:italic; font-size:smaller;">No FPAQ du Prod:</td>
+	                                        <td width="25%" style="margin:0; padding:0; padding-right:5px; text-align:right; border-right: 1px solid grey;">
+	                                        	<t t-if="pro.fpaqCode"><span t-esc="pro.fpaqCode"/></t>
+	                                        	<t t-if="not pro.fpaqCode">N/D</t>
+                                        	</td>	                                        	
+	                                        <td width="25%" style="margin:0; padding:0; padding-left:5px; font-style:italic; font-size:smaller;">Adresse:</td>
+	                                        <td width="25%" style="margin:0; padding:0; padding-right:5px; text-align:right; white-space: nowrap;"><span t-esc="pro.street"/></td>
 	                                    </tr>
 	                                    <tr>
-	                                        <td width="25%">Société</td>
-	                                        <td width="25%" style="text-align:right; white-space: nowrap;"><span t-esc="pro.parent_id.name"/></td>
-	                                        <td width="25%">Ville</td>
-	                                        <td width="25%" style="text-align:right; white-space: nowrap;"><span t-esc="pro.city"/></td>
+	                                        <td width="25%" style="margin:0; padding:0; padding-left:5px; font-style:italic; font-size:smaller;">Société:</td>
+	                                        <td width="25%" style="margin:0; padding:0; padding-right:5px; text-align:right; white-space: nowrap; border-right: 1px solid grey;"><span t-esc="pro.parent_id.name"/></td>
+	                                        <td width="25%" style="margin:0; padding:0; padding-left:5px; font-style:italic; font-size:smaller;">Ville:</td>
+	                                        <td width="25%" style="margin:0; padding:0; padding-right:5px; text-align:right; white-space: nowrap;"><span t-esc="pro.city"/></td>
 	                                    </tr>
 	                                    <tr>
-	                                        <td width="25%">Prénom et Nom</td>
-	                                        <td width="25%" style="text-align:right; white-space: nowrap;"><span t-esc="o.stock_lines[0].producer_contact"/></td>
-	                                        <td width="25%">Code postal</td>
-	                                        <td width="25%" style="text-align:right; white-space: nowrap;"><span t-esc="pro.zip"/></td>
+	                                        <td width="25%" style="margin:0; padding:0; padding-left:5px; font-style:italic; font-size:smaller;">Prénom et Nom:</td>
+	                                        <td width="25%" style="margin:0; padding:0; padding-right:5px; text-align:right; white-space: nowrap; border-right: 1px solid grey;"><span t-esc="o.stock_lines[0].producer_contact"/></td>
+	                                        <td width="25%" style="margin:0; padding:0; padding-left:5px; font-style:italic; font-size:smaller;">Code postal:</td>
+	                                        <td width="25%" style="margin:0; padding:0; padding-right:5px; text-align:right; white-space: nowrap;"><span t-esc="pro.zip"/></td>
 	                                    </tr>
 	                                    <tr>
-	                                        <td width="25%">Adresse</td>
-	                                        <td width="25%" style="text-align:right; white-space: nowrap;"><span t-esc="pro.parent_id.street"/></td>
-	                                        <td width="50%" colspan="2">État du baril</td>
+	                                        <td width="25%" style="margin:0; padding:0; padding-left:5px; font-style:italic; font-size:smaller;">Adresse:</td>
+	                                        <td width="25%" style="margin:0; padding:0; padding-right:5px; text-align:right; white-space: nowrap; border-right: 1px solid grey;"><span t-esc="pro.parent_id.street"/></td>
+	                                        <td width="50%" colspan="2" style="margin:0; padding:0; padding-left:5px; border-bottom:1px solid white; font-style:italic; font-size:smaller;">État du baril:</td>
 	                                    </tr>
 	                                    <tr>
-	                                        <td width="25%">Ville</td>
-	                                        <td width="25%" style="text-align:right; white-space: nowrap;"><span t-esc="pro.parent_id.city"/></td>
-	                                        <td width="25%">O: Bon</td>
-	                                        <td width="25%">R: Rouillé</td>
+	                                        <td width="25%" style="margin:0; padding:0; padding-left:5px; font-style:italic; font-size:smaller;">Ville:</td>
+	                                        <td width="25%" style="margin:0; padding:0; padding-right:5px; text-align:right; white-space: nowrap; border-right: 1px solid grey;"><span t-esc="pro.parent_id.city"/></td>
+	                                        <td width="25%" rowspan="4" style="margin:0; padding:0; padding-left:5px; white-space: nowrap; font-size: 7pt;">
+	                                        	<div><strong>O</strong>: Bon<br/><strong>L</strong>: Légèrement bossé<br/><strong>B</strong>: Bossé<br/><strong>T</strong>: Très bossé</div>
+	                                        </td>
+	                                        <td width="25%" rowspan="4" style="margin:0; padding:0; white-space: nowrap; border-right: 1px solid grey; float: left; font-size: 7pt;">
+	                                        	<div><strong>R</strong>: Rouillé<br/><strong>P</strong>: Perforé<br/><strong>N</strong>: Non conforme</div>
+	                                        </td>
 	                                    </tr>
 	                                    <tr>
-	                                        <td width="25%">Province</td>
-	                                        <td width="25%" style="text-align:right; white-space: nowrap;"><span t-esc="pro.parent_id.state_id.name"/></td>
-	                                        <td width="25%">L: Légèrement bossé</td>
-	                                        <td width="25%">P: Perforé</td>
+	                                        <td width="25%" style="margin:0; padding:0; padding-left:5px; font-style:italic; font-size:smaller;">Province:</td>
+	                                        <td width="25%" style="margin:0; padding:0; padding-right:5px; text-align:right; white-space: nowrap; border-right: 1px solid grey;"><span t-esc="pro.parent_id.state_id.code"/></td>
 	                                    </tr>
 	                                    <tr>
-	                                        <td width="25%">Code postal</td>
-	                                        <td width="25%" style="text-align:right; white-space: nowrap;"><span t-esc="pro.parent_id.zip"/></td>
-	                                        <td width="25%">B: Bossé</td>
-	                                        <td width="25%">N: Non conforme</td>
+	                                        <td width="25%" style="margin:0; padding:0; padding-left:5px; font-style:italic; font-size:smaller;">Code postal:</td>
+	                                        <td width="25%" style="margin:0; padding:0; padding-right:5px; text-align:right; white-space: nowrap; border-right: 1px solid grey;"><span t-esc="pro.parent_id.zip"/></td>
 	                                    </tr>
 	                                    <tr>
-	                                        <td width="25%">Téléphone</td>
-	                                        <td width="25%" style="text-align:right; white-space: nowrap;"><span t-esc="pro.parent_id.phone"/></td>
-	                                        <td width="50%">T: Très bossé</td>
-	                                        <td width="25%"><![CDATA[&nbsp;]]></td>
+	                                        <td width="25%" style="margin:0; padding:0; padding-left:5px; font-style:italic; font-size:smaller;">Téléphone:</td>
+	                                        <td width="25%" style="margin:0; padding:0; padding-right:5px; text-align:right; white-space: nowrap; border-right: 1px solid grey;"><span t-esc="pro.parent_id.phone"/></td>
+	                                    </tr>
+	                                    <tr>
+	                                        <td colspan="4" style="margin:0; padding:0; white-space: nowrap; float: left; font-size:7pt;">
+	                                        	<div style="float: left; font-size:8pt; padding:5px; padding-right:140px;">
+	                                        		<strong>Assistez-vous<br/>au classement?</strong><br/>
+<!-- Sélectionner d'abord le buyer correspondant au producteur en cours  -->
+	                                        		<!--  t t-if="o.producer_present">Oui <i class="fa fa-check-square-o"/><br/>Non <i class="fa square-o"/></t -->
+	                                        		<!-- t t-if="not o.producer_present" --><i class="fa fa-square-o"/> Oui<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]><i class="fa fa-check-square-o"/> Non<!-- /t -->
+                                        		</div>
+                                        		<div style="float: left; padding:5px; padding-left:20px; padding-right:20px; border-left:1px solid lightgrey; height:100%;">
+                                        			<span style="font-style:italic; font-size:8pt;">Genre:</span><br/>
+                                        			<strong>U</strong>: Usage unique<br/><strong>P</strong>: Plastique<br/><strong>R</strong>: Réutilisé <em><span style="font-size:sameller;">(Usage unique)</span></em>
+                                       			</div>
+	                                        	<div style="float: left; padding:5px; padding-left:10px; padding-right:20px; border-right:1px solid lightgrey; height:100%;">
+	                                        		<span style="font-style:italic; font-size:8pt;"><![CDATA[&nbsp;]]></span><br/>
+	                                        		<strong>S</strong>: Stainless<br/><strong>A</strong>: Autre<br/><strong>G</strong>: Galvanisé
+                                        		</div>
+                                        		<div style="float: left; padding:5px; padding-left:20px; padding-right:20px; height:100%;">
+                                        			<span style="font-style:italic; font-size:8pt;">Propriétaire du baril:</span><br/>
+                                        			<strong>P</strong>: Producteur<br/><strong>A</strong>: Acheteur<br/><![CDATA[&nbsp;]]>
+                                        		</div>
+                                        		<div style="float: left; padding:5px; padding-left:20px; border-left:1px solid lightgrey; height:100%;">
+	                                        		<span style="font-style:italic; font-size:8pt;">Type:</span><br/>
+	                                        		<strong>R</strong>: Régulier<br/><strong>B</strong>: Biologique<br/><![CDATA[&nbsp;]]>
+	                                        	</div>
+	                                        </td>
 	                                    </tr>
 	                                </tbody>
 	                            </table>
 	                            <t t-set="is_first" t-value="False"/>
 							            
-								        <table class="table table-condensed mt48" t-if="o.stock_lines">
-			                                <tbody>
-			                                	<tr>
-			                                		<td style="text-align:center; margin:0; padding:0; white-space: nowrap; float: left; width:205mm;">
-														<div style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">No.</div>
-				                                        <div style="width:22mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">No Baril</div>
-				                                        <div style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">Poids brut</div>
-				                                        <div style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">Tare</div>
-				                                        <div style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">Genre</div>
-				                                        <div style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">État</div>
-				                                        <div style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">Prop</div>
-				                                        <div style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">Type</div>
-				                                        <div style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">No.</div>
-				                                        <div style="width:22mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">No Baril</div>
-				                                        <div style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">Poids<br/>brut</div>
-				                                        <div style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">Tare</div>
-				                                        <div style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">Genre</div>
-				                                        <div style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">État</div>
-				                                        <div style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">Prop</div>
-				                                        <div style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">Type</div>
-				                                        <div style="clear: both; width: 100%; height:0;"/>
-			                                    	</td>
-			                                	</tr>
-			                                    
-			                                    <!--  tr t-foreach="o.stock_lines" t-as="line" -->
-			                                    	<!-- t t-if="pro.id==line.producer.id" -->
-			                                    <tr>
-			                                    	
-				                                    
-					                                    <td style="text-align:center; margin:0; padding:0; white-space: nowrap; float: left; width:205mm;">
-				                                    	    <t t-set="no_ligne" t-value="1"/>
-				                                    	    <!--  t t-set="lg_col" t-value="10mm"/ -->
-				                                    	    <t t-foreach="o.stock_lines" t-as="line">
-				                                    	    	<t t-if="pro.id==line.producer.id">
-				                                    	    	
-					                                    	    	<!-- left set of columns -->
-					                                    	    	<t t-if="line_even">
-							                                            <div name="No" style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
-								                                            <span t-esc="no_ligne"/>
-							                                            </div>
-								                                        <div name="barrel_no" style="width:22mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
-								                                            <t t-if="line.container_serial"><span t-field="line.container_serial"/></t>
-								                                            <t t-if="not line.container_serial"><![CDATA[&nbsp;]]></t>
-								                                        </div>
-								                                        <div name="barrel_gross_weight" style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
-								                                            <t t-if="line.container_total_weight"><span t-field="line.container_total_weight"/></t>
-								                                            <t t-if="not line.container_total_weight"><![CDATA[&nbsp;]]></t>
-								                                        </div>
-								                                        <div name="barrel_tare" style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
-								                                            <t t-if="line.tmp_tare"><span t-field="line.tmp_tare"/></t>
-								                                            <t t-if="line.container_tar_weight and not line.tmp_tare"><span t-field="line.container_tar_weight"/></t>
-								                                            <t t-if="not line.tmp_tare and not line.container_tar_weight"><![CDATA[&nbsp;]]></t>
-								                                        </div>
-								                                        <div name="barrel_material" style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
-								                                            <t t-if="line.tmp_material"><span t-field="line.tmp_material.code"/></t>
-								                                            <t t-if="not line.tmp_material"><![CDATA[&nbsp;]]></t>
-								                                        </div>
-								                                        <div name="barrel_state" style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
-								                                            <t t-if="line.container_state"><span t-field="line.container_state.code"/></t>
-								                                            <t t-if="not line.container_state"><![CDATA[&nbsp;]]></t>
-								                                        </div>
-								                                        <div name="barrel_owner" style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
-								                                            <t t-if="line.tmp_owner"><span t-field="line.tmp_owner"/></t>
-								                                            <t t-if="line.container_ownership and not line.tmp_owner"><span t-field="line.container_ownership"/></t>
-								                                            <t t-if="not line.tmp_owner and not line.container_ownership"><![CDATA[&nbsp;]]></t>
-								                                        </div>
-								                                        <div name="maple_type" style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
-								                                            <t t-if="line.product_id"><span t-esc="line.product_id.default_code[:1]"/></t>
-								                                            <t t-if="not line.product_id"><![CDATA[&nbsp;]]></t>
-								                                        </div>
-						                                            </t>
-						                                            <!-- right set of columns -->
-						                                            <t t-if="line_odd">
-							                                            <div name="No" style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
-								                                            <span t-esc="no_ligne"/>
-							                                            </div>
-								                                        <div name="barrel_no" style="width:22mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
-								                                            <t t-if="line.container_serial"><span t-field="line.container_serial"/></t>
-								                                            <t t-if="not line.container_serial"><![CDATA[&nbsp;]]></t>
-								                                        </div>
-								                                        <div name="barrel_gross_weight" style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
-								                                            <t t-if="line.container_total_weight"><span t-field="line.container_total_weight"/></t>
-								                                            <t t-if="not line.container_total_weight"><![CDATA[&nbsp;]]></t>
-								                                        </div>
-								                                        <div name="barrel_tare" style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
-								                                            <t t-if="line.tmp_tare"><span t-field="line.tmp_tare"/></t>
-								                                            <t t-if="line.container_tar_weight and not line.tmp_tare"><span t-field="line.container_tar_weight"/></t>
-								                                            <t t-if="not line.tmp_tare and not line.container_tar_weight"><![CDATA[&nbsp;]]></t>
-								                                        </div>
-								                                        <div name="barrel_material" style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
-								                                            <t t-if="line.tmp_material"><span t-field="line.tmp_material.code"/></t>
-								                                            <t t-if="not line.tmp_material"><![CDATA[&nbsp;]]></t>
-								                                        </div>
-								                                        <div name="barrel_state" style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
-								                                            <t t-if="line.container_state"><span t-field="line.container_state.code"/></t>
-								                                            <t t-if="not line.container_state"><![CDATA[&nbsp;]]></t>
-								                                        </div>
-								                                        <div name="barrel_owner" style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
-								                                            <t t-if="line.tmp_owner"><span t-field="line.tmp_owner"/></t>
-								                                            <t t-if="line.container_ownership and not line.tmp_owner"><span t-field="line.container_ownership"/></t>
-								                                            <t t-if="not line.tmp_owner and not line.container_ownership"><![CDATA[&nbsp;]]></t>
-								                                        </div>
-								                                        <div name="maple_type" style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; text-align:center;">
-								                                            <t t-if="line.product_id"><span t-esc="line.product_id.default_code[:1]"/></t>
-								                                            <t t-if="not line.product_id"><![CDATA[&nbsp;]]></t>
-								                                        </div>
-								                                        <!-- rest of line filling -->
-								                                        <div style="clear: both; height: 0; width: 100%;"/>
-						                                    		</t>
-						                                    		
-						                                    		<!-- rest of line filling -->
-																	<!--  div t-if="line_odd" style="clear: both; height: 0; width: 100%;"/ -->
-																	<!--  div t-if="line_odd" class="clearfix" style="height: 0; width: 100%;"><![CDATA[&nbsp;]]></div -->
-						                                    		<t t-set="no_ligne" t-value="no_ligne + 1"/>
-						                                    								                                    		
-					                                    		</t>
-					                                    	</t>
-				                                    	</td>
-			                                    	<!-- /t -->
-			                                    </tr>
-			                                </tbody>
-			                            </table>
+							        <table class="table table-condensed mt48" t-if="o.stock_lines" style="border-collapse: collapse; margin-top:20px !important;">
+		                                <tbody>
+		                                	<tr>
+		                                		<td style="text-align:center; margin:0; padding:0; white-space: nowrap; border: 1px solid white; float: left; width:205mm;">
+													<div style="width:9mm; height:5mm; float: left; border: none; border-bottom: 1px double black; text-align:center; vertical-align:middle; font-size:7pt;"> </div>
+			                                        <div style="width:24mm; height:5mm; float: left; border: 1px solid lightgrey; border-bottom: 1px double black; text-align:center; vertical-align:middle; font-size:8pt;">No Baril</div>
+			                                        <div style="width:13mm; height:5mm; float: left; border: 1px solid lightgrey; border-bottom: 1px double black; text-align:center; vertical-align:middle; font-size:7pt; nowrap;">Poids brut</div>
+			                                        <div style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; border-bottom: 1px double black; text-align:center; vertical-align:middle; font-size:7pt;">Tare</div>
+			                                        <div style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; border-bottom: 1px double black; text-align:center; vertical-align:middle; font-size:7pt;">Genre</div>
+			                                        <div style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; border-bottom: 1px double black; text-align:center; vertical-align:middle; font-size:7pt;">État</div>
+			                                        <div style="width:9mm; height:5mm; float: left; border: 1px solid lightgrey; border-bottom: 1px double black; text-align:center; vertical-align:middle; font-size:7pt;">Prop</div>
+			                                        <div style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; border-bottom: 1px double black; text-align:center; vertical-align:middle; font-size:7pt;">Type</div>
+			                                        <div style="width:9mm; height:5mm; float: left; border: none; border-bottom: 1px double black; text-align:center; vertical-align:middle; font-size:7pt;"> </div>
+			                                        <div style="width:24mm; height:5mm; float: left; border: 1px solid lightgrey; border-bottom: 1px double black; text-align:center; vertical-align:middle; font-size:8pt;">No Baril</div>
+			                                        <div style="width:13mm; height:5mm; float: left; border: 1px solid lightgrey; border-bottom: 1px double black; text-align:center; vertical-align:middle; font-size:7pt; nowrap;">Poids brut</div>
+			                                        <div style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; border-bottom: 1px double black; text-align:center; vertical-align:middle; font-size:7pt;">Tare</div>
+			                                        <div style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; border-bottom: 1px double black; text-align:center; vertical-align:middle; font-size:7pt;">Genre</div>
+			                                        <div style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; border-bottom: 1px double black; text-align:center; vertical-align:middle; font-size:7pt;">État</div>
+			                                        <div style="width:9mm; height:5mm; float: left; border: 1px solid lightgrey; border-bottom: 1px double black; text-align:center; vertical-align:middle; font-size:7pt;">Prop</div>
+			                                        <div style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; border-bottom: 1px double black; text-align:center; vertical-align:middle; font-size:7pt;">Type</div>
+			                                        <div style="clear: both; width: 100%; height:0;"/>
+		                                    	</td>
+		                                	</tr>
+		                                    
+		                                    <tr>
+			                                    <td style="text-align:center; margin:0; padding:0; white-space: nowrap; float: left; width:205mm;">
+		                                    	    <t t-set="no_ligne" t-value="1"/>
+		                                    	    <t t-foreach="o.stock_lines" t-as="line">
+		                                    	    	<t t-if="pro.id==line.producer.id">
+		                                    	    	
+			                                    	    	<!-- left set of columns -->
+			                                    	    	<t t-if="line_even">
+					                                            <div name="No" style="width:9mm; height:5mm; float: left; border: 1px solid lightgrey; vertical-align:middle; text-align:center; font-size:7pt;">
+						                                            <span t-esc="no_ligne"/>
+					                                            </div>
+						                                        <div name="barrel_no" style="width:24mm; height:5mm; float: left; border: 1px solid lightgrey; vertical-align:middle; text-align:center; font-size:8pt;">
+						                                            <t t-if="line.container_serial"><span t-field="line.container_serial"/></t>
+						                                            <t t-if="not line.container_serial"><![CDATA[&nbsp;]]></t>
+						                                        </div>
+						                                        <div name="barrel_gross_weight" style="width:13mm; height:5mm; float: left; border: 1px solid lightgrey; vertical-align:middle; text-align:center; font-size:7pt;">
+						                                            <t t-if="line.container_total_weight"><span t-field="line.container_total_weight"/></t>
+						                                            <t t-if="not line.container_total_weight"><![CDATA[&nbsp;]]></t>
+						                                        </div>
+						                                        <div name="barrel_tare" style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; vertical-align:middle; text-align:center; font-size:7pt;">
+						                                            <t t-if="line.tmp_tare"><span t-field="line.tmp_tare"/></t>
+						                                            <t t-if="line.container_tar_weight and not line.tmp_tare"><span t-field="line.container_tar_weight"/></t>
+						                                            <t t-if="not line.tmp_tare and not line.container_tar_weight"><![CDATA[&nbsp;]]></t>
+						                                        </div>
+						                                        <div name="barrel_material" style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; vertical-align:middle; text-align:center; font-size:7pt;">
+						                                            <t t-if="line.tmp_material"><span t-field="line.tmp_material.code"/></t>
+						                                            <t t-if="not line.tmp_material"><![CDATA[&nbsp;]]></t>
+						                                        </div>
+						                                        <div name="barrel_state" style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; vertical-align:middle; text-align:center; font-size:7pt;">
+						                                            <t t-if="line.container_state"><span t-field="line.container_state.code"/></t>
+						                                            <t t-if="not line.container_state"><![CDATA[&nbsp;]]></t>
+						                                        </div>
+						                                        <div name="barrel_owner" style="width:9mm; height:5mm; float: left; border: 1px solid lightgrey; vertical-align:middle; text-align:center; font-size:7pt;">
+						                                            <t t-if="line.tmp_owner"><span t-field="line.tmp_owner"/></t>
+						                                            <t t-if="line.container_ownership and not line.tmp_owner"><span t-field="line.container_ownership"/></t>
+						                                            <t t-if="not line.tmp_owner and not line.container_ownership"><![CDATA[&nbsp;]]></t>
+						                                        </div>
+						                                        <div name="maple_type" style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; vertical-align:middle; text-align:center; font-size:7pt;">
+						                                            <t t-if="line.product_id"><span t-esc="line.product_id.default_code[:1]"/></t>
+						                                            <t t-if="not line.product_id"><![CDATA[&nbsp;]]></t>
+						                                        </div>
+				                                            </t>
+				                                            <!-- right set of columns -->
+				                                            <t t-if="line_odd">
+					                                            <div name="No" style="width:9mm; height:5mm; float: left; border: 1px solid lightgrey; vertical-align:middle; text-align:center; font-size:7pt;">
+						                                            <span t-esc="no_ligne"/>
+					                                            </div>
+						                                        <div name="barrel_no" style="width:24mm; height:5mm; float: left; border: 1px solid lightgrey; vertical-align:middle; text-align:center; font-size:8pt;">
+						                                            <t t-if="line.container_serial"><span t-field="line.container_serial"/></t>
+						                                            <t t-if="not line.container_serial"><![CDATA[&nbsp;]]></t>
+						                                        </div>
+						                                        <div name="barrel_gross_weight" style="width:13mm; height:5mm; float: left; border: 1px solid lightgrey; vertical-align:middle; text-align:center; font-size:7pt;">
+						                                            <t t-if="line.container_total_weight"><span t-field="line.container_total_weight"/></t>
+						                                            <t t-if="not line.container_total_weight"><![CDATA[&nbsp;]]></t>
+						                                        </div>
+						                                        <div name="barrel_tare" style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; vertical-align:middle; text-align:center; font-size:7pt;">
+						                                            <t t-if="line.tmp_tare"><span t-field="line.tmp_tare"/></t>
+						                                            <t t-if="line.container_tar_weight and not line.tmp_tare"><span t-field="line.container_tar_weight"/></t>
+						                                            <t t-if="not line.tmp_tare and not line.container_tar_weight"><![CDATA[&nbsp;]]></t>
+						                                        </div>
+						                                        <div name="barrel_material" style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; vertical-align:middle; text-align:center; font-size:7pt;">
+						                                            <t t-if="line.tmp_material"><span t-field="line.tmp_material.code"/></t>
+						                                            <t t-if="not line.tmp_material"><![CDATA[&nbsp;]]></t>
+						                                        </div>
+						                                        <div name="barrel_state" style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; vertical-align:middle; text-align:center; font-size:7pt;">
+						                                            <t t-if="line.container_state"><span t-field="line.container_state.code"/></t>
+						                                            <t t-if="not line.container_state"><![CDATA[&nbsp;]]></t>
+						                                        </div>
+						                                        <div name="barrel_owner" style="width:9mm; height:5mm; float: left; border: 1px solid lightgrey; vertical-align:middle; text-align:center; font-size:7pt;">
+						                                            <t t-if="line.tmp_owner"><span t-field="line.tmp_owner"/></t>
+						                                            <t t-if="line.container_ownership and not line.tmp_owner"><span t-field="line.container_ownership"/></t>
+						                                            <t t-if="not line.tmp_owner and not line.container_ownership"><![CDATA[&nbsp;]]></t>
+						                                        </div>
+						                                        <div name="maple_type" style="width:10mm; height:5mm; float: left; border: 1px solid lightgrey; vertical-align:middle; text-align:center; font-size:7pt;">
+						                                            <t t-if="line.product_id"><span t-esc="line.product_id.default_code[:1]"/></t>
+						                                            <t t-if="not line.product_id"><![CDATA[&nbsp;]]></t>
+						                                        </div>
+						                                        <!-- rest of line filling -->
+						                                        <div style="clear: both; height: 0; width: 100%;"/>
+				                                    		</t>
+				                                    		
+				                                    		<!-- rest of line filling -->
+															<!--  div t-if="line_odd" style="clear: both; height: 0; width: 100%;"/ -->
+															<!--  div t-if="line_odd" class="clearfix" style="height: 0; width: 100%;"><![CDATA[&nbsp;]]></div -->
+				                                    		<t t-set="no_ligne" t-value="no_ligne + 1"/>
+				                                    								                                    		
+			                                    		</t>
+			                                    	</t>
+		                                    	</td>
+		                                    </tr>
+		                                </tbody>
+		                            </table>
 						    </div>
 						    
 						    <div class="footer">

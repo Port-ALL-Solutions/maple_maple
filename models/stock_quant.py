@@ -533,10 +533,27 @@ class stockQuant(models.Model):
         #store=True
         )
     
+    producer_present = fields.Boolean(
+        string="Producer present",
+        compute='_compute_prod_present',
+        store=True
+        )
+
+    @api.depends('history_ids') # if these fields are changed, call method
+    def _compute_prod_present(self):
+        for r in self:
+            if r.history_ids.filtered(lambda m: m.picking_id.picking_type_id.id in [31, 32, 33]): #picking_type.id de SE1; créer puis ajouter équivalents pour SENB
+                r.producer_present = r.history_ids.filtered(lambda m: m.picking_id.picking_type_id.id in [31, 32, 33]).picking_id.producer_present
+            else:
+                r.producer_present = False
+
     @api.depends('product_id') # if these fields are changed, call method
     def _maple_type_onechar(self):
         for r in self:
-            r.maple_product_type = r.product_id.default_code[1] #Second character of product_id's default code 
+            if r.product_id.maple_container:
+                r.maple_product_type = r.product_id.default_code[1] #Second character of product_id's default code
+            else:
+                r.maple_product_type = r.product_id.default_code[0] #First character of product_id's default code
     
     @api.depends('producer') # if these fields are changed, call method
     def _compute_contact(self):

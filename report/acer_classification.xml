@@ -11,6 +11,11 @@
                     <t t-if="o.id != 43 and o.id != 44"> <!-- ajouter SENB -->
                     	<p>Ce rapport est réservé aux emplacements où s'effectuent la classification du sirop d'érable.</p>
                     </t>
+                    <!-- check if classification completed  -->
+                    <t t-set="has_product_code" t-value="len(o.stock_lines.filtered('product_code'))"/> <!-- gives the number of records duly classified -->
+		            <t t-if="has_product_code != 0">
+                    	<p>Ce rapport est réservé aux emplacements où s'effectuent la classification du sirop d'érable.</p>
+                    </t>
 					
 					<!-- Producers list -->
 					<t t-set="producers" t-value="[]"/>
@@ -26,14 +31,14 @@
 		                                <img src="maple/static/img/logo_acer_rapport.png" style="max-width:50mm;"/>
 	                                </div>
 	                                <div class="col-xs-3">
-		                                <p style="font-size:7pt; line_height:8pt;">142, rang Lainesse<br/>St-Norbert-d'Arthabaska   QC<br/>G0P 1B0 
-		                                	<i class="fa fa-phone"/> 819-369-8106
+		                                <p style="font-size:7pt; line_height:8pt; padding-top:3mm;">142, rang Lainesse<br/>St-Norbert-d'Arthabaska   QC<br/>G0P 1B0 
+		                                	<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]><i class="fa fa-phone"/> 819-369-8106
 		                                </p>
 		                            </div>
 		                            <div class="col-xs-6">
 							            <p style="text-align: right; font-size:7pt; line_height:8pt;">
 		                                	Page <span class="page"/> de <span class="topage"/><br/>
-		                                	Imprimé le <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M:%S')"/>
+		                                	Imprimé le <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M:%S')"/><br/>
 		                                </p>
 		                            </div>
 		                        </div> 	
@@ -41,6 +46,7 @@
 		                    
 		                    <!-- Producer information - 1st page of report -->
 		                    <div class="page">
+	                            <p style="padding-top:10mm;"><![CDATA[&nbsp;]]></p>
 	                            <table class="table table-condensed" style="margin:0; padding:0; font-size:8pt; line-height:9pt; border: 2px solid black; border-radius: 10px;">
 	                                <thead>
 	                                    <tr>
@@ -57,24 +63,27 @@
 	                                        	<span t-esc="pro.street"/><br/>
 	                                        	<t t-if="pro.street2"><span t-esc="pro.street2"/><br/></t>
 	                                        	<span t-esc="pro.city"/>, <span t-esc="pro.state_id.code"/>, <span t-esc="pro.country_id.code"/><br/>
-	                                        	<span t-esc="pro.zip"/> <i class="fa fa-phone"/> <span t-esc="pro.phone"/>
+	                                        	<span t-esc="pro.zip"/><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+	                                        	<t t-if="pro.phone"><i class="fa fa-phone"/> <span t-esc="pro.phone"/></t>
 	                                        </td>
-	                                        <td style="vertical-align: bottom;"># FPAQ: <span t-esc="pro.fpaqCode"/></td>
+	                                        <td style="vertical-align: bottom;">N<sup>o</sup> FPAQ: <span t-esc="pro.fpaqCode"/></td>
 	                                        <td style="font-weight:bold; text-align:right;">Site:</td>
 	                                        <td style="white-space: nowrap;">
-	                                        	<span t-esc="o.stock_lines[0].buyer.name"/><br/>
-												<t t-if="o.stock_lines[0].class_site">
-													<t t-set="site" t-value="o.stock_lines[0].class_site"/>
+	                                        	<t t-set="pro_buyer" t-value="o.stock_lines.filtered(lambda y: y.producer == pro)[0].buyer"/>
+	                                        	<span t-esc="pro_buyer.name"/><br/>
+												<t t-set="site" t-value="o.stock_lines.filtered(lambda y: y.producer == pro)[0].class_site"/>
+									<!-- link with res_partner data instead via company table -->
+												<t t-if="site">
 			                             			<t t-if="site =='370' or site =='375' or site =='SE1' or site =='LB1'">296, Principale<br/>Saint-Eusèbe, QC<br/>G0L 2Y0</t>
 			                             			<t t-if="site =='177' or site =='298' or site =='SE3' or site =='LB3'">405, Principale<br/>Saint-Eusèbe, QC<br/>G0L 2Y0</t>
 			                             			<t t-if="site =='SENB' or site =='LBNB'">25, Maple Lane<br/>Lake Edward NB<br/>E7G 4J2</t>
 			                              		</t>
-	                                        	<t t-if="o.stock_lines[0].buyer.phone"><i class="fa fa-phone"/><span t-esc="o.stock_lines[0].buyer.phone"/></t>
+	                                        	<t t-if="pro_buyer.phone"><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]><i class="fa fa-phone"/><span t-esc="pro_buyer.phone"/></t>
 	                                        </td>
 	                                        <td style="vertical-align: bottom;">
-	                                        	# Site: 
-	                                        	<t t-if="o.stock_lines[0].class_site"><span t-esc="o.stock_lines[0].class_site" style="font-weight:bolder;"/></t>
-	                                        	<t t-if="not o.stock_lines[0].class_site">N/D</t>
+	                                        	N<sup>o</sup> Site: 
+	                                        	<t t-if="site"><span t-esc="site" style="font-weight:bolder;"/></t>
+	                                        	<t t-if="not site">N/D</t>
 	                                        </td>
 	                                        <td style="font-weight:bold; text-align:right; white-space: nowrap;">
 	                                        	N<sup>o</sup> rapport:<br/>
@@ -82,62 +91,74 @@
 	                                        	Producteur présent:
 	                                        </td>
 	                                        <td style="white-space: nowrap;">
-	                                        	<t t-if="o.stock_lines[0].acer_report_no"><span t-esc="o.stock_lines[0].acer_report_no"/></t><br/>
-	                                        	<t t-if="o.stock_lines[0].class_date"><span t-esc="o.stock_lines[0].class_date"/></t><br/>
-	                                        	N/D
+	                                        	<t t-set="QC" t-value="pro.state_id.code == 'QC'"/>
+	                                        	<t t-if="QC">
+	                                        		<t t-set="report_no" t-value="o.stock_lines.filtered(lambda y: y.producer == pro)[0].acer_report_no"/>
+	                                        		<span t-if="report_no" t-esc="report_no"/><br/>
+	                                        		<t t-if="not report_no">N/D<br/></t>
+                                        		</t>
+                                        		<t t-if="not QC">N/A<br/></t>
+                                      <!-- make sure that class_date is always available -->
+	                                        	<t t-set="class_date" t-value="o.stock_lines.filtered(lambda y: y.producer == pro)[0].class_date"/>
+	                                        	<t t-if="class_date"><span t-esc="class_date"/><br/></t>
+	                                        	<t t-if="not class_date">N/D<br/></t>
+	                                        	<!-- producer_present -->
+	                                        	<t t-set="pro_present" t-value="o.stock_lines.filtered(lambda y: y.producer == pro)[0].producer_present"/>
+	                                        	<span t-if="pro_present" t-esc="Oui"/>
+	                                        	<span t-if="not pro_present" t-esc="Non"/>
                                         	</td>	                                        
 	                                    </tr>
 	                                </tbody>
 	                            </table>
 							            
-						        <table class="table table-condensed mt48" t-if="o.stock_lines" style="margin:0; padding:0; width:100%;">
+						        <table class="table table-condensed mt12" t-if="o.stock_lines" style="margin:0; padding:0; width:100%;">
 	                                <thead>
-	                                    <tr style="margin:0; padding:0; font-size:7pt; line-height:8pt; border-bottom: 1px solid black;">
+	                                    <tr style="margin:0; padding:0; font-size:7pt; line-height:8pt; border-bottom: 1px solid black; width:52%;">
 	                                        <th colspan="9" style="white-space: nowrap; font-size:8pt; line-height:9pt; font-weight:bold; width:100%; border-bottom: 1px solid grey;">
 	                                        	Renseignements fournis par l'acheteur ou le site de classement
 	                                        </th>
-	                                        <th colspan="13" style="white-space: nowrap; font-size:8pt; line-height:9pt; font-weight:bold; width:100%; border-bottom: 1px solid grey;">
+	                                        <th colspan="13" style="white-space: nowrap; font-size:8pt; line-height:9pt; font-weight:bold; width:48%; border-bottom: 1px solid grey;">
 	                                        	Données constatées par le vérificateur de qualité
 	                                        </th>
 	                                    </tr>
-	                                	<tr style="margin:0; padding:0; font-size:7pt; line-height:8pt; border-bottom: 1px solid black;">
-	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; white-space: nowrap; vertical-align:bottom;">N<sup>o</sup> scellé</td>
-	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; white-space: nowrap; vertical-align:bottom;">N<sup>o</sup> baril</td>
-	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Poids<br/>brut</td>
-	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Tare</td>
-	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Poids<br/>net</td>
-	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; white-space: nowrap; vertical-align:bottom;">+ Sucre<br/>- Eau</td>
-	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; white-space: nowrap; vertical-align:bottom;">Genre<br/>de baril</td>
-	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; white-space: nowrap; vertical-align:bottom;">État du<br/>baril</td>
-	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Type</td>
-	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Brix</td>
-	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Lum</td>
-	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Grade</td>
+	                                	<tr style="margin:0; padding:0; font-size:7pt; line-height:8pt;">
+	                                		<td rowspan="2" style="text-align:left; margin:0; padding:0; white-space: nowrap; vertical-align:bottom; border-bottom: 1px solid black;">N<sup>o</sup> scellé</td>
+	                                		<td rowspan="2" style="text-align:left; margin:0; padding:0; white-space: nowrap; vertical-align:bottom; border-bottom: 1px solid black;">N<sup>o</sup> baril</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom; border-bottom: 1px solid black;">Poids<br/>brut</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom; border-bottom: 1px solid black;">Tare</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom; border-bottom: 1px solid black;">Poids<br/>net</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; white-space: nowrap; vertical-align:bottom; border-bottom: 1px solid black;">+ Sucre<br/>- Eau</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; white-space: nowrap; vertical-align:bottom; border-bottom: 1px solid black;">Genre<br/>de baril</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; white-space: nowrap; vertical-align:bottom; border-bottom: 1px solid black;">État du<br/>baril</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom; border-bottom: 1px solid black;">Type</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom; border-bottom: 1px solid black;">Brix</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom; border-bottom: 1px solid black;">Lum</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom; border-bottom: 1px solid black;">Grade</td>
 	                                		<td colspan="2" style="text-align:center; margin:0; padding:0;">Défauts</td>
-	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Limp</td>
-	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; white-space: nowrap; vertical-align:bottom;">S.I.</td>
-	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Iode</td>
-	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Na</td>
-	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Pb</td>
-	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; white-space: nowrap;">Test<br/>spécial</td>
-	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">Rev</td>
-	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom;">RE</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom; border-bottom: 1px solid black;">Limp</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; white-space: nowrap; vertical-align:bottom; border-bottom: 1px solid black;">S.I.</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom; border-bottom: 1px solid black;">Iode</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom; border-bottom: 1px solid black;">Na</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom; border-bottom: 1px solid black;">Pb</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; white-space: nowrap; border-bottom: 1px solid black;">Test<br/>spécial</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom; border-bottom: 1px solid black;">Rev</td>
+	                                		<td rowspan="2" style="text-align:center; margin:0; padding:0; vertical-align:bottom; border-bottom: 1px solid black;">RE</td>
 	                                	</tr>
-	                                	<tr style="margin:0; padding:0;font-size:7pt; line-height:8pt; border-bottom: 1px solid black;">
-	                                		<td style="text-align:center; margin:0; padding:0;">Saveur</td>
-	                                		<td style="text-align:center; margin:0; padding:0;">Code</td>
+	                                	<tr style="margin:0; padding:0;font-size:7pt; line-height:8pt;">
+	                                		<td style="text-align:center; margin:0; padding:0; border-bottom: 1px solid black;">Saveur</td>
+	                                		<td style="text-align:center; margin:0; padding:0; border-bottom: 1px solid black;">Code</td>
 	                                	</tr>
 	                                </thead>
 	                                <tbody>
 	                                   	<t t-foreach="o.stock_lines" t-as="line">
-	                                    	<t t-if="pro.id==line.producer.id">
+	                                    	<t t-if="pro.id == line.producer.id and line.container_state != None">
 	                                    		<tr style="font-size:7pt; line-height:8pt; text-align:center;">	
 		                                            <!-- Classification site data -->
-		                                            <td name="seal" style="height:5mm; margin:0; padding:0;">
+		                                            <td name="seal" style="height:5mm; margin:0; padding:0; text-align:left">
 			                                            <t t-if="line.maple_seal_no"><span t-field="line.maple_seal_no"/></t>
 			                                            <t t-if="not line.maple_seal_no"><![CDATA[&nbsp;]]></t>
 		                                            </td>
-			                                        <td name="barrel_no" style="height:5mm; margin:0; padding:0;">
+			                                        <td name="barrel_no" style="height:5mm; margin:0; padding:0; text-align:left">
 			                                            <t t-if="line.container_serial"><span t-field="line.container_serial"/></t>
 			                                            <t t-if="not line.container_serial"><![CDATA[&nbsp;]]></t>
 			                                        </td>
@@ -238,20 +259,24 @@
 	                                    </t>
 	                                </tbody>
 	                            </table>
+
+<!-- Ajouter exclusion maple_container = False - quants de sirops vs barils -->
 	                            
 	                            <!-- Classification Summary -->
 	                            
 	                            <!-- page break -->
-	                            <p style="page-break-before:always; margin:0; padding:0; line-height:1mm;"><![CDATA[&nbsp;]]></p>
+	                            <p style="page-break-before:always; margin:0; padding:0; padding-top:10mm; line-height:1mm;"><![CDATA[&nbsp;]]></p>
 	                            
 	                            <!-- Create maple products list -->
 	                            <t t-set="grades" t-value="[]"/>
 	                            
 								<t t-foreach="o.stock_lines" t-as="g">
-					    			<t t-set="grade" t-value="g.product_code[:3]"/>
+					    			<!--  t t-set="grade" t-value="g.product_code[:3]"/ -->
+					    			<t t-set="grade" t-value="g.product_code"/>
 					    			<t t-if="grade not in grades">
 					    				<t t-set="grades" t-value="grades+[grade]"/>
 					    				<!-- span t-esc="grades"/ -->
+					    				<!--   -->t t-foreach="['DO', 'AM', 'FO', 'TF']" t-as="g" -->
 					    			</t>
 								</t>
 								
@@ -262,6 +287,7 @@
 								<t t-set="T5" t-value="0"/>
 								<t t-set="T6" t-value="0"/>
 								
+								<p style="padding:0; margin:0;"><![CDATA[&nbsp;]]></p>
 								<table class="table table-condensed mt36" t-if="o.stock_lines" style="font-size:7pt; line-height:8pt; margin:0; padding:0; width:190mm; text-align:right;">
 	                                <thead>
 	                                	<tr>
@@ -274,144 +300,155 @@
 	                                		<th style="text-align:right;">Poids</th>
 	                                	</tr>
 	                                </thead>
-	                                <tbody>
+<!-- 	                                <tbody> -->
 	                                
-										<t t-foreach="grades" t-as="grade">
+<!-- 										<t t-foreach="grades" t-as="grade"> -->
+<!-- 										  t t-foreach="['DO', 'AM', 'FO', 'TF']" t-as="i"  controls syrup types and grades sort order -->
 
-											<t t-set="N1" t-value="0"/>
-											<t t-set="N2" t-value="0"/>
-											<t t-set="N3" t-value="0"/>
-											<t t-set="N4" t-value="0"/>
-											<t t-set="N5" t-value="0"/>
-											<t t-set="N6" t-value="0"/>	
-											<tr>
-												<t t-foreach="o.stock_lines" t-as="line">
-													<!-- vr count -->
-													<t t-if="grade == line.product_code[:3] and pro.id == line.producer.id">
-														<t t-if="line.maple_flavor.name == 'CROCHET' or line.maple_flavor.name == 'VR'">
-			                                				<t t-set="N1" t-value="N1+1"/>
-			                                				<t t-set="T1" t-value="T1+1"/>
-		                                				</t>
+<!-- 											<t t-set="N1" t-value="0"/> -->
+<!-- 											<t t-set="N2" t-value="0"/> -->
+<!-- 											<t t-set="N3" t-value="0"/> -->
+<!-- 											<t t-set="N4" t-value="0"/> -->
+<!-- 											<t t-set="N5" t-value="0"/> -->
+<!-- 											<t t-set="N6" t-value="0"/>	 -->
+<!-- 											<tr> -->
+<!-- 												<t t-foreach="o.stock_lines" t-as="line"> -->
+<!-- 													vr count -->
+<!-- 													<t t-if="grade == line.product_code[:3] and pro.id == line.producer.id"> -->
+<!-- 														<t t-if="line.maple_flavor.name == 'CROCHET' or line.maple_flavor.name == 'VR'"> -->
+<!-- 			                                				<t t-set="N1" t-value="N1+1"/> -->
+<!-- 			                                				<t t-set="T1" t-value="T1+1"/> -->
+<!-- 		                                				</t> -->
 			                                				
-		                                				<!-- retained count -->
-			                                			<t t-if="line.maple_retained">
-			                                				<t t-set="N2" t-value="N2+1"/>
-	                                						<t t-set="T2" t-value="T2+1"/>
-			                                			</t>
+<!-- 		                                				retained count -->
+<!-- 			                                			<t t-if="line.maple_retained"> -->
+<!-- 			                                				<t t-set="N2" t-value="N2+1"/> -->
+<!-- 	                                						<t t-set="T2" t-value="T2+1"/> -->
+<!-- 			                                			</t> -->
 			                                			
-			                                			<!-- special test -->
-	                                					<t t-if="line.maple_special_test">
-	                                						<t t-set="N3" t-value="N3+1"/>
-	                                						<t t-set="T3" t-value="T3+1"/>
-                                						</t>
+<!-- 			                                			special test -->
+<!-- 	                                					<t t-if="line.maple_special_test"> -->
+<!-- 	                                						<t t-set="N3" t-value="N3+1"/> -->
+<!-- 	                                						<t t-set="T3" t-value="T3+1"/> -->
+<!--                                 						</t> -->
 	                                					
-	                                					<!-- revision -->
-	                                					<t t-if="line.classif_revision">
-	                                						<t t-set="N4" t-value="N4+1"/>
-	                                						<t t-set="T4" t-value="T4+1"/>
-	                                					</t>
+<!-- 	                                					revision -->
+<!-- 	                                					<t t-if="line.classif_revision"> -->
+<!-- 	                                						<t t-set="N4" t-value="N4+1"/> -->
+<!-- 	                                						<t t-set="T4" t-value="T4+1"/> -->
+<!-- 	                                					</t> -->
 	                                					
-	                                					<!-- barrel count -->
-		                                				<t t-set="N5" t-value="N5+1"/>
-			                                			<t t-set="T5" t-value="T5+1"/>
+<!-- 	                                					barrel count -->
+<!-- 		                                				<t t-set="N5" t-value="N5+1"/> -->
+<!-- 			                                			<t t-set="T5" t-value="T5+1"/> -->
 			                                			
-			                                			<!-- weight count -->
-	                               						<t t-if="line.maple_payable_weight">
-			                                				<t t-set="N6" t-value="N6 + line.maple_payable_weight"/>
-			                                				<t t-set="T6" t-value="T6+line.maple_payable_weight"/>
-		                                				</t>
-	                                				</t>
+<!-- 			                                			weight count -->
+<!-- 	                               						<t t-if="line.maple_payable_weight"> -->
+<!-- 			                                				<t t-set="N6" t-value="N6 + line.maple_payable_weight"/> -->
+<!-- 			                                				<t t-set="T6" t-value="T6+line.maple_payable_weight"/> -->
+<!-- 		                                				</t> -->
+<!-- 	                                				</t> -->
 	                                				
-	                                				<!-- grade summary line -->
-	                                				<t t-if="line_last">
+<!-- 	                                				grade summary line -->
+<!-- 	                                				<t t-if="line_last"> -->
 	                                				
-				                                    	<td name="grade" style="text-align:left;">
-				                                    		<span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/>
-				                                    		<![CDATA[&nbsp;]]>
-				                                    		<span t-esc="grade[-2:]"/>
-				                                    		<![CDATA[&nbsp;]]>
-				                                    		<t t-if="grade[0] == 'B'"><span t-esc="'BIO'" /></t>
-				                                    		<t t-if="grade[0] == 'R'"><span t-esc="'REG'" /></t>
-				                                    	</td>
-				                                		<td name="vr">
-			                                				<span t-if="N1 == 0" t-esc="N1" style="color:lightgrey; font-weight:lighter;"/>
-			                                				<span t-if="N1 != 0" t-esc="N1" style="color:black;"/>
-		                                				</td>
-				                                		<td name="retained">
-				                                			<span t-if="N2 == 0" t-esc="N2" style="color:lightgrey; font-weight:lighter;"/>
-			                                				<span t-if="N2 != 0" t-esc="N2" style="color:black;"/>
-				                                		</td>
-				                                		<td name="special_test">
-				                                			<span t-if="N3 == 0" t-esc="N3" style="color:lightgrey; font-weight:lighter;"/>
-			                                				<span t-if="N3 != 0" t-esc="N3" style="color:black;"/>
-				                                		</td>
-				                                		<td name="revision">
-				                                			<span t-if="N4 == 0" t-esc="N4" style="color:lightgrey; font-weight:lighter;"/>
-			                                				<span t-if="N4 != 0" t-esc="N4" style="color:black;"/>
-				                                		</td>
-				                                		<td name="barrels">
-				                                			<span t-if="N5 == 0" t-esc="N5" style="color:lightgrey; font-weight:lighter;"/>
-			                                				<span t-if="N5 != 0" t-esc="N5" style="color:black;"/>
-				                                		</td>
-				                                		<td name="weight" style="font-weight:bold;">
-			                                				<span t-if="N6 == 0" t-esc="N6" style="color:lightgrey; font-weight:lighter;"/>
-			                                				<span t-if="N6 != 0" t-esc="N6" style="color:black;"/>
-				                                		</td>
-			                                		</t>
-	                                			</t>
-	                                		</tr>
-	                                		<tr t-if="grade_last" style="border-top: 1px solid black;">
-		                                    	<td name="tot" style="text-align:right; font-weight:bold;">
-		                                    		Grand Total:
-		                                    	</td>
-		                                		<td name="tot_vr">
-	                                				<span t-if="T1 == 0" t-esc="T1" style="color:lightgrey; font-weight:lighter;"/>
-	                                				<span t-if="T1 != 0" t-esc="T1" style="color:black; font-weight:bold;"/>
-		                                		</td>
-		                                		<td name="tot_retenu">
-		                                			<span t-if="T2 == 0" t-esc="T2" style="color:lightgrey; font-weight:lighter;"/>
-	                                				<span t-if="T2 != 0" t-esc="T2" style="color:black; font-weight:bold;"/>
-		                                		</td>
-		                                		<td name="tot_special_test">
-		                                			<span t-if="T3 == 0" t-esc="T3" style="color:lightgrey; font-weight:lighter;"/>
-	                                				<span t-if="T3 != 0" t-esc="T3" style="color:black; font-weight:bold;"/>
-		                                		</td>
-		                                		<td name="tot_revision">
-		                                			<span t-if="T4 == 0" t-esc="T4" style="color:lightgrey; font-weight:lighter;"/>
-	                                				<span t-if="T4 != 0" t-esc="T4" style="color:black; font-weight:bold;"/>
-		                                		</td>
-		                                		<td name="tot_barrels">
-		                                			<span t-if="T5 == 0" t-esc="T5" style="color:lightgrey; font-weight:lighter;"/>
-	                                				<span t-if="T5 != 0" t-esc="T5" style="color:black; font-weight:bold;"/>
-		                                		</td>
-		                                		<td name="tot_weight" style="font-weight:bold;">
-		                                			<span t-if="T6 == 0" t-esc="T6" style="color:lightgrey; font-weight:lighter;"/>
-	                                				<span t-if="T6 != 0" t-esc="T6" style="color:black; font-weight:bold;"/>
-		                                		</td>	                                		
-	                                		</tr>
-                                		</t>	                                		
-                               		</tbody>
+<!-- 				                                    	<td name="grade" style="text-align:left;"> -->
+<!-- 				                                    		<span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y')"/> -->
+<!-- 				                                    		<![CDATA[&nbsp;]]> -->
+<!-- 				                                    		<span t-esc="grade[-2:]"/> -->
+<!-- 				                                    		<![CDATA[&nbsp;]]> -->
+<!-- 				                                    		<t t-if="grade[0] == 'B'"><span t-esc="'BIO'" /></t> -->
+<!-- 				                                    		<t t-if="grade[0] == 'R'"><span t-esc="'REG'" /></t> -->
+<!-- 				                                    	</td> -->
+<!-- 				                                		<td name="vr"> -->
+<!-- 			                                				<span t-if="N1 == 0" t-esc="N1" style="color:lightgrey; font-weight:lighter;"/> -->
+<!-- 			                                				<span t-if="N1 != 0" t-esc="N1" style="color:black;"/> -->
+<!-- 		                                				</td> -->
+<!-- 				                                		<td name="retained"> -->
+<!-- 				                                			<span t-if="N2 == 0" t-esc="N2" style="color:lightgrey; font-weight:lighter;"/> -->
+<!-- 			                                				<span t-if="N2 != 0" t-esc="N2" style="color:black;"/> -->
+<!-- 				                                		</td> -->
+<!-- 				                                		<td name="special_test"> -->
+<!-- 				                                			<span t-if="N3 == 0" t-esc="N3" style="color:lightgrey; font-weight:lighter;"/> -->
+<!-- 			                                				<span t-if="N3 != 0" t-esc="N3" style="color:black;"/> -->
+<!-- 				                                		</td> -->
+<!-- 				                                		<td name="revision"> -->
+<!-- 				                                			<span t-if="N4 == 0" t-esc="N4" style="color:lightgrey; font-weight:lighter;"/> -->
+<!-- 			                                				<span t-if="N4 != 0" t-esc="N4" style="color:black;"/> -->
+<!-- 				                                		</td> -->
+<!-- 				                                		<td name="barrels"> -->
+<!-- 				                                			<span t-if="N5 == 0" t-esc="N5" style="color:lightgrey; font-weight:lighter;"/> -->
+<!-- 			                                				<span t-if="N5 != 0" t-esc="N5" style="color:black;"/> -->
+<!-- 				                                		</td> -->
+<!-- 				                                		<td name="weight" style="font-weight:bold;"> -->
+<!-- 			                                				<span t-if="N6 == 0" t-esc="N6" style="color:lightgrey; font-weight:lighter;"/> -->
+<!-- 			                                				<span t-if="N6 != 0" t-esc="N6" style="color:black;"/> -->
+<!-- 				                                		</td> -->
+<!-- 			                                		</t> -->
+<!-- 	                                			</t> -->
+<!-- 	                                		</tr> -->
+<!-- 	                                		<tr t-if="grade_last" style="border-top: 1px solid black;"> -->
+<!-- 		                                    	<td name="tot" style="text-align:right; font-weight:bold;"> -->
+<!-- 		                                    		Grand Total: -->
+<!-- 		                                    	</td> -->
+<!-- 		                                		<td name="tot_vr"> -->
+<!-- 	                                				<span t-if="T1 == 0" t-esc="T1" style="color:lightgrey; font-weight:lighter;"/> -->
+<!-- 	                                				<span t-if="T1 != 0" t-esc="T1" style="color:black; font-weight:bold;"/> -->
+<!-- 		                                		</td> -->
+<!-- 		                                		<td name="tot_retenu"> -->
+<!-- 		                                			<span t-if="T2 == 0" t-esc="T2" style="color:lightgrey; font-weight:lighter;"/> -->
+<!-- 	                                				<span t-if="T2 != 0" t-esc="T2" style="color:black; font-weight:bold;"/> -->
+<!-- 		                                		</td> -->
+<!-- 		                                		<td name="tot_special_test"> -->
+<!-- 		                                			<span t-if="T3 == 0" t-esc="T3" style="color:lightgrey; font-weight:lighter;"/> -->
+<!-- 	                                				<span t-if="T3 != 0" t-esc="T3" style="color:black; font-weight:bold;"/> -->
+<!-- 		                                		</td> -->
+<!-- 		                                		<td name="tot_revision"> -->
+<!-- 		                                			<span t-if="T4 == 0" t-esc="T4" style="color:lightgrey; font-weight:lighter;"/> -->
+<!-- 	                                				<span t-if="T4 != 0" t-esc="T4" style="color:black; font-weight:bold;"/> -->
+<!-- 		                                		</td> -->
+<!-- 		                                		<td name="tot_barrels"> -->
+<!-- 		                                			<span t-if="T5 == 0" t-esc="T5" style="color:lightgrey; font-weight:lighter;"/> -->
+<!-- 	                                				<span t-if="T5 != 0" t-esc="T5" style="color:black; font-weight:bold;"/> -->
+<!-- 		                                		</td> -->
+<!-- 		                                		<td name="tot_weight" style="font-weight:bold;"> -->
+<!-- 		                                			<span t-if="T6 == 0" t-esc="T6" style="color:lightgrey; font-weight:lighter;"/> -->
+<!-- 	                                				<span t-if="T6 != 0" t-esc="T6" style="color:black; font-weight:bold;"/> -->
+<!-- 		                                		</td>	                                		 -->
+<!-- 	                                		</tr> -->
+<!--                                 		</t>	                                		 -->
+<!--                                		</tbody> -->
                              	</table>
 						    </div>
 						    
+						    <!-- Adjust footer height via paperformat's margin_bottom -->
 						    <div class="footer">
-						        <table class="table table-condensed" style="text-align:center; border: 1 px solid white; font-size:7pt; line-height:8pt;">
+						        <table class="table table-condensed" style="margin:0; padding:0; border: none; font-size:7pt; line-height:8pt;">
 						            <tr>
-						                <td><![CDATA[&nbsp;]]></td>
-						                <td><![CDATA[&nbsp;]]></td>
-						                <td><span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/></td>
-						                <!--  span t-esc="time.strftime('%m/%d/%Y',time.strptime(object.datetimefield,'%Y-%m-%d %H:%M:%S'))"/ -->
-						                <td><![CDATA[&nbsp;]]></td>
-						                <td><![CDATA[&nbsp;]]></td>
+						                <td style="width:75%; border-top; 1px solid black;">
+						                	Un produit livré dans un baril à usage unique réutilisé sera considéré comme Non conforme (N).<br/>
+						                	<em>Code de défauts:</em> <strong>1</strong>-D'origine naturelle <strong>2</strong>-Microbiologique <strong>3</strong>-Chimique <strong>4</strong>-Non identifié <strong>5</strong>-Bourgeaon <strong>6</strong>-Filant<br/>
+						                	<em>Genre de baril:</em> <strong>U</strong>-Usage unique (non réutilisable) <strong>P</strong>-Plastique <strong>G</strong>-Galvanisé <strong>S</strong>-Stainless <strong>A</strong>-Autre <strong>R</strong>-Réutilisé <em>(usage unique)</em><br/>
+						                	<em>État du baril:</em> <strong>O</strong>-Bon <strong>L</strong>-Légèrement bossé <strong>B</strong>-Bossé <strong>T</strong>-Très bossé <strong>R</strong>-Rouillé <strong>P</strong>-Perforé <strong>N</strong>-Non conforme
+						                </td>
+						                <td style="width:25%; border-top; 1px solid black;">
+						                	Note: () Brix inférieur à 66.0<br/>
+						                	Note: () Lumière inférieure à 6
+					                	</td>
 					                </tr>
 					                <tr>
-						                <td style="border-top:1px solid black; width:30%;">Signature du producteur</td>
-						                <td style="width:5%;"><![CDATA[&nbsp;]]></td>
-						                <td style="border-top:1px solid black; width:30%;">Date d'expédition</td>
-						                <td style="width:5%;"><![CDATA[&nbsp;]]></td>
-						                <td style="border-top:1px solid black; width:30%;">Signature de l'acheteur</td>
+						                <td style="padding-right:30px; broder:none;">
+						                	Je soussigné(e), déclare qu'à la date ci-dessous indiquée, j'ai examiné des échantillons prélevés 
+						                	des grands contenants de sirop d'érable identifiés à la colonne "N<sup>o</sup> scellé" et j'ai constaté les données 
+						                	inscrites aux colonnes sous la section identifiée "Données constatées par le vérificateur de qualité".
+					                	</td>
+						                <td style="border-bottom:1px solid black;">
+						                	Vérifié par: 
+						                	<strong><span t-esc="o.stock_lines.filtered(lambda y: y.producer == pro)[0].controler.name"/></strong>
+					                	</td>
 						            </tr>
 					            </table>
+					            <p style="padding-bottom:5mm;"><![CDATA[&nbsp;]]></p>
 						    </div>
 						    
 					<!-- End of reports -->

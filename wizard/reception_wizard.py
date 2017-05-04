@@ -132,8 +132,24 @@ class MapleReception(models.TransientModel):
                         operation_lot = operation_lot_obj.create(operation_lot_vals)
                                             
         return(
+#             { 'type':'ir.actions.report', 'tag':'reload'}
             { 'type':'ir.actions.client', 'tag':'reload'}
             )
+             
+#     @api.one
+#     def print_report(self):
+#             vals = {}        
+#             return {
+#                     'type': 'ir.actions.report.xml',            
+#                     'report_name':'your_module.report_id',            
+#                     'datas': {                    
+#                                 'model':'model',                    
+#                                 'id': report_ids and report_ids[0] or False,                    
+#                                 'ids': report_ids and report_ids or [],                    
+#                                 'report_type': self.type},
+#                                 'nodestroy': True
+#                                }
+
 
     @api.onchange('picking') # if these fields are changed, call method
     def check_change(self):

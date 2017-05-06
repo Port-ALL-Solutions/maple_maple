@@ -543,7 +543,8 @@ class stockQuant(models.Model):
     def _compute_prod_present(self):
         for r in self:
             if r.history_ids.filtered(lambda m: m.picking_id.picking_type_id.id in [31, 32, 33]): #picking_type.id de SE1; créer puis ajouter équivalents pour SENB
-                r.producer_present = r.history_ids.filtered(lambda m: m.picking_id.picking_type_id.id in [31, 32, 33]).picking_id.producer_present
+                
+                r.producer_present = r.history_ids.filtered(lambda m: m.picking_id.picking_type_id.id in [31, 32, 33])[0].picking_id.producer_present
             else:
                 r.producer_present = False
 

@@ -64,9 +64,11 @@
         		model="stock.picking"
         		string="Reception Labels"
         		report_type="qweb-pdf"
+        		attachment_use="True"
         		name="maple.view_reception_labels"
-        		file="maple.view_reception_labels"
+        		attachment="('etiq-'+(object.name or '').replace('/','')+'.pdf')"
         		/>
+        		<!--  file="maple.view_reception_labels" -->
 
         <record id="report_reception_labels" model="ir.actions.report.xml">
         	<field name="paperformat_id" ref="maple.paperformat_Labels_2x3in" />

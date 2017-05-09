@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="print_classif_by_site_wizard_view">
+            <field name="name">Print Classification by site Wizard</field>
+            <field name="model">maple.print_classif_by_site_wizard</field>
+                <field name="arch" type="xml">
+                    <form string="Print Classification by site Report">
+                    	<sheet>
+                    		<group>
+	                            <field name="location_id"/>
+                    		</group>
+	                        <footer>
+	                            <button string="Print" name="action_print" type="object" class="oe_highlight"/>
+	                            or
+	                            <button string="Cancel" class="oe_link" special="cancel"/>
+	                        </footer>                    		
+                        </sheet>
+                    </form>
+                </field>
+        </record>
+		
+		<act_window id="action_classif_by_site_wizard"
+			name="Print classif by site"
+			res_model="maple.print_classif_by_site_wizard"
+			view_mode="form"
+			target="new"
+			/>
+		
+		<menuitem id="menu_classif_by_site_wizard"
+			parent="maple.maple_weighing_menu"
+			action="action_classif_by_site_wizard"
+			sequence="58"
+			/>
+
+   </data>
+</openerp>

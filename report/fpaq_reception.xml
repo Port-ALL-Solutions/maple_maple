@@ -135,8 +135,8 @@
 		                                        	<div style="float: left; font-size:8pt; padding:5px; padding-right:140px;">
 		                                        		<strong>Assistez-vous<br/>au classement?</strong><br/>
 	<!-- Sélectionner d'abord le buyer correspondant au producteur en cours  -->
-		                                        		<!--  t t-if="o.producer_present">Oui <i class="fa fa-check-square-o"/><br/>Non <i class="fa square-o"/></t -->
-		                                        		<!-- t t-if="not o.producer_present" --><i class="fa fa-square-o"/> Oui<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]><i class="fa fa-check-square-o"/> Non<!-- /t -->
+		                                        		<t t-if="o.stock_lines[0].producer_present == true"><i class="fa fa-check-square-o"/> Oui<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]><i class="fa fa-square-o"/> Non</t>
+		                                        		<t t-if="o.stock_lines[0].producer_present == false"><i class="fa fa-square-o"/> Oui<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]><i class="fa fa-check-square-o"/> Non</t>
 	                                        		</div>
 	                                        		<div style="float: left; padding:5px; padding-left:20px; padding-right:20px; border-left:1px solid lightgrey; height:100%;">
 	                                        			<span style="font-style:italic; font-size:8pt;">Genre:</span><br/>
@@ -283,7 +283,10 @@
 							            <tr>
 							                <td><![CDATA[&nbsp;]]></td>
 							                <td><![CDATA[&nbsp;]]></td>
-							                <td><span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/></td>
+							                <td>
+							                	<span t-if="o.stock_lines[0].maple_reception_date" t-esc="o.stock_lines[0].maple_reception_date"/>
+							                	<span t-if="not o.stock_lines[0].maple_reception_date" t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
+							                </td>
 							                <!--  span t-esc="time.strftime('%m/%d/%Y',time.strptime(object.datetimefield,'%Y-%m-%d %H:%M:%S'))"/ -->
 							                <td><![CDATA[&nbsp;]]></td>
 							                <td><![CDATA[&nbsp;]]></td>

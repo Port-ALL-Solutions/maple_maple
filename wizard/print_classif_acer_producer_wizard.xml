@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="print_classif_acer_producer_wizard_view">
+            <field name="name">Print Classification Acer Wizard</field>
+            <field name="model">maple.print_classif_acer_wizard</field>
+                <field name="arch" type="xml">
+                    <form string="Print Classification Acer Producer Report">
+                    	<sheet>
+                    		<group>
+	                            <field name="location_id"/>
+                    		</group>
+	                        <footer>
+	                            <button string="Print" name="action_print" type="object" class="oe_highlight"/>
+	                            or
+	                            <button string="Cancel" class="oe_link" special="cancel"/>
+	                        </footer>                    		
+                        </sheet>
+                    </form>
+                </field>
+        </record>
+		
+		<act_window id="action_classif_acer_producer_wizard"
+			name="Print Classif Acer producer"
+			res_model="maple.print_classif_acer_wizard"
+			view_mode="form"
+			target="new"
+			/>
+		
+		<menuitem id="menu_classif_acer_producer_wizard"
+			parent="maple.maple_weighing_menu"
+			action="action_classif_acer_producer_wizard"
+			sequence="58"
+			/>
+
+   </data>
+</openerp>

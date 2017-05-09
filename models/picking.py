@@ -34,6 +34,12 @@ class Picking(models.Model):
         store=True
         )  
     
+    
+    partner_name = fields.Char(
+       string='Producer',
+       related='partner_id.name',
+       ) 
+    
     farm_region = fields.Char(
         string='Farm Region',
         compute='_farm_region',

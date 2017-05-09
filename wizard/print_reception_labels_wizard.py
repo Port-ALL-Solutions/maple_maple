@@ -9,7 +9,7 @@ class MaplePrintReceptionLabel(models.TransientModel):
     picking = fields.Many2one(
         comodel_name='stock.picking',
         string='Picking',
-        domain=[('picking_type_id','in', [1,13,25])],
+        domain=[('picking_type_id','in', [1,13,25]),('state', 'not in', ('done', 'cancel'))],
         help="Select the picking to print labels for."
         )
 

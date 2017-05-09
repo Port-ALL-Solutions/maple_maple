@@ -87,6 +87,7 @@ This module provides mosly fields and views.
         'report/fpaq_reception.xml',
         'report/reception_labels.xml',
         'report/acer_classification.xml',
+        'wizard/print_report_fpaq_wizard.xml',
 
     ],
     'qweb': [

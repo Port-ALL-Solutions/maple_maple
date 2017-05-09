@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="print_weighing_report_wizard_view">
+            <field name="name">Print Weighing Report Wizard</field>
+            <field name="model">maple.weighing_report_wizard</field>
+                <field name="arch" type="xml">
+                    <form string="Print Weighing Report">
+                    	<sheet>
+                    		<group>
+	                            <field name="location_id"/>
+                    		</group>
+                    		<group>
+	                            <field name="reception_date"/>
+                    		</group>
+
+	                        <footer>
+	                            <button string="Print" name="action_print" type="object" class="oe_highlight"/>
+	                            or
+	                            <button string="Cancel" class="oe_link" special="cancel"/>
+	                        </footer>                    		
+                        </sheet>
+                    </form>
+                </field>
+        </record>
+
+		
+		<act_window id="action_print_weighing_report"
+			name="Print Weighing Report"
+			res_model="maple.weighing_report_wizard"
+			view_mode="form"
+			target="new"
+			/>
+		
+		<menuitem id="menu_print_weighing_report"
+			parent="maple.maple_weighing_menu"
+			action="action_print_weighing_report"
+			sequence="20"
+			/>
+
+   </data>
+</openerp>

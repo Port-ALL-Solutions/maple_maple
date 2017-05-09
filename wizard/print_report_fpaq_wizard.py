@@ -22,8 +22,21 @@ class MapleWeighingReport(models.TransientModel):
     @api.multi
     def action_print(self):
        
-       if not self.location_id:
-           raise UserError(_('You have to select at least one location. And try again.'))
+        if not self.location_id:
+            raise UserError(_('You have to select at least one location. And try again.'))
 
-       return self.env['report'].get_action(self.location_id.id, 'maple.qweb_fpaq_reception')
+        return self.env['report'].get_action(self.location_id.id, 'maple.qweb_fpaq_reception')
+   
+
+    @api.multi
+    def action_print(self):
+      
+        if not self.location_id:
+            raise UserError(_('You have to select at least one location. And try again.'))
         
+        if self.reception_date:
+            quants = self.env['stock.quant'].search([('location_id','=',self.location_id.id)])
+            for quant in quants:
+                quant.write({'maple_reception_date':self.reception_date})
+        
+        return self.env['report'].get_action(self.location_id.id, 'maple.qweb_fpaq_reception')

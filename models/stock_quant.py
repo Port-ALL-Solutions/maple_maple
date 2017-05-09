@@ -543,6 +543,12 @@ class stockQuant(models.Model):
         string='Date Received',
         help="Name of producers's main contact displayed on weighing and classification forms"
         )
+    
+    reception_labels_printed = fields.Boolean(
+        string='Labels Printed',
+        help="Indicates if the labels have already been printed. ",
+        default=False
+        )
 
     @api.depends('history_ids') # if these fields are changed, call method
     def _compute_prod_present(self):

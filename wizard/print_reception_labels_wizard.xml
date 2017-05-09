@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="print_reception_labels_wizard_view">
+            <field name="name">Print Reception Labels Wizard</field>
+            <field name="model">maple.print_reception_labels_wizard</field>
+                <field name="arch" type="xml">
+                    <form string="Print Reception Labels">
+                    	<sheet>
+                    		<group>
+	                            <field name="picking"/>
+                    		</group>
+	                        <footer>
+	                            <button string="Print" name="action_print" type="object" class="oe_highlight"/>
+	                            or
+	                            <button string="Cancel" class="oe_link" special="cancel"/>
+	                        </footer>                    		
+                        </sheet>
+                    </form>
+                </field>
+        </record>
+
+		
+		<act_window id="action_print_reception_labels"
+			name="Print Reception Labels"
+			res_model="maple.print_reception_labels_wizard"
+			view_mode="form"
+			target="new"
+			/>
+		
+		<menuitem id="menu_print_reception_labels"
+			parent="maple.maple_weighing_menu"
+			action="action_print_reception_labels"
+			sequence="58"
+			/>
+
+   </data>
+</openerp>

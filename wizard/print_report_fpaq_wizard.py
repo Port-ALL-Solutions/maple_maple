@@ -17,8 +17,11 @@ class MapleWeighingReport(models.TransientModel):
         string='Date Received',
         default=date.today()
         )
- 
 
+    producer_present = fields.Boolean(
+        string="Producer present",
+        )
+ 
     @api.multi
     def action_print(self):
       
@@ -28,6 +31,9 @@ class MapleWeighingReport(models.TransientModel):
         if self.reception_date:
             quants = self.env['stock.quant'].search([('location_id','=',self.location_id.id)])
             for quant in quants:
-                quant.write({'maple_reception_date':self.reception_date})
+                quant.write({
+                    'maple_reception_date':self.reception_date,
+                    'producer_present':self.producer_present
+                    })
         
         return self.env['report'].get_action(self.location_id.id, 'maple.qweb_fpaq_reception')

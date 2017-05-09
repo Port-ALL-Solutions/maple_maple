@@ -14,7 +14,9 @@
                     		<group>
 	                            <field name="reception_date"/>
                     		</group>
-
+                            <group>
+                                <field name="producer_present"/>
+                            </group>
 	                        <footer>
 	                            <button string="Print" name="action_print" type="object" class="oe_highlight"/>
 	                            or

@@ -75,12 +75,24 @@
 		</record>
 
         <record model="ir.actions.act_window" id="maple_weight_list_action">
-            <field name="name">Maple Weight</field>
+            <field name="name">Maple SE1 Weighing</field>
             <field name="res_model">stock.quant</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,kanban,form</field>
 			<field name="view_id" ref="maple_weight_tree_view" />
 			<field name="domain">[('location_id', '=', 42)]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Can not create anything from here. </p>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="maple_SENB_weighing_list_action">
+            <field name="name">Maple SENB Weighing</field>
+            <field name="res_model">stock.quant</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+			<field name="view_id" ref="maple_weight_tree_view" />
+			<field name="domain">[('location_id', '=', 48)]</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">Can not create anything from here. </p>
             </field>

@@ -36,7 +36,7 @@
 		<menuitem id="menu_print_weighing_report"
 			parent="maple.maple_weighing_menu"
 			action="action_print_weighing_report"
-			sequence="20"
+			sequence="58"
 			/>
 
    </data>

@@ -538,6 +538,11 @@ class stockQuant(models.Model):
         compute='_compute_prod_present',
         store=True
         )
+    
+    maple_reception_date = fields.Date(
+        string='Date Received',
+        help="Name of producers's main contact displayed on weighing and classification forms"
+        )
 
     @api.depends('history_ids') # if these fields are changed, call method
     def _compute_prod_present(self):

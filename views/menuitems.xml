@@ -87,12 +87,6 @@
         	sequence="30"
             parent="main_maple_menu"/>
 
-		<menuitem id="maple_purchase_list" 
-			name="Purchase list"
-			parent="maple_entry_menu"
-			sequence="31"
-            action="maple_purchase_list_action"/>
-
 		<menuitem id="create_maple_purchase_list" 
 			name="Create Purchase" 
 			parent="maple_entry_menu"
@@ -102,8 +96,14 @@
 		<menuitem id="maple_available_menu_label" 
 			name="Create Reception Labels" 
 			parent="maple_entry_menu"
-			sequence="33"
+			sequence="34"
             action="action_create_maple_reception_label"/>
+            
+		<menuitem id="maple_purchase_list" 
+			name="Purchase list"
+			parent="maple_entry_menu"
+			sequence="36"
+            action="maple_purchase_list_action"/>
 
 <!-- Pickup menu, just a menu entry, no action, parent of all related views -->
 		<menuitem id="maple_pickup_menu"
@@ -123,16 +123,23 @@
         	sequence="50"
             parent="main_maple_menu"/>
  
+		<!--  remplacer par Weighing SE1 -->
 		<menuitem id="maple_weight_menu_list"
-	    	name="Weighing"
+	    	name="SE1"
 	    	parent="maple_weighing_menu"
-	    	sequence="51"
+	    	sequence="52"
 	        action="maple_weight_list_action"/>
+	        
+		<menuitem id="maple_SENB_weighing_menu_list"
+	    	name="SENB"
+	    	parent="maple_weighing_menu"
+	    	sequence="54"
+	        action="maple_SENB_weighing_list_action"/>
             
 		<menuitem id="maple_weighing_acer_export_menu"
 	    	name="Acer Export"
 	    	parent="maple_weighing_menu"
-	    	sequence="52"
+	    	sequence="56"
 	        action="maple_weighing_acer_export_action"/>
 	        
 		<!-- menuitem id="maple_weight_acer_menu_list"

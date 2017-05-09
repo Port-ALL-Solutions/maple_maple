@@ -18,20 +18,12 @@ class MapleWeighingReport(models.TransientModel):
         default=date.today()
         )
 
-    
+
     @api.multi
     def action_print(self):
-        
-        data = {}
-        data['ids'] = self.location_id.id
-        data['model'] = 'stock.location'
-#        data['form'] = self.read(['date_from', 'date_to', 'journal_ids', 'target_move'])[0]
-        
-#        data = self.location_id.id
-#        return self.env['report'].render('account_report.payment_report', data)
-        return {
-           'type': 'ir.actions.report.xml',
-           'report_name': 'maple.qweb_fpaq_reception',
-           'data': data
-           }
+       
+       if not self.location_id:
+           raise UserError(_('You have to select at least one location. And try again.'))
+
+       return self.env['report'].get_action(self.location_id.id, 'maple.qweb_fpaq_reception')
         

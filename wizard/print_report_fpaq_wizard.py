@@ -17,16 +17,7 @@ class MapleWeighingReport(models.TransientModel):
         string='Date Received',
         default=date.today()
         )
-
-
-    @api.multi
-    def action_print(self):
-       
-        if not self.location_id:
-            raise UserError(_('You have to select at least one location. And try again.'))
-
-        return self.env['report'].get_action(self.location_id.id, 'maple.qweb_fpaq_reception')
-   
+ 
 
     @api.multi
     def action_print(self):

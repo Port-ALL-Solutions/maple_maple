@@ -29,9 +29,9 @@
 			/>
 		
 		<menuitem id="menu_classif_acer_producer_wizard"
-			parent="maple.maple_weighing_menu"
+			parent="maple.maple_classif_menu"
 			action="action_classif_acer_producer_wizard"
-			sequence="58"
+			sequence="67"
 			/>
 
    </data>

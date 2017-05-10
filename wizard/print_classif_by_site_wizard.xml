@@ -29,9 +29,9 @@
 			/>
 		
 		<menuitem id="menu_classif_by_site_wizard"
-			parent="maple.maple_weighing_menu"
+			parent="maple.maple_classif_menu"
 			action="action_classif_by_site_wizard"
-			sequence="58"
+			sequence="68"
 			/>
 
    </data>

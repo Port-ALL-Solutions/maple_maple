@@ -313,6 +313,8 @@
 <!-- 											<t t-set="N6" t-value="0"/>	 -->
 <!-- 											<tr> -->
 <!-- 												<t t-foreach="o.stock_lines" t-as="line"> -->
+													<t t-set="messages" t-value="object.message_ids.filtered(lambda m: m.subtype_id.internal == False)"/>
+													<t t-set="pro_present" t-value="o.stock_lines.filtered(lambda y: y.producer == pro)[0].producer_present"/>
 <!-- 													vr count -->
 <!-- 													<t t-if="grade == line.product_code[:3] and pro.id == line.producer.id"> -->
 <!-- 														<t t-if="line.maple_flavor.name == 'CROCHET' or line.maple_flavor.name == 'VR'"> -->

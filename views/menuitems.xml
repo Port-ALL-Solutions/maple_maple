@@ -112,10 +112,16 @@
             parent="main_maple_menu"/>
 
 		<menuitem id="maple_pickup_menu_list" 
-			name="Maple pick-up list" 
+			name="Maple Pick-up Calendar" 
 			parent="maple_pickup_menu"
-			sequence="41"
+			sequence="42"
             action="pickup_list_action"/>
+            
+        <menuitem id="maple_picking_waves_menu_list" 
+			name="Maple Pick-up List" 
+			parent="maple_pickup_menu"
+			sequence="44"
+            action="maple_picking_waves"/>
 
 <!-- Weighing menu, just a menu entry, no action, parent of all related views -->
 		<menuitem id="maple_weighing_menu" 

@@ -30,9 +30,9 @@
 			/>
 		
 		<menuitem id="menu_print_reception_labels"
-			parent="maple.maple_weighing_menu"
+			parent="maple.maple_entry_menu"
 			action="action_print_reception_labels"
-			sequence="58"
+			sequence="35"
 			/>
 
    </data>
